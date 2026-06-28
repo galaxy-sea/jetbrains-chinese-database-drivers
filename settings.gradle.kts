@@ -2,6 +2,14 @@ import org.jetbrains.intellij.platform.gradle.extensions.intellijPlatform
 
 rootProject.name = "jetbrains-chinese-database-drivers"
 
+include(
+    "core",
+    "oceanbase-driver-integration",
+    "dameng-driver-integration",
+    "kingbase-driver-integration",
+    "chinese-database-driver-integrations-pack",
+)
+
 pluginManagement {
     plugins {
         id("org.jetbrains.kotlin.jvm") version "2.2.20"

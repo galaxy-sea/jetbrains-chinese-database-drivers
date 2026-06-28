@@ -1,0 +1,15 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.chinese-database-driver-integrations-pack</id>
+    <name>Chinese Database Driver Integrations Pack</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides a one-click installation entry for Chinese database JDBC driver integrations,
+        including OceanBase, Dameng, and KingBase driver configuration plugins.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>plus.wcj.jetbrains.plugins.oceanbase-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.dameng-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.kingbase-driver-integration</depends>
+</idea-plugin>
