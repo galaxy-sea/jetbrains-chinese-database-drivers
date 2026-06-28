@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <artifacts>
-  <artifact id="KingBase Driver" name="KingBase Driver"/>
+  <artifact id="KingBase Driver" name="KingBase Driver">
+    <version version="9.0.1">
+      <item type="maven" url="cn.com.kingbase:kingbase8:9.0.1"/>
+      <channel id="stable"/>
+    </version>
+    <version version="9.0.0">
+      <item type="maven" url="cn.com.kingbase:kingbase8:9.0.0"/>
+    </version>
+    <version version="8.6.1">
+      <item type="maven" url="cn.com.kingbase:kingbase8:8.6.1"/>
+    </version>
+    <version version="8.6.0">
+      <item type="maven" url="cn.com.kingbase:kingbase8:8.6.0"/>
+    </version>
+  </artifact>
 </artifacts>

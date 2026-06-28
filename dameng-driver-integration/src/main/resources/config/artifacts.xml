@@ -1,4 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <artifacts>
-  <artifact id="Dameng Driver" name="Dameng Driver"/>
+  <artifact id="Dameng Driver DmJdbcDriver8" name="Dameng Driver DmJdbcDriver8">
+    <version version="8.1.5.45">
+      <item type="maven" url="com.dameng:DmJdbcDriver8:8.1.5.45"/>
+      <channel id="stable"/>
+    </version>
+    <version version="8.1.4.181">
+      <item type="maven" url="com.dameng:DmJdbcDriver8:8.1.4.181"/>
+    </version>
+    <version version="8.1.3.162">
+      <item type="maven" url="com.dameng:DmJdbcDriver8:8.1.3.162"/>
+    </version>
+  </artifact>
+  <artifact id="Dameng Driver DmJdbcDriver11" name="Dameng Driver DmJdbcDriver11">
+    <version version="8.1.5.45">
+      <item type="maven" url="com.dameng:DmJdbcDriver11:8.1.5.45"/>
+    </version>
+    <version version="8.1.4.41033">
+      <item type="maven" url="com.dameng:DmJdbcDriver11:8.1.4.41033"/>
+    </version>
+  </artifact>
 </artifacts>
