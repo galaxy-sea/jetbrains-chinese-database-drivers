@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <artifacts>
-  <artifact id="OceanBase JDBC Driver" name="OceanBase JDBC Driver"/>
+  <artifact id="OceanBase Driver" name="OceanBase Driver"/>
 </artifacts>

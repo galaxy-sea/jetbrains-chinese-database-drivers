@@ -2,7 +2,7 @@
 <drivers>
   <driver id="kingbase" name="KingBase" icon="/icons/driversIcon.svg" dialect="GenericSQL" driver-class="com.kingbase8.Driver">
     <url-template name="default" template="jdbc:kingbase8://{host::localhost}[:{port::54321}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
-    <artifact id="KingBase JDBC Driver" use="true" rolling="true"/>
+    <artifact id="KingBase Driver" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>
   </driver>
 </drivers>
