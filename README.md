@@ -7,11 +7,13 @@
 
 ## 支持的数据库
 
-| 数据库 | 插件模块 | 方言 | JDBC 协议 | Maven 驱动 |
+| 数据库 | 方言 | JDBC 协议 | Maven 驱动 | 进度 |
 | --- | --- | --- | --- | --- |
-| OceanBase | `oceanbase-driver-integration` | `MySQL` | `jdbc:oceanbase` | `com.oceanbase:oceanbase-client` |
-| Dameng | `dameng-driver-integration` | `Oracle` | `jdbc:dm` | `com.dameng:DmJdbcDriver8`、`com.dameng:DmJdbcDriver11` |
-| KingBase | `kingbase-driver-integration` | `PostgreSQL` | `jdbc:kingbase8` | `cn.com.kingbase:kingbase8` |
+| OceanBase | `MySQL` | `jdbc:oceanbase` | `com.oceanbase:oceanbase-client` | 测试中 |
+| Dameng | `Oracle` | `jdbc:dm` | `com.dameng:DmJdbcDriver8`、`com.dameng:DmJdbcDriver11` | 测试中 |
+| KingBase | `PostgreSQL` | `jdbc:kingbase8` | `cn.com.kingbase:kingbase8` | 测试中 |
+
+进度状态：待适配、开发中、测试中、已发布。
 
 ## 插件包
 
