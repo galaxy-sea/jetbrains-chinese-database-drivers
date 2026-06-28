@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="dameng" name="Dameng" icon="/icons/driversIcon.svg" dialect="GenericSQL" driver-class="dm.jdbc.driver.DmDriver">
+  <driver id="dameng" name="Dameng" icon="/icons/driversIcon.svg" dialect="Oracle" driver-class="dm.jdbc.driver.DmDriver">
     <url-template name="default" template="jdbc:dm://{host::localhost}[:{port::5236}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
     <artifact id="Dameng Driver DmJdbcDriver8" use="true" rolling="true"/>
     <artifact id="Dameng Driver DmJdbcDriver11" use="false" rolling="true"/>

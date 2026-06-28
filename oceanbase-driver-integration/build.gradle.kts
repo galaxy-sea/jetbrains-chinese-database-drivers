@@ -1,4 +1,10 @@
 import org.jetbrains.intellij.platform.gradle.extensions.IntelliJPlatformExtension
+import plus.wcj.gradle.DatabaseArtifactConfigExtension
+
+extensions.configure<DatabaseArtifactConfigExtension>("databaseArtifactConfig") {
+    id.set("OceanBase Driver")
+    mavenArtifacts.set(listOf("com.oceanbase:oceanbase-client"))
+}
 
 extensions.configure<IntelliJPlatformExtension>("intellijPlatform") {
     pluginConfiguration {

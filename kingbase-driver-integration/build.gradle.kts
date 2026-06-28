@@ -1,4 +1,10 @@
 import org.jetbrains.intellij.platform.gradle.extensions.IntelliJPlatformExtension
+import plus.wcj.gradle.DatabaseArtifactConfigExtension
+
+extensions.configure<DatabaseArtifactConfigExtension>("databaseArtifactConfig") {
+    id.set("KingBase Driver")
+    mavenArtifacts.set(listOf("cn.com.kingbase:kingbase8"))
+}
 
 extensions.configure<IntelliJPlatformExtension>("intellijPlatform") {
     pluginConfiguration {
