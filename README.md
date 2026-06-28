@@ -3,6 +3,8 @@
 
 本项目为常见国产数据库提供 JDBC 驱动元数据、下载配置和连接模板，帮助用户在支持 Database Tools 的 JetBrains IDE 中更方便地创建数据库连接。项目本身不实现 JDBC Driver，只集成各数据库厂商或兼容生态提供的 JDBC 驱动。
 
+在数据库连接配置可用后，可以进一步配合 `JPA Buddy`、`MyBatisCodeHelperPro` 等持久层开发插件提升实体建模、SQL 编写和代码生成效率；也可以结合 `JetBrains AI Assistant`，在已有数据源上下文中辅助完成查询分析、代码生成和开发调试。
+
 ## 支持的数据库
 
 | 数据库 | 插件模块 | 方言 | JDBC 协议 | Maven 驱动 |
@@ -44,8 +46,8 @@ extensions.configure<IntelliJPlatformExtension>("intellijPlatform") {
 
 4. 新增 `xxx-driver-integration/src/main/resources/config/drivers.xml`，声明 DataGrip 驱动元数据，包括驱动 ID、显示名称、方言、Driver Class、URL 模板、图标和 artifact 引用。
 5. 新增 `xxx-driver-integration/src/main/resources/config/artifacts.xml`，保留基础结构即可；构建时会由 `updateDatabaseArtifactsXml` 根据 Maven 元数据更新版本列表。
-6. 新增 `xxx-driver-integration/src/main/resources/icons/driversIcon.svg`，用于 Data Sources and Drivers 驱动列表图标。
-7. 新增 `xxx-driver-integration/src/main/resources/META-INF/pluginIcon.svg`，用于 JetBrains 插件图标。
+6. 新增 `xxx-driver-integration/src/main/resources/icons/driversIcon.svg`，用于 Data Sources and Drivers 驱动列表图标，尺寸使用 16x16。
+7. 新增 `xxx-driver-integration/src/main/resources/META-INF/pluginIcon.svg`，用于 JetBrains 插件图标，尺寸使用 16x16。
 8. 按需新增 `xxx-driver-integration/src/main/kotlin/.../XxxDriverDefinition.kt`，用于保留该数据库的驱动定义常量或后续扩展代码。
 9. 在 `chinese-database-driver-integrations-pack/src/main/resources/META-INF/plugin.xml` 中增加对新插件 ID 的 `<depends>`，让 Pack 插件可以一次性安装它。
 10. 在 README 的“支持的数据库”表格中补充新数据库信息。
