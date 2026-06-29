@@ -10,6 +10,7 @@ include(
     "polardb-driver-integration",
     "goldendb-driver-integration",
     "gbase-driver-integration",
+    "opengauss-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

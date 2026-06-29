@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<artifacts>
+  <artifact id="openGauss Driver" name="openGauss Driver">
+    <version version="7.0.003">
+      <item type="maven" url="org.opengauss:opengauss-jdbc:7.0.0-RC3"/>
+      <channel id="stable"/>
+    </version>
+    <version version="6.0.3">
+      <item type="maven" url="org.opengauss:opengauss-jdbc:6.0.3"/>
+    </version>
+    <version version="5.1.0">
+      <item type="maven" url="org.opengauss:opengauss-jdbc:5.1.0"/>
+    </version>
+    <version version="5.0.3">
+      <item type="maven" url="org.opengauss:opengauss-jdbc:5.0.3"/>
+    </version>
+    <version version="3.1.1">
+      <item type="maven" url="org.opengauss:opengauss-jdbc:3.1.1"/>
+    </version>
+    <version version="3.0.5">
+      <item type="maven" url="org.opengauss:opengauss-jdbc:3.0.5"/>
+    </version>
+  </artifact>
+  <artifact id="GaussDB Driver" name="GaussDB Driver">
+    <version version="02.008.218.0">
+      <item type="maven" url="com.huaweicloud:gaussdbjdbc:v2.0-8.218.0"/>
+      <channel id="stable"/>
+    </version>
+  </artifact>
+</artifacts>

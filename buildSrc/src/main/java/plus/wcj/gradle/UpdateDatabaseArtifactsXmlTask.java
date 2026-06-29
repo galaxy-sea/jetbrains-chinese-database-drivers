@@ -10,7 +10,6 @@ import com.fasterxml.jackson.dataformat.xml.ser.ToXmlGenerator;
 import org.gradle.api.DefaultTask;
 import org.gradle.api.file.RegularFileProperty;
 import org.gradle.api.provider.ListProperty;
-import org.gradle.api.provider.Property;
 import org.gradle.api.tasks.Input;
 import org.gradle.api.tasks.OutputFile;
 import org.gradle.api.tasks.TaskAction;
@@ -20,7 +19,6 @@ import java.io.File;
 import java.io.InputStream;
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,12 +29,6 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
         .defaultUseWrapper(false)
         .serializationInclusion(JsonInclude.Include.NON_EMPTY)
         .build();
-
-    @Input
-    public abstract Property<String> getArtifactId();
-
-    @Input
-    public abstract Property<String> getArtifactName();
 
     @Input
     public abstract ListProperty<MavenArtifact> getMavenArtifacts();
@@ -60,7 +52,7 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
             return;
         }
 
-        validateMavenArtifactAliases(getMavenArtifacts().get());
+        validateMavenArtifacts(getMavenArtifacts().get());
 
         try {
             List<MavenArtifactVersion> availableVersions = fetchMavenVersions(getMavenArtifacts().get());
@@ -69,7 +61,7 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
                 throw new IllegalStateException("No Maven versions available for " + getMavenArtifacts().get());
             }
 
-            XML_MAPPER.writerWithDefaultPrettyPrinter().writeValue(outputFile, createArtifactsXml(selectedVersions, stableVersion(selectedVersions)));
+            XML_MAPPER.writerWithDefaultPrettyPrinter().writeValue(outputFile, createArtifactsXml(selectedVersions, stableVersions(selectedVersions)));
             getLogger().lifecycle("Updated {} with {}.", outputFile.getPath(), selectedVersions.stream().map(MavenArtifactVersion::version).toList());
         }
         catch (Exception e) {
@@ -81,33 +73,31 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
         }
     }
 
-    private static void validateMavenArtifactAliases(List<MavenArtifact> mavenArtifacts) {
-        validateNoDuplicateMavenArtifacts(mavenArtifacts);
-        if (mavenArtifacts.size() < 2) {
-            return;
-        }
+    private void validateMavenArtifacts(List<MavenArtifact> mavenArtifacts) {
         for (MavenArtifact mavenArtifact : mavenArtifacts) {
-            if (mavenArtifact.alias() == null) {
-                throw new IllegalArgumentException("Alias is required when configuring multiple Maven artifacts: " + mavenArtifact.notation());
+            if (mavenArtifact.id() == null || mavenArtifact.id().isBlank()) {
+                throw new IllegalArgumentException("Maven artifact id is required: " + mavenArtifact.notation());
+            }
+            if (mavenArtifact.name() == null || mavenArtifact.name().isBlank()) {
+                throw new IllegalArgumentException("Maven artifact name is required: " + mavenArtifact.notation());
             }
         }
+        validateNoDuplicateMavenArtifacts(mavenArtifacts);
     }
 
-    private static void validateNoDuplicateMavenArtifacts(List<MavenArtifact> mavenArtifacts) {
+    private void validateNoDuplicateMavenArtifacts(List<MavenArtifact> mavenArtifacts) {
         Map<String, MavenArtifact> artifactsByNotation = new LinkedHashMap<>();
-        Map<String, MavenArtifact> artifactsByAlias = new LinkedHashMap<>();
+        Map<String, MavenArtifact> artifactsById = new LinkedHashMap<>();
         for (MavenArtifact mavenArtifact : mavenArtifacts) {
             MavenArtifact duplicateNotationArtifact = artifactsByNotation.putIfAbsent(mavenArtifact.notation(), mavenArtifact);
             if (duplicateNotationArtifact != null) {
                 throw new IllegalArgumentException("Duplicate Maven artifact configured: " + mavenArtifact.notation());
             }
 
-            String artifactAlias = mavenArtifact.alias() == null
-                ? parseMavenArtifact(mavenArtifact).artifactId()
-                : mavenArtifact.alias();
-            MavenArtifact duplicateAliasArtifact = artifactsByAlias.putIfAbsent(artifactAlias, mavenArtifact);
-            if (duplicateAliasArtifact != null) {
-                throw new IllegalArgumentException("Duplicate Maven artifact alias configured: " + artifactAlias);
+            String artifactId = normalizeArtifactId(mavenArtifact.id());
+            MavenArtifact duplicateIdArtifact = artifactsById.putIfAbsent(artifactId, mavenArtifact);
+            if (duplicateIdArtifact != null) {
+                throw new IllegalArgumentException("Duplicate Maven artifact id configured: " + artifactId);
             }
         }
     }
@@ -142,6 +132,7 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
         Map<String, MavenArtifactVersion> latestVersionsByMajorVersion = new LinkedHashMap<>();
         availableVersions.stream()
             .filter(version -> isComparableVersion(version.version()))
+            .filter(version -> !isExcludedVersion(version))
             .filter(version -> numericVersionPartCount(version.version()) >= version.coordinate().majorVersionSegments())
             .sorted(UpdateDatabaseArtifactsXmlTask::compareArtifactVersionsByVersion)
             .forEach(version -> latestVersionsByMajorVersion.put(
@@ -153,6 +144,15 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
             .stream()
             .sorted(this::compareArtifactVersionsForOutput)
             .toList());
+    }
+
+    private static boolean isExcludedVersion(MavenArtifactVersion version) {
+        for (String excludedVersionPattern : version.coordinate().excludedVersionPatterns()) {
+            if (version.version().matches(excludedVersionPattern)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private static boolean isComparableVersion(String version) {
@@ -202,32 +202,56 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
         return splitVersion(version).length;
     }
 
-    private MavenArtifactVersion stableVersion(List<MavenArtifactVersion> versions) {
-        MavenArtifactCoordinate stableCoordinate = parseMavenArtifact(getMavenArtifacts().get().get(0));
-        return versions.stream()
-            .filter(version -> version.coordinate().equals(stableCoordinate))
-            .max(UpdateDatabaseArtifactsXmlTask::compareArtifactVersionsByVersion)
-            .orElse(null);
+    private static String artifactVersion(String version) {
+        StringBuilder builder = new StringBuilder();
+        boolean previousWasReplacement = false;
+        for (int index = 0; index < version.length(); index++) {
+            char character = version.charAt(index);
+            if (Character.isDigit(character) || character == '.') {
+                builder.append(character);
+                previousWasReplacement = false;
+                continue;
+            }
+
+            if (!previousWasReplacement) {
+                builder.append('0');
+                previousWasReplacement = true;
+            }
+        }
+        String normalizedVersion = builder.toString()
+            .replaceAll("\\.+", ".")
+            .replaceAll("^\\.|\\.$", "");
+        return normalizedVersion.isEmpty() ? "0" : normalizedVersion;
     }
 
-    private ArtifactsXml createArtifactsXml(List<MavenArtifactVersion> versions, MavenArtifactVersion stableVersion) {
-        boolean multipleMavenArtifacts = getMavenArtifacts().get().size() > 1;
+    private Map<MavenArtifactCoordinate, MavenArtifactVersion> stableVersions(List<MavenArtifactVersion> versions) {
+        Map<MavenArtifactCoordinate, MavenArtifactVersion> stableVersions = new LinkedHashMap<>();
+        for (MavenArtifactVersion version : versions) {
+            MavenArtifactVersion currentStableVersion = stableVersions.get(version.coordinate());
+            if (currentStableVersion == null || compareArtifactVersionsByVersion(currentStableVersion, version) < 0) {
+                stableVersions.put(version.coordinate(), version);
+            }
+        }
+        return stableVersions;
+    }
+
+    private ArtifactsXml createArtifactsXml(List<MavenArtifactVersion> versions, Map<MavenArtifactCoordinate, MavenArtifactVersion> stableVersions) {
         Map<MavenArtifactCoordinate, ArtifactXml> artifactsByCoordinate = new LinkedHashMap<>();
         for (MavenArtifactVersion version : versions) {
             ArtifactXml artifact = artifactsByCoordinate.computeIfAbsent(version.coordinate(), coordinate -> {
                 ArtifactXml newArtifact = new ArtifactXml();
-                newArtifact.id = artifactId(coordinate, multipleMavenArtifacts);
-                newArtifact.name = artifactName(coordinate, multipleMavenArtifacts);
+                newArtifact.id = normalizeArtifactId(coordinate.id());
+                newArtifact.name = coordinate.name().trim();
                 newArtifact.versions = new ArrayList<>();
                 return newArtifact;
             });
             ArtifactVersionXml artifactVersion = new ArtifactVersionXml();
-            artifactVersion.version = version.version();
+            artifactVersion.version = artifactVersion(version.version());
             ArtifactItemXml item = new ArtifactItemXml();
             item.type = "maven";
             item.url = version.coordinate().groupId() + ":" + version.coordinate().artifactId() + ":" + version.version();
             artifactVersion.items = List.of(item);
-            if (version.equals(stableVersion)) {
+            if (version.equals(stableVersions.get(version.coordinate()))) {
                 ArtifactChannelXml channel = new ArtifactChannelXml();
                 channel.id = "stable";
                 artifactVersion.channels = List.of(channel);
@@ -240,20 +264,12 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
         return artifacts;
     }
 
-    private String artifactId(MavenArtifactCoordinate coordinate, boolean multipleMavenArtifacts) {
-        if (!multipleMavenArtifacts) {
-            return getArtifactId().get();
-        }
-        String artifactSuffix = coordinate.aliasOrArtifactId();
-        return artifactSuffix.isEmpty() ? getArtifactId().get() : getArtifactId().get() + " " + artifactSuffix;
-    }
-
-    private String artifactName(MavenArtifactCoordinate coordinate, boolean multipleMavenArtifacts) {
-        if (!multipleMavenArtifacts) {
-            return getArtifactName().get();
-        }
-        String artifactSuffix = coordinate.aliasOrArtifactId();
-        return artifactSuffix.isEmpty() ? getArtifactName().get() : getArtifactName().get() + " " + artifactSuffix;
+    private static String normalizeArtifactId(String value) {
+        return value
+            .replace("(", "")
+            .replace(")", "")
+            .replaceAll("\\s+", " ")
+            .trim();
     }
 
     private static MavenArtifactCoordinate parseMavenArtifact(MavenArtifact mavenArtifact) {
@@ -261,7 +277,7 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
         if (parts.length != 2) {
             throw new IllegalArgumentException("Maven artifact must use groupId:artifactId format: " + mavenArtifact.notation());
         }
-        return new MavenArtifactCoordinate(parts[0], parts[1], mavenArtifact.alias(), mavenArtifact.majorVersionSegments());
+        return new MavenArtifactCoordinate(parts[0], parts[1], mavenArtifact.id(), mavenArtifact.name(), mavenArtifact.majorVersionSegments(), mavenArtifact.excludedVersionPatterns());
     }
 
     private int compareArtifactVersionsForOutput(MavenArtifactVersion left, MavenArtifactVersion right) {
@@ -328,14 +344,11 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
         }
     }
 
-    private record MavenArtifactCoordinate(String groupId, String artifactId, String alias, int majorVersionSegments) {
+    private record MavenArtifactCoordinate(String groupId, String artifactId, String id, String name, int majorVersionSegments, List<String> excludedVersionPatterns) {
         private String notation() {
             return groupId + ":" + artifactId;
         }
 
-        private String aliasOrArtifactId() {
-            return alias == null ? artifactId : alias;
-        }
     }
 
     private record MavenArtifactVersion(MavenArtifactCoordinate coordinate, String version) {

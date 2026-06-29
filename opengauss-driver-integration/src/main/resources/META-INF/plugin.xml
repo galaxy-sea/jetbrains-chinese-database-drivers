@@ -1,0 +1,32 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.opengauss-driver-integration</id>
+    <name>openGauss Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides openGauss JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="OPENGAUSS" instance="plus.wcj.jetbrains.plugins.opengauss.OpenGaussDatabaseDbms.OPENGAUSS"/>
+        <extensionFallback dbms="OPENGAUSS" fallbackDbms="POSTGRES"/>
+        <addToHSet item="OPENGAUSS" set="POSTGRES_LIKE"/>
+        <addToHSet item="OPENGAUSS" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="GAUSSDB" instance="plus.wcj.jetbrains.plugins.opengauss.OpenGaussDatabaseDbms.GAUSSDB"/>
+        <extensionFallback dbms="GAUSSDB" fallbackDbms="POSTGRES"/>
+        <addToHSet item="GAUSSDB" set="POSTGRES_LIKE"/>
+        <addToHSet item="GAUSSDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="OPENGAUSS_POSTGRES" instance="plus.wcj.jetbrains.plugins.opengauss.OpenGaussDatabaseDbms.OPENGAUSS_POSTGRES"/>
+        <extensionFallback dbms="OPENGAUSS_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="OPENGAUSS_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="OPENGAUSS_POSTGRES" set="PSEUDO_SUPPORTED"/>
+
+    </extensions>
+</idea-plugin>

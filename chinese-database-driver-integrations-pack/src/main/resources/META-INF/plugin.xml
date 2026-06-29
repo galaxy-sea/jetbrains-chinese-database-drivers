@@ -15,4 +15,5 @@
     <depends>plus.wcj.jetbrains.plugins.polardb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.goldendb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.gbase-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.opengauss-driver-integration</depends>
 </idea-plugin>

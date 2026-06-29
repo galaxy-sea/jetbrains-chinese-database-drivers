@@ -1,9 +1,8 @@
 import plus.wcj.gradle.DatabaseArtifactConfigExtension
 
 extensions.configure<DatabaseArtifactConfigExtension>("databaseArtifactConfig") {
-    id.set("Dameng Driver")
     mavenArtifacts.set(listOf(
-        mavenArtifact("com.dameng:DmJdbcDriver8", "DmJdbcDriver8"),
-        mavenArtifact("com.dameng:DmJdbcDriver11", "DmJdbcDriver11"),
+        mavenArtifact("Dameng Driver DmJdbcDriver8", "com.dameng:DmJdbcDriver8"),
+        mavenArtifact("Dameng Driver DmJdbcDriver11", "com.dameng:DmJdbcDriver11"),
     ))
 }

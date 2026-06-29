@@ -15,6 +15,7 @@
   <artifact id="Dameng Driver DmJdbcDriver11" name="Dameng Driver DmJdbcDriver11">
     <version version="8.1.5.45">
       <item type="maven" url="com.dameng:DmJdbcDriver11:8.1.5.45"/>
+      <channel id="stable"/>
     </version>
     <version version="8.1.4.41033">
       <item type="maven" url="com.dameng:DmJdbcDriver11:8.1.4.41033"/>

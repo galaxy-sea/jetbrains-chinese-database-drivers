@@ -8,15 +8,16 @@
 
 ## 支持的数据库
 
-| 数据库                   | 方言                                      | JDBC 协议                                                                                                                                                                                | Maven                                                     |
-|-----------------------|-----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
-| `OceanBase`<br>测试中    | `MySQL(默认)`<br>`Oracle`                 | OceanBase:<br>`jdbc:oceanbase`<br>~~`jdbc:oceanbase:loadbalance`~~ <br>OceanBase (MySQL):<br>`jdbc:mysql`<br>OceanBase (Oracle):<br>`jdbc:oracle:thin`                                 | `com.oceanbase:oceanbase-client`                          |
-| `Dameng`<br>测试中       | `Oracle`                                | `jdbc:dm`                                                                                                                                                                              | `com.dameng:DmJdbcDriver8`<br>`com.dameng:DmJdbcDriver11` |
-| `KingBase`<br>测试中     | `PostgreSQL`                            | `jdbc:kingbase8`                                                                                                                                                                       | `cn.com.kingbase:kingbase8`                               |
-| `PolarDB`<br>测试中      | `MySQL(默认)`<br>`PostgreSQL`<br>`Oracle` | PolarDB:<br>`jdbc:mysql`<br>PolarDB-X:<br>`jdbc:polardbx`<br>PolarDB (MySQL):<br>`jdbc:mysql`<br>PolarDB (PostgreSQL):<br>`jdbc:postgresql`<br>PolarDB (Oracle):<br>`jdbc:oracle:thin` | `com.alibaba.polardbx:polardbx-connector-java`            |
-| `GoldenDB`<br>测试中-实验性 | `MySQL`                                 | `jdbc:mysql`                                                                                                                                                                           |                                                           |
-| ~TiDB~                | JetBrains已支持                            |
-| `GBase 8s`<br>测试中     | `Oracle`                                | GBase 8s:<br>`jdbc:gbasedbt-sqli`                                                                                                                                                      | GBase 8s:<br>`com.gbasedbt:jdbc`                          |
+| 数据库                             | 方言                                      | JDBC 协议                                                                                                                  | Maven                                                           |
+|---------------------------------|-----------------------------------------|--------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| `OceanBase`<br>测试中              | `MySQL(默认)`<br>`Oracle`                 | OceanBase:<br>`jdbc:oceanbase`<br>~~`jdbc:oceanbase:loadbalance`~~ <br>OceanBase (MySQL)<br>OceanBase (Oracle)           | `com.oceanbase:oceanbase-client`                                |
+| `Dameng`<br>测试中                 | `Oracle`                                | `jdbc:dm`                                                                                                                | `com.dameng:DmJdbcDriver8`<br>`com.dameng:DmJdbcDriver11`       |
+| `KingBase`<br>测试中               | `PostgreSQL`                            | `jdbc:kingbase8`                                                                                                         | `cn.com.kingbase:kingbase8`                                     |
+| `PolarDB`<br>测试中                | `MySQL(默认)`<br>`PostgreSQL`<br>`Oracle` | PolarDB:<br>`jdbc:mysql`<br>PolarDB-X:<br>`jdbc:polardbx`<br>PolarDB (MySQL)<br>PolarDB (PostgreSQL)<br>PolarDB (Oracle) | `com.alibaba.polardbx:polardbx-connector-java`                  |
+| `GoldenDB`<br>测试中-实验性           | `MySQL`                                 | `jdbc:mysql`                                                                                                             |                                                                 |
+| ~TiDB~                          | JetBrains已支持                            |
+| `GBase 8s`<br>测试中               | `Oracle`                                | GBase 8s:<br>`jdbc:gbasedbt-sqli`                                                                                        | GBase 8s:<br>`com.gbasedbt:jdbc`                                |
+| `openGauss`<br>`GaussDB`<br>测试中 | `PostgreSQL`                            | openGauss:<br>`jdbc:opengauss`<br>GaussDB:<br>`jdbc:gaussdb`<br>openGauss (PostgreSQL)                                   | `org.opengauss:opengauss-jdbc`<br>`com.huaweicloud:gaussdbjdbc` |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -73,16 +74,17 @@ java scripts/CreateDriverIntegrationModule.java \
 ```kotlin
 // artifacts.xml 元数据
 extensions.configure<DatabaseArtifactConfigExtension>("databaseArtifactConfig") {
-    id.set("xxxx Driver") // artifacts.xml 的 artifact id，通常与 drivers.xml 中引用的 artifact id 保持一致。
-    // name.set("xxxx Driver")   // name 默认使用 id。
-    mavenArtifacts.set(listOf(
-        mavenArtifact("groupId:artifactId", "Artifact Alias", 3)
-    )) // Maven 坐标格式为 groupId:artifactId；第二个参数是可选别名，用于生成 artifacts.xml 的 artifact id/name；第三个参数按版本前 N 段分组，默认使用 3。
+    mavenArtifacts.set(
+        listOf(
+            mavenArtifact("xxxx Driver", "groupId:artifactId", 3)
+        )
+    ) // 第一个参数是 artifacts.xml 的 artifact id/name，通常与 drivers.xml 中引用的 artifact id 保持一致；第二个参数是 Maven 坐标，格式为 groupId:artifactId；第三个参数按版本前 N 段分组，默认使用 3。
 }
 
 ```
 
-多个 Maven 坐标时，每个 `mavenArtifact` 都必须显式传入别名；如果传入空字符串 `""`，表示不追加任何后缀。只有单个 Maven 坐标时才可以省略别名，并默认使用 Maven `artifactId`。例如 `mavenArtifact("com.dameng:DmJdbcDriver8", "DmJdbcDriver8")` 会生成 `Dameng Driver DmJdbcDriver8`。同一个模块内 Maven 坐标和生成出的别名不能重复，重复会直接构建失败。如果某个单坐标需要按前 2 段版本分组，可以写成 `mavenArtifact("groupId:artifactId", 2)`。
+每个 `mavenArtifact` 都必须声明自己的 artifact id；如果需要 id 和 name 不同，可以写成 `mavenArtifact("artifact id", "artifact name", "groupId:artifactId", 3)`。同一个模块内 Maven 坐标和 artifact id 不能重复，重复会直接构建失败。如果某个坐标需要按前
+2 段版本分组，可以写成 `mavenArtifact("xxxx Driver", "groupId:artifactId", 2)`。第四个及后续参数是排除版本的正则表达式，例如 `mavenArtifact("xxxx Driver", "groupId:artifactId", 2, "505\\..*")`。
 
 4. 新增 `xxx-driver-integration/src/main/resources/META-INF/plugin.xml`，声明 `driversConfig`、`artifactsConfig`，并按需声明该插件自己的 `dbms`、`extensionFallback`、`addToHSet`。
 5. 新增 `xxx-driver-integration/src/main/resources/config/drivers.xml`，声明 DataGrip 驱动元数据，包括驱动 ID、显示名称、方言、Driver Class、URL 模板、图标和 artifact 引用。

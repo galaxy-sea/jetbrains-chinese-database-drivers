@@ -62,16 +62,15 @@ public class CreateDriverIntegrationModule {
     private static String buildGradle(Options options) {
         String mavenArtifacts = options.mavenArtifacts.isEmpty()
             ? "emptyList()"
-            : "listOf(" + joinMavenArtifacts(options.mavenArtifacts) + ")";
+            : "listOf(" + joinMavenArtifacts(options) + ")";
 
         return """
             import plus.wcj.gradle.DatabaseArtifactConfigExtension
 
             extensions.configure<DatabaseArtifactConfigExtension>("databaseArtifactConfig") {
-                id.set("%s Driver")
                 mavenArtifacts.set(%s)
             }
-            """.formatted(options.displayName, mavenArtifacts);
+            """.formatted(mavenArtifacts);
     }
 
     private static String pluginXml(Options options) {
@@ -166,15 +165,9 @@ public class CreateDriverIntegrationModule {
     }
 
     private static List<String> artifactIds(Options options) {
-        String baseId = options.displayName + " Driver";
-        if (options.mavenArtifacts.size() <= 1) {
-            return List.of(baseId);
-        }
-
         List<String> artifactIds = new ArrayList<>();
         for (String mavenArtifact : options.mavenArtifacts) {
-            String[] parts = mavenArtifact.split(":");
-            artifactIds.add(baseId + " " + parts[1]);
+            artifactIds.add(artifactId(options, mavenArtifact));
         }
         return artifactIds;
     }
@@ -282,12 +275,21 @@ public class CreateDriverIntegrationModule {
         Files.writeString(path, content, StandardCharsets.UTF_8);
     }
 
-    private static String joinMavenArtifacts(List<String> values) {
+    private static String joinMavenArtifacts(Options options) {
         List<String> artifacts = new ArrayList<>();
-        for (String value : values) {
-            artifacts.add("mavenArtifact(\"" + escapeKotlin(value) + "\")");
+        for (String value : options.mavenArtifacts) {
+            artifacts.add("mavenArtifact(\"" + escapeKotlin(artifactId(options, value)) + "\", \"" + escapeKotlin(value) + "\")");
         }
         return String.join(", ", artifacts);
+    }
+
+    private static String artifactId(Options options, String mavenArtifact) {
+        String baseId = options.displayName + " Driver";
+        if (options.mavenArtifacts.size() <= 1) {
+            return baseId;
+        }
+        String[] parts = mavenArtifact.split(":");
+        return baseId + " " + parts[1];
     }
 
     private static String xml(String value) {
