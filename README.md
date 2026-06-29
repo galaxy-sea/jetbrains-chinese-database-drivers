@@ -27,7 +27,40 @@
 
 ## 新增数据库插件模块
 
-新增一个数据库 Driver Integration 插件时，需要添加或修改以下内容：
+优先使用脚本生成模块骨架。脚本只依赖 JDK，macOS 和 Windows 都可以运行；Windows PowerShell 可以使用单行命令，或将下面示例中的 `\` 换成 PowerShell 的反引号换行。
+
+复用 JetBrains 官方 JDBC 驱动配置：
+
+```shell
+java scripts/CreateDriverIntegrationModule.java \
+  --name ExampleDB \
+  --fallback MYSQL
+```
+
+使用数据库自己的 JDBC 驱动：
+
+```shell
+java scripts/CreateDriverIntegrationModule.java \
+  --name ExampleDB \
+  --fallback MYSQL \
+  --driver-class com.example.Driver \
+  --default-port 3306 \
+  --url-template "jdbc:example://{host}:{port}/{database}" \
+  --maven com.example:example-jdbc
+```
+
+`--fallback` 可选值：
+
+| fallback | 自动继承的官方驱动 | 默认方言       |
+|----------|--------------------|------------|
+| `MYSQL`  | `mysql.8`          | `MySQL`    |
+| `ORACLE` | `oracle.19`        | `Oracle`   |
+| `POSTGRES` | `postgresql`     | `PostgreSQL` |
+| `UNKNOWN` | 不自动继承，需要显式传入 `--based-on` 或自定义 JDBC 参数 | 无 |
+
+脚本会生成 `xxx-driver-integration` 模块，并更新 `settings.gradle.kts`、根 `build.gradle.kts` 和 Pack 插件依赖。生成后需要替换 `META-INF/pluginIcon.svg` 为真实数据库图标，并在 README 的“支持的数据库”表格中补充数据库信息。
+
+手工新增一个数据库 Driver Integration 插件时，需要添加或修改以下内容：
 
 1. 在 `settings.gradle.kts` 中 `include("xxx-driver-integration")`。
 2. 在根 `build.gradle.kts` 的 `databaseDriverPluginProjects` 中加入 `":xxx-driver-integration"`。
@@ -48,6 +81,7 @@ extensions.configure<DatabaseArtifactConfigExtension>("databaseArtifactConfig") 
 5. 新增 `xxx-driver-integration/src/main/resources/config/drivers.xml`，声明 DataGrip 驱动元数据，包括驱动 ID、显示名称、方言、Driver Class、URL 模板、图标和 artifact 引用。
 6. 新增 `xxx-driver-integration/src/main/resources/config/artifacts.xml`，保留基础结构即可；构建时会由 `updateDatabaseArtifactsXml` 根据 Maven 元数据更新版本列表。
 7. 新增 `xxx-driver-integration/src/main/resources/META-INF/pluginIcon.svg`，用于 JetBrains 插件图标，尺寸使用 16x16。
+8. `syncDatabaseDriverIcon` 会在构建时将 `META-INF/pluginIcon.svg` 复制到 `icons/driversIcon.svg`，用于 Data Sources and Drivers 驱动列表图标和自定义 DBMS 图标。
 9. 按需新增 `xxx-driver-integration/src/main/kotlin/.../XxxDriverDefinition.kt` 和 `XxxDatabaseDbms.kt`，用于保留驱动定义常量和该插件自己的 DBMS 实例。
 10. 在 `chinese-database-driver-integrations-pack/src/main/resources/META-INF/plugin.xml` 中增加对新插件 ID 的 `<depends>`，让 Pack 插件可以一次性安装它。
 11. 在 README 的“支持的数据库”表格中补充新数据库信息。
