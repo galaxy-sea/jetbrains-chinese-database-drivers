@@ -45,7 +45,7 @@ java scripts/CreateDriverIntegrationModule.java \
   --fallback MYSQL \
   --driver-class com.example.Driver \
   --default-port 3306 \
-  --url-template "jdbc:example://{host}:{port}/{database}" \
+  --jdbc-prefix jdbc:example: \
   --maven com.example:example-jdbc
 ```
 
@@ -59,6 +59,8 @@ java scripts/CreateDriverIntegrationModule.java \
 | `UNKNOWN` | 不自动继承，需要显式传入 `--based-on` 或自定义 JDBC 参数 | 无 |
 
 脚本会生成 `xxx-driver-integration` 模块，并更新 `settings.gradle.kts`、根 `build.gradle.kts` 和 Pack 插件依赖。生成后需要替换 `META-INF/pluginIcon.svg` 为真实数据库图标，并在 README 的“支持的数据库”表格中补充数据库信息。
+
+自定义 JDBC 模式下传 `--jdbc-prefix` 即可，例如 `jdbc:kingbase8:`；脚本会自动生成完整 DataGrip URL 模板：`jdbc:kingbase8://{host::localhost}[:{port::默认端口}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]`。
 
 手工新增一个数据库 Driver Integration 插件时，需要添加或修改以下内容：
 

@@ -14,4 +14,5 @@
     <depends>plus.wcj.jetbrains.plugins.kingbase-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.polardb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.goldendb-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.gbase-driver-integration</depends>
 </idea-plugin>

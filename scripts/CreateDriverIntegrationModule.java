@@ -12,6 +12,7 @@ public class CreateDriverIntegrationModule {
     private static final String PLUGIN_ID_PREFIX = "plus.wcj.jetbrains.plugins.";
     private static final String PACKAGE_PREFIX = "plus.wcj.jetbrains.plugins.";
     private static final String CORE_PACKAGE = "plus.wcj.jetbrains.plugins.chinesedatabasedrivers.core";
+    private static final List<String> RESERVED_DBMS_IDS = List.of("GBASE");
 
     public static void main(String[] args) throws Exception {
         Options options = Options.parse(args);
@@ -339,7 +340,7 @@ public class CreateDriverIntegrationModule {
                 --fallback MYSQL \\
                 --driver-class com.example.Driver \\
                 --default-port 3306 \\
-                --url-template "jdbc:example://{host}:{port}/{database}" \\
+                --jdbc-prefix jdbc:example: \\
                 --maven com.example:example-jdbc
 
             Options:
@@ -351,7 +352,7 @@ public class CreateDriverIntegrationModule {
               --dialect        Optional dialect override. Defaults from --fallback.
               --driver-class   Optional custom JDBC driver class. When omitted, the generated driver uses --based-on.
               --default-port   Required with --driver-class.
-              --url-template   Required with --driver-class.
+              --jdbc-prefix    JDBC URL prefix used to generate a standard DataGrip URL template, e.g. jdbc:kingbase8:.
               --maven          Required with --driver-class. Maven coordinate groupId:artifactId. Repeatable.
               --package        Optional package suffix. Defaults to normalized --id.
               --class-prefix   Optional Kotlin class prefix. Defaults to PascalCase --name.
@@ -370,6 +371,7 @@ public class CreateDriverIntegrationModule {
         String dialect;
         String driverClass;
         Integer defaultPort;
+        String jdbcPrefix;
         String urlTemplate;
         String packageSuffix;
         String classPrefix;
@@ -411,7 +413,7 @@ public class CreateDriverIntegrationModule {
             options.basedOn = singleValues.get("based-on");
             options.dialect = singleValues.get("dialect");
             options.driverClass = singleValues.get("driver-class");
-            options.urlTemplate = singleValues.get("url-template");
+            options.jdbcPrefix = singleValues.get("jdbc-prefix");
             options.packageSuffix = singleValues.get("package");
             options.classPrefix = singleValues.get("class-prefix");
             options.remarks = singleValues.get("remarks");
@@ -435,13 +437,14 @@ public class CreateDriverIntegrationModule {
 
             if (driverClass != null) {
                 require(dialect, "--dialect");
-                require(urlTemplate, "--url-template");
                 if (mavenArtifacts.isEmpty()) {
                     throw new IllegalArgumentException("--maven is required with --driver-class");
                 }
                 if (defaultPort == null) {
                     throw new IllegalArgumentException("--default-port is required with --driver-class");
                 }
+                require(jdbcPrefix, "--jdbc-prefix");
+                urlTemplate = standardUrlTemplate(jdbcPrefix, defaultPort);
                 basedOn = null;
             }
             else if (basedOn == null) {
@@ -455,7 +458,7 @@ public class CreateDriverIntegrationModule {
             classPrefix = classPrefix != null ? classPrefix : pascalCase(displayName);
             lowerCamelName = lowerCamel(classPrefix);
             pluginId = PLUGIN_ID_PREFIX + moduleName;
-            dbmsId = dbmsId != null ? normalizeDbmsId(dbmsId) : normalizeDbmsId(displayName);
+            dbmsId = dbmsId != null ? normalizeDbmsId(dbmsId) : defaultDbmsId(displayName);
             if (remarks == null) {
                 remarks = displayName;
             }
@@ -507,6 +510,23 @@ public class CreateDriverIntegrationModule {
                 throw new IllegalArgumentException("Invalid DBMS value: " + value);
             }
             return normalized;
+        }
+
+        private static String defaultDbmsId(String displayName) {
+            String normalized = normalizeDbmsId(displayName);
+            return RESERVED_DBMS_IDS.contains(normalized) ? "CHINESE_" + normalized : normalized;
+        }
+
+        private static String standardUrlTemplate(String jdbcPrefix, int defaultPort) {
+            String normalizedPrefix = jdbcPrefix.trim();
+            String suffix = "{host::localhost}[:{port::" + defaultPort + "}][/{database}?][\\?<&,user={user},password={password},{:identifier}={:param}>]";
+            if (normalizedPrefix.endsWith("://")) {
+                return normalizedPrefix + suffix;
+            }
+            if (normalizedPrefix.endsWith("//")) {
+                return normalizedPrefix + suffix;
+            }
+            return normalizedPrefix + "//" + suffix;
         }
 
         private static String defaultBasedOn(String fallbackDbms) {

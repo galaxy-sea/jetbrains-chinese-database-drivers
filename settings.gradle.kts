@@ -9,6 +9,7 @@ include(
     "kingbase-driver-integration",
     "polardb-driver-integration",
     "goldendb-driver-integration",
+    "gbase-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

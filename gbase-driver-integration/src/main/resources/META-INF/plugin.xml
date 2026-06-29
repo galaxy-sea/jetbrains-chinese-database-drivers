@@ -1,0 +1,21 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.gbase-driver-integration</id>
+    <name>GBASE Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides GBASE JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="CHINESE_GBASE" instance="plus.wcj.jetbrains.plugins.gbase.GBASEDatabaseDbms.CHINESE_GBASE"/>
+        <extensionFallback dbms="CHINESE_GBASE" fallbackDbms="ORACLE"/>
+        <addToHSet item="CHINESE_GBASE" set="ORACLE_LIKE"/>
+        <addToHSet item="CHINESE_GBASE" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>
