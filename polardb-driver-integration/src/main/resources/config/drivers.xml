@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="polardb" name="PolarDB" icon="/icons/driversIcon.svg" dialect="MySQL" forced-dbms="POLARDB_MYSQL" driver-class="com.mysql.cj.jdbc.Driver" group-with="polardb">
+  <driver id="polardb" name="PolarDB" icon="/icons/driversIcon.svg" forced-dbms="POLARDB_MYSQL" group-with="polardb" based-on="mysql.8">
     <remarks>PolarDB</remarks>
-    <url-template name="default" template="jdbc:mysql://{host::localhost}[:{port::3306}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
-    <artifact id="MySQL ConnectorJ" use="true" rolling="true"/>
-    <option name="auto-sync" value="true"/>
   </driver>
   <driver id="polardb-x" name="PolarDB-X" icon="/icons/driversIcon.svg" dialect="MySQL" forced-dbms="POLARDB_X" driver-class="com.alibaba.polardbx.Driver" group-with="polardb">
     <remarks>PolarDB-X</remarks>
@@ -12,22 +9,13 @@
     <artifact id="PolarDB-X Driver" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>
   </driver>
-  <driver id="polardb-mysql" name="PolarDB (MySQL)" icon="/icons/driversIcon.svg" dialect="MySQL" forced-dbms="POLARDB_MYSQL" driver-class="com.mysql.cj.jdbc.Driver" group-with="polardb">
+  <driver id="polardb-mysql" name="PolarDB (MySQL)" icon="/icons/driversIcon.svg" forced-dbms="POLARDB_MYSQL" group-with="polardb" based-on="mysql.8">
     <remarks>PolarDB</remarks>
-    <url-template name="default" template="jdbc:mysql://{host::localhost}[:{port::3306}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
-    <artifact id="MySQL ConnectorJ" use="true" rolling="true"/>
-    <option name="auto-sync" value="true"/>
   </driver>
-  <driver id="polardb-postgresql" name="PolarDB (PostgreSQL)" icon="/icons/driversIcon.svg" dialect="PostgreSQL" forced-dbms="POLARDB_POSTGRES" driver-class="org.postgresql.Driver" group-with="polardb">
+  <driver id="polardb-postgresql" name="PolarDB (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="POLARDB_POSTGRES" group-with="polardb" based-on="postgresql">
     <remarks>PolarDB</remarks>
-    <url-template name="default" template="jdbc:postgresql://{host::localhost}[:{port::5432}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
-    <artifact id="PostgreSQL" use="true" rolling="true"/>
-    <option name="auto-sync" value="true"/>
   </driver>
-  <driver id="polardb-oracle" name="PolarDB (Oracle)" icon="/icons/driversIcon.svg" dialect="Oracle" forced-dbms="POLARDB_ORACLE" driver-class="oracle.jdbc.OracleDriver" group-with="polardb">
+  <driver id="polardb-oracle" name="PolarDB (Oracle)" icon="/icons/driversIcon.svg" forced-dbms="POLARDB_ORACLE" group-with="polardb" based-on="oracle.19">
     <remarks>PolarDB</remarks>
-    <url-template name="default" template="jdbc:oracle:thin:@//{host::localhost}[:{port::1521}][/{database}]"/>
-    <artifact id="Oracle" use="true" rolling="true"/>
-    <option name="auto-sync" value="true"/>
   </driver>
 </drivers>
