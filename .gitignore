@@ -2,3 +2,7 @@
 .idea
 .intellijPlatform
 build
+
+.DS_Store
+*.iml
+.kotlin/
