@@ -1,0 +1,21 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.dameng-driver-integration</id>
+    <name>Dameng Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides Dameng JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="DAMENG" instance="plus.wcj.jetbrains.plugins.dameng.DamengDatabaseDbms.DAMENG"/>
+        <extensionFallback dbms="DAMENG" fallbackDbms="ORACLE"/>
+        <addToHSet item="DAMENG" set="ORACLE_LIKE"/>
+        <addToHSet item="DAMENG" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

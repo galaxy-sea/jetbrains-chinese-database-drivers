@@ -1,0 +1,21 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.kingbase-driver-integration</id>
+    <name>KingBase Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides KingBase JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="KINGBASE" instance="plus.wcj.jetbrains.plugins.kingbase.KingBaseDatabaseDbms.KINGBASE"/>
+        <extensionFallback dbms="KINGBASE" fallbackDbms="POSTGRES"/>
+        <addToHSet item="KINGBASE" set="POSTGRES_LIKE"/>
+        <addToHSet item="KINGBASE" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

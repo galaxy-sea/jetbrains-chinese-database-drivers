@@ -1,0 +1,25 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.oceanbase-driver-integration</id>
+    <name>OceanBase Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides OceanBase JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="OCEANBASE_MYSQL" instance="plus.wcj.jetbrains.plugins.oceanbase.OceanBaseDatabaseDbms.OCEANBASE_MYSQL"/>
+        <dbms id="OCEANBASE_ORACLE" instance="plus.wcj.jetbrains.plugins.oceanbase.OceanBaseDatabaseDbms.OCEANBASE_ORACLE"/>
+        <extensionFallback dbms="OCEANBASE_MYSQL" fallbackDbms="MYSQL"/>
+        <extensionFallback dbms="OCEANBASE_ORACLE" fallbackDbms="ORACLE"/>
+        <addToHSet item="OCEANBASE_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="OCEANBASE_MYSQL" set="PSEUDO_SUPPORTED"/>
+        <addToHSet item="OCEANBASE_ORACLE" set="ORACLE_LIKE"/>
+        <addToHSet item="OCEANBASE_ORACLE" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

@@ -1,6 +1,5 @@
 import org.jetbrains.intellij.platform.gradle.extensions.IntelliJPlatformDependenciesExtension
 import org.jetbrains.intellij.platform.gradle.TestFrameworkType
-import org.jetbrains.intellij.platform.gradle.tasks.PatchPluginXmlTask
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 import plus.wcj.gradle.DatabaseArtifactConfigExtension
 import plus.wcj.gradle.UpdateDatabaseArtifactsXmlTask
@@ -50,10 +49,9 @@ configure(databaseDriverPluginProjects.map { project(it) }) {
 
     dependencies {
         add("implementation", project(":core"))
-    }
-
-    tasks.withType<PatchPluginXmlTask>().configureEach {
-        inputFile.set(rootProject.layout.projectDirectory.file("core/META-INF/plugin.xml"))
+        extensions.configure<IntelliJPlatformDependenciesExtension>("intellijPlatform") {
+            bundledPlugin("com.intellij.database")
+        }
     }
 
     val updateDatabaseArtifactsXml = tasks.register<UpdateDatabaseArtifactsXmlTask>("updateDatabaseArtifactsXml") {
