@@ -16,6 +16,7 @@
 | `PolarDB`<br>测试中      | `MySQL(默认)`<br>`PostgreSQL`<br>`Oracle` | PolarDB:<br>`jdbc:mysql`<br>PolarDB-X:<br>`jdbc:polardbx`<br>PolarDB (MySQL):<br>`jdbc:mysql`<br>PolarDB (PostgreSQL):<br>`jdbc:postgresql`<br>PolarDB (Oracle):<br>`jdbc:oracle:thin` | `com.alibaba.polardbx:polardbx-connector-java`            |
 | `GoldenDB`<br>测试中-实验性 | `MySQL`                                 | `jdbc:mysql`                                                                                                                                                                           |                                                           |
 | ~TiDB~                | JetBrains已支持                            |
+| `GBase 8s`<br>测试中     | `Oracle`                                | GBase 8s:<br>`jdbc:gbasedbt-sqli`                                                                                                                                                      | GBase 8s:<br>`com.gbasedbt:jdbc`                          |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -51,16 +52,17 @@ java scripts/CreateDriverIntegrationModule.java \
 
 `--fallback` 可选值：
 
-| fallback | 自动继承的官方驱动 | 默认方言       |
-|----------|--------------------|------------|
-| `MYSQL`  | `mysql.8`          | `MySQL`    |
-| `ORACLE` | `oracle.19`        | `Oracle`   |
-| `POSTGRES` | `postgresql`     | `PostgreSQL` |
-| `UNKNOWN` | 不自动继承，需要显式传入 `--based-on` 或自定义 JDBC 参数 | 无 |
+| fallback   | 自动继承的官方驱动                              | 默认方言         |
+|------------|----------------------------------------|--------------|
+| `MYSQL`    | `mysql.8`                              | `MySQL`      |
+| `ORACLE`   | `oracle.19`                            | `Oracle`     |
+| `POSTGRES` | `postgresql`                           | `PostgreSQL` |
+| `UNKNOWN`  | 不自动继承，需要显式传入 `--based-on` 或自定义 JDBC 参数 | 无            |
 
 脚本会生成 `xxx-driver-integration` 模块，并更新 `settings.gradle.kts`、根 `build.gradle.kts` 和 Pack 插件依赖。生成后需要替换 `META-INF/pluginIcon.svg` 为真实数据库图标，并在 README 的“支持的数据库”表格中补充数据库信息。
 
-自定义 JDBC 模式下传 `--jdbc-prefix` 即可，例如 `jdbc:kingbase8:`；脚本会自动生成完整 DataGrip URL 模板：`jdbc:kingbase8://{host::localhost}[:{port::默认端口}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]`。
+自定义 JDBC 模式下传 `--jdbc-prefix` 即可，例如 `jdbc:kingbase8:`；脚本会自动生成完整 DataGrip URL 模板：
+`jdbc:kingbase8://{host::localhost}[:{port::默认端口}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]`。
 
 手工新增一个数据库 Driver Integration 插件时，需要添加或修改以下内容：
 
@@ -91,7 +93,6 @@ extensions.configure<DatabaseArtifactConfigExtension>("databaseArtifactConfig") 
 ## 图标来源
 
 项目中使用的数据库图标来自 [iconfont](https://www.iconfont.cn/)，图标版权归原作者及来源平台所有。
-
 
 ## JetBrains内置的数据库列表
 
