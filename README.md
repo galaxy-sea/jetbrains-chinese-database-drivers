@@ -75,15 +75,14 @@ java scripts/CreateDriverIntegrationModule.java \
 extensions.configure<DatabaseArtifactConfigExtension>("databaseArtifactConfig") {
     id.set("xxxx Driver") // artifacts.xml 的 artifact id，通常与 drivers.xml 中引用的 artifact id 保持一致。
     // name.set("xxxx Driver")   // name 默认使用 id。
-    // majorVersionSegments.set(3) // 按语义化版本的前 N 段分组，默认使用 3。
     mavenArtifacts.set(listOf(
-        mavenArtifact("groupId:artifactId", "Artifact Alias")
-    )) // Maven 坐标格式为 groupId:artifactId；第二个参数是可选别名，用于生成 artifacts.xml 的 artifact id/name。
+        mavenArtifact("groupId:artifactId", "Artifact Alias", 3)
+    )) // Maven 坐标格式为 groupId:artifactId；第二个参数是可选别名，用于生成 artifacts.xml 的 artifact id/name；第三个参数按版本前 N 段分组，默认使用 3。
 }
 
 ```
 
-多个 Maven 坐标时，如果不传别名，会默认使用 Maven `artifactId` 作为后缀；传入别名后会使用别名作为后缀。例如 `mavenArtifact("com.dameng:DmJdbcDriver8", "JDK 8")` 会生成 `Dameng Driver JDK 8`。
+多个 Maven 坐标时，每个 `mavenArtifact` 都必须显式传入别名；如果传入空字符串 `""`，表示不追加任何后缀。只有单个 Maven 坐标时才可以省略别名，并默认使用 Maven `artifactId`。例如 `mavenArtifact("com.dameng:DmJdbcDriver8", "DmJdbcDriver8")` 会生成 `Dameng Driver DmJdbcDriver8`。同一个模块内 Maven 坐标和生成出的别名不能重复，重复会直接构建失败。如果某个单坐标需要按前 2 段版本分组，可以写成 `mavenArtifact("groupId:artifactId", 2)`。
 
 4. 新增 `xxx-driver-integration/src/main/resources/META-INF/plugin.xml`，声明 `driversConfig`、`artifactsConfig`，并按需声明该插件自己的 `dbms`、`extensionFallback`、`addToHSet`。
 5. 新增 `xxx-driver-integration/src/main/resources/config/drivers.xml`，声明 DataGrip 驱动元数据，包括驱动 ID、显示名称、方言、Driver Class、URL 模板、图标和 artifact 引用。

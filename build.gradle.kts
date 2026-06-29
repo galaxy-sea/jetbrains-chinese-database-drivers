@@ -18,7 +18,6 @@ val databaseDriverPluginProjects = listOf(
     ":polardb-driver-integration",
     ":goldendb-driver-integration",
     ":gbase-driver-integration",
-    ":gauss-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(
@@ -63,7 +62,6 @@ configure(databaseDriverPluginProjects.map { project(it) }) {
         artifactId.set(artifactConfig.id)
         artifactName.set(artifactConfig.name)
         mavenArtifacts.set(artifactConfig.mavenArtifacts)
-        majorVersionSegments.set(artifactConfig.majorVersionSegments)
         artifactsFile.set(layout.projectDirectory.file("src/main/resources/config/artifacts.xml"))
     }
 

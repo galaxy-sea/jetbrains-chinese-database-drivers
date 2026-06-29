@@ -11,7 +11,6 @@ public abstract class DatabaseArtifactConfigExtension {
     @Inject
     public DatabaseArtifactConfigExtension() {
         getName().convention(getId());
-        getMajorVersionSegments().convention(3);
     }
 
     public abstract Property<String> getId();
@@ -20,16 +19,22 @@ public abstract class DatabaseArtifactConfigExtension {
 
     public abstract ListProperty<MavenArtifact> getMavenArtifacts();
 
-    public abstract Property<Integer> getMajorVersionSegments();
-
     public MavenArtifact mavenArtifact(String notation) {
-        return new MavenArtifact(notation, null);
+        return new MavenArtifact(notation, null, 3);
     }
 
     public MavenArtifact mavenArtifact(String notation, String alias) {
-        return new MavenArtifact(notation, alias);
+        return new MavenArtifact(notation, alias, 3);
     }
 
-    public record MavenArtifact(String notation, String alias) implements Serializable {
+    public MavenArtifact mavenArtifact(String notation, int majorVersionSegments) {
+        return new MavenArtifact(notation, null, majorVersionSegments);
+    }
+
+    public MavenArtifact mavenArtifact(String notation, String alias, int majorVersionSegments) {
+        return new MavenArtifact(notation, alias, majorVersionSegments);
+    }
+
+    public record MavenArtifact(String notation, String alias, int majorVersionSegments) implements Serializable {
     }
 }
