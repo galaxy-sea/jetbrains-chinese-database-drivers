@@ -14,7 +14,7 @@
 | `Dameng`<br>测试中    | `Oracle`                                  | `jdbc:dm`                                                                                                                                                                              | `com.dameng:DmJdbcDriver8`<br>`com.dameng:DmJdbcDriver11` |
 | `KingBase`<br>测试中  | `PostgreSQL`                              | `jdbc:kingbase8`                                                                                                                                                                       | `cn.com.kingbase:kingbase8`                               |
 | `PolarDB`<br>测试中   | `MySQL(默认)`<br>`PostgreSQL`<br>`Oracle` | PolarDB:<br>`jdbc:mysql`<br>PolarDB-X:<br>`jdbc:polardbx`<br>PolarDB (MySQL):<br>`jdbc:mysql`<br>PolarDB (PostgreSQL):<br>`jdbc:postgresql`<br>PolarDB (Oracle):<br>`jdbc:oracle:thin` | `com.alibaba.polardbx:polardbx-connector-java`            |
-| `GoldenDB`<br>测试中  | `MySQL`                                   | `jdbc:mysql`                                                                                                                                                                           |                                                           |
+| `GoldenDB`<br>测试中-实验性  | `MySQL`                                 | `jdbc:mysql`                                                                                                                                                                          |                                                           |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -44,8 +44,7 @@ extensions.configure<DatabaseArtifactConfigExtension>("databaseArtifactConfig") 
 4. 新增 `xxx-driver-integration/src/main/resources/META-INF/plugin.xml`，声明 `driversConfig`、`artifactsConfig`，并按需声明该插件自己的 `dbms`、`extensionFallback`、`addToHSet`。
 5. 新增 `xxx-driver-integration/src/main/resources/config/drivers.xml`，声明 DataGrip 驱动元数据，包括驱动 ID、显示名称、方言、Driver Class、URL 模板、图标和 artifact 引用。
 6. 新增 `xxx-driver-integration/src/main/resources/config/artifacts.xml`，保留基础结构即可；构建时会由 `updateDatabaseArtifactsXml` 根据 Maven 元数据更新版本列表。
-7. 新增 `xxx-driver-integration/src/main/resources/icons/driversIcon.svg`，用于 Data Sources and Drivers 驱动列表图标，尺寸使用 16x16。
-8. 新增 `xxx-driver-integration/src/main/resources/META-INF/pluginIcon.svg`，用于 JetBrains 插件图标，尺寸使用 16x16。
+7. 新增 `xxx-driver-integration/src/main/resources/META-INF/pluginIcon.svg`，用于 JetBrains 插件图标，尺寸使用 16x16。
 9. 按需新增 `xxx-driver-integration/src/main/kotlin/.../XxxDriverDefinition.kt` 和 `XxxDatabaseDbms.kt`，用于保留驱动定义常量和该插件自己的 DBMS 实例。
 10. 在 `chinese-database-driver-integrations-pack/src/main/resources/META-INF/plugin.xml` 中增加对新插件 ID 的 `<depends>`，让 Pack 插件可以一次性安装它。
 11. 在 README 的“支持的数据库”表格中补充新数据库信息。

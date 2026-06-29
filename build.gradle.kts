@@ -2,6 +2,7 @@ import org.jetbrains.intellij.platform.gradle.extensions.IntelliJPlatformDepende
 import org.jetbrains.intellij.platform.gradle.TestFrameworkType
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 import plus.wcj.gradle.DatabaseArtifactConfigExtension
+import plus.wcj.gradle.SyncDatabaseDriverIconTask
 import plus.wcj.gradle.UpdateDatabaseArtifactsXmlTask
 
 plugins {
@@ -64,8 +65,14 @@ configure(databaseDriverPluginProjects.map { project(it) }) {
         artifactsFile.set(layout.projectDirectory.file("src/main/resources/config/artifacts.xml"))
     }
 
+    val syncDatabaseDriverIcon = tasks.register<SyncDatabaseDriverIconTask>("syncDatabaseDriverIcon") {
+        pluginIconFile.set(layout.projectDirectory.file("src/main/resources/META-INF/pluginIcon.svg"))
+        driverIconFile.set(layout.projectDirectory.file("src/main/resources/icons/driversIcon.svg"))
+    }
+
     tasks.named("processResources") {
         dependsOn(updateDatabaseArtifactsXml)
+        dependsOn(syncDatabaseDriverIcon)
     }
 }
 
