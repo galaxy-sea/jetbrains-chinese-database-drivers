@@ -1,0 +1,21 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.goldendb-driver-integration</id>
+    <name>GoldenDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides GoldenDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="GOLDENDB" instance="plus.wcj.jetbrains.plugins.goldendb.GoldenDBDatabaseDbms.GOLDENDB"/>
+        <extensionFallback dbms="GOLDENDB" fallbackDbms="MYSQL"/>
+        <addToHSet item="GOLDENDB" set="MYSQL_LIKE"/>
+        <addToHSet item="GOLDENDB" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

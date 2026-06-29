@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="goldendb" name="GoldenDB" icon="/icons/driversIcon.svg" forced-dbms="GOLDENDB" based-on="mysql.8"/>
+</drivers>

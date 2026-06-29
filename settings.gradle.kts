@@ -8,6 +8,7 @@ include(
     "dameng-driver-integration",
     "kingbase-driver-integration",
     "polardb-driver-integration",
+    "goldendb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

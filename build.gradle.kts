@@ -15,6 +15,7 @@ val databaseDriverPluginProjects = listOf(
     ":dameng-driver-integration",
     ":kingbase-driver-integration",
     ":polardb-driver-integration",
+    ":goldendb-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(
