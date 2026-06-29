@@ -38,14 +38,6 @@ extensions.configure<DatabaseArtifactConfigExtension>("databaseArtifactConfig") 
     mavenArtifacts.set(listOf("groupId:artifactId"))  // Maven 坐标列表，格式为 groupId:artifactId；多个坐标会分别生成多个 artifact。
 }
 
-// 插件的打包信息
-extensions.configure<IntelliJPlatformExtension>("intellijPlatform") {
-    pluginConfiguration {
-        id.set("plus.wcj.jetbrains.plugins.xxxx-driver-integration") // JetBrains 插件 ID。
-        name.set("xxxx Driver Integration") // JetBrains 插件显示名称。
-        description.set("description。。。") // JetBrains 插件描述。
-    }
-}
 ```
 
 4. 新增 `xxx-driver-integration/src/main/resources/META-INF/plugin.xml`，声明 `driversConfig`、`artifactsConfig`，并按需声明该插件自己的 `dbms`、`extensionFallback`、`addToHSet`。
