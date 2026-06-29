@@ -57,6 +57,10 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
             getLogger().warn("Skip updating artifacts.xml: {} does not exist.", outputFile.getPath());
             return;
         }
+        if (getMavenArtifacts().get().isEmpty()) {
+            getLogger().lifecycle("Skip updating {}: no Maven artifacts configured.", outputFile.getPath());
+            return;
+        }
 
         try {
             List<MavenArtifactVersion> availableVersions = fetchMavenVersions(getMavenArtifacts().get());

@@ -1,0 +1,33 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.polardb-driver-integration</id>
+    <name>PolarDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides PolarDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="POLARDB_MYSQL" instance="plus.wcj.jetbrains.plugins.polardb.PolarDBDatabaseDbms.POLARDB_MYSQL"/>
+        <dbms id="POLARDB_X" instance="plus.wcj.jetbrains.plugins.polardb.PolarDBDatabaseDbms.POLARDB_X"/>
+        <dbms id="POLARDB_POSTGRES" instance="plus.wcj.jetbrains.plugins.polardb.PolarDBDatabaseDbms.POLARDB_POSTGRES"/>
+        <dbms id="POLARDB_ORACLE" instance="plus.wcj.jetbrains.plugins.polardb.PolarDBDatabaseDbms.POLARDB_ORACLE"/>
+        <extensionFallback dbms="POLARDB_MYSQL" fallbackDbms="MYSQL"/>
+        <extensionFallback dbms="POLARDB_X" fallbackDbms="MYSQL"/>
+        <extensionFallback dbms="POLARDB_POSTGRES" fallbackDbms="POSTGRES"/>
+        <extensionFallback dbms="POLARDB_ORACLE" fallbackDbms="ORACLE"/>
+        <addToHSet item="POLARDB_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="POLARDB_MYSQL" set="PSEUDO_SUPPORTED"/>
+        <addToHSet item="POLARDB_X" set="MYSQL_LIKE"/>
+        <addToHSet item="POLARDB_X" set="PSEUDO_SUPPORTED"/>
+        <addToHSet item="POLARDB_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="POLARDB_POSTGRES" set="PSEUDO_SUPPORTED"/>
+        <addToHSet item="POLARDB_ORACLE" set="ORACLE_LIKE"/>
+        <addToHSet item="POLARDB_ORACLE" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

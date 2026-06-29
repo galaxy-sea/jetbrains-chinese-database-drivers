@@ -13,6 +13,7 @@
 | `OceanBase`<br>测试中 | `MySQL(默认)`<br>`Oracle` | OceanBase:<br>`jdbc:oceanbase`<br>~~`jdbc:oceanbase:loadbalance`~~ <br>OceanBase (MySQL):<br>`jdbc:mysql`<br>OceanBase (Oracle):<br>`jdbc:oracle:thin` | `com.oceanbase:oceanbase-client`                          |
 | `Dameng`<br>测试中    | `Oracle`                | `jdbc:dm`                                                                                                                                              | `com.dameng:DmJdbcDriver8`<br>`com.dameng:DmJdbcDriver11` |
 | `KingBase`<br>测试中  | `PostgreSQL`            | `jdbc:kingbase8`                                                                                                                                       | `cn.com.kingbase:kingbase8`                               |
+| `PolarDB`<br>开发中   | `MySQL(默认)`<br>`PostgreSQL`<br>`Oracle` | PolarDB:<br>`jdbc:mysql`<br>PolarDB-X:<br>`jdbc:polardbx`<br>PolarDB (MySQL):<br>`jdbc:mysql`<br>PolarDB (PostgreSQL):<br>`jdbc:postgresql`<br>PolarDB (Oracle):<br>`jdbc:oracle:thin` | `com.alibaba.polardbx:polardbx-connector-java`
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -58,4 +59,4 @@ extensions.configure<IntelliJPlatformExtension>("intellijPlatform") {
 
 ## 图标来源
 
-项目中使用的数据库图标来自 [iconfont](https://www.iconfont.cn/)，版权归原作者及来源平台所有。
+项目中使用的数据库图标来自 [iconfont](https://www.iconfont.cn/)，图标版权归原作者及来源平台所有。

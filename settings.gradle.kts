@@ -7,6 +7,7 @@ include(
     "oceanbase-driver-integration",
     "dameng-driver-integration",
     "kingbase-driver-integration",
+    "polardb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

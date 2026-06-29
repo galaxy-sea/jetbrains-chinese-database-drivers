@@ -5,11 +5,12 @@
 
     <description><![CDATA[
         Provides a one-click installation entry for Chinese database JDBC driver integrations,
-        including OceanBase, Dameng, and KingBase driver configuration plugins.
+        including OceanBase, Dameng, KingBase, and PolarDB driver configuration plugins.
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>
     <depends>plus.wcj.jetbrains.plugins.oceanbase-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.dameng-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.kingbase-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.polardb-driver-integration</depends>
 </idea-plugin>
