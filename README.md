@@ -42,12 +42,12 @@ java scripts/CreateDriverIntegrationModule.java \
 
 ```shell
 java scripts/CreateDriverIntegrationModule.java \
-  --name Gauss \
-  --fallback POSTGRES \
-  --driver-class org.opengauss.Driver \
-  --default-port 5432 \
-  --jdbc-prefix jdbc:opengauss: \
-  --maven org.opengauss:opengauss-jdbc
+  --name ExampleDB \
+  --fallback MYSQL \
+  --driver-class com.example.Driver \
+  --default-port 3306 \
+  --jdbc-prefix jdbc:example: \
+  --maven com.example:example-jdbc
 ```
 
 `--fallback` 可选值：
