@@ -18,6 +18,7 @@ val databaseDriverPluginProjects = listOf(
     ":polardb-driver-integration",
     ":goldendb-driver-integration",
     ":gbase-driver-integration",
+    ":gauss-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(

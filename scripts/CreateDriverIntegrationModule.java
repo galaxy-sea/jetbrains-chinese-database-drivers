@@ -62,7 +62,7 @@ public class CreateDriverIntegrationModule {
     private static String buildGradle(Options options) {
         String mavenArtifacts = options.mavenArtifacts.isEmpty()
             ? "emptyList()"
-            : "listOf(" + joinQuoted(options.mavenArtifacts) + ")";
+            : "listOf(" + joinMavenArtifacts(options.mavenArtifacts) + ")";
 
         return """
             import plus.wcj.gradle.DatabaseArtifactConfigExtension
@@ -282,12 +282,12 @@ public class CreateDriverIntegrationModule {
         Files.writeString(path, content, StandardCharsets.UTF_8);
     }
 
-    private static String joinQuoted(List<String> values) {
-        List<String> quoted = new ArrayList<>();
+    private static String joinMavenArtifacts(List<String> values) {
+        List<String> artifacts = new ArrayList<>();
         for (String value : values) {
-            quoted.add("\"" + escapeKotlin(value) + "\"");
+            artifacts.add("mavenArtifact(\"" + escapeKotlin(value) + "\")");
         }
-        return String.join(", ", quoted);
+        return String.join(", ", artifacts);
     }
 
     private static String xml(String value) {

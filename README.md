@@ -42,12 +42,12 @@ java scripts/CreateDriverIntegrationModule.java \
 
 ```shell
 java scripts/CreateDriverIntegrationModule.java \
-  --name ExampleDB \
-  --fallback MYSQL \
-  --driver-class com.example.Driver \
-  --default-port 3306 \
-  --jdbc-prefix jdbc:example: \
-  --maven com.example:example-jdbc
+  --name Gauss \
+  --fallback POSTGRES \
+  --driver-class org.opengauss.Driver \
+  --default-port 5432 \
+  --jdbc-prefix jdbc:opengauss: \
+  --maven org.opengauss:opengauss-jdbc
 ```
 
 `--fallback` 可选值：
@@ -76,10 +76,14 @@ extensions.configure<DatabaseArtifactConfigExtension>("databaseArtifactConfig") 
     id.set("xxxx Driver") // artifacts.xml 的 artifact id，通常与 drivers.xml 中引用的 artifact id 保持一致。
     // name.set("xxxx Driver")   // name 默认使用 id。
     // majorVersionSegments.set(3) // 按语义化版本的前 N 段分组，默认使用 3。
-    mavenArtifacts.set(listOf("groupId:artifactId"))  // Maven 坐标列表，格式为 groupId:artifactId；多个坐标会分别生成多个 artifact。
+    mavenArtifacts.set(listOf(
+        mavenArtifact("groupId:artifactId", "Artifact Alias")
+    )) // Maven 坐标格式为 groupId:artifactId；第二个参数是可选别名，用于生成 artifacts.xml 的 artifact id/name。
 }
 
 ```
+
+多个 Maven 坐标时，如果不传别名，会默认使用 Maven `artifactId` 作为后缀；传入别名后会使用别名作为后缀。例如 `mavenArtifact("com.dameng:DmJdbcDriver8", "JDK 8")` 会生成 `Dameng Driver JDK 8`。
 
 4. 新增 `xxx-driver-integration/src/main/resources/META-INF/plugin.xml`，声明 `driversConfig`、`artifactsConfig`，并按需声明该插件自己的 `dbms`、`extensionFallback`、`addToHSet`。
 5. 新增 `xxx-driver-integration/src/main/resources/config/drivers.xml`，声明 DataGrip 驱动元数据，包括驱动 ID、显示名称、方言、Driver Class、URL 模板、图标和 artifact 引用。

@@ -14,6 +14,7 @@ import org.gradle.api.provider.Property;
 import org.gradle.api.tasks.Input;
 import org.gradle.api.tasks.OutputFile;
 import org.gradle.api.tasks.TaskAction;
+import plus.wcj.gradle.DatabaseArtifactConfigExtension.MavenArtifact;
 
 import java.io.File;
 import java.io.InputStream;
@@ -38,7 +39,7 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
     public abstract Property<String> getArtifactName();
 
     @Input
-    public abstract ListProperty<String> getMavenArtifacts();
+    public abstract ListProperty<MavenArtifact> getMavenArtifacts();
 
     @Input
     public abstract Property<Integer> getMajorVersionSegments();
@@ -81,9 +82,9 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
         }
     }
 
-    private List<MavenArtifactVersion> fetchMavenVersions(List<String> mavenArtifacts) throws Exception {
+    private List<MavenArtifactVersion> fetchMavenVersions(List<MavenArtifact> mavenArtifacts) throws Exception {
         List<MavenArtifactVersion> versions = new ArrayList<>();
-        for (String mavenArtifact : mavenArtifacts) {
+        for (MavenArtifact mavenArtifact : mavenArtifacts) {
             MavenArtifactCoordinate coordinate = parseMavenArtifact(mavenArtifact);
             for (String version : fetchMavenVersions(coordinate.groupId(), coordinate.artifactId())) {
                 versions.add(new MavenArtifactVersion(coordinate, version));
@@ -221,22 +222,22 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
 
     private String artifactId(MavenArtifactCoordinate coordinate, boolean multipleMavenArtifacts) {
         return multipleMavenArtifacts
-            ? getArtifactId().get() + " " + coordinate.artifactId()
+            ? getArtifactId().get() + " " + coordinate.aliasOrArtifactId()
             : getArtifactId().get();
     }
 
     private String artifactName(MavenArtifactCoordinate coordinate, boolean multipleMavenArtifacts) {
         return multipleMavenArtifacts
-            ? getArtifactName().get() + " " + coordinate.artifactId()
+            ? getArtifactName().get() + " " + coordinate.aliasOrArtifactId()
             : getArtifactName().get();
     }
 
-    private static MavenArtifactCoordinate parseMavenArtifact(String mavenArtifact) {
-        String[] parts = mavenArtifact.split(":");
+    private static MavenArtifactCoordinate parseMavenArtifact(MavenArtifact mavenArtifact) {
+        String[] parts = mavenArtifact.notation().split(":");
         if (parts.length != 2) {
-            throw new IllegalArgumentException("Maven artifact must use groupId:artifactId format: " + mavenArtifact);
+            throw new IllegalArgumentException("Maven artifact must use groupId:artifactId format: " + mavenArtifact.notation());
         }
-        return new MavenArtifactCoordinate(parts[0], parts[1]);
+        return new MavenArtifactCoordinate(parts[0], parts[1], mavenArtifact.alias());
     }
 
     private int compareArtifactVersionsForOutput(MavenArtifactVersion left, MavenArtifactVersion right) {
@@ -248,8 +249,13 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
     }
 
     private int artifactOrder(MavenArtifactCoordinate coordinate) {
-        int index = getMavenArtifacts().get().indexOf(coordinate.notation());
-        return index < 0 ? Integer.MAX_VALUE : index;
+        List<MavenArtifact> mavenArtifacts = getMavenArtifacts().get();
+        for (int index = 0; index < mavenArtifacts.size(); index++) {
+            if (parseMavenArtifact(mavenArtifacts.get(index)).equals(coordinate)) {
+                return index;
+            }
+        }
+        return Integer.MAX_VALUE;
     }
 
     private static int compareArtifactVersionsByVersion(MavenArtifactVersion left, MavenArtifactVersion right) {
@@ -298,9 +304,13 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
         }
     }
 
-    private record MavenArtifactCoordinate(String groupId, String artifactId) {
+    private record MavenArtifactCoordinate(String groupId, String artifactId, String alias) {
         private String notation() {
             return groupId + ":" + artifactId;
+        }
+
+        private String aliasOrArtifactId() {
+            return alias == null || alias.isBlank() ? artifactId : alias;
         }
     }
 
