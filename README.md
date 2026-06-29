@@ -1,4 +1,5 @@
 # jetbrains-chinese-database-drivers
+
 一个面向 JetBrains Database Tools 的国产数据库 JDBC Driver Integration 插件集合。
 
 本项目为常见国产数据库提供 JDBC 驱动元数据、下载配置和连接模板，帮助用户在支持 Database Tools 的 JetBrains IDE 中更方便地创建数据库连接。项目本身不实现 JDBC Driver，只集成各数据库厂商或兼容生态提供的 JDBC 驱动。
@@ -7,12 +8,11 @@
 
 ## 支持的数据库
 
-| 数据库      | 方言                | JDBC 协议                                                                                                                                  | Maven                                                     | 进度   |
-| ----------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------- | ------ |
-| `OceanBase` | `MySQL`<br>`Oracle` | OceanBase:`jdbc:oceanbase`<br>~~`jdbc:oceanbase:loadbalance`~~ <br>OceanBase (MySQL):`jdbc:mysql`<br>OceanBase (Oracle):`jdbc:oracle:thin` | `com.oceanbase:oceanbase-client`                          | 测试中 |
-| `Dameng`    | `Oracle`            | `jdbc:dm`                                                                                                                                  | `com.dameng:DmJdbcDriver8`<br>`com.dameng:DmJdbcDriver11` | 测试中 |
-| `KingBase`  | `PostgreSQL`        | `jdbc:kingbase8`                                                                                                                           | `cn.com.kingbase:kingbase8`                               | 测试中 |
-
+| 数据库                | 方言                      | JDBC 协议                                                                                                                                                | Maven                                                     | 
+|--------------------|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
+| `OceanBase`<br>测试中 | `MySQL(默认)`<br>`Oracle` | OceanBase:<br>`jdbc:oceanbase`<br>~~`jdbc:oceanbase:loadbalance`~~ <br>OceanBase (MySQL):<br>`jdbc:mysql`<br>OceanBase (Oracle):<br>`jdbc:oracle:thin` | `com.oceanbase:oceanbase-client`                          |
+| `Dameng`<br>测试中    | `Oracle`                | `jdbc:dm`                                                                                                                                              | `com.dameng:DmJdbcDriver8`<br>`com.dameng:DmJdbcDriver11` |
+| `KingBase`<br>测试中  | `PostgreSQL`            | `jdbc:kingbase8`                                                                                                                                       | `cn.com.kingbase:kingbase8`                               |
 
 进度状态：待适配、开发中、测试中、已发布。
 
