@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="oceanbase" name="OceanBase" icon="/icons/driversIcon.svg" dialect="MySQL" driver-class="com.oceanbase.jdbc.Driver">
+  <driver id="oceanbase" name="OceanBase" icon="/icons/driversIcon.svg" dialect="MySQL" forced-dbms="OCEANBASE_MYSQL" driver-class="com.oceanbase.jdbc.Driver" group-with="oceanbase">
+    <remarks>OceanBase</remarks>
     <url-template name="default" template="jdbc:oceanbase://{host::localhost}[:{port::2881}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
     <artifact id="OceanBase Driver" use="true" rolling="true"/>
+    <option name="auto-sync" value="true"/>
+  </driver>
+  <driver id="oceanbase-mysql" name="OceanBase MySQL JDBC" icon="/icons/driversIcon.svg" dialect="MySQL" forced-dbms="OCEANBASE_MYSQL" driver-class="com.mysql.cj.jdbc.Driver" group-with="oceanbase">
+    <remarks>OceanBase</remarks>
+    <url-template name="default" template="jdbc:mysql://{host::localhost}[:{port::2881}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
+    <artifact id="MySQL ConnectorJ" use="true" rolling="true"/>
+    <option name="auto-sync" value="true"/>
+  </driver>
+  <driver id="oceanbase-oracle" name="OceanBase Oracle JDBC" icon="/icons/driversIcon.svg" dialect="Oracle" forced-dbms="OCEANBASE_ORACLE" driver-class="oracle.jdbc.OracleDriver" group-with="oceanbase">
+    <remarks>OceanBase</remarks>
+    <url-template name="default" template="jdbc:oracle:thin:@//{host::localhost}[:{port::2881}][/{database}]"/>
+    <artifact id="Oracle" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>
   </driver>
 </drivers>

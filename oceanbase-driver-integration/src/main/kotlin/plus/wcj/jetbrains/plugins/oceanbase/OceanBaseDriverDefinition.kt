@@ -8,3 +8,17 @@ val oceanBaseDriverDefinition = DatabaseDriverDefinition(
     defaultPort = 2881,
     urlTemplate = "jdbc:oceanbase://{host}:{port}/{database}",
 )
+
+val oceanBaseMysqlJdbcDriverDefinition = DatabaseDriverDefinition(
+    databaseId = "oceanbase-mysql",
+    driverClass = "com.mysql.cj.jdbc.Driver",
+    defaultPort = 2881,
+    urlTemplate = "jdbc:mysql://{host}:{port}/{database}",
+)
+
+val oceanBaseOracleJdbcDriverDefinition = DatabaseDriverDefinition(
+    databaseId = "oceanbase-oracle",
+    driverClass = "oracle.jdbc.OracleDriver",
+    defaultPort = 2881,
+    urlTemplate = "jdbc:oracle:thin:@//{host}:{port}/{database}",
+)
