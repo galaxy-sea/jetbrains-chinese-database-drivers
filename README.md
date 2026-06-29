@@ -18,6 +18,8 @@
 
 进度状态：待适配、开发中、测试中、已发布。
 
+适配顺序按照[墨天轮中国数据库流行度排行](https://www.modb.pro/dbRank)进行适配
+
 ## 插件包
 
 可以单独安装某一个数据库的 Driver Integration 插件，也可以安装 `Chinese Database Driver Integrations Pack`。Pack 插件声明了对所有 Driver Integration 插件的依赖，用于一次性安装完整的国产数据库驱动配置集合。
