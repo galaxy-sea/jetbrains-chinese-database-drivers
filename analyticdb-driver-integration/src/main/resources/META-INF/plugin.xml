@@ -1,0 +1,31 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.analyticdb-driver-integration</id>
+    <name>AnalyticDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides AnalyticDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="ANALYTICDB" instance="plus.wcj.jetbrains.plugins.analyticdb.AnalyticDBDatabaseDbms.ANALYTICDB"/>
+        <extensionFallback dbms="ANALYTICDB" fallbackDbms="MYSQL"/>
+        <addToHSet item="ANALYTICDB" set="MYSQL_LIKE"/>
+        <addToHSet item="ANALYTICDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="ANALYTICDB_MYSQL" instance="plus.wcj.jetbrains.plugins.analyticdb.AnalyticDBDatabaseDbms.ANALYTICDB_MYSQL"/>
+        <extensionFallback dbms="ANALYTICDB_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="ANALYTICDB_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="ANALYTICDB_MYSQL" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="ANALYTICDB_POSTGRES" instance="plus.wcj.jetbrains.plugins.analyticdb.AnalyticDBDatabaseDbms.ANALYTICDB_POSTGRES"/>
+        <extensionFallback dbms="ANALYTICDB_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="ANALYTICDB_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="ANALYTICDB_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

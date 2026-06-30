@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="analyticdb" name="AnalyticDB" icon="/icons/driversIcon.svg" forced-dbms="ANALYTICDB" group-with="analyticdb" based-on="mysql.8">
+    <remarks>AnalyticDB</remarks>
+  </driver>
+  <driver id="analyticdb-mysql" name="AnalyticDB (MySQL)" icon="/icons/driversIcon.svg" forced-dbms="ANALYTICDB_MYSQL" group-with="analyticdb" based-on="mysql.8">
+    <remarks>AnalyticDB</remarks>
+  </driver>
+  <driver id="analyticdb-postgres" name="AnalyticDB (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="ANALYTICDB_POSTGRES" group-with="analyticdb" based-on="postgresql">
+    <remarks>AnalyticDB</remarks>
+  </driver>
+</drivers>

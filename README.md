@@ -19,6 +19,7 @@
 | `GBase 8s`<br>测试中               | `Oracle`                                | GBase 8s:<br>`jdbc:gbasedbt-sqli`                                                                                        | GBase 8s:<br>`com.gbasedbt:jdbc`                                |
 | `openGauss`<br>`GaussDB`<br>测试中 | `PostgreSQL`                            | openGauss:<br>`jdbc:opengauss`<br>GaussDB:<br>`jdbc:gaussdb`<br>openGauss (PostgreSQL)                                   | `org.opengauss:opengauss-jdbc`<br>`com.huaweicloud:gaussdbjdbc` |
 | `YashanDB`<br>测试中               | Oracle(默认)<br>MySQL                     | YashanDB:<br>`jdbc:yashandb`<br>YashanDB (MySQL):<br>`jdbc:mysql`                                                        | `com.yashandb:yashandb-jdbc`                                    |
+| `AnalyticDB`<br>待适配 | MySQL(默认)<br>PostgreSQL | AnalyticDB:<br>`jdbc:mysql`<br>AnalyticDB (MySQL):<br>`jdbc:mysql`<br>AnalyticDB (PostgreSQL):<br>`jdbc:postgresql` |  |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -37,7 +38,10 @@
 ```shell
 java scripts/CreateDriverIntegrationModule.java \
   --name ExampleDB \
-  --fallback MYSQL
+  --fallback MYSQL \
+  # --jetbrains-model MYSQL \
+  # --jetbrains-model POSTGRES \
+  # --jetbrains-model ORACLE
 ```
 
 使用数据库自己的 JDBC 驱动：
@@ -49,7 +53,10 @@ java scripts/CreateDriverIntegrationModule.java \
   --driver-class com.example.Driver \
   --default-port 3306 \
   --jdbc-prefix jdbc:example: \
-  --maven com.example:example-jdbc
+  --maven com.example:example-jdbc \
+  # --jetbrains-model MYSQL \
+  # --jetbrains-model POSTGRES \
+  # --jetbrains-model ORACLE
 ```
 
 `--fallback` 可选值：

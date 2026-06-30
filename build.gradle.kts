@@ -20,6 +20,7 @@ val databaseDriverPluginProjects = listOf(
     ":gbase-driver-integration",
     ":opengauss-driver-integration",
     ":yashandb-driver-integration",
+    ":analyticdb-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(
