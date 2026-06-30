@@ -60,12 +60,20 @@ java scripts/CreateDriverIntegrationModule.java \
 | `POSTGRES` | `postgresql`                           | `PostgreSQL` |
 | `UNKNOWN`  | 不自动继承，需要显式传入 `--based-on` 或自定义 JDBC 参数 | 无            |
 
-脚本会生成 `xxx-driver-integration` 模块，并更新 `settings.gradle.kts`、根 `build.gradle.kts` 和 Pack 插件依赖。生成后需要替换 `META-INF/pluginIcon.svg` 为真实数据库图标，并在 README 的“支持的数据库”表格中补充数据库信息。
+`--jetbrains-model` 只用于额外增加复用 JetBrains 内置数据模型的 driver 标签，该参数可以重复传入：
 
-自定义 JDBC 模式下传 `--jdbc-prefix` 即可，例如 `jdbc:kingbase8:`；脚本会自动生成完整 DataGrip URL 模板：
-`jdbc:kingbase8://{host::localhost}[:{port::默认端口}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]`。
+| jetbrains-model | 生成的官方驱动配置 |
+|-----------------|----------------|
+| `MYSQL`         | `based-on="mysql.8"` |
+| `ORACLE`        | `based-on="oracle.19"` |
+| `POSTGRES`      | `based-on="postgresql"` |
 
-手工新增一个数据库 Driver Integration 插件时，需要添加或修改以下内容：
+例如 `--fallback MYSQL --jetbrains-model ORACLE --jetbrains-model POSTGRES` 会保留主驱动的 MySQL fallback 行为，并额外生成 Oracle/PostgreSQL 官方模型的 driver 标签。
+
+脚本会生成 `xxx-driver-integration` 模块，并更新 `settings.gradle.kts`、根 `build.gradle.kts`、Pack 插件依赖和 README 的“支持的数据库”表格。生成后需要替换 `META-INF/pluginIcon.svg` 为真实数据库图标，并检查 README 表格中自动填入的方言、JDBC 协议和 Maven 信息。
+
+
+新增一个数据库 Driver Integration 插件时，需要添加或修改以下内容：
 
 1. 在 `settings.gradle.kts` 中 `include("xxx-driver-integration")`。
 2. 在根 `build.gradle.kts` 的 `databaseDriverPluginProjects` 中加入 `":xxx-driver-integration"`。

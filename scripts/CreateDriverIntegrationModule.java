@@ -34,6 +34,7 @@ public class CreateDriverIntegrationModule {
         updateSettings(root.resolve("settings.gradle.kts"), options.moduleName);
         updateRootBuild(root.resolve("build.gradle.kts"), options.moduleName);
         updatePackPlugin(root.resolve("chinese-database-driver-integrations-pack/src/main/resources/META-INF/plugin.xml"), options);
+        updateReadmeSupportedDatabases(root.resolve("README.md"), options);
 
         System.out.println("Created " + options.moduleName);
         System.out.println("Next: ./gradlew :" + options.moduleName + ":buildPlugin");
@@ -63,14 +64,16 @@ public class CreateDriverIntegrationModule {
         String mavenArtifacts = options.mavenArtifacts.isEmpty()
             ? "emptyList()"
             : "listOf(" + joinMavenArtifacts(options) + ")";
+        String mavenMetadataLinks = mavenMetadataLinks(options);
+        String mavenMetadataBlock = mavenMetadataLinks.isEmpty() ? "" : mavenMetadataLinks + "\n\n";
 
         return """
             import plus.wcj.gradle.DatabaseArtifactConfigExtension
 
-            extensions.configure<DatabaseArtifactConfigExtension>("databaseArtifactConfig") {
+            %sextensions.configure<DatabaseArtifactConfigExtension>("databaseArtifactConfig") {
                 mavenArtifacts.set(%s)
             }
-            """.formatted(mavenArtifacts);
+            """.formatted(mavenMetadataBlock, mavenArtifacts);
     }
 
     private static String pluginXml(Options options) {
@@ -108,6 +111,16 @@ public class CreateDriverIntegrationModule {
         for (String hset : options.hsets()) {
             builder.append("        <addToHSet item=\"").append(options.dbmsId).append("\" set=\"").append(hset).append("\"/>\n");
         }
+        for (String jetbrainsModel : options.jetbrainsModels) {
+            String modelDbmsId = jetBrainsModelDbmsId(options, jetbrainsModel);
+            builder.append("\n");
+            builder.append("        <dbms id=\"").append(modelDbmsId).append("\" instance=\"")
+                .append(options.packageName).append(".").append(options.classPrefix).append("DatabaseDbms.").append(modelDbmsId).append("\"/>\n");
+            builder.append("        <extensionFallback dbms=\"").append(modelDbmsId).append("\" fallbackDbms=\"").append(jetbrainsModel).append("\"/>\n");
+            for (String hset : hsets(jetbrainsModel)) {
+                builder.append("        <addToHSet item=\"").append(modelDbmsId).append("\" set=\"").append(hset).append("\"/>\n");
+            }
+        }
         builder.append("""
                 </extensions>
             </idea-plugin>
@@ -119,10 +132,11 @@ public class CreateDriverIntegrationModule {
         String driverAttributes;
         String driverBody = "";
         if (options.basedOn != null) {
-            driverAttributes = "id=\"%s\" name=\"%s\" icon=\"/icons/driversIcon.svg\" forced-dbms=\"%s\" based-on=\"%s\"".formatted(
+            driverAttributes = "id=\"%s\" name=\"%s\" icon=\"/icons/driversIcon.svg\" forced-dbms=\"%s\"%s based-on=\"%s\"".formatted(
                 options.driverId,
                 xml(options.displayName),
                 options.dbmsId,
+                optionalAttribute("group-with", options.groupWith),
                 xml(options.basedOn)
             );
             if (options.remarks != null) {
@@ -130,11 +144,12 @@ public class CreateDriverIntegrationModule {
             }
         }
         else {
-            driverAttributes = "id=\"%s\" name=\"%s\" icon=\"/icons/driversIcon.svg\" dialect=\"%s\" forced-dbms=\"%s\" driver-class=\"%s\"".formatted(
+            driverAttributes = "id=\"%s\" name=\"%s\" icon=\"/icons/driversIcon.svg\" dialect=\"%s\" forced-dbms=\"%s\"%s driver-class=\"%s\"".formatted(
                 options.driverId,
                 xml(options.displayName),
                 xml(options.dialect),
                 options.dbmsId,
+                optionalAttribute("group-with", options.groupWith),
                 xml(options.driverClass)
             );
             StringBuilder body = new StringBuilder();
@@ -148,12 +163,59 @@ public class CreateDriverIntegrationModule {
             driverBody = body.toString();
         }
 
+        StringBuilder drivers = new StringBuilder();
+        drivers.append("  <driver ").append(driverAttributes).append(">").append(driverBody).append("</driver>\n");
+        for (String jetbrainsModel : options.jetbrainsModels) {
+            drivers.append("  <driver ").append(jetBrainsModelDriverAttributes(options, jetbrainsModel)).append(">\n");
+            drivers.append("    <remarks>").append(xml(options.remarks)).append("</remarks>\n");
+            drivers.append("  </driver>\n");
+        }
+
         return """
             <?xml version="1.0" encoding="UTF-8"?>
             <drivers>
-              <driver %s>%s</driver>
-            </drivers>
-            """.formatted(driverAttributes, driverBody);
+            %s</drivers>
+            """.formatted(drivers);
+    }
+
+    private static String optionalAttribute(String name, String value) {
+        return value == null || value.isBlank() ? "" : " " + name + "=\"" + xml(value) + "\"";
+    }
+
+    private static String jetBrainsModelDriverAttributes(Options options, String jetbrainsModel) {
+        return "id=\"%s-%s\" name=\"%s (%s)\" icon=\"/icons/driversIcon.svg\" forced-dbms=\"%s\"%s based-on=\"%s\"".formatted(
+            options.driverId,
+            jetbrainsModel.toLowerCase(Locale.ROOT),
+            xml(options.displayName),
+            xml(jetBrainsModelDisplayName(jetbrainsModel)),
+            jetBrainsModelDbmsId(options, jetbrainsModel),
+            optionalAttribute("group-with", options.groupWith),
+            xml(Options.defaultBasedOn(jetbrainsModel))
+        );
+    }
+
+    private static String jetBrainsModelDbmsId(Options options, String jetbrainsModel) {
+        return options.dbmsId + "_" + jetbrainsModel;
+    }
+
+    private static String jetBrainsModelDisplayName(String jetbrainsModel) {
+        return switch (jetbrainsModel) {
+            case "MYSQL" -> "MySQL";
+            case "ORACLE" -> "Oracle";
+            case "POSTGRES" -> "PostgreSQL";
+            default -> jetbrainsModel;
+        };
+    }
+
+    private static List<String> hsets(String fallbackDbms) {
+        List<String> values = new ArrayList<>();
+        switch (fallbackDbms) {
+            case "MYSQL" -> values.add("MYSQL_LIKE");
+            case "ORACLE" -> values.add("ORACLE_LIKE");
+            case "POSTGRES" -> values.add("POSTGRES_LIKE");
+        }
+        values.add("PSEUDO_SUPPORTED");
+        return values;
     }
 
     private static String emptyArtifactsXml() {
@@ -200,6 +262,19 @@ public class CreateDriverIntegrationModule {
     }
 
     private static String databaseDbmsKt(Options options) {
+        StringBuilder dbmsFields = new StringBuilder();
+        dbmsFields.append("""
+                @JvmField
+                val %s: Dbms = create("%s", "%s")
+            """.formatted(options.dbmsId, options.dbmsId, options.displayName));
+        for (String jetbrainsModel : options.jetbrainsModels) {
+            String modelDbmsId = jetBrainsModelDbmsId(options, jetbrainsModel);
+            dbmsFields.append("\n\n");
+            dbmsFields.append("""
+                @JvmField
+                val %s: Dbms = create("%s", "%s %s")
+            """.formatted(modelDbmsId, modelDbmsId, options.displayName, jetBrainsModelDisplayName(jetbrainsModel)));
+        }
         return """
             package %s
 
@@ -208,16 +283,13 @@ public class CreateDriverIntegrationModule {
 
             object %sDatabaseDbms : DatabaseDbms() {
 
-                @JvmField
-                val %s: Dbms = create("%s", "%s")
+            %s
             }
             """.formatted(
             options.packageName,
             CORE_PACKAGE,
             options.classPrefix,
-            options.dbmsId,
-            options.dbmsId,
-            options.displayName
+            dbmsFields
         );
     }
 
@@ -266,6 +338,98 @@ public class CreateDriverIntegrationModule {
         write(file, text.replace(marker, dependency + marker));
     }
 
+    private static void updateReadmeSupportedDatabases(Path file, Options options) throws IOException {
+        String text = read(file);
+        String databaseCell = "`" + options.displayName + "`<br>待适配";
+        if (text.contains("| " + databaseCell)) {
+            return;
+        }
+        String marker = "\n进度状态：";
+        int markerIndex = text.indexOf(marker);
+        if (markerIndex < 0) {
+            throw new IllegalStateException("Could not find README supported database table insertion marker.");
+        }
+        String row = "| " + databaseCell + " | " + readmeDialects(options) + " | " + readmeJdbcProtocols(options) + " | " + readmeMavenArtifacts(options) + " |\n";
+        write(file, text.substring(0, markerIndex) + row + text.substring(markerIndex));
+    }
+
+    private static String readmeDialects(Options options) {
+        List<String> dialects = new ArrayList<>();
+        addUnique(dialects, options.dialect);
+        for (String jetbrainsModel : options.jetbrainsModels) {
+            addUnique(dialects, Options.defaultDialect(jetbrainsModel));
+        }
+        if (dialects.size() > 1 && options.dialect != null && !options.dialect.isBlank()) {
+            dialects.set(0, dialects.get(0) + "(默认)");
+        }
+        return String.join("<br>", dialects);
+    }
+
+    private static String readmeJdbcProtocols(Options options) {
+        List<ReadmeJdbcProtocol> protocols = new ArrayList<>();
+        String primaryProtocol = options.driverClass != null
+            ? jdbcProtocol(options.jdbcPrefix)
+            : jdbcProtocolForBasedOn(options.basedOn);
+        if (primaryProtocol != null) {
+            protocols.add(new ReadmeJdbcProtocol(options.displayName, primaryProtocol));
+        }
+        for (String jetbrainsModel : options.jetbrainsModels) {
+            String protocol = jdbcProtocolForBasedOn(Options.defaultBasedOn(jetbrainsModel));
+            if (protocol != null) {
+                protocols.add(new ReadmeJdbcProtocol(options.displayName + " (" + jetBrainsModelDisplayName(jetbrainsModel) + ")", protocol));
+            }
+        }
+        if (protocols.isEmpty()) {
+            return "";
+        }
+        if (protocols.size() == 1) {
+            return "`" + protocols.get(0).protocol() + "`";
+        }
+        List<String> values = new ArrayList<>();
+        for (ReadmeJdbcProtocol protocol : protocols) {
+            values.add(protocol.name() + ":<br>`" + protocol.protocol() + "`");
+        }
+        return String.join("<br>", values);
+    }
+
+    private static String readmeMavenArtifacts(Options options) {
+        List<String> values = new ArrayList<>();
+        for (String mavenArtifact : options.mavenArtifacts) {
+            values.add("`" + mavenArtifact + "`");
+        }
+        return String.join("<br>", values);
+    }
+
+    private static void addUnique(List<String> values, String value) {
+        if (value != null && !value.isBlank() && !values.contains(value)) {
+            values.add(value);
+        }
+    }
+
+    private static String jdbcProtocol(String jdbcPrefix) {
+        if (jdbcPrefix == null || jdbcPrefix.isBlank()) {
+            return null;
+        }
+        return jdbcPrefix.trim()
+            .replaceAll("//$", "")
+            .replaceAll(":$", "");
+    }
+
+    private static String jdbcProtocolForBasedOn(String basedOn) {
+        if (basedOn == null) {
+            return null;
+        }
+        return switch (basedOn) {
+            case "mysql.8" -> "jdbc:mysql";
+            case "oracle.19" -> "jdbc:oracle:thin";
+            case "postgresql" -> "jdbc:postgresql";
+            default -> null;
+        };
+    }
+
+    private record ReadmeJdbcProtocol(String name, String protocol) {
+    }
+
     private static String read(Path path) throws IOException {
         return Files.readString(path, StandardCharsets.UTF_8);
     }
@@ -281,6 +445,32 @@ public class CreateDriverIntegrationModule {
             artifacts.add("mavenArtifact(\"" + escapeKotlin(artifactId(options, value)) + "\", \"" + escapeKotlin(value) + "\")");
         }
         return String.join(", ", artifacts);
+    }
+
+    private static String mavenMetadataLinks(Options options) {
+        if (options.mavenArtifacts.isEmpty()) {
+            return "";
+        }
+
+        List<String> links = new ArrayList<>();
+        for (String value : options.mavenArtifacts) {
+            String metadataUrl = mavenMetadataUrl(value);
+            if (metadataUrl != null) {
+                links.add("// " + metadataUrl);
+            }
+        }
+        if (links.isEmpty()) {
+            return "";
+        }
+        return "// Maven metadata:\n" + String.join("\n", links);
+    }
+
+    private static String mavenMetadataUrl(String mavenArtifact) {
+        String[] parts = mavenArtifact.split(":");
+        if (parts.length != 2) {
+            return null;
+        }
+        return "https://repo.maven.apache.org/maven2/" + parts[0].replace('.', '/') + "/" + parts[1] + "/maven-metadata.xml";
     }
 
     private static String artifactId(Options options, String mavenArtifact) {
@@ -335,7 +525,8 @@ public class CreateDriverIntegrationModule {
             Usage:
               java scripts/CreateDriverIntegrationModule.java \\
                 --name GaussDB \\
-                --fallback POSTGRES
+                --fallback POSTGRES \\
+                --jetbrains-model POSTGRES
 
               java scripts/CreateDriverIntegrationModule.java \\
                 --name ExampleDB \\
@@ -348,6 +539,7 @@ public class CreateDriverIntegrationModule {
             Options:
               --name           Display name, e.g. GoldenDB
               --fallback       JetBrains fallback DBMS: MYSQL, ORACLE, POSTGRES, UNKNOWN
+              --jetbrains-model Additional JetBrains built-in driver model: MYSQL, ORACLE, POSTGRES. Repeatable.
               --id             Optional module/driver id prefix. Defaults to normalized --name, e.g. GoldenDB -> goldendb.
               --dbms           Optional custom DBMS id. Defaults to normalized --name, e.g. GoldenDB -> GOLDENDB.
               --based-on       Optional official driver id override. Defaults from --fallback: MYSQL -> mysql.8, ORACLE -> oracle.19, POSTGRES -> postgresql.
@@ -358,6 +550,7 @@ public class CreateDriverIntegrationModule {
               --maven          Required with --driver-class. Maven coordinate groupId:artifactId. Repeatable.
               --package        Optional package suffix. Defaults to normalized --id.
               --class-prefix   Optional Kotlin class prefix. Defaults to PascalCase --name.
+              --group-with     Optional DataGrip driver group id for nested Add Data Source entries.
               --remarks        Optional driver remarks.
               --root           Optional project root. Defaults to current directory.
             """);
@@ -377,9 +570,11 @@ public class CreateDriverIntegrationModule {
         String urlTemplate;
         String packageSuffix;
         String classPrefix;
+        String groupWith;
         String remarks;
         String rootPath;
         final List<String> mavenArtifacts = new ArrayList<>();
+        final List<String> jetbrainsModels = new ArrayList<>();
 
         String moduleName;
         String driverId;
@@ -403,6 +598,9 @@ public class CreateDriverIntegrationModule {
                 if (key.equals("maven")) {
                     options.mavenArtifacts.add(requireValue(args, ++index, arg));
                 }
+                else if (key.equals("jetbrains-model")) {
+                    options.jetbrainsModels.add(requireValue(args, ++index, arg));
+                }
                 else {
                     singleValues.put(key, requireValue(args, ++index, arg));
                 }
@@ -418,6 +616,7 @@ public class CreateDriverIntegrationModule {
             options.jdbcPrefix = singleValues.get("jdbc-prefix");
             options.packageSuffix = singleValues.get("package");
             options.classPrefix = singleValues.get("class-prefix");
+            options.groupWith = singleValues.get("group-with");
             options.remarks = singleValues.get("remarks");
             options.rootPath = singleValues.get("root");
             if (singleValues.containsKey("default-port")) {
@@ -435,6 +634,13 @@ public class CreateDriverIntegrationModule {
             }
             if (dialect == null) {
                 dialect = defaultDialect(fallbackDbms);
+            }
+            for (int index = 0; index < jetbrainsModels.size(); index++) {
+                String jetbrainsModel = jetbrainsModels.get(index).toUpperCase(Locale.ROOT);
+                if (defaultBasedOn(jetbrainsModel) == null) {
+                    throw new IllegalArgumentException("Unsupported --jetbrains-model: " + jetbrainsModels.get(index));
+                }
+                jetbrainsModels.set(index, jetbrainsModel);
             }
 
             if (driverClass != null) {
@@ -454,6 +660,7 @@ public class CreateDriverIntegrationModule {
             }
 
             driverId = normalizeId(id != null ? id : displayName);
+            groupWith = groupWith != null && !groupWith.isBlank() ? groupWith : driverId;
             moduleName = driverId + "-driver-integration";
             String packageLeaf = packageSuffix != null ? normalizePackageLeaf(packageSuffix) : normalizePackageLeaf(driverId);
             packageName = PACKAGE_PREFIX + packageLeaf;
@@ -467,14 +674,7 @@ public class CreateDriverIntegrationModule {
         }
 
         List<String> hsets() {
-            List<String> values = new ArrayList<>();
-            switch (fallbackDbms) {
-                case "MYSQL" -> values.add("MYSQL_LIKE");
-                case "ORACLE" -> values.add("ORACLE_LIKE");
-                case "POSTGRES" -> values.add("POSTGRES_LIKE");
-            }
-            values.add("PSEUDO_SUPPORTED");
-            return values;
+            return CreateDriverIntegrationModule.hsets(fallbackDbms);
         }
 
         private static String requireValue(String[] args, int index, String option) {
