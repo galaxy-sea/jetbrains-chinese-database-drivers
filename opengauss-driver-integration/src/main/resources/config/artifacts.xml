@@ -1,12 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <artifacts>
   <artifact id="openGauss Driver" name="openGauss Driver">
-    <version version="7.0.0030">
-      <item type="maven" url="org.opengauss:opengauss-jdbc:7.0.0-RC3-og"/>
-      <channel id="stable"/>
-    </version>
     <version version="6.0.30">
       <item type="maven" url="org.opengauss:opengauss-jdbc:6.0.3-og"/>
+      <channel id="stable"/>
     </version>
     <version version="5.1.00">
       <item type="maven" url="org.opengauss:opengauss-jdbc:5.1.0-og"/>
