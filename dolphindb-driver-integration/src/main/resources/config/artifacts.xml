@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<artifacts>
+  <artifact id="DolphinDB Driver" name="DolphinDB Driver">
+    <version version="3.00.5.0">
+      <item type="maven" url="com.dolphindb:jdbc:3.00.5.0"/>
+      <channel id="stable"/>
+    </version>
+    <version version="3.00.4.0">
+      <item type="maven" url="com.dolphindb:jdbc:3.00.4.0"/>
+    </version>
+    <version version="3.00.3.0">
+      <item type="maven" url="com.dolphindb:jdbc:3.00.3.0"/>
+    </version>
+    <version version="3.00.2.2">
+      <item type="maven" url="com.dolphindb:jdbc:3.00.2.2"/>
+    </version>
+    <version version="3.00.1.1">
+      <item type="maven" url="com.dolphindb:jdbc:3.00.1.1"/>
+    </version>
+    <version version="3.00.0.1">
+      <item type="maven" url="com.dolphindb:jdbc:3.00.0.1"/>
+    </version>
+    <version version="2.00.11.1">
+      <item type="maven" url="com.dolphindb:jdbc:2.00.11.1"/>
+    </version>
+    <version version="1.30.22.5">
+      <item type="maven" url="com.dolphindb:jdbc:1.30.22.5"/>
+    </version>
+    <version version="1.30.21.4">
+      <item type="maven" url="com.dolphindb:jdbc:1.30.21.4"/>
+    </version>
+    <version version="1.30.20.2">
+      <item type="maven" url="com.dolphindb:jdbc:1.30.20.2"/>
+    </version>
+    <version version="1.30.19.1">
+      <item type="maven" url="com.dolphindb:jdbc:1.30.19.1"/>
+    </version>
+    <version version="1.30.17.1">
+      <item type="maven" url="com.dolphindb:jdbc:1.30.17.1"/>
+    </version>
+    <version version="1.10.4">
+      <item type="maven" url="com.dolphindb:jdbc:1.10.4"/>
+    </version>
+    <version version="1.10.2">
+      <item type="maven" url="com.dolphindb:jdbc:1.10.2"/>
+    </version>
+    <version version="1.10.1">
+      <item type="maven" url="com.dolphindb:jdbc:1.10.1"/>
+    </version>
+    <version version="1.10.0">
+      <item type="maven" url="com.dolphindb:jdbc:1.10.0"/>
+    </version>
+  </artifact>
+</artifacts>

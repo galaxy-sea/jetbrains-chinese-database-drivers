@@ -18,4 +18,5 @@
     <depends>plus.wcj.jetbrains.plugins.opengauss-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.yashandb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.analyticdb-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.dolphindb-driver-integration</depends>
 </idea-plugin>

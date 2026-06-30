@@ -13,6 +13,7 @@ include(
     "opengauss-driver-integration",
     "yashandb-driver-integration",
     "analyticdb-driver-integration",
+    "dolphindb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

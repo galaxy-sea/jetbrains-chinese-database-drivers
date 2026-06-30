@@ -538,7 +538,7 @@ public class CreateDriverIntegrationModule {
 
             Options:
               --name           Display name, e.g. GoldenDB
-              --fallback       JetBrains fallback DBMS: MYSQL, ORACLE, POSTGRES, UNKNOWN
+              --fallback       JetBrains fallback DBMS: MYSQL, ORACLE, POSTGRES, GENERICSQL
               --jetbrains-model Additional JetBrains built-in driver model: MYSQL, ORACLE, POSTGRES. Repeatable.
               --id             Optional module/driver id prefix. Defaults to normalized --name, e.g. GoldenDB -> goldendb.
               --dbms           Optional custom DBMS id. Defaults to normalized --name, e.g. GoldenDB -> GOLDENDB.
@@ -629,11 +629,16 @@ public class CreateDriverIntegrationModule {
             require(displayName, "--name");
             require(fallbackDbms, "--fallback");
             fallbackDbms = fallbackDbms.toUpperCase(Locale.ROOT);
+            if (!isSupportedFallback(fallbackDbms)) {
+                throw new IllegalArgumentException("Unsupported --fallback: " + fallbackDbms);
+            }
+            String requestedFallbackDbms = fallbackDbms;
+            fallbackDbms = defaultFallbackDbms(requestedFallbackDbms);
             if (basedOn == null) {
-                basedOn = defaultBasedOn(fallbackDbms);
+                basedOn = defaultBasedOn(requestedFallbackDbms);
             }
             if (dialect == null) {
-                dialect = defaultDialect(fallbackDbms);
+                dialect = defaultDialect(requestedFallbackDbms);
             }
             for (int index = 0; index < jetbrainsModels.size(); index++) {
                 String jetbrainsModel = jetbrainsModels.get(index).toUpperCase(Locale.ROOT);
@@ -745,7 +750,22 @@ public class CreateDriverIntegrationModule {
                 case "MYSQL" -> "MySQL";
                 case "ORACLE" -> "Oracle";
                 case "POSTGRES" -> "PostgreSQL";
+                case "GENERICSQL" -> "GenericSQL";
                 default -> null;
+            };
+        }
+
+        private static String defaultFallbackDbms(String fallbackDbms) {
+            return switch (fallbackDbms) {
+                case "GENERICSQL" -> "UNKNOWN";
+                default -> fallbackDbms;
+            };
+        }
+
+        private static boolean isSupportedFallback(String fallbackDbms) {
+            return switch (fallbackDbms) {
+                case "MYSQL", "ORACLE", "POSTGRES", "GENERICSQL" -> true;
+                default -> false;
             };
         }
 

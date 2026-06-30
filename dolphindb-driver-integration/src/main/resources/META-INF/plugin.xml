@@ -1,0 +1,20 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.dolphindb-driver-integration</id>
+    <name>DolphinDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides DolphinDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="DOLPHINDB" instance="plus.wcj.jetbrains.plugins.dolphindb.DolphinDBDatabaseDbms.DOLPHINDB"/>
+        <extensionFallback dbms="DOLPHINDB" fallbackDbms="UNKNOWN"/>
+        <addToHSet item="DOLPHINDB" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

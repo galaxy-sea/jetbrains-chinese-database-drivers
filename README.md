@@ -2,9 +2,11 @@
 
 一个面向 JetBrains Database Tools 的国产数据库 JDBC Driver Integration 插件集合。
 
-本项目为常见国产数据库提供 JDBC 驱动元数据、下载配置和连接模板，帮助用户在支持 Database Tools 的 JetBrains IDE 中更方便地创建数据库连接。项目本身不实现 JDBC Driver，只集成各数据库厂商或兼容生态提供的 JDBC 驱动。
+本项目为常见国产数据库提供 JDBC 驱动元数据、下载配置和连接模板，帮助用户在支持 Database Tools 的 JetBrains IDE 中更方便地创建数据库连接。
+项目本身不实现 JDBC Driver，只集成各数据库厂商或兼容生态提供的 JDBC 驱动。
 
-在数据库连接配置可用后，可以进一步配合 `JPA Buddy`、`MyBatisCodeHelperPro` 等持久层开发插件提升实体建模、SQL 编写和代码生成效率；也可以结合 `JetBrains AI Assistant`，在已有数据源上下文中辅助完成查询分析、代码生成和开发调试。
+在数据库连接配置可用后，可以进一步配合 `JPA Buddy`、`MyBatisCodeHelperPro` 等持久层开发插件提升实体建模、SQL 编写和代码生成效率；
+也可以结合 `JetBrains AI Assistant`，在已有数据源上下文中辅助完成查询分析、代码生成和开发调试。
 
 ## 支持的数据库
 
@@ -14,12 +16,13 @@
 | `Dameng`<br>测试中                 | `Oracle`                                | `jdbc:dm`                                                                                                                | `com.dameng:DmJdbcDriver8`<br>`com.dameng:DmJdbcDriver11`       |
 | `KingBase`<br>测试中               | `PostgreSQL`                            | `jdbc:kingbase8`                                                                                                         | `cn.com.kingbase:kingbase8`                                     |
 | `PolarDB`<br>测试中                | `MySQL(默认)`<br>`PostgreSQL`<br>`Oracle` | PolarDB:<br>`jdbc:mysql`<br>PolarDB-X:<br>`jdbc:polardbx`<br>PolarDB (MySQL)<br>PolarDB (PostgreSQL)<br>PolarDB (Oracle) | `com.alibaba.polardbx:polardbx-connector-java`                  |
-| `GoldenDB`<br>测试中-实验性           | `MySQL`                                 | `jdbc:mysql`                                                                                                             |                                                                 |
+| `GoldenDB`<br>开发中-实验性           | `MySQL`                                 | `jdbc:mysql`                                                                                                             |                                                                 |
 | ~TiDB~                          | JetBrains已支持                            |
 | `GBase 8s`<br>测试中               | `Oracle`                                | GBase 8s:<br>`jdbc:gbasedbt-sqli`                                                                                        | GBase 8s:<br>`com.gbasedbt:jdbc`                                |
 | `openGauss`<br>`GaussDB`<br>测试中 | `PostgreSQL`                            | openGauss:<br>`jdbc:opengauss`<br>GaussDB:<br>`jdbc:gaussdb`<br>openGauss (PostgreSQL)                                   | `org.opengauss:opengauss-jdbc`<br>`com.huaweicloud:gaussdbjdbc` |
 | `YashanDB`<br>测试中               | Oracle(默认)<br>MySQL                     | YashanDB:<br>`jdbc:yashandb`<br>YashanDB (MySQL):<br>`jdbc:mysql`                                                        | `com.yashandb:yashandb-jdbc`                                    |
-| `AnalyticDB`<br>待适配 | MySQL(默认)<br>PostgreSQL | AnalyticDB:<br>`jdbc:mysql`<br>AnalyticDB (MySQL):<br>`jdbc:mysql`<br>AnalyticDB (PostgreSQL):<br>`jdbc:postgresql` |  |
+| `AnalyticDB`<br>测试中             | MySQL(默认)<br>PostgreSQL                 | AnalyticDB:<br>`jdbc:mysql`<br>AnalyticDB (MySQL):<br>`jdbc:mysql`<br>AnalyticDB (PostgreSQL):<br>`jdbc:postgresql`      |                                                                 |
+| `DolphinDB`<br>测试中              | `GenericSQL`                            | `jdbc:dolphindb`                                                                                                         | `com.dolphindb:jdbc`                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -61,12 +64,12 @@ java scripts/CreateDriverIntegrationModule.java \
 
 `--fallback` 可选值：
 
-| fallback   | 自动继承的官方驱动                              | 默认方言         |
-|------------|----------------------------------------|--------------|
-| `MYSQL`    | `mysql.8`                              | `MySQL`      |
-| `ORACLE`   | `oracle.19`                            | `Oracle`     |
-| `POSTGRES` | `postgresql`                           | `PostgreSQL` |
-| `UNKNOWN`  | 不自动继承，需要显式传入 `--based-on` 或自定义 JDBC 参数 | 无            |
+| fallback     | 自动继承的官方驱动                          | 默认方言         |
+|--------------|------------------------------------|--------------|
+| `MYSQL`      | `mysql.8`                          | `MySQL`      |
+| `ORACLE`     | `oracle.19`                        | `Oracle`     |
+| `POSTGRES`   | `postgresql`                       | `PostgreSQL` |
+| `GENERICSQL` | 不自动继承，fallback 到 JetBrains 通用 DBMS | `GenericSQL` |
 
 `--jetbrains-model` 只用于额外增加复用 JetBrains 内置数据模型的 driver 标签，该参数可以重复传入：
 
@@ -79,7 +82,6 @@ java scripts/CreateDriverIntegrationModule.java \
 例如 `--fallback MYSQL --jetbrains-model ORACLE --jetbrains-model POSTGRES` 会保留主驱动的 MySQL fallback 行为，并额外生成 Oracle/PostgreSQL 官方模型的 driver 标签。
 
 脚本会生成 `xxx-driver-integration` 模块，并更新 `settings.gradle.kts`、根 `build.gradle.kts`、Pack 插件依赖和 README 的“支持的数据库”表格。生成后需要替换 `META-INF/pluginIcon.svg` 为真实数据库图标，并检查 README 表格中自动填入的方言、JDBC 协议和 Maven 信息。
-
 
 新增一个数据库 Driver Integration 插件时，需要添加或修改以下内容：
 
@@ -121,77 +123,11 @@ extensions.configure<DatabaseArtifactConfigExtension>("databaseArtifactConfig") 
 日志出现```Multiple DBMS registered with id=``` 说明这个ID被占用了
 ```com.intellij.database.dialects.generic.GenericDbms``` 查看具体，重复统计的情况下共有74个被占用，
 
-ATHENA   
-AZURE   
-BIGQUERY   
-CASSANDRA   
-CLICKHOUSE   
-CLOUD_SPANNER   
-COCKROACH   
-COUCHBASE   
-CRATE   
-DATABRICKS   
-DB2   
-DB2_IS   
-DB2_LUW   
-DB2_ZOS   
-DENODO   
-DERBY   
-DRILL   
-DUCKDB   
-DYNAMO   
-ELASTICSEARCH   
-EXASOL   
-FILEMAKER   
-FIREBIRD   
-FRONTBASE   
-GBASE   
-GITBASE   
-GREENPLUM   
-H2   
-HANA   
-HIVE   
-HSQLDB   
-IGNITE   
-IMPALA   
-INFLUXDB   
-INFORMIX   
-INGRES   
-IRIS   
-KDB   
-MARIADB   
-MEMSQL   
-MONET   
-MONGO   
-MSACCESS   
-MSSQL   
-MSSQL_LOCALDB   
-MYSQL   
-MYSQL_AURORA   
-NETEZZA   
-NETSUITE   
-OCEANBASE   
-OPENEDGE   
-ORACLE   
-PHOENIX   
-POSTGRES   
-PRESTO   
-REDIS   
-REDSHIFT   
-SALESFORCE   
-SNOWFLAKE   
-SPARK   
-SQLANYWHERE   
-SQLITE   
-SYBASE   
-SYNAPSE   
-TERADATA   
-TIBERO   
-TIDB   
-TIMESTREAM   
-TRINO   
-UNKNOWN   
-VERTICA   
-VITESS   
-YUGABYTE   
-ZEN   
+
+> DBMS id
+
+ATHENA,AZURE,BIGQUERY,CASSANDRA,CLICKHOUSE,CLOUD_SPANNER,COCKROACH,COUCHBASE,CRATE,DATABRICKS,DB2,DB2_IS,DB2_LUW,DB2_ZOS,DENODO,DERBY,DRILL,DUCKDB,DYNAMO,ELASTICSEARCH,EXASOL,FILEMAKER,FIREBIRD,FRONTBASE,GBASE,GITBASE,GREENPLUM,H2,HANA,HIVE,HSQLDB,IGNITE,IMPALA,INFLUXDB,INFORMIX,INGRES,IRIS,KDB,MARIADB,MEMSQL,MONET,MONGO,MSACCESS,MSSQL,MSSQL_LOCALDB,MYSQL,MYSQL_AURORA,NETEZZA,NETSUITE,OCEANBASE,OPENEDGE,ORACLE,PHOENIX,POSTGRES,PRESTO,REDIS,REDSHIFT,SALESFORCE,SNOWFLAKE,SPARK,SQLANYWHERE,SQLITE,SYBASE,SYNAPSE,TERADATA,TIBERO,TIDB,TIMESTREAM,TRINO,UNKNOWN,VERTICA,VITESS,YUGABYTE,ZEN
+
+> dialect
+
+AZURE,BigQuery,CassandraQL,ClickHouse,Cockroach,CouchbaseQuery,DB2,Databricks,Derby,Dynamo,Exasol,GenericSQL,Greenplum,H2,HSQLDB,HiveQL,MariaDB,MongoJS,MySQL,Oracle,PostgreSQL,Redis,Redshift,SQLite,Snowflake,SparkSQL,Sybase,TSQL,Vertica

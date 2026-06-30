@@ -21,6 +21,7 @@ val databaseDriverPluginProjects = listOf(
     ":opengauss-driver-integration",
     ":yashandb-driver-integration",
     ":analyticdb-driver-integration",
+    ":dolphindb-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(
@@ -49,24 +50,24 @@ configure(pluginProjects.map { project(it) }) {
         group = chineseDatabaseDriversTaskGroup
     }
 
+    val cleanTask = tasks.named("clean")
+    val cleanSandboxTask = tasks.named("cleanSandbox")
+    val runIdeTask = tasks.named("runIde")
+
     tasks.register("cleanSandboxRunIde") {
         group = chineseDatabaseDriversTaskGroup
         description = "Runs clean, cleanSandbox, and runIde in order."
 
-        val cleanTask = tasks.named("clean")
-        val cleanSandboxTask = tasks.named("cleanSandbox")
-        val runIdeTask = tasks.named("runIde")
-
         dependsOn(cleanTask)
         dependsOn(cleanSandboxTask)
         dependsOn(runIdeTask)
+    }
 
-        cleanSandboxTask.configure {
-            mustRunAfter(cleanTask)
-        }
-        runIdeTask.configure {
-            mustRunAfter(cleanSandboxTask)
-        }
+    cleanSandboxTask.configure {
+        mustRunAfter(cleanTask)
+    }
+    runIdeTask.configure {
+        mustRunAfter(cleanSandboxTask)
     }
 
     dependencies {
