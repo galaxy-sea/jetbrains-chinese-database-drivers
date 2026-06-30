@@ -16,6 +16,7 @@ include(
     "dolphindb-driver-integration",
     "panweidb-driver-integration",
     "kaiwudb-driver-integration",
+    "selectdb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

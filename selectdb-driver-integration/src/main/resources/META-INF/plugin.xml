@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.selectdb-driver-integration</id>
+    <name>SelectDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides SelectDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="SELECTDB" instance="plus.wcj.jetbrains.plugins.selectdb.SelectDBDatabaseDbms.SELECTDB"/>
+        <extensionFallback dbms="SELECTDB" fallbackDbms="MYSQL"/>
+        <addToHSet item="SELECTDB" set="MYSQL_LIKE"/>
+        <addToHSet item="SELECTDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="SELECTDB_MYSQL" instance="plus.wcj.jetbrains.plugins.selectdb.SelectDBDatabaseDbms.SELECTDB_MYSQL"/>
+        <extensionFallback dbms="SELECTDB_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="SELECTDB_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="SELECTDB_MYSQL" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

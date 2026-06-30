@@ -21,4 +21,5 @@
     <depends>plus.wcj.jetbrains.plugins.dolphindb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.panweidb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.kaiwudb-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.selectdb-driver-integration</depends>
 </idea-plugin>
