@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<artifacts>
+  <artifact id="XuguDB Driver" name="XuguDB Driver">
+    <version version="12.3.8">
+      <item type="maven" url="com.xugudb:xugu-jdbc:12.3.8"/>
+      <channel id="stable"/>
+    </version>
+    <version version="12.2.0">
+      <item type="maven" url="com.xugudb:xugu-jdbc:12.2.0"/>
+    </version>
+    <version version="12.1.12">
+      <item type="maven" url="com.xugudb:xugu-jdbc:12.1.12"/>
+    </version>
+  </artifact>
+</artifacts>

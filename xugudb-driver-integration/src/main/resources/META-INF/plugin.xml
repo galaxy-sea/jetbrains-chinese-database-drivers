@@ -1,0 +1,21 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.xugudb-driver-integration</id>
+    <name>XuguDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides XuguDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="XUGUDB" instance="plus.wcj.jetbrains.plugins.xugudb.XuguDBDatabaseDbms.XUGUDB"/>
+        <extensionFallback dbms="XUGUDB" fallbackDbms="ORACLE"/>
+        <addToHSet item="XUGUDB" set="ORACLE_LIKE"/>
+        <addToHSet item="XUGUDB" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>
