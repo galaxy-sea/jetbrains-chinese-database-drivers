@@ -27,6 +27,8 @@ val pluginProjects = databaseDriverPluginProjects + listOf(
     ":chinese-database-driver-integrations-pack",
 )
 
+val chineseDatabaseDriversTaskGroup = "Chinese Database Drivers"
+
 subprojects {
     apply(plugin = "org.jetbrains.kotlin.jvm")
 
@@ -42,6 +44,30 @@ subprojects {
 
 configure(pluginProjects.map { project(it) }) {
     apply(plugin = "org.jetbrains.intellij.platform")
+
+    tasks.matching { it.name in setOf("clean", "build", "cleanSandbox", "buildPlugin", "runIde") }.configureEach {
+        group = chineseDatabaseDriversTaskGroup
+    }
+
+    tasks.register("cleanSandboxRunIde") {
+        group = chineseDatabaseDriversTaskGroup
+        description = "Runs clean, cleanSandbox, and runIde in order."
+
+        val cleanTask = tasks.named("clean")
+        val cleanSandboxTask = tasks.named("cleanSandbox")
+        val runIdeTask = tasks.named("runIde")
+
+        dependsOn(cleanTask)
+        dependsOn(cleanSandboxTask)
+        dependsOn(runIdeTask)
+
+        cleanSandboxTask.configure {
+            mustRunAfter(cleanTask)
+        }
+        runIdeTask.configure {
+            mustRunAfter(cleanSandboxTask)
+        }
+    }
 
     dependencies {
         extensions.configure<IntelliJPlatformDependenciesExtension>("intellijPlatform") {
@@ -78,7 +104,7 @@ configure(databaseDriverPluginProjects.map { project(it) }) {
 }
 
 tasks.register("buildAllPlugins") {
-    group = "build"
+    group = chineseDatabaseDriversTaskGroup
     description = "Builds all database driver integration plugin distributions."
     dependsOn(pluginProjects.map { project(it).tasks.named("buildPlugin") })
 }
