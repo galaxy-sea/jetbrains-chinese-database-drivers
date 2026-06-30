@@ -340,7 +340,7 @@ public class CreateDriverIntegrationModule {
 
     private static void updateReadmeSupportedDatabases(Path file, Options options) throws IOException {
         String text = read(file);
-        String databaseCell = "`" + options.displayName + "`<br>待适配";
+        String databaseCell = "`" + options.displayName + "`<br>测试中";
         if (text.contains("| " + databaseCell)) {
             return;
         }

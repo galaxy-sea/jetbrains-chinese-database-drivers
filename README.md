@@ -25,7 +25,7 @@
 | `DolphinDB`<br>测试中              | `GenericSQL`                            | `jdbc:dolphindb`                                                                                                         | `com.dolphindb:jdbc`                                            |
 | `PanWeiDB(磐维数据库)`<br>测试中        | PostgreSQL                              | PanWeiDB:<br>`org.panweidb.Driver`<br>PanWeiDB (PostgreSQL)                                                              | ~~GAV~~ 用户自行导入JAR包                                              |
 | `KaiwuDB`<br>测试中                | PostgreSQL                              | `jdbc:kaiwudb`                                                                                                           | `com.kaiwudb:kaiwudb-jdbc`                                      |
-| `SelectDB`<br>待适配 | MySQL |  |  |
+| `SelectDB`<br>测试中 | MySQL |  |  |
 
 进度状态：待适配、开发中、测试中、已发布。
 
