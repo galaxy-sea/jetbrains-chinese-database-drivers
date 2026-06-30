@@ -22,6 +22,7 @@ val databaseDriverPluginProjects = listOf(
     ":yashandb-driver-integration",
     ":analyticdb-driver-integration",
     ":dolphindb-driver-integration",
+    ":panweidb-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(

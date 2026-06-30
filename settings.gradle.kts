@@ -14,6 +14,7 @@ include(
     "yashandb-driver-integration",
     "analyticdb-driver-integration",
     "dolphindb-driver-integration",
+    "panweidb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

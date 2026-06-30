@@ -366,30 +366,11 @@ public class CreateDriverIntegrationModule {
     }
 
     private static String readmeJdbcProtocols(Options options) {
-        List<ReadmeJdbcProtocol> protocols = new ArrayList<>();
-        String primaryProtocol = options.driverClass != null
-            ? jdbcProtocol(options.jdbcPrefix)
-            : jdbcProtocolForBasedOn(options.basedOn);
-        if (primaryProtocol != null) {
-            protocols.add(new ReadmeJdbcProtocol(options.displayName, primaryProtocol));
-        }
-        for (String jetbrainsModel : options.jetbrainsModels) {
-            String protocol = jdbcProtocolForBasedOn(Options.defaultBasedOn(jetbrainsModel));
-            if (protocol != null) {
-                protocols.add(new ReadmeJdbcProtocol(options.displayName + " (" + jetBrainsModelDisplayName(jetbrainsModel) + ")", protocol));
-            }
-        }
-        if (protocols.isEmpty()) {
+        if (options.driverClass == null) {
             return "";
         }
-        if (protocols.size() == 1) {
-            return "`" + protocols.get(0).protocol() + "`";
-        }
-        List<String> values = new ArrayList<>();
-        for (ReadmeJdbcProtocol protocol : protocols) {
-            values.add(protocol.name() + ":<br>`" + protocol.protocol() + "`");
-        }
-        return String.join("<br>", values);
+        String protocol = jdbcProtocol(options.jdbcPrefix);
+        return protocol == null ? "" : "`" + protocol + "`";
     }
 
     private static String readmeMavenArtifacts(Options options) {
@@ -413,21 +394,6 @@ public class CreateDriverIntegrationModule {
         return jdbcPrefix.trim()
             .replaceAll("//$", "")
             .replaceAll(":$", "");
-    }
-
-    private static String jdbcProtocolForBasedOn(String basedOn) {
-        if (basedOn == null) {
-            return null;
-        }
-        return switch (basedOn) {
-            case "mysql.8" -> "jdbc:mysql";
-            case "oracle.19" -> "jdbc:oracle:thin";
-            case "postgresql" -> "jdbc:postgresql";
-            default -> null;
-        };
-    }
-
-    private record ReadmeJdbcProtocol(String name, String protocol) {
     }
 
     private static String read(Path path) throws IOException {

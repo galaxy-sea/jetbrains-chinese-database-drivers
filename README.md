@@ -17,12 +17,13 @@
 | `KingBase`<br>测试中               | `PostgreSQL`                            | `jdbc:kingbase8`                                                                                                         | `cn.com.kingbase:kingbase8`                                     |
 | `PolarDB`<br>测试中                | `MySQL(默认)`<br>`PostgreSQL`<br>`Oracle` | PolarDB:<br>`jdbc:mysql`<br>PolarDB-X:<br>`jdbc:polardbx`<br>PolarDB (MySQL)<br>PolarDB (PostgreSQL)<br>PolarDB (Oracle) | `com.alibaba.polardbx:polardbx-connector-java`                  |
 | `GoldenDB`<br>开发中-实验性           | `MySQL`                                 | `jdbc:mysql`                                                                                                             |                                                                 |
-| ~TiDB~                          | JetBrains已支持                            |
+| ~~TiDB~~                        | JetBrains已支持                            |
 | `GBase 8s`<br>测试中               | `Oracle`                                | GBase 8s:<br>`jdbc:gbasedbt-sqli`                                                                                        | GBase 8s:<br>`com.gbasedbt:jdbc`                                |
 | `openGauss`<br>`GaussDB`<br>测试中 | `PostgreSQL`                            | openGauss:<br>`jdbc:opengauss`<br>GaussDB:<br>`jdbc:gaussdb`<br>openGauss (PostgreSQL)                                   | `org.opengauss:opengauss-jdbc`<br>`com.huaweicloud:gaussdbjdbc` |
-| `YashanDB`<br>测试中               | Oracle(默认)<br>MySQL                     | YashanDB:<br>`jdbc:yashandb`<br>YashanDB (MySQL):<br>`jdbc:mysql`                                                        | `com.yashandb:yashandb-jdbc`                                    |
-| `AnalyticDB`<br>测试中             | MySQL(默认)<br>PostgreSQL                 | AnalyticDB:<br>`jdbc:mysql`<br>AnalyticDB (MySQL):<br>`jdbc:mysql`<br>AnalyticDB (PostgreSQL):<br>`jdbc:postgresql`      |                                                                 |
+| `YashanDB`<br>测试中               | Oracle(默认)<br>MySQL                     | YashanDB:<br>`jdbc:yashandb`<br>YashanDB (MySQL)                                                                         | `com.yashandb:yashandb-jdbc`                                    |
+| `AnalyticDB`<br>测试中             | MySQL(默认)<br>PostgreSQL                 | AnalyticDB:<br>`jdbc:mysql`<br>AnalyticDB (MySQL)<br>AnalyticDB (PostgreSQL)                                             |                                                                 |
 | `DolphinDB`<br>测试中              | `GenericSQL`                            | `jdbc:dolphindb`                                                                                                         | `com.dolphindb:jdbc`                                            |
+| `PanWeiDB(磐维数据库)`<br>测试中        | PostgreSQL                              | PanWeiDB:<br>`org.panweidb.Driver`<br>PanWeiDB (PostgreSQL)                                                              | ~~GAV~~ 用户自行导入JAR包                                              |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -51,15 +52,13 @@ java scripts/CreateDriverIntegrationModule.java \
 
 ```shell
 java scripts/CreateDriverIntegrationModule.java \
-  --name ExampleDB \
-  --fallback MYSQL \
-  --driver-class com.example.Driver \
-  --default-port 3306 \
-  --jdbc-prefix jdbc:example: \
-  --maven com.example:example-jdbc \
-  # --jetbrains-model MYSQL \
-  # --jetbrains-model POSTGRES \
-  # --jetbrains-model ORACLE
+  --name PanWeiDB \
+  --fallback POSTGRES \
+  --driver-class org.panweidb.Driver \
+  --default-port 15400 \
+  --jdbc-prefix jdbc:postgresql: \
+  --maven org.postgresql.Driver \
+  --jetbrains-model POSTGRES
 ```
 
 `--fallback` 可选值：

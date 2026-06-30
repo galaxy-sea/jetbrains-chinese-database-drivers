@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="panweidb" name="PanWeiDB" icon="/icons/driversIcon.svg" dialect="PostgreSQL" forced-dbms="PANWEIDB" group-with="panweidb" driver-class="org.panweidb.Driver">
+    <url-template name="default" template="jdbc:panweidb://{host::localhost}[:{port::15400}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
+    <artifact id="PanWeiDB Driver" use="true" rolling="true"/>
+    <option name="auto-sync" value="true"/>
+  </driver>
+  <driver id="panweidb-postgres" name="PanWeiDB (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="PANWEIDB_POSTGRES" group-with="panweidb" based-on="postgresql">
+    <remarks>PanWeiDB</remarks>
+  </driver>
+</drivers>

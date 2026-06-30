@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.panweidb-driver-integration</id>
+    <name>PanWeiDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides PanWeiDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="PANWEIDB" instance="plus.wcj.jetbrains.plugins.panweidb.PanWeiDBDatabaseDbms.PANWEIDB"/>
+        <extensionFallback dbms="PANWEIDB" fallbackDbms="POSTGRES"/>
+        <addToHSet item="PANWEIDB" set="POSTGRES_LIKE"/>
+        <addToHSet item="PANWEIDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="PANWEIDB_POSTGRES" instance="plus.wcj.jetbrains.plugins.panweidb.PanWeiDBDatabaseDbms.PANWEIDB_POSTGRES"/>
+        <extensionFallback dbms="PANWEIDB_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="PANWEIDB_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="PANWEIDB_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>
