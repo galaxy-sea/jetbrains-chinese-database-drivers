@@ -24,6 +24,7 @@
 | `AnalyticDB`<br>测试中             | MySQL(默认)<br>PostgreSQL                 | AnalyticDB:<br>`jdbc:mysql`<br>AnalyticDB (MySQL)<br>AnalyticDB (PostgreSQL)                                             |                                                                 |
 | `DolphinDB`<br>测试中              | `GenericSQL`                            | `jdbc:dolphindb`                                                                                                         | `com.dolphindb:jdbc`                                            |
 | `PanWeiDB(磐维数据库)`<br>测试中        | PostgreSQL                              | PanWeiDB:<br>`org.panweidb.Driver`<br>PanWeiDB (PostgreSQL)                                                              | ~~GAV~~ 用户自行导入JAR包                                              |
+| `KaiwuDB`<br>测试中                | PostgreSQL                              | `jdbc:kaiwudb`                                                                                                           | `com.kaiwudb:kaiwudb-jdbc`                                      |
 
 进度状态：待适配、开发中、测试中、已发布。
 

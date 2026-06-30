@@ -1,0 +1,21 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.kaiwudb-driver-integration</id>
+    <name>KaiwuDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides KaiwuDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="KAIWUDB" instance="plus.wcj.jetbrains.plugins.kaiwudb.KaiwuDBDatabaseDbms.KAIWUDB"/>
+        <extensionFallback dbms="KAIWUDB" fallbackDbms="POSTGRES"/>
+        <addToHSet item="KAIWUDB" set="POSTGRES_LIKE"/>
+        <addToHSet item="KAIWUDB" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>
