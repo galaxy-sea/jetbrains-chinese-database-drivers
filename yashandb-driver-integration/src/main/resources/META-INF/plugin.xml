@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.yashandb-driver-integration</id>
+    <name>YashanDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides YashanDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="YASHANDB" instance="plus.wcj.jetbrains.plugins.yashandb.YashanDBDatabaseDbms.YASHANDB"/>
+        <extensionFallback dbms="YASHANDB" fallbackDbms="ORACLE"/>
+        <addToHSet item="YASHANDB" set="ORACLE_LIKE"/>
+        <addToHSet item="YASHANDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="YASHANDB_MYSQL" instance="plus.wcj.jetbrains.plugins.yashandb.YashanDBDatabaseDbms.YASHANDB_MYSQL"/>
+        <extensionFallback dbms="YASHANDB_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="YASHANDB_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="YASHANDB_MYSQL" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

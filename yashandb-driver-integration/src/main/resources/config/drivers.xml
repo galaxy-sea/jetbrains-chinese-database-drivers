@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="yashandb" name="YashanDB" icon="/icons/driversIcon.svg" dialect="Oracle" forced-dbms="YASHANDB" group-with="yashandb" driver-class="com.yashandb.Driver">
+    <url-template name="default" template="jdbc:yashandb://{host::localhost}[:{port::1688}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
+    <artifact id="YashanDB Driver" use="true" rolling="true"/>
+    <option name="auto-sync" value="true"/>
+  </driver>
+  <driver id="yashandb-mysql" name="YashanDB (MySQL)" icon="/icons/driversIcon.svg" forced-dbms="YASHANDB_MYSQL" group-with="yashandb" based-on="mysql.8">
+    <remarks>YashanDB</remarks>
+  </driver>
+</drivers>

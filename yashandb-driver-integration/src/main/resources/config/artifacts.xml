@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<artifacts>
+  <artifact id="YashanDB Driver" name="YashanDB Driver">
+    <version version="1.9.27">
+      <item type="maven" url="com.yashandb:yashandb-jdbc:1.9.27"/>
+      <channel id="stable"/>
+    </version>
+    <version version="1.7.10">
+      <item type="maven" url="com.yashandb:yashandb-jdbc:1.7.10"/>
+    </version>
+    <version version="1.6.1">
+      <item type="maven" url="com.yashandb:yashandb-jdbc:1.6.1"/>
+    </version>
+    <version version="1.4.0">
+      <item type="maven" url="com.yashandb:yashandb-jdbc:1.4.0"/>
+    </version>
+  </artifact>
+</artifacts>

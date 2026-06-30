@@ -11,6 +11,7 @@ include(
     "goldendb-driver-integration",
     "gbase-driver-integration",
     "opengauss-driver-integration",
+    "yashandb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

@@ -18,6 +18,7 @@
 | ~TiDB~                          | JetBrains已支持                            |
 | `GBase 8s`<br>测试中               | `Oracle`                                | GBase 8s:<br>`jdbc:gbasedbt-sqli`                                                                                        | GBase 8s:<br>`com.gbasedbt:jdbc`                                |
 | `openGauss`<br>`GaussDB`<br>测试中 | `PostgreSQL`                            | openGauss:<br>`jdbc:opengauss`<br>GaussDB:<br>`jdbc:gaussdb`<br>openGauss (PostgreSQL)                                   | `org.opengauss:opengauss-jdbc`<br>`com.huaweicloud:gaussdbjdbc` |
+| `YashanDB`<br>测试中               | Oracle(默认)<br>MySQL                     | YashanDB:<br>`jdbc:yashandb`<br>YashanDB (MySQL):<br>`jdbc:mysql`                                                        | `com.yashandb:yashandb-jdbc`                                    |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -62,10 +63,10 @@ java scripts/CreateDriverIntegrationModule.java \
 
 `--jetbrains-model` 只用于额外增加复用 JetBrains 内置数据模型的 driver 标签，该参数可以重复传入：
 
-| jetbrains-model | 生成的官方驱动配置 |
-|-----------------|----------------|
-| `MYSQL`         | `based-on="mysql.8"` |
-| `ORACLE`        | `based-on="oracle.19"` |
+| jetbrains-model | 生成的官方驱动配置               |
+|-----------------|-------------------------|
+| `MYSQL`         | `based-on="mysql.8"`    |
+| `ORACLE`        | `based-on="oracle.19"`  |
 | `POSTGRES`      | `based-on="postgresql"` |
 
 例如 `--fallback MYSQL --jetbrains-model ORACLE --jetbrains-model POSTGRES` 会保留主驱动的 MySQL fallback 行为，并额外生成 Oracle/PostgreSQL 官方模型的 driver 标签。
