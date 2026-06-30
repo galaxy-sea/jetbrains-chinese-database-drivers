@@ -52,13 +52,15 @@ java scripts/CreateDriverIntegrationModule.java \
 
 ```shell
 java scripts/CreateDriverIntegrationModule.java \
-  --name PanWeiDB \
-  --fallback POSTGRES \
-  --driver-class org.panweidb.Driver \
-  --default-port 15400 \
-  --jdbc-prefix jdbc:postgresql: \
-  --maven org.postgresql.Driver \
-  --jetbrains-model POSTGRES
+  --name ExampleDB \
+  --fallback MYSQL \
+  --driver-class com.example.Driver \
+  --default-port 3306 \
+  --jdbc-prefix jdbc:example: \
+  --maven com.example:example-jdbc \
+  # --jetbrains-model MYSQL \
+  # --jetbrains-model POSTGRES \
+  # --jetbrains-model ORACLE
 ```
 
 `--fallback` 可选值：
