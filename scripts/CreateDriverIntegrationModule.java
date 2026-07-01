@@ -671,7 +671,9 @@ public class CreateDriverIntegrationModule {
         }
 
         private static String normalizeId(String value) {
-            String normalized = value.trim().toLowerCase(Locale.ROOT).replaceAll("[^a-z0-9]+", "-").replaceAll("^-|-$", "");
+            String normalized = value.trim()
+                .toLowerCase(Locale.ROOT)
+                .replaceAll("[^a-z0-9]+", "");
             if (normalized.isBlank()) {
                 throw new IllegalArgumentException("Invalid --id: " + value);
             }
@@ -687,7 +689,9 @@ public class CreateDriverIntegrationModule {
         }
 
         private static String normalizeDbmsId(String value) {
-            String normalized = value.trim().toUpperCase(Locale.ROOT).replaceAll("[^A-Z0-9]+", "_").replaceAll("^_|_$", "");
+            String normalized = value.trim()
+                .toUpperCase(Locale.ROOT)
+                .replaceAll("[^A-Z0-9]+", "");
             if (normalized.isBlank()) {
                 throw new IllegalArgumentException("Invalid DBMS value: " + value);
             }
