@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.cloudwave-driver-integration</id>
+    <name>CloudWave Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides CloudWave JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="CLOUDWAVE" instance="plus.wcj.jetbrains.plugins.cloudwave.CloudWaveDatabaseDbms.CLOUDWAVE"/>
+        <extensionFallback dbms="CLOUDWAVE" fallbackDbms="POSTGRES"/>
+        <addToHSet item="CLOUDWAVE" set="POSTGRES_LIKE"/>
+        <addToHSet item="CLOUDWAVE" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="CLOUDWAVE_POSTGRES" instance="plus.wcj.jetbrains.plugins.cloudwave.CloudWaveDatabaseDbms.CLOUDWAVE_POSTGRES"/>
+        <extensionFallback dbms="CLOUDWAVE_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="CLOUDWAVE_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="CLOUDWAVE_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

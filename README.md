@@ -30,7 +30,8 @@
 | `HaishanDB`<br>`He3DB`<br>测试中   | HaishanDB[PostgreSQL]<br>He3DB[PostgreSQL]<br>HaishanDB (PostgreSQL)                                                  | 好像不维护了                                                                     |
 | `Hologres`<br>测试中               | Hologres[PostgreSQL]<br>Hologres (PostgreSQL)                                                                         |                                                                            |
 | ~~Easysearch~~<br>放弃            | 无jdbc驱动                                                                                                               |
-| ~~gStore~~<br>放弃            | 无jdbc驱动                                                                                                               |
+| ~~gStore~~<br>放弃                | 无jdbc驱动                                                                                                               |
+| `CloudWave`<br>测试中              | CloudWave[PostgreSQL]:<br>`jdbc:cloudwave`<br>CloudWave (PostgreSQL)                                                  | ~~GAV~~ 用户自行导入JAR包                                                         |                                               
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -152,10 +153,8 @@ StarRocks
 Apache IoTDB   
 MatrixOne   
 Milvus
+IvorySQL
 
-   
-IvorySQL   
-CloudWave   
 TeleDB   
 TuGraph   
 ArgoDB   

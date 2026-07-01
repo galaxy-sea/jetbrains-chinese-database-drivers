@@ -20,6 +20,7 @@ include(
     "xugudb-driver-integration",
     "haishandb-driver-integration",
     "hologres-driver-integration",
+    "cloudwave-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 
