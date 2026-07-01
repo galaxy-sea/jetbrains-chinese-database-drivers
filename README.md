@@ -43,6 +43,7 @@
 
 复用 JetBrains 官方 JDBC 驱动配置：
 
+使用第三方驱动的
 ```shell
 java scripts/CreateDriverIntegrationModule.java \
   --name ExampleDB \
@@ -137,12 +138,17 @@ ATHENA,AZURE,BIGQUERY,CASSANDRA,CLICKHOUSE,CLOUD_SPANNER,COCKROACH,COUCHBASE,CRA
 
 AZURE,BigQuery,CassandraQL,ClickHouse,Cockroach,CouchbaseQuery,DB2,Databricks,Derby,Dynamo,Exasol,GenericSQL,Greenplum,H2,HSQLDB,HiveQL,MariaDB,MongoJS,MySQL,Oracle,PostgreSQL,Redis,Redshift,SQLite,Snowflake,SparkSQL,Sybase,TSQL,Vertica
 
+> based-on
+
+db2.base,mariadb,mongo.base,mongo_documentdb.base,mysql.8,mysql.base,oracle.base,postgresql,sqlserver.jtds,sqlserver.ms,mariadb,sqlserver.ms,db2.11,db2,db2.jtopen,mongo.4,mongo,documentdb,cockroach,greenplum,tidb,memsql,sqlite.xerial,h2.unified
+
 > 20260701 列表 摩天轮列表会更新，需要在这里将适配过的删除了。
 
 StarRocks   
 Apache IoTDB   
 MatrixOne   
 Milvus   
+
 Hologres   
 Easysearch   
 gStore   
