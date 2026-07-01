@@ -10,23 +10,23 @@
 
 ## 支持的数据库
 
-| 数据库                             | 方言                                      | JDBC 协议                                                                                                                  | Maven                                                           |
-|---------------------------------|-----------------------------------------|--------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| `OceanBase`<br>测试中              | `MySQL(默认)`<br>`Oracle`                 | OceanBase:<br>`jdbc:oceanbase`<br>~~`jdbc:oceanbase:loadbalance`~~ <br>OceanBase (MySQL)<br>OceanBase (Oracle)           | `com.oceanbase:oceanbase-client`                                |
-| `Dameng`<br>测试中                 | `Oracle`                                | `jdbc:dm`                                                                                                                | `com.dameng:DmJdbcDriver8`<br>`com.dameng:DmJdbcDriver11`       |
-| `KingBase`<br>测试中               | `PostgreSQL`                            | `jdbc:kingbase8`                                                                                                         | `cn.com.kingbase:kingbase8`                                     |
-| `PolarDB`<br>测试中                | `MySQL(默认)`<br>`PostgreSQL`<br>`Oracle` | PolarDB:<br>`jdbc:mysql`<br>PolarDB-X:<br>`jdbc:polardbx`<br>PolarDB (MySQL)<br>PolarDB (PostgreSQL)<br>PolarDB (Oracle) | `com.alibaba.polardbx:polardbx-connector-java`                  |
-| `GoldenDB`<br>开发中-实验性           | `MySQL`                                 | `jdbc:mysql`                                                                                                             |                                                                 |
-| ~~TiDB~~                        | JetBrains已支持                            |
-| `GBase 8s`<br>测试中               | `Oracle`                                | GBase 8s:<br>`jdbc:gbasedbt-sqli`                                                                                        | GBase 8s:<br>`com.gbasedbt:jdbc`                                |
-| `openGauss`<br>`GaussDB`<br>测试中 | `PostgreSQL`                            | openGauss:<br>`jdbc:opengauss`<br>GaussDB:<br>`jdbc:gaussdb`<br>openGauss (PostgreSQL)                                   | `org.opengauss:opengauss-jdbc`<br>`com.huaweicloud:gaussdbjdbc` |
-| `YashanDB`<br>测试中               | Oracle(默认)<br>MySQL                     | YashanDB:<br>`jdbc:yashandb`<br>YashanDB (MySQL)                                                                         | `com.yashandb:yashandb-jdbc`                                    |
-| `AnalyticDB`<br>测试中             | MySQL(默认)<br>PostgreSQL                 | AnalyticDB:<br>`jdbc:mysql`<br>AnalyticDB (MySQL)<br>AnalyticDB (PostgreSQL)                                             |                                                                 |
-| `DolphinDB`<br>测试中              | `GenericSQL`                            | `jdbc:dolphindb`                                                                                                         | `com.dolphindb:jdbc`                                            |
-| `PanWeiDB(磐维数据库)`<br>测试中        | PostgreSQL                              | PanWeiDB:<br>`org.panweidb.Driver`<br>PanWeiDB (PostgreSQL)                                                              | ~~GAV~~ 用户自行导入JAR包                                              |
-| `KaiwuDB`<br>测试中                | PostgreSQL                              | `jdbc:kaiwudb`                                                                                                           | `com.kaiwudb:kaiwudb-jdbc`                                      |
-| `SelectDB`<br>测试中 | MySQL |  |  |
-| `XuguDB`<br>测试中 | Oracle | `jdbc:xugu` | `com.xugudb:xugu-jdbc` |
+| 数据库                             | 驱动名称 (驱动) [方言]                                                                                                        | Maven                                                           |
+|---------------------------------|-----------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| `OceanBase`<br>测试中              | OceanBase[MySQL]:<br>`jdbc:oceanbase`<br>~~`jdbc:oceanbase:loadbalance`~~ <br>OceanBase (MySQL)<br>OceanBase (Oracle) | `com.oceanbase:oceanbase-client`                                |
+| `Dameng(达梦数据库)`<br>测试中          | Dameng[Oracle]:<br>`jdbc:dm`                                                                                          | `com.dameng:DmJdbcDriver8`<br>`com.dameng:DmJdbcDriver11`       |
+| `KingBase(金仓数据库)`<br>测试中        | KingBase[PostgreSQL]:<br>`jdbc:kingbase8`                                                                             | `cn.com.kingbase:kingbase8`                                     |
+| `PolarDB`<br>测试中                | PolarDB(MySQL)<br>PolarDB-X[MySQL]:<br>`jdbc:polardbx`<br>PolarDB (PostgreSQL)<br>PolarDB (Oracle)                    | `com.alibaba.polardbx:polardbx-connector-java`                  |
+| `GoldenDB`<br>开发中-实验性           | GoldenDB[MySQL]                                                                                                       |         ~~GAV~~ 用户自行导入JAR包                                                        |
+| ~~TiDB~~                        | JetBrains已支持                                                                                                          |                                                                 |
+| `GBase 8s`<br>测试中               | GBase 8s[Oracle]:<br>`jdbc:gbasedbt-sqli`                                                                             | GBase 8s:<br>`com.gbasedbt:jdbc`                                |
+| `openGauss`<br>`GaussDB`<br>测试中 | openGauss[PostgreSQL]:<br>`jdbc:opengauss`<br>GaussDB[PostgreSQL]:<br>`jdbc:gaussdb`<br>openGauss (PostgreSQL)        | `org.opengauss:opengauss-jdbc`<br>`com.huaweicloud:gaussdbjdbc` |
+| `YashanDB`<br>测试中               | YashanDB[Oracle]:<br>`jdbc:yashandb`<br>YashanDB (MySQL)                                                              | `com.yashandb:yashandb-jdbc`                                    |
+| `AnalyticDB`<br>测试中             | AnalyticDB[MySQL]<br>AnalyticDB (MySQL)<br>AnalyticDB (PostgreSQL)                                                    |                                                                 |
+| `DolphinDB`<br>测试中              | DolphinDB[GenericSQL]:<br>`jdbc:dolphindb`                                                                            | `com.dolphindb:jdbc`                                            |
+| `PanWeiDB(磐维数据库)`<br>测试中        | PanWeiDB[PostgreSQL]:<br>`jdbc:panweidb`<br>PanWeiDB (PostgreSQL)                                                     | ~~GAV~~ 用户自行导入JAR包                                              |
+| `KaiwuDB`<br>测试中                | KaiwuDB[PostgreSQL]:<br>`jdbc:kaiwudb`                                                                                | `com.kaiwudb:kaiwudb-jdbc`                                      |
+| `SelectDB`<br>测试中               | SelectDB[MySQL]<br>SelectDB (MySQL)                                                                                   |                                                                 |
+| `XuguDB(虚谷数据库)`<br>测试中          | XuguDB[Oracle]:<br>`jdbc:xugu`                                                                                        | `com.xugudb:xugu-jdbc`                                          |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -68,12 +68,12 @@ java scripts/CreateDriverIntegrationModule.java \
 
 `--fallback` 可选值：
 
-| fallback     | 自动继承的官方驱动                          | 默认方言         |
-|--------------|------------------------------------|--------------|
-| `MYSQL`      | `mysql.8`                          | `MySQL`      |
-| `ORACLE`     | `oracle.19`                        | `Oracle`     |
-| `POSTGRES`   | `postgresql`                       | `PostgreSQL` |
-| `GENERICSQL` | 不自动继承，fallback 到 JetBrains 通用 DBMS | `GenericSQL` |
+| fallback     | 自动继承的官方驱动    | 默认方言         |
+|--------------|--------------|--------------|
+| `MYSQL`      | `mysql.8`    | `MySQL`      |
+| `ORACLE`     | `oracle.19`  | `Oracle`     |
+| `POSTGRES`   | `postgresql` | `PostgreSQL` |
+| `GENERICSQL` | DBMS         | `GenericSQL` |
 
 `--jetbrains-model` 只用于额外增加复用 JetBrains 内置数据模型的 driver 标签，该参数可以重复传入：
 
@@ -85,7 +85,7 @@ java scripts/CreateDriverIntegrationModule.java \
 
 例如 `--fallback MYSQL --jetbrains-model ORACLE --jetbrains-model POSTGRES` 会保留主驱动的 MySQL fallback 行为，并额外生成 Oracle/PostgreSQL 官方模型的 driver 标签。
 
-脚本会生成 `xxx-driver-integration` 模块，并更新 `settings.gradle.kts`、根 `build.gradle.kts`、Pack 插件依赖和 README 的“支持的数据库”表格。生成后需要替换 `META-INF/pluginIcon.svg` 为真实数据库图标，并检查 README 表格中自动填入的方言、JDBC 协议和 Maven 信息。
+脚本会生成 `xxx-driver-integration` 模块，并更新 `settings.gradle.kts`、根 `build.gradle.kts`、Pack 插件依赖和 README 的“支持的数据库”表格。生成后需要替换 `META-INF/pluginIcon.svg` 为真实数据库图标，并检查 README 表格中自动填入的 JDBC 驱动信息和 Maven 信息。
 
 新增一个数据库 Driver Integration 插件时，需要添加或修改以下内容：
 
@@ -135,3 +135,137 @@ ATHENA,AZURE,BIGQUERY,CASSANDRA,CLICKHOUSE,CLOUD_SPANNER,COCKROACH,COUCHBASE,CRA
 > dialect
 
 AZURE,BigQuery,CassandraQL,ClickHouse,Cockroach,CouchbaseQuery,DB2,Databricks,Derby,Dynamo,Exasol,GenericSQL,Greenplum,H2,HSQLDB,HiveQL,MariaDB,MongoJS,MySQL,Oracle,PostgreSQL,Redis,Redshift,SQLite,Snowflake,SparkSQL,Sybase,TSQL,Vertica
+
+> 20260701 列表 摩天轮列表会更新，需要在这里将适配过的删除了。
+
+StarRocks   
+Apache IoTDB   
+MatrixOne   
+Milvus   
+Hologres   
+Easysearch   
+gStore   
+IvorySQL   
+CloudWave   
+TeleDB   
+TuGraph   
+ArgoDB   
+KingWow   
+HighGoDB   
+神通数据库   
+NebulaGraph   
+GaussDB(DWS)   
+RisingWave   
+GaiaDB   
+Vastbase   
+UXDB   
+EBASE   
+SequoiaDB   
+GreptimeDB   
+GDMBASE   
+万里数据库   
+KBase   
+SourceDB   
+TaurusDB   
+TCHouse   
+SUNDB   
+YMatrix   
+AntDB   
+CnosDB   
+VikingDB   
+openGemini   
+OpenTenBase   
+DBOne   
+MogDB   
+九有数据库   
+RadonDB   
+ByteHouse   
+MuDB   
+BigInsights   
+Kyligence   
+Vearch   
+SymbolGraph   
+嬴图   
+GreatSQL   
+GeminiDB   
+KunDB   
+GoldenData   
+KSMDB   
+uniDB   
+HotDB   
+TcaplusDB   
+Galaxybase   
+OpenMLDB   
+TopGraph   
+Tair   
+HugeGraph   
+腾讯云VectorDB   
+Databend   
+AbutionGraph   
+ByConity   
+KeeWiDB   
+SinoDB   
+HungHuDB   
+Kvrocks   
+TapDB   
+StarDB   
+Lindorm   
+CirroData   
+Hubble   
+Intcube OLAP   
+HyperDB   
+Halo   
+SeaboxSQL   
+LightDB   
+Tendis   
+CISDigital-TimeS   
+BeyonDB   
+HaiRuoVectorDB   
+HHDB   
+pSpace   
+百度云VectorDB   
+KingHistorian   
+ProtonBase   
+HashData   
+DingoDB   
+RapidsDB   
+PieCloudDB   
+ShinDB   
+OushuDB   
+SyncBASE   
+PikiwiDB   
+ChronusDB   
+Beaver   
+Havenask   
+ActionDB   
+Klustron   
+RealHistorian   
+openPlant   
+InDB   
+BGraph   
+ProcessDB   
+CloudberryDB   
+Todis（ToplingDB）   
+HeroDB   
+博流数据库   
+HexaDB   
+TensorDB   
+VeDB   
+TRS Hybase   
+PowerSQL   
+eZooDB   
+GridsumDB   
+SeaSQL   
+LNXDB   
+百度云FusionDB   
+Qcubic   
+PolonDB   
+xigemaDB   
+ArteryBase   
+AtlasGraph   
+ZettaBase   
+CeaSQL   
+CUDB   
+NseaDB   
+Yukon   
+航天天域数据库   

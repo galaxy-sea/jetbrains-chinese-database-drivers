@@ -349,28 +349,32 @@ public class CreateDriverIntegrationModule {
         if (markerIndex < 0) {
             throw new IllegalStateException("Could not find README supported database table insertion marker.");
         }
-        String row = "| " + databaseCell + " | " + readmeDialects(options) + " | " + readmeJdbcProtocols(options) + " | " + readmeMavenArtifacts(options) + " |\n";
+        String row = "| " + databaseCell + " | " + readmeJdbcProtocols(options) + " | " + readmeMavenArtifacts(options) + " |\n";
         write(file, text.substring(0, markerIndex) + row + text.substring(markerIndex));
     }
 
-    private static String readmeDialects(Options options) {
-        List<String> dialects = new ArrayList<>();
-        addUnique(dialects, options.dialect);
+    private static String readmeJdbcProtocols(Options options) {
+        List<String> values = new ArrayList<>();
+        if (options.driverClass != null) {
+            String protocol = jdbcProtocol(options.jdbcPrefix);
+            values.add(options.displayName + "[" + jetBrainsModelDisplayName(options.fallbackDbms) + "]:<br>`" + protocol + "`");
+        }
+        else {
+            values.add(options.displayName + "[" + jetBrainsModelDisplayName(options.fallbackDbms) + "]");
+        }
         for (String jetbrainsModel : options.jetbrainsModels) {
-            addUnique(dialects, Options.defaultDialect(jetbrainsModel));
+            values.add(options.displayName + " (" + jetBrainsModelDisplayName(jetbrainsModel) + ")");
         }
-        if (dialects.size() > 1 && options.dialect != null && !options.dialect.isBlank()) {
-            dialects.set(0, dialects.get(0) + "(默认)");
-        }
-        return String.join("<br>", dialects);
+        return String.join("<br>", values);
     }
 
-    private static String readmeJdbcProtocols(Options options) {
-        if (options.driverClass == null) {
+    private static String jdbcProtocol(String jdbcPrefix) {
+        if (jdbcPrefix == null || jdbcPrefix.isBlank()) {
             return "";
         }
-        String protocol = jdbcProtocol(options.jdbcPrefix);
-        return protocol == null ? "" : "`" + protocol + "`";
+        return jdbcPrefix.trim()
+            .replaceAll("//$", "")
+            .replaceAll(":$", "");
     }
 
     private static String readmeMavenArtifacts(Options options) {
@@ -379,21 +383,6 @@ public class CreateDriverIntegrationModule {
             values.add("`" + mavenArtifact + "`");
         }
         return String.join("<br>", values);
-    }
-
-    private static void addUnique(List<String> values, String value) {
-        if (value != null && !value.isBlank() && !values.contains(value)) {
-            values.add(value);
-        }
-    }
-
-    private static String jdbcProtocol(String jdbcPrefix) {
-        if (jdbcPrefix == null || jdbcPrefix.isBlank()) {
-            return null;
-        }
-        return jdbcPrefix.trim()
-            .replaceAll("//$", "")
-            .replaceAll(":$", "");
     }
 
     private static String read(Path path) throws IOException {
