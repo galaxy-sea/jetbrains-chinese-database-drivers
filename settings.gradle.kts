@@ -27,6 +27,7 @@ include(
     "apacheiotdb-driver-integration",
     "kingwow-driver-integration",
     "highgodb-driver-integration",
+    "matrixone-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

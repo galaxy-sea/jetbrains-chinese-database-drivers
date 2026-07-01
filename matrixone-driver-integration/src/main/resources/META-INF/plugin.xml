@@ -17,5 +17,10 @@
         <extensionFallback dbms="MATRIXONE" fallbackDbms="MYSQL"/>
         <addToHSet item="MATRIXONE" set="MYSQL_LIKE"/>
         <addToHSet item="MATRIXONE" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="MATRIXONE_MYSQL" instance="plus.wcj.jetbrains.plugins.matrixone.MatrixOneDatabaseDbms.MATRIXONE_MYSQL"/>
+        <extensionFallback dbms="MATRIXONE_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="MATRIXONE_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="MATRIXONE_MYSQL" set="PSEUDO_SUPPORTED"/>
     </extensions>
 </idea-plugin>

@@ -35,6 +35,7 @@ val databaseDriverPluginProjects = listOf(
     ":kingwow-driver-integration",
     ":apacheiotdb-driver-integration",
     ":highgodb-driver-integration",
+    ":matrixone-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(

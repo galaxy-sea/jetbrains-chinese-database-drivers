@@ -38,6 +38,7 @@
 | `StarRocks`<br>测试中 | StarRocks[MySQL]:<br>`jdbc:starrocks`<br>StarRocks (MySQL) | `com.starrocks:starrocks-connector-j` |
 | `Apache IoTDB`<br>测试中 | Apache IoTDB[GenericSQL]:<br>`jdbc:iotdb`<br>Apache IoTDB (Hive) | `org.apache.iotdb:iotdb-jdbc` |
 | `HighgoDB`<br>测试中 | HighgoDB[PostgreSQL]:<br>`jdbc:highgo`<br>HighgoDB (PostgreSQL) | `com.highgo:HgdbJdbc` |
+| `MatrixOne`<br>测试中 | MatrixOne[MySQL]<br>MatrixOne (MySQL) |  |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -159,7 +160,6 @@ db2.base,mariadb,mongo.base,mongo_documentdb.base,mysql.8,mysql.base,oracle.base
 
 > 20260701 列表 摩天轮列表会更新，需要在这里将适配过的删除了。
 
-MatrixOne   
 Milvus
 IvorySQL
 TuGraph
