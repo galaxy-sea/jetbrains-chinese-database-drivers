@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <artifacts>
-  <artifact id="ApacheIoTDB Driver" name="ApacheIoTDB Driver">
+  <artifact id="Apache IoTDB Driver" name="Apache IoTDB Driver">
     <version version="2.0.8">
       <item type="maven" url="org.apache.iotdb:iotdb-jdbc:2.0.8"/>
       <channel id="stable"/>

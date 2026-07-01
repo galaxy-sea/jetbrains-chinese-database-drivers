@@ -1,10 +1,10 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.apacheiotdb-driver-integration</id>
-    <name>ApacheIoTDB Driver Integration</name>
+    <name>Apache IoTDB Driver Integration</name>
     <vendor>plus.wcj</vendor>
 
     <description><![CDATA[
-        Provides ApacheIoTDB JDBC driver connection metadata for JetBrains IDEs.
+        Provides Apache IoTDB JDBC driver connection metadata for JetBrains IDEs.
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

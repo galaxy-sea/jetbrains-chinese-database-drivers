@@ -557,6 +557,11 @@ public class CreateDriverIntegrationModule {
                 else if (key.equals("jetbrains-model")) {
                     options.jetbrainsModels.add(requireValue(args, ++index, arg));
                 }
+                else if (key.equals("name")) {
+                    ValueResult value = requireDisplayNameValue(args, ++index, arg);
+                    singleValues.put(key, value.value());
+                    index = value.index();
+                }
                 else {
                     singleValues.put(key, requireValue(args, ++index, arg));
                 }
@@ -643,6 +648,20 @@ public class CreateDriverIntegrationModule {
                 throw new IllegalArgumentException("Missing value for " + option);
             }
             return args[index];
+        }
+
+        private static ValueResult requireDisplayNameValue(String[] args, int index, String option) {
+            if (index >= args.length || args[index].startsWith("--")) {
+                throw new IllegalArgumentException("Missing value for " + option);
+            }
+            StringBuilder value = new StringBuilder(args[index]);
+            while (index + 1 < args.length && !args[index + 1].startsWith("--")) {
+                value.append(' ').append(args[++index]);
+            }
+            return new ValueResult(value.toString(), index);
+        }
+
+        private record ValueResult(String value, int index) {
         }
 
         private static void require(String value, String option) {
