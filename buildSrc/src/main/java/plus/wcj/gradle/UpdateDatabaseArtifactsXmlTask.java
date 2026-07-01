@@ -10,7 +10,9 @@ import com.fasterxml.jackson.dataformat.xml.ser.ToXmlGenerator;
 import org.gradle.api.DefaultTask;
 import org.gradle.api.file.RegularFileProperty;
 import org.gradle.api.provider.ListProperty;
+import org.gradle.api.provider.Property;
 import org.gradle.api.tasks.Input;
+import org.gradle.api.tasks.Optional;
 import org.gradle.api.tasks.OutputFile;
 import org.gradle.api.tasks.TaskAction;
 import plus.wcj.gradle.DatabaseArtifactConfigExtension.MavenArtifact;
@@ -32,6 +34,10 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
 
     @Input
     public abstract ListProperty<MavenArtifact> getMavenArtifacts();
+
+    @Input
+    @Optional
+    public abstract Property<String> getVersionSuffix();
 
     @OutputFile
     public abstract RegularFileProperty getArtifactsFile();
@@ -131,7 +137,7 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
     private List<MavenArtifactVersion> selectVersions(List<MavenArtifactVersion> availableVersions) {
         Map<String, MavenArtifactVersion> latestVersionsByMajorVersion = new LinkedHashMap<>();
         availableVersions.stream()
-            .filter(version -> isComparableVersion(version.version()))
+            .filter(version -> isAcceptableVersion(version.version()))
             .filter(version -> !isExcludedVersion(version))
             .filter(version -> numericVersionPartCount(version.version()) >= version.coordinate().majorVersionSegments())
             .sorted(UpdateDatabaseArtifactsXmlTask::compareArtifactVersionsByVersion)
@@ -155,6 +161,21 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
         return false;
     }
 
+    private boolean isAcceptableVersion(String version) {
+        String suffix = getVersionSuffix().getOrElse("");
+        if (!suffix.isBlank()) {
+            String dashSuffix = "-" + suffix;
+            if (!version.endsWith(dashSuffix)) {
+                return false;
+            }
+            // Strip the suffix and require the remainder to be a plain numeric version,
+            // so pre-release variants like "7.0.0-RC3-og" are excluded.
+            String base = version.substring(0, version.length() - dashSuffix.length());
+            return isComparableVersion(base);
+        }
+        return isComparableVersion(version);
+    }
+
     private static boolean isComparableVersion(String version) {
         if (version == null || version.isBlank() || isVersionSeparator(version.charAt(0)) || isVersionSeparator(version.charAt(version.length() - 1))) {
             return false;
@@ -174,6 +195,14 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
                 return false;
             }
             previousWasSeparator = false;
+        }
+        // Reject versions containing any non-numeric segment (e.g. pre-release suffixes
+        // like "RC3" or non-standard ones like "compatibility"). The IDE's downstream
+        // version parser calls Integer.parseInt on each segment and crashes on such parts.
+        for (String part : splitVersion(version)) {
+            if (parseInteger(part) == null) {
+                return false;
+            }
         }
         return true;
     }

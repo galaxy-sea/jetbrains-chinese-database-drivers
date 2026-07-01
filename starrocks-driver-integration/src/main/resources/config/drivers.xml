@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="starrocks" name="StarRocks" icon="/icons/driversIcon.svg" dialect="MySQL" forced-dbms="STARROCKS" group-with="starrocks" driver-class="com.starrocks.cj.jdbc.Driver">
+    <url-template name="default" template="jdbc:starrocks://{host::localhost}[:{port::9030}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
+    <artifact id="StarRocks Driver" use="true" rolling="true"/>
+    <option name="auto-sync" value="true"/>
+  </driver>
+  <driver id="starrocks-mysql" name="StarRocks (MySQL)" icon="/icons/driversIcon.svg" forced-dbms="STARROCKS_MYSQL" group-with="starrocks" based-on="mysql.8">
+    <remarks>StarRocks</remarks>
+  </driver>
+</drivers>

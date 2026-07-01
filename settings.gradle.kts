@@ -23,7 +23,9 @@ include(
     "cloudwave-driver-integration",
     "openteledb-driver-integration",
     "argodb-driver-integration",
+    "starrocks-driver-integration",
     "chinese-database-driver-integrations-pack",
+    "apache-iotdb-driver-integration"
 )
 
 pluginManagement {

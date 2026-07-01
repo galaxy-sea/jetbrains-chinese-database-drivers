@@ -12,6 +12,7 @@
     <depends>plus.wcj.jetbrains.plugins.oceanbase-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.dameng-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.kingbase-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.opengauss-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.polardb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.goldendb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.gbase-driver-integration</depends>
@@ -19,6 +20,7 @@
     <depends>plus.wcj.jetbrains.plugins.yashandb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.analyticdb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.dolphindb-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.starrocks-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.panweidb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.kaiwudb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.selectdb-driver-integration</depends>

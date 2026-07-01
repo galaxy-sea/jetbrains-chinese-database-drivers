@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.starrocks-driver-integration</id>
+    <name>StarRocks Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides StarRocks JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="STARROCKS" instance="plus.wcj.jetbrains.plugins.starrocks.StarRocksDatabaseDbms.STARROCKS"/>
+        <extensionFallback dbms="STARROCKS" fallbackDbms="MYSQL"/>
+        <addToHSet item="STARROCKS" set="MYSQL_LIKE"/>
+        <addToHSet item="STARROCKS" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="STARROCKS_MYSQL" instance="plus.wcj.jetbrains.plugins.starrocks.StarRocksDatabaseDbms.STARROCKS_MYSQL"/>
+        <extensionFallback dbms="STARROCKS_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="STARROCKS_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="STARROCKS_MYSQL" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>
