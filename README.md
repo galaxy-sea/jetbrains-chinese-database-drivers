@@ -37,6 +37,7 @@
 | `Kingwow`<br>测试中 | Kingwow[MySQL]<br>Kingwow (MySQL) |  |
 | `StarRocks`<br>测试中 | StarRocks[MySQL]:<br>`jdbc:starrocks`<br>StarRocks (MySQL) | `com.starrocks:starrocks-connector-j` |
 | `Apache IoTDB`<br>测试中 | Apache IoTDB[GenericSQL]:<br>`jdbc:iotdb`<br>Apache IoTDB (Hive) | `org.apache.iotdb:iotdb-jdbc` |
+| `HighgoDB`<br>测试中 | HighgoDB[PostgreSQL]:<br>`jdbc:highgo`<br>HighgoDB (PostgreSQL) | `com.highgo:HgdbJdbc` |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -163,8 +164,6 @@ Milvus
 IvorySQL
 TuGraph
 
-KingWow   
-HighGoDB   
 神通数据库   
 NebulaGraph   
 GaussDB(DWS)   

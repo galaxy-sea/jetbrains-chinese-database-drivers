@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<artifacts>
+  <artifact id="HighgoDB Driver" name="HighgoDB Driver">
+    <version version="6.2.5">
+      <item type="maven" url="com.highgo:HgdbJdbc:6.2.5"/>
+      <channel id="stable"/>
+    </version>
+    <version version="6.2.4">
+      <item type="maven" url="com.highgo:HgdbJdbc:6.2.4"/>
+    </version>
+    <version version="6.2.3">
+      <item type="maven" url="com.highgo:HgdbJdbc:6.2.3"/>
+    </version>
+    <version version="6.2.2">
+      <item type="maven" url="com.highgo:HgdbJdbc:6.2.2"/>
+    </version>
+    <version version="6.2.1">
+      <item type="maven" url="com.highgo:HgdbJdbc:6.2.1"/>
+    </version>
+    <version version="6.2.0">
+      <item type="maven" url="com.highgo:HgdbJdbc:6.2.0"/>
+    </version>
+  </artifact>
+</artifacts>

@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.highgodb-driver-integration</id>
+    <name>HighgoDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides HighgoDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="HIGHGODB" instance="plus.wcj.jetbrains.plugins.highgodb.HighgoDBDatabaseDbms.HIGHGODB"/>
+        <extensionFallback dbms="HIGHGODB" fallbackDbms="POSTGRES"/>
+        <addToHSet item="HIGHGODB" set="POSTGRES_LIKE"/>
+        <addToHSet item="HIGHGODB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="HIGHGODB_POSTGRES" instance="plus.wcj.jetbrains.plugins.highgodb.HighgoDBDatabaseDbms.HIGHGODB_POSTGRES"/>
+        <extensionFallback dbms="HIGHGODB_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="HIGHGODB_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="HIGHGODB_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

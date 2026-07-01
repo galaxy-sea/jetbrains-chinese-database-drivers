@@ -26,6 +26,7 @@ include(
     "starrocks-driver-integration",
     "apacheiotdb-driver-integration",
     "kingwow-driver-integration",
+    "highgodb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 
