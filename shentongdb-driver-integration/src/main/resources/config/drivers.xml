@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="shentongdb" name="ShentongDB" icon="/icons/driversIcon.svg" dialect="GenericSQL" forced-dbms="SHENTONGDB" driver-class="com.oscar.Driver" group-with="shentongdb">
+    <url-template name="default" template="jdbc:oscar://{host::localhost}[:{port::2003}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
+    <artifact id="ShentongDB Driver" use="true" rolling="true"/>
+    <option name="auto-sync" value="true"/>
+  </driver>
+
+  <driver id="shentongdb-opengauss" name="ShentongDB (openGauss)" icon="/icons/driversIcon.svg" dialect="PostgreSQL" forced-dbms="SHENTONGDB_OPENGAUSS" driver-class="org.opengauss.Driver" group-with="shentongdb">
+    <url-template name="default" template="jdbc:opengauss://{host::localhost}[:{port::5432}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
+    <artifact id="ShentongDB Driver (openGauss)" use="true" rolling="true"/>
+    <option name="auto-sync" value="true"/>
+  </driver>
+
+  <driver id="shentongdb-gaussdb" name="ShentongDB (GaussDB)" icon="/icons/driversIcon.svg" dialect="PostgreSQL" forced-dbms="SHENTONGDB_GAUSSDB" driver-class="com.huawei.gaussdb.jdbc.Driver" group-with="shentongdb">
+    <url-template name="default" template="jdbc:gaussdb://{host::localhost}[:{port::5432}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
+    <artifact id="ShentongDB Driver (GaussDB)" use="true" rolling="true"/>
+    <option name="auto-sync" value="true"/>
+  </driver>
+
+  <driver id="shentongdb-postgresql" name="ShentongDB (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="SHENTONGDB_POSTGRES" based-on="postgresql" group-with="shentongdb">
+  </driver>
+</drivers>

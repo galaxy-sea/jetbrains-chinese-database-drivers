@@ -28,6 +28,7 @@ include(
     "kingwow-driver-integration",
     "highgodb-driver-integration",
     "matrixone-driver-integration",
+    "shentongdb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

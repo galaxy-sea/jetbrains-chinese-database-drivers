@@ -168,8 +168,8 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
             if (!version.endsWith(dashSuffix)) {
                 return false;
             }
-            // Strip the suffix and require the remainder to be a plain numeric version,
-            // so pre-release variants like "7.0.0-RC3-og" are excluded.
+            // Strip the suffix before checking comparable structure. Version labels
+            // are normalized later for artifacts.xml, while exclusions remain explicit.
             String base = version.substring(0, version.length() - dashSuffix.length());
             return isComparableVersion(base);
         }
@@ -195,14 +195,6 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
                 return false;
             }
             previousWasSeparator = false;
-        }
-        // Reject versions containing any non-numeric segment (e.g. pre-release suffixes
-        // like "RC3" or non-standard ones like "compatibility"). The IDE's downstream
-        // version parser calls Integer.parseInt on each segment and crashes on such parts.
-        for (String part : splitVersion(version)) {
-            if (parseInteger(part) == null) {
-                return false;
-            }
         }
         return true;
     }

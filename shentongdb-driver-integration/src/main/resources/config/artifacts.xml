@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<artifacts>
+  <artifact id="ShentongDB Driver" name="ShentongDB Driver">
+    <version version="4.1.152">
+      <item type="maven" url="com.shentongdata:oscarJDBC8:4.1.152"/>
+      <channel id="stable"/>
+    </version>
+  </artifact>
+  <artifact id="ShentongDB Driver openGauss" name="ShentongDB Driver (openGauss)">
+    <version version="6.0.30">
+      <item type="maven" url="org.opengauss:opengauss-jdbc:6.0.3-og"/>
+      <channel id="stable"/>
+    </version>
+    <version version="5.1.00">
+      <item type="maven" url="org.opengauss:opengauss-jdbc:5.1.0-og"/>
+    </version>
+    <version version="5.0.30">
+      <item type="maven" url="org.opengauss:opengauss-jdbc:5.0.3-og"/>
+    </version>
+    <version version="3.1.10">
+      <item type="maven" url="org.opengauss:opengauss-jdbc:3.1.1-og"/>
+    </version>
+    <version version="3.0.50">
+      <item type="maven" url="org.opengauss:opengauss-jdbc:3.0.5-og"/>
+    </version>
+  </artifact>
+  <artifact id="ShentongDB Driver GaussDB" name="ShentongDB Driver (GaussDB)">
+    <version version="02.008.218.0">
+      <item type="maven" url="com.huaweicloud:gaussdbjdbc:v2.0-8.218.0"/>
+      <channel id="stable"/>
+    </version>
+  </artifact>
+</artifacts>

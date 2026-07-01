@@ -1,0 +1,47 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.shentongdb-driver-integration</id>
+    <name>ShentongDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides ShentongDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="SHENTONGDB" instance="plus.wcj.jetbrains.plugins.shentongdb.ShentongDBDatabaseDbms.SHENTONGDB"/>
+        <extensionFallback dbms="SHENTONGDB" fallbackDbms="UNKNOWN"/>
+        <addToHSet item="SHENTONGDB" set="PSEUDO_SUPPORTED"/>
+
+
+        <dbms id="SHENTONGDB_OPENGAUSS" instance="plus.wcj.jetbrains.plugins.opengauss.OpenGaussDatabaseDbms.OPENGAUSS"/>
+        <extensionFallback dbms="SHENTONGDB_OPENGAUSS" fallbackDbms="POSTGRES"/>
+        <addToHSet item="SHENTONGDB_OPENGAUSS" set="POSTGRES_LIKE"/>
+        <addToHSet item="SHENTONGDB_OPENGAUSS" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="SHENTONGDB_GAUSSDB" instance="plus.wcj.jetbrains.plugins.opengauss.OpenGaussDatabaseDbms.GAUSSDB"/>
+        <extensionFallback dbms="SHENTONGDB_GAUSSDB" fallbackDbms="POSTGRES"/>
+        <addToHSet item="SHENTONGDB_GAUSSDB" set="POSTGRES_LIKE"/>
+        <addToHSet item="SHENTONGDB_GAUSSDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="SHENTONGDB_POSTGRES" instance="plus.wcj.jetbrains.plugins.opengauss.OpenGaussDatabaseDbms.OPENGAUSS_POSTGRES"/>
+        <extensionFallback dbms="SHENTONGDB_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="SHENTONGDB_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="SHENTONGDB_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+
+
+
+
+
+
+
+
+
+
+
+</idea-plugin>
