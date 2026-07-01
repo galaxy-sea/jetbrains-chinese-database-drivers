@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.openteledb-driver-integration</id>
+    <name>OpenTeleDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides OpenTeleDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="OPENTELEDB" instance="plus.wcj.jetbrains.plugins.openteledb.OpenTeleDBDatabaseDbms.OPENTELEDB"/>
+        <extensionFallback dbms="OPENTELEDB" fallbackDbms="POSTGRES"/>
+        <addToHSet item="OPENTELEDB" set="POSTGRES_LIKE"/>
+        <addToHSet item="OPENTELEDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="OPENTELEDB_POSTGRES" instance="plus.wcj.jetbrains.plugins.openteledb.OpenTeleDBDatabaseDbms.OPENTELEDB_POSTGRES"/>
+        <extensionFallback dbms="OPENTELEDB_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="OPENTELEDB_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="OPENTELEDB_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="openteledb" name="OpenTeleDB" icon="/icons/driversIcon.svg" forced-dbms="OPENTELEDB" based-on="postgresql" group-with="openteledb">
+    <remarks>OpenTeleDB</remarks>
+  </driver>
+  <driver id="openteledb-postgres" name="OpenTeleDB (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="OPENTELEDB_POSTGRES" based-on="postgresql" group-with="openteledb">
+    <remarks>OpenTeleDB</remarks>
+  </driver>
+</drivers>

@@ -29,6 +29,7 @@ val databaseDriverPluginProjects = listOf(
     ":haishandb-driver-integration",
     ":hologres-driver-integration",
     ":cloudwave-driver-integration",
+    ":openteledb-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(

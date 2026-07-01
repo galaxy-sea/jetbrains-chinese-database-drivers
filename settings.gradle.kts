@@ -21,6 +21,7 @@ include(
     "haishandb-driver-integration",
     "hologres-driver-integration",
     "cloudwave-driver-integration",
+    "openteledb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

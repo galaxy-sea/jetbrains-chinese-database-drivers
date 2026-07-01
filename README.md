@@ -32,6 +32,7 @@
 | ~~Easysearch~~<br>放弃            | 无jdbc驱动                                                                                                               |
 | ~~gStore~~<br>放弃                | 无jdbc驱动                                                                                                               |
 | `CloudWave`<br>测试中              | CloudWave[PostgreSQL]:<br>`jdbc:cloudwave`<br>CloudWave (PostgreSQL)                                                  | ~~GAV~~ 用户自行导入JAR包                                                         |                                               
+| `OpenTeleDB`~~TeleDB~~<br>测试中   | OpenTeleDB[PostgreSQL]<br>OpenTeleDB (PostgreSQL)                                                                     |                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -155,7 +156,6 @@ MatrixOne
 Milvus
 IvorySQL
 
-TeleDB   
 TuGraph   
 ArgoDB   
 KingWow   
