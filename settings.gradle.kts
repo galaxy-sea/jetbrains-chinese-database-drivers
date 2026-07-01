@@ -18,6 +18,7 @@ include(
     "kaiwudb-driver-integration",
     "selectdb-driver-integration",
     "xugudb-driver-integration",
+    "haishandb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

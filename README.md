@@ -27,6 +27,7 @@
 | `KaiwuDB`<br>测试中                | KaiwuDB[PostgreSQL]:<br>`jdbc:kaiwudb`                                                                                | `com.kaiwudb:kaiwudb-jdbc`<br>非语义化版本号                                      |
 | `SelectDB`<br>测试中               | SelectDB[MySQL]<br>SelectDB (MySQL)                                                                                   |                                                                            |
 | `XuguDB(虚谷数据库)`<br>测试中          | XuguDB[Oracle]:<br>`jdbc:xugu`                                                                                        | `com.xugudb:xugu-jdbc`                                                     |
+| `HaishanDB`<br>`He3DB`<br>测试中   | HaishanDB[PostgreSQL]<br>He3DB[PostgreSQL]<br>HaishanDB (PostgreSQL)                                                  | 好像不维护了                                                                     |
 
 进度状态：待适配、开发中、测试中、已发布。
 

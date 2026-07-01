@@ -1,0 +1,31 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.haishandb-driver-integration</id>
+    <name>HaishanDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides HaishanDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="HAISHANDB" instance="plus.wcj.jetbrains.plugins.haishandb.HaishanDBDatabaseDbms.HAISHANDB"/>
+        <extensionFallback dbms="HAISHANDB" fallbackDbms="POSTGRES"/>
+        <addToHSet item="HAISHANDB" set="POSTGRES_LIKE"/>
+        <addToHSet item="HAISHANDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="HE3DB" instance="plus.wcj.jetbrains.plugins.haishandb.HaishanDBDatabaseDbms.HE3DB"/>
+        <extensionFallback dbms="HE3DB" fallbackDbms="POSTGRES"/>
+        <addToHSet item="HE3DB" set="POSTGRES_LIKE"/>
+        <addToHSet item="HE3DB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="HAISHANDB_POSTGRES" instance="plus.wcj.jetbrains.plugins.haishandb.HaishanDBDatabaseDbms.HAISHANDB_POSTGRES"/>
+        <extensionFallback dbms="HAISHANDB_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="HAISHANDB_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="HAISHANDB_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

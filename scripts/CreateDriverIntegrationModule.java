@@ -132,25 +132,25 @@ public class CreateDriverIntegrationModule {
         String driverAttributes;
         String driverBody = "";
         if (options.basedOn != null) {
-            driverAttributes = "id=\"%s\" name=\"%s\" icon=\"/icons/driversIcon.svg\" forced-dbms=\"%s\"%s based-on=\"%s\"".formatted(
+            driverAttributes = "id=\"%s\" name=\"%s\" icon=\"/icons/driversIcon.svg\" forced-dbms=\"%s\" based-on=\"%s\"%s".formatted(
                 options.driverId,
                 xml(options.displayName),
                 options.dbmsId,
-                optionalAttribute("group-with", options.groupWith),
-                xml(options.basedOn)
+                xml(options.basedOn),
+                optionalAttribute("group-with", options.groupWith)
             );
             if (options.remarks != null) {
                 driverBody = "\n    <remarks>" + xml(options.remarks) + "</remarks>\n  ";
             }
         }
         else {
-            driverAttributes = "id=\"%s\" name=\"%s\" icon=\"/icons/driversIcon.svg\" dialect=\"%s\" forced-dbms=\"%s\"%s driver-class=\"%s\"".formatted(
+            driverAttributes = "id=\"%s\" name=\"%s\" icon=\"/icons/driversIcon.svg\" dialect=\"%s\" forced-dbms=\"%s\" driver-class=\"%s\"%s".formatted(
                 options.driverId,
                 xml(options.displayName),
                 xml(options.dialect),
                 options.dbmsId,
-                optionalAttribute("group-with", options.groupWith),
-                xml(options.driverClass)
+                xml(options.driverClass),
+                optionalAttribute("group-with", options.groupWith)
             );
             StringBuilder body = new StringBuilder();
             body.append("\n");
@@ -183,14 +183,14 @@ public class CreateDriverIntegrationModule {
     }
 
     private static String jetBrainsModelDriverAttributes(Options options, String jetbrainsModel) {
-        return "id=\"%s-%s\" name=\"%s (%s)\" icon=\"/icons/driversIcon.svg\" forced-dbms=\"%s\"%s based-on=\"%s\"".formatted(
+        return "id=\"%s-%s\" name=\"%s (%s)\" icon=\"/icons/driversIcon.svg\" forced-dbms=\"%s\" based-on=\"%s\"%s".formatted(
             options.driverId,
             jetbrainsModel.toLowerCase(Locale.ROOT),
             xml(options.displayName),
             xml(jetBrainsModelDisplayName(jetbrainsModel)),
             jetBrainsModelDbmsId(options, jetbrainsModel),
-            optionalAttribute("group-with", options.groupWith),
-            xml(Options.defaultBasedOn(jetbrainsModel))
+            xml(Options.defaultBasedOn(jetbrainsModel)),
+            optionalAttribute("group-with", options.groupWith)
         );
     }
 

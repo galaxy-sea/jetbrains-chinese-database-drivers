@@ -26,6 +26,7 @@ val databaseDriverPluginProjects = listOf(
     ":kaiwudb-driver-integration",
     ":selectdb-driver-integration",
     ":xugudb-driver-integration",
+    ":haishandb-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(

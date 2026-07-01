@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="haishandb" name="HaishanDB" icon="/icons/driversIcon.svg" forced-dbms="HAISHANDB" group-with="haishandb" based-on="postgresql">
+    <remarks>HaishanDB</remarks>
+  </driver>
+  <driver id="he3db" name="He3DB" icon="/icons/driversIcon.svg" forced-dbms="HE3DB" group-with="haishandb" based-on="postgresql">
+    <remarks>HaishanDB</remarks>
+  </driver>
+  <driver id="haishandb-postgres" name="HaishanDB (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="HAISHANDB_POSTGRES" group-with="haishandb" based-on="postgresql">
+    <remarks>HaishanDB</remarks>
+  </driver>
+</drivers>
