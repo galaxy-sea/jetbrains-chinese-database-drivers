@@ -31,4 +31,5 @@
     <depends>plus.wcj.jetbrains.plugins.openteledb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.argodb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.kingwow-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.apacheiotdb-driver-integration</depends>
 </idea-plugin>

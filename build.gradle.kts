@@ -32,8 +32,8 @@ val databaseDriverPluginProjects = listOf(
     ":openteledb-driver-integration",
     ":argodb-driver-integration",
     ":starrocks-driver-integration",
-    ":apache-iotdb-driver-integration",
     ":kingwow-driver-integration",
+    ":apacheiotdb-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(

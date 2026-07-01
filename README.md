@@ -36,6 +36,7 @@
 | `ArgoDB`<br>测试中                 | ArgoDB[HiveQL]:<br>`jdbc:transwarp2`<br>ArgoDB (Hive)                                                                 | ~~GAV~~ 用户自行导入JAR包                                                         |
 | `Kingwow`<br>测试中 | Kingwow[MySQL]<br>Kingwow (MySQL) |  |
 | `StarRocks`<br>测试中 | StarRocks[MySQL]:<br>`jdbc:starrocks`<br>StarRocks (MySQL) | `com.starrocks:starrocks-connector-j` |
+| `ApacheIoTDB`<br>测试中 | ApacheIoTDB[GenericSQL]:<br>`jdbc:iotdb`<br>ApacheIoTDB (Hive) | `org.apache.iotdb:iotdb-jdbc` |
 
 进度状态：待适配、开发中、测试中、已发布。
 

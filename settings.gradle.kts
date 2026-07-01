@@ -24,9 +24,9 @@ include(
     "openteledb-driver-integration",
     "argodb-driver-integration",
     "starrocks-driver-integration",
+    "apacheiotdb-driver-integration",
     "chinese-database-driver-integrations-pack",
     "kingwow-driver-integration",
-    "apache-iotdb-driver-integration"
 )
 
 pluginManagement {

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="apacheiotdb" name="ApacheIoTDB" icon="/icons/driversIcon.svg" dialect="GenericSQL" forced-dbms="APACHEIOTDB" driver-class="org.apache.iotdb.jdbc.IoTDBDriver" group-with="apacheiotdb">
+    <url-template name="default" template="jdbc:iotdb://{host::localhost}[:{port::6667}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
+    <artifact id="ApacheIoTDB Driver" use="true" rolling="true"/>
+    <option name="auto-sync" value="true"/>
+  </driver>
+  <driver id="apacheiotdb-hive" name="ApacheIoTDB (Hive)" icon="/icons/driversIcon.svg" forced-dbms="APACHEIOTDB_HIVE" based-on="hive" group-with="apacheiotdb">
+    <remarks>ApacheIoTDB</remarks>
+  </driver>
+</drivers>

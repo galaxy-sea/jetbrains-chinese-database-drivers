@@ -1,0 +1,24 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.apacheiotdb-driver-integration</id>
+    <name>ApacheIoTDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides ApacheIoTDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="APACHEIOTDB" instance="plus.wcj.jetbrains.plugins.apacheiotdb.ApacheIoTDBDatabaseDbms.APACHEIOTDB"/>
+        <extensionFallback dbms="APACHEIOTDB" fallbackDbms="UNKNOWN"/>
+        <addToHSet item="APACHEIOTDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="APACHEIOTDB_HIVE" instance="plus.wcj.jetbrains.plugins.apacheiotdb.ApacheIoTDBDatabaseDbms.APACHEIOTDB_HIVE"/>
+        <extensionFallback dbms="APACHEIOTDB_HIVE" fallbackDbms="HIVE"/>
+        <addToHSet item="APACHEIOTDB_HIVE" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>
