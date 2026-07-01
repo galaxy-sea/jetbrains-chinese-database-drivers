@@ -17,5 +17,10 @@
         <extensionFallback dbms="GOLDENDB" fallbackDbms="MYSQL"/>
         <addToHSet item="GOLDENDB" set="MYSQL_LIKE"/>
         <addToHSet item="GOLDENDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="GOLDENDB_MYSQL" instance="plus.wcj.jetbrains.plugins.goldendb.GoldenDBDatabaseDbms.GOLDENDB_MYSQL"/>
+        <extensionFallback dbms="GOLDENDB_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="GOLDENDB_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="GOLDENDB_MYSQL" set="PSEUDO_SUPPORTED"/>
     </extensions>
 </idea-plugin>

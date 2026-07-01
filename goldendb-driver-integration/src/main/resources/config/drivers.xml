@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="goldendb" name="GoldenDB" icon="/icons/driversIcon.svg" forced-dbms="GOLDENDB" based-on="mysql.8"/>
+  <driver id="goldendb" name="GoldenDB" icon="/icons/driversIcon.svg" dialect="MySQL" forced-dbms="GOLDENDB" group-with="goldendb" driver-class="com.goldendb.jdbc.Driver">
+    <url-template name="default" template="jdbc:goldendb://{host::localhost}[:{port::1521}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
+    <artifact id="GoldenDB Driver" use="true" rolling="true"/>
+    <option name="auto-sync" value="true"/>
+  </driver>
+  <driver id="goldendb-mysql" name="GoldenDB (MySQL)" icon="/icons/driversIcon.svg" forced-dbms="GOLDENDB_MYSQL" group-with="goldendb" based-on="mysql.8">
+    <remarks>GoldenDB</remarks>
+  </driver>
 </drivers>

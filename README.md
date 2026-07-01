@@ -10,23 +10,23 @@
 
 ## 支持的数据库
 
-| 数据库                             | 驱动名称 (驱动) [方言]                                                                                                        | Maven                                                           |
-|---------------------------------|-----------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| `OceanBase`<br>测试中              | OceanBase[MySQL]:<br>`jdbc:oceanbase`<br>~~`jdbc:oceanbase:loadbalance`~~ <br>OceanBase (MySQL)<br>OceanBase (Oracle) | `com.oceanbase:oceanbase-client`                                |
-| `Dameng(达梦数据库)`<br>测试中          | Dameng[Oracle]:<br>`jdbc:dm`                                                                                          | `com.dameng:DmJdbcDriver8`<br>`com.dameng:DmJdbcDriver11`       |
-| `KingBase(金仓数据库)`<br>测试中        | KingBase[PostgreSQL]:<br>`jdbc:kingbase8`                                                                             | `cn.com.kingbase:kingbase8`                                     |
-| `PolarDB`<br>测试中                | PolarDB(MySQL)<br>PolarDB-X[MySQL]:<br>`jdbc:polardbx`<br>PolarDB (PostgreSQL)<br>PolarDB (Oracle)                    | `com.alibaba.polardbx:polardbx-connector-java`                  |
-| `GoldenDB`<br>开发中-实验性           | GoldenDB[MySQL]                                                                                                       |         ~~GAV~~ 用户自行导入JAR包                                                        |
-| ~~TiDB~~                        | JetBrains已支持                                                                                                          |                                                                 |
-| `GBase 8s`<br>测试中               | GBase 8s[Oracle]:<br>`jdbc:gbasedbt-sqli`                                                                             | GBase 8s:<br>`com.gbasedbt:jdbc`                                |
-| `openGauss`<br>`GaussDB`<br>测试中 | openGauss[PostgreSQL]:<br>`jdbc:opengauss`<br>GaussDB[PostgreSQL]:<br>`jdbc:gaussdb`<br>openGauss (PostgreSQL)        | `org.opengauss:opengauss-jdbc`<br>`com.huaweicloud:gaussdbjdbc` |
-| `YashanDB`<br>测试中               | YashanDB[Oracle]:<br>`jdbc:yashandb`<br>YashanDB (MySQL)                                                              | `com.yashandb:yashandb-jdbc`                                    |
-| `AnalyticDB`<br>测试中             | AnalyticDB[MySQL]<br>AnalyticDB (MySQL)<br>AnalyticDB (PostgreSQL)                                                    |                                                                 |
-| `DolphinDB`<br>测试中              | DolphinDB[GenericSQL]:<br>`jdbc:dolphindb`                                                                            | `com.dolphindb:jdbc`                                            |
-| `PanWeiDB(磐维数据库)`<br>测试中        | PanWeiDB[PostgreSQL]:<br>`jdbc:panweidb`<br>PanWeiDB (PostgreSQL)                                                     | ~~GAV~~ 用户自行导入JAR包                                              |
-| `KaiwuDB`<br>测试中                | KaiwuDB[PostgreSQL]:<br>`jdbc:kaiwudb`                                                                                | `com.kaiwudb:kaiwudb-jdbc`                                      |
-| `SelectDB`<br>测试中               | SelectDB[MySQL]<br>SelectDB (MySQL)                                                                                   |                                                                 |
-| `XuguDB(虚谷数据库)`<br>测试中          | XuguDB[Oracle]:<br>`jdbc:xugu`                                                                                        | `com.xugudb:xugu-jdbc`                                          |
+| 数据库                             | 驱动名称 (驱动) [方言]                                                                                                        | Maven                                                                      |
+|---------------------------------|-----------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| `OceanBase`<br>测试中              | OceanBase[MySQL]:<br>`jdbc:oceanbase`<br>~~`jdbc:oceanbase:loadbalance`~~ <br>OceanBase (MySQL)<br>OceanBase (Oracle) | `com.oceanbase:oceanbase-client`                                           |
+| `Dameng(达梦数据库)`<br>测试中          | Dameng[Oracle]:<br>`jdbc:dm`                                                                                          | `com.dameng:DmJdbcDriver8`<br>`com.dameng:DmJdbcDriver11`                  |
+| `KingBase(金仓数据库)`<br>测试中        | KingBase[PostgreSQL]:<br>`jdbc:kingbase8`                                                                             | `cn.com.kingbase:kingbase8`                                                |
+| `PolarDB`<br>测试中                | PolarDB(MySQL)<br>PolarDB-X[MySQL]:<br>`jdbc:polardbx`<br>PolarDB (PostgreSQL)<br>PolarDB (Oracle)                    | `com.alibaba.polardbx:polardbx-connector-java`                             |
+| `GoldenDB`<br>测试中               | GoldenDB[MySQL]:<br>`jdbc:goldendb`<br>GoldenDB (MySQL)                                                               | ~~GAV~~ 用户自行导入JAR包                                                         |
+| ~~TiDB~~                        | JetBrains已支持                                                                                                          |                                                                            |
+| `GBase 8s`<br>测试中               | GBase 8s[Oracle]:<br>`jdbc:gbasedbt-sqli`                                                                             | GBase 8s:<br>`com.gbasedbt:jdbc`                                           |
+| `openGauss`<br>`GaussDB`<br>测试中 | openGauss[PostgreSQL]:<br>`jdbc:opengauss`<br>GaussDB[PostgreSQL]:<br>`jdbc:gaussdb`<br>openGauss (PostgreSQL)        | `org.opengauss:opengauss-jdbc`<br>`com.huaweicloud:gaussdbjdbc`<br>非语义化版本号 |
+| `YashanDB`<br>测试中               | YashanDB[Oracle]:<br>`jdbc:yashandb`<br>YashanDB (MySQL)                                                              | `com.yashandb:yashandb-jdbc`                                               |
+| `AnalyticDB`<br>测试中             | AnalyticDB[MySQL]<br>AnalyticDB (MySQL)<br>AnalyticDB (PostgreSQL)                                                    |                                                                            |
+| `DolphinDB`<br>测试中              | DolphinDB[GenericSQL]:<br>`jdbc:dolphindb`                                                                            | `com.dolphindb:jdbc`                                                       |
+| `PanWeiDB(磐维数据库)`<br>测试中        | PanWeiDB[PostgreSQL]:<br>`jdbc:panweidb`<br>PanWeiDB (PostgreSQL)                                                     | ~~GAV~~ 用户自行导入JAR包                                                         |
+| `KaiwuDB`<br>测试中                | KaiwuDB[PostgreSQL]:<br>`jdbc:kaiwudb`                                                                                | `com.kaiwudb:kaiwudb-jdbc`<br>非语义化版本号                                      |
+| `SelectDB`<br>测试中               | SelectDB[MySQL]<br>SelectDB (MySQL)                                                                                   |                                                                            |
+| `XuguDB(虚谷数据库)`<br>测试中          | XuguDB[Oracle]:<br>`jdbc:xugu`                                                                                        | `com.xugudb:xugu-jdbc`                                                     |
 
 进度状态：待适配、开发中、测试中、已发布。
 

@@ -7,4 +7,9 @@ object GoldenDBDatabaseDbms : DatabaseDbms() {
 
     @JvmField
     val GOLDENDB: Dbms = create("GOLDENDB", "GoldenDB")
+
+
+    @JvmField
+    val GOLDENDB_MYSQL: Dbms = create("GOLDENDB_MYSQL", "GoldenDB MySQL")
+
 }

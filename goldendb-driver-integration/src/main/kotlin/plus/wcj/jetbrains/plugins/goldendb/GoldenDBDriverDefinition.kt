@@ -4,7 +4,7 @@ import plus.wcj.jetbrains.plugins.chinesedatabasedrivers.core.DatabaseDriverDefi
 
 val goldenDBDriverDefinition = DatabaseDriverDefinition(
     databaseId = "goldendb",
-    driverClass = "com.mysql.cj.jdbc.Driver",
-    defaultPort = 3306,
-    urlTemplate = "jdbc:mysql://{host}:{port}/{database}",
+    driverClass = "com.goldendb.jdbc.Driver",
+    defaultPort = 1521,
+    urlTemplate = "jdbc:goldendb://{host::localhost}[:{port::1521}][/{database}?][\\?<&,user={user},password={password},{:identifier}={:param}>]",
 )
