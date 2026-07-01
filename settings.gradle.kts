@@ -25,8 +25,8 @@ include(
     "argodb-driver-integration",
     "starrocks-driver-integration",
     "apacheiotdb-driver-integration",
-    "chinese-database-driver-integrations-pack",
     "kingwow-driver-integration",
+    "chinese-database-driver-integrations-pack",
 )
 
 pluginManagement {
