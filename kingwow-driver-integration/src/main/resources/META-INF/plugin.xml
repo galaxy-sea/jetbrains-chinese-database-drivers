@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.kingwow-driver-integration</id>
+    <name>Kingwow Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides Kingwow JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="KINGWOW" instance="plus.wcj.jetbrains.plugins.kingwow.KingwowDatabaseDbms.KINGWOW"/>
+        <extensionFallback dbms="KINGWOW" fallbackDbms="MYSQL"/>
+        <addToHSet item="KINGWOW" set="MYSQL_LIKE"/>
+        <addToHSet item="KINGWOW" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="KINGWOW_MYSQL" instance="plus.wcj.jetbrains.plugins.kingwow.KingwowDatabaseDbms.KINGWOW_MYSQL"/>
+        <extensionFallback dbms="KINGWOW_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="KINGWOW_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="KINGWOW_MYSQL" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>
