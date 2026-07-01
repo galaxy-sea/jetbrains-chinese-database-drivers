@@ -33,6 +33,7 @@
 | ~~gStore~~<br>放弃                | 无jdbc驱动                                                                                                               |
 | `CloudWave`<br>测试中              | CloudWave[PostgreSQL]:<br>`jdbc:cloudwave`<br>CloudWave (PostgreSQL)                                                  | ~~GAV~~ 用户自行导入JAR包                                                         |                                               
 | `OpenTeleDB`~~TeleDB~~<br>测试中   | OpenTeleDB[PostgreSQL]<br>OpenTeleDB (PostgreSQL)                                                                     |                                                                            |
+| `ArgoDB`<br>测试中                 | ArgoDB[HiveQL]:<br>`jdbc:transwarp2`<br>ArgoDB (Hive)                                                                 | ~~GAV~~ 用户自行导入JAR包                                                         |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -159,9 +160,8 @@ Apache IoTDB
 MatrixOne   
 Milvus
 IvorySQL
-TuGraph   
+TuGraph
 
-ArgoDB   
 KingWow   
 HighGoDB   
 神通数据库   

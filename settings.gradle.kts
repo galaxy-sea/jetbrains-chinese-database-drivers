@@ -22,6 +22,7 @@ include(
     "hologres-driver-integration",
     "cloudwave-driver-integration",
     "openteledb-driver-integration",
+    "argodb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

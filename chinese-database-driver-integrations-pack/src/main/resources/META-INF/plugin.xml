@@ -27,4 +27,5 @@
     <depends>plus.wcj.jetbrains.plugins.hologres-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.cloudwave-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.openteledb-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.argodb-driver-integration</depends>
 </idea-plugin>

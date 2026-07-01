@@ -1,0 +1,24 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.argodb-driver-integration</id>
+    <name>ArgoDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides ArgoDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="ARGODB" instance="plus.wcj.jetbrains.plugins.argodb.ArgoDBDatabaseDbms.ARGODB"/>
+        <extensionFallback dbms="ARGODB" fallbackDbms="HIVE"/>
+        <addToHSet item="ARGODB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="ARGODB_HIVE" instance="plus.wcj.jetbrains.plugins.argodb.ArgoDBDatabaseDbms.ARGODB_HIVE"/>
+        <extensionFallback dbms="ARGODB_HIVE" fallbackDbms="HIVE"/>
+        <addToHSet item="ARGODB_HIVE" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

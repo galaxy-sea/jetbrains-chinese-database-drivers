@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="argodb" name="ArgoDB" icon="/icons/driversIcon.svg" dialect="HiveQL" forced-dbms="ARGODB" driver-class="org.apache.hive.jdbc.HiveDriver" group-with="argodb">
+    <url-template name="default" template="jdbc:transwarp2://{host::localhost}[:{port::10000}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
+    <artifact id="ArgoDB Driver" use="true" rolling="true"/>
+    <option name="auto-sync" value="true"/>
+  </driver>
+  <driver id="argodb-hive" name="ArgoDB (Hive)" icon="/icons/driversIcon.svg" forced-dbms="ARGODB_HIVE" based-on="hive" group-with="argodb">
+    <remarks>ArgoDB</remarks>
+  </driver>
+</drivers>
