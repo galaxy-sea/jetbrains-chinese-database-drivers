@@ -35,6 +35,7 @@
 | `OpenTeleDB`~~TeleDB~~<br>测试中   | OpenTeleDB[PostgreSQL]<br>OpenTeleDB (PostgreSQL)                                                                     |                                                                            |
 | `ArgoDB`<br>测试中                 | ArgoDB[HiveQL]:<br>`jdbc:transwarp2`<br>ArgoDB (Hive)                                                                 | ~~GAV~~ 用户自行导入JAR包                                                         |
 | `Kingwow`<br>测试中 | Kingwow[MySQL]<br>Kingwow (MySQL) |  |
+| `StarRocks`<br>测试中 | StarRocks[MySQL]:<br>`jdbc:starrocks`<br>StarRocks (MySQL) | `com.starrocks:starrocks-connector-j` |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -156,7 +157,6 @@ db2.base,mariadb,mongo.base,mongo_documentdb.base,mysql.8,mysql.base,oracle.base
 
 > 20260701 列表 摩天轮列表会更新，需要在这里将适配过的删除了。
 
-StarRocks   
 Apache IoTDB   
 MatrixOne   
 Milvus
