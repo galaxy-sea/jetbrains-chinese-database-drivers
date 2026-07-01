@@ -158,7 +158,6 @@ db2.base,mariadb,mongo.base,mongo_documentdb.base,mysql.8,mysql.base,oracle.base
 
 > 20260701 列表 摩天轮列表会更新，需要在这里将适配过的删除了。
 
-Apache IoTDB   
 MatrixOne   
 Milvus
 IvorySQL
