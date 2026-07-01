@@ -24,4 +24,5 @@
     <depends>plus.wcj.jetbrains.plugins.selectdb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.xugudb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.haishandb-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.hologres-driver-integration</depends>
 </idea-plugin>

@@ -28,6 +28,7 @@
 | `SelectDB`<br>测试中               | SelectDB[MySQL]<br>SelectDB (MySQL)                                                                                   |                                                                            |
 | `XuguDB(虚谷数据库)`<br>测试中          | XuguDB[Oracle]:<br>`jdbc:xugu`                                                                                        | `com.xugudb:xugu-jdbc`                                                     |
 | `HaishanDB`<br>`He3DB`<br>测试中   | HaishanDB[PostgreSQL]<br>He3DB[PostgreSQL]<br>HaishanDB (PostgreSQL)                                                  | 好像不维护了                                                                     |
+| `Hologres`<br>测试中               | Hologres[PostgreSQL]<br>Hologres (PostgreSQL)                                                                         |                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -44,6 +45,7 @@
 复用 JetBrains 官方 JDBC 驱动配置：
 
 使用第三方驱动的
+
 ```shell
 java scripts/CreateDriverIntegrationModule.java \
   --name ExampleDB \
@@ -147,9 +149,8 @@ db2.base,mariadb,mongo.base,mongo_documentdb.base,mysql.8,mysql.base,oracle.base
 StarRocks   
 Apache IoTDB   
 MatrixOne   
-Milvus   
+Milvus
 
-Hologres   
 Easysearch   
 gStore   
 IvorySQL   

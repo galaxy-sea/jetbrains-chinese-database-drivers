@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.hologres-driver-integration</id>
+    <name>Hologres Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides Hologres JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="HOLOGRES" instance="plus.wcj.jetbrains.plugins.hologres.HologresDatabaseDbms.HOLOGRES"/>
+        <extensionFallback dbms="HOLOGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="HOLOGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="HOLOGRES" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="HOLOGRES_POSTGRES" instance="plus.wcj.jetbrains.plugins.hologres.HologresDatabaseDbms.HOLOGRES_POSTGRES"/>
+        <extensionFallback dbms="HOLOGRES_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="HOLOGRES_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="HOLOGRES_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

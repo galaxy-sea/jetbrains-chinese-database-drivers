@@ -19,6 +19,7 @@ include(
     "selectdb-driver-integration",
     "xugudb-driver-integration",
     "haishandb-driver-integration",
+    "hologres-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 
