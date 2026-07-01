@@ -203,6 +203,7 @@ public class CreateDriverIntegrationModule {
             case "MYSQL" -> "MySQL";
             case "ORACLE" -> "Oracle";
             case "POSTGRES" -> "PostgreSQL";
+            case "HIVE" -> "Hive";
             default -> jetbrainsModel;
         };
     }
@@ -357,10 +358,10 @@ public class CreateDriverIntegrationModule {
         List<String> values = new ArrayList<>();
         if (options.driverClass != null) {
             String protocol = jdbcProtocol(options.jdbcPrefix);
-            values.add(options.displayName + "[" + jetBrainsModelDisplayName(options.fallbackDbms) + "]:<br>`" + protocol + "`");
+            values.add(options.displayName + "[" + options.dialect + "]:<br>`" + protocol + "`");
         }
         else {
-            values.add(options.displayName + "[" + jetBrainsModelDisplayName(options.fallbackDbms) + "]");
+            values.add(options.displayName + "[" + options.dialect + "]");
         }
         for (String jetbrainsModel : options.jetbrainsModels) {
             values.add(options.displayName + " (" + jetBrainsModelDisplayName(jetbrainsModel) + ")");
@@ -493,11 +494,11 @@ public class CreateDriverIntegrationModule {
 
             Options:
               --name           Display name, e.g. GoldenDB
-              --fallback       JetBrains fallback DBMS: MYSQL, ORACLE, POSTGRES, GENERICSQL
-              --jetbrains-model Additional JetBrains built-in driver model: MYSQL, ORACLE, POSTGRES. Repeatable.
+              --fallback       JetBrains fallback DBMS: MYSQL, ORACLE, POSTGRES, HIVE, GENERICSQL
+              --jetbrains-model Additional JetBrains built-in driver model: MYSQL, ORACLE, POSTGRES, HIVE. Repeatable.
               --id             Optional module/driver id prefix. Defaults to normalized --name, e.g. GoldenDB -> goldendb.
               --dbms           Optional custom DBMS id. Defaults to normalized --name, e.g. GoldenDB -> GOLDENDB.
-              --based-on       Optional official driver id override. Defaults from --fallback: MYSQL -> mysql.8, ORACLE -> oracle.19, POSTGRES -> postgresql.
+              --based-on       Optional official driver id override. Defaults from --fallback: MYSQL -> mysql.8, ORACLE -> oracle.19, POSTGRES -> postgresql, HIVE -> hive.
               --dialect        Optional dialect override. Defaults from --fallback.
               --driver-class   Optional custom JDBC driver class. When omitted, the generated driver uses --based-on.
               --default-port   Required with --driver-class.
@@ -696,6 +697,7 @@ public class CreateDriverIntegrationModule {
                 case "MYSQL" -> "mysql.8";
                 case "ORACLE" -> "oracle.19";
                 case "POSTGRES" -> "postgresql";
+                case "HIVE" -> "hive";
                 default -> null;
             };
         }
@@ -705,6 +707,7 @@ public class CreateDriverIntegrationModule {
                 case "MYSQL" -> "MySQL";
                 case "ORACLE" -> "Oracle";
                 case "POSTGRES" -> "PostgreSQL";
+                case "HIVE" -> "HiveQL";
                 case "GENERICSQL" -> "GenericSQL";
                 default -> null;
             };
@@ -719,7 +722,7 @@ public class CreateDriverIntegrationModule {
 
         private static boolean isSupportedFallback(String fallbackDbms) {
             return switch (fallbackDbms) {
-                case "MYSQL", "ORACLE", "POSTGRES", "GENERICSQL" -> true;
+                case "MYSQL", "ORACLE", "POSTGRES", "HIVE", "GENERICSQL" -> true;
                 default -> false;
             };
         }
