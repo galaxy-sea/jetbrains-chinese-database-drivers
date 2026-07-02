@@ -20,5 +20,29 @@
     <version version="6.2.0">
       <item type="maven" url="com.highgo:HgdbJdbc:6.2.0"/>
     </version>
+    <version version="6.0.6.08">
+      <item type="maven" url="com.highgo:HgdbJdbc:6.0.6.jre8"/>
+    </version>
+    <version version="6.0.5.08">
+      <item type="maven" url="com.highgo:HgdbJdbc:6.0.5.jre8"/>
+    </version>
+    <version version="6.0.4.08">
+      <item type="maven" url="com.highgo:HgdbJdbc:6.0.4.jre8"/>
+    </version>
+    <version version="6.0.3.08">
+      <item type="maven" url="com.highgo:HgdbJdbc:6.0.3.jre8"/>
+    </version>
+    <version version="6.0.2.08">
+      <item type="maven" url="com.highgo:HgdbJdbc:6.0.2.jre8"/>
+    </version>
+    <version version="6.0.1.08">
+      <item type="maven" url="com.highgo:HgdbJdbc:6.0.1.jre8"/>
+    </version>
+    <version version="6.0.0.08">
+      <item type="maven" url="com.highgo:HgdbJdbc:6.0.0.jre8"/>
+    </version>
+    <version version="5.0.0.08">
+      <item type="maven" url="com.highgo:HgdbJdbc:5.0.0.jre8"/>
+    </version>
   </artifact>
 </artifacts>

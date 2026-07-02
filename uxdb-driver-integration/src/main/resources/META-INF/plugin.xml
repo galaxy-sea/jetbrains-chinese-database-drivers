@@ -1,0 +1,36 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.uxdb-driver-integration</id>
+    <name>UXDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides UXDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="UXDB" instance="plus.wcj.jetbrains.plugins.uxdb.UXDBDatabaseDbms.UXDB"/>
+        <extensionFallback dbms="UXDB" fallbackDbms="POSTGRES"/>
+        <addToHSet item="UXDB" set="POSTGRES_LIKE"/>
+        <addToHSet item="UXDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="UXDB_ORACLE" instance="plus.wcj.jetbrains.plugins.uxdb.UXDBDatabaseDbms.UXDB_ORACLE"/>
+        <extensionFallback dbms="UXDB_ORACLE" fallbackDbms="ORACLE"/>
+        <addToHSet item="UXDB_ORACLE" set="ORACLE_LIKE"/>
+        <addToHSet item="UXDB_ORACLE" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="UXDB_MYSQL" instance="plus.wcj.jetbrains.plugins.uxdb.UXDBDatabaseDbms.UXDB_MYSQL"/>
+        <extensionFallback dbms="UXDB_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="UXDB_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="UXDB_MYSQL" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="UXDB_POSTGRES" instance="plus.wcj.jetbrains.plugins.uxdb.UXDBDatabaseDbms.UXDB_POSTGRES"/>
+        <extensionFallback dbms="UXDB_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="UXDB_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="UXDB_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

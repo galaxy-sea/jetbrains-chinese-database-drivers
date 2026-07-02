@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<artifacts>
+  <artifact id="UXDB Driver" name="UXDB Driver">
+    <version version="42.2.12">
+      <item type="url" url="http://cd.uxsino.com:10882/repository/thirdparty/com/uxsino/uxdb/uxdbjdbc/42.2.12/uxdbjdbc-42.2.12.jar"/>
+      <channel id="stable"/>
+    </version>
+    <version version="4.2.1">
+      <item type="url" url="http://cd.uxsino.com:10882/repository/thirdparty/com/uxsino/uxdb/uxdbjdbc/4.2.1/uxdbjdbc-4.2.1.jar"/>
+    </version>
+    <version version="4.2">
+      <item type="url" url="http://cd.uxsino.com:10882/repository/thirdparty/com/uxsino/uxdb/uxdbjdbc/4.2/uxdbjdbc-4.2.jar"/>
+    </version>
+    <version version="2.1.2.3">
+      <item type="url" url="http://cd.uxsino.com:10882/repository/thirdparty/com/uxsino/uxdb/uxdbjdbc/2.1.2.3/uxdbjdbc-2.1.2.3.jar"/>
+    </version>
+    <version version="2.1.2.2">
+      <item type="url" url="http://cd.uxsino.com:10882/repository/thirdparty/com/uxsino/uxdb/uxdbjdbc/2.1.2.2/uxdbjdbc-2.1.2.2.jar"/>
+    </version>
+    <version version="2.1.2.30">
+      <item type="url" url="http://cd.uxsino.com:10882/repository/thirdparty/com/uxsino/uxdb/uxdbjdbc/2.1.2.3p/uxdbjdbc-2.1.2.3p.jar"/>
+    </version>
+    <version version="2.1.2.40">
+      <item type="url" url="http://cd.uxsino.com:10882/repository/thirdparty/com/uxsino/uxdb/uxdbjdbc/2.1.2.4a/uxdbjdbc-2.1.2.4a.jar"/>
+    </version>
+  </artifact>
+</artifacts>

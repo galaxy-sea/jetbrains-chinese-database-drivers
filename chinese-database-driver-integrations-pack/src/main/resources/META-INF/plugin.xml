@@ -37,4 +37,5 @@
     <depends>plus.wcj.jetbrains.plugins.shentongdb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.gaiadb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.vastbase-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.uxdb-driver-integration</depends>
 </idea-plugin>

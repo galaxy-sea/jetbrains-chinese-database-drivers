@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+    <driver id="uxdb" name="UXDB" icon="/icons/driversIcon.svg" dialect="PostgreSQL" forced-dbms="UXDB" driver-class="com.uxsino.uxdb.Driver" group-with="uxdb">
+        <url-template name="default" template="jdbc:uxdb://{host::localhost}[:{port::5432}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
+        <artifact id="UXDB Driver" use="true" rolling="true"/>
+        <option name="auto-sync" value="true"/>
+    </driver>
+
+    <driver id="uxdb-oracle" name="UXDB (Oracle)" icon="/icons/driversIcon.svg" dialect="Oracle" forced-dbms="UXDB_ORACLE" driver-class="com.uxsino.uxdb.Driver" group-with="uxdb">
+        <url-template name="default" template="jdbc:uxdb://{host::localhost}[:{port::5432}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
+        <artifact id="UXDB Driver" use="true" rolling="true"/>
+        <option name="auto-sync" value="true"/>
+    </driver>
+
+    <driver id="uxdb-mysql" name="UXDB (MySQL)" icon="/icons/driversIcon.svg" dialect="MySQL" forced-dbms="UXDB_MYSQL" driver-class="com.uxsino.uxdb.Driver" group-with="uxdb">
+        <url-template name="default" template="jdbc:uxdb://{host::localhost}[:{port::5432}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
+        <artifact id="UXDB Driver" use="true" rolling="true"/>
+        <option name="auto-sync" value="true"/>
+    </driver>
+
+    <driver id="uxdb-postgres" name="UXDB (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="UXDB_POSTGRES" based-on="postgresql" group-with="uxdb">
+        <remarks>UXDB</remarks>
+    </driver>
+</drivers>

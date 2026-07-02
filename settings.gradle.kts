@@ -31,6 +31,7 @@ include(
     "shentongdb-driver-integration",
     "gaiadb-driver-integration",
     "vastbase-driver-integration",
+    "uxdb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 
