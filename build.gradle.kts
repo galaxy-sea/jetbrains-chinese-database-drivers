@@ -38,6 +38,7 @@ val databaseDriverPluginProjects = listOf(
     ":matrixone-driver-integration",
     ":shentongdb-driver-integration",
     ":gaiadb-driver-integration",
+    ":vastbase-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="vastbaseg100" name="Vastbase G100" icon="/icons/driversIcon.svg" dialect="PostgreSQL" forced-dbms="VASTBASEG100" driver-class="cn.com.vastbase.Driver" group-with="vastbaseg100">
+    <url-template name="default" template="jdbc:vastbase://{host::localhost}[:{port::5432}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
+    <artifact id="Vastbase G100 Driver" use="true" rolling="true"/>
+    <option name="auto-sync" value="true"/>
+  </driver>
+
+  <driver id="vastbaseg100p" name="Vastbase G100 p" icon="/icons/driversIcon.svg" dialect="PostgreSQL" forced-dbms="VASTBASEG100P" driver-class="cn.com.vastbase.Driver" group-with="vastbaseg100" >
+    <url-template name="default" template="jdbc:vastbase://{host::localhost}[:{port::5432}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
+    <artifact id="Vastbase G100 p Driver" use="true" rolling="true"/>
+    <option name="auto-sync" value="true"/>
+  </driver>
+
+  <driver id="vastbaseg100-postgres" name="Vastbase G100 (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="VASTBASEG100_POSTGRES" based-on="postgresql" group-with="vastbaseg100">
+    <remarks>Vastbase</remarks>
+  </driver>
+</drivers>

@@ -40,7 +40,8 @@
 | `HighgoDB`<br>测试中               | HighgoDB[PostgreSQL]:<br>`jdbc:highgo`<br>HighgoDB (PostgreSQL)                                                                                                                    | `com.highgo:HgdbJdbc`                                                                                                    |
 | `MatrixOne`<br>测试中              | MatrixOne[MySQL]<br>MatrixOne (MySQL)                                                                                                                                              |                                                                                                                          |
 | `ShentongDB`(神通数据库)<br>测试中      | ShentongDB[GenericSQL]:<br>`jdbc:oscar`<br>ShentongDB(openGauss)[PostgreSQL]:<br>`jdbc:opengauss`<br>ShentongDB(GaussDB)[PostgreSQL]:<br>`jdbc:gaussdb`<br>ShentongDB (PostgreSQL) | `com.shentongdata:oscarJDBC8`                                                                                            |
-| `GaiaDB`<br>测试中 | GaiaDB[MySQL]<br>GaiaDB (MySQL) |  |
+| `GaiaDB`<br>测试中                 | GaiaDB[MySQL]<br>GaiaDB (MySQL)                                                                                                                                                    |                                                                                                                          |
+| `Vastbase G100`<br>测试中          | Vastbase G100[PostgreSQL]:<br>`jdbc:vastbase`<br>Vastbase G100 p[PostgreSQL]:<br>`jdbc:vastbase`<br>Vastbase (PostgreSQL)                                                          | `cn.com.vastdata:vastbase-jdbc`<br>非语义化版本号                                                                               |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -166,10 +167,8 @@ Milvus
 IvorySQL
 TuGraph
 NebulaGraph
-RisingWave   
+RisingWave
 
-
-Vastbase   
 UXDB   
 EBASE   
 SequoiaDB   

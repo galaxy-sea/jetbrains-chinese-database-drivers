@@ -92,14 +92,8 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
     }
 
     private void validateNoDuplicateMavenArtifacts(List<MavenArtifact> mavenArtifacts) {
-        Map<String, MavenArtifact> artifactsByNotation = new LinkedHashMap<>();
         Map<String, MavenArtifact> artifactsById = new LinkedHashMap<>();
         for (MavenArtifact mavenArtifact : mavenArtifacts) {
-            MavenArtifact duplicateNotationArtifact = artifactsByNotation.putIfAbsent(mavenArtifact.notation(), mavenArtifact);
-            if (duplicateNotationArtifact != null) {
-                throw new IllegalArgumentException("Duplicate Maven artifact configured: " + mavenArtifact.notation());
-            }
-
             String artifactId = normalizeArtifactId(mavenArtifact.id());
             MavenArtifact duplicateIdArtifact = artifactsById.putIfAbsent(artifactId, mavenArtifact);
             if (duplicateIdArtifact != null) {
@@ -142,7 +136,7 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
             .filter(version -> numericVersionPartCount(version.version()) >= version.coordinate().majorVersionSegments())
             .sorted(UpdateDatabaseArtifactsXmlTask::compareArtifactVersionsByVersion)
             .forEach(version -> latestVersionsByMajorVersion.put(
-                version.coordinate().notation() + ":" + majorVersion(version.version(), version.coordinate().majorVersionSegments()),
+                normalizeArtifactId(version.coordinate().id()) + ":" + version.coordinate().notation() + ":" + majorVersion(version.version(), version.coordinate().majorVersionSegments()),
                 version
             ));
 

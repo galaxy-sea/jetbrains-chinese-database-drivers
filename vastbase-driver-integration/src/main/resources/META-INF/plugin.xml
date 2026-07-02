@@ -1,0 +1,31 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.vastbase-driver-integration</id>
+    <name>Vastbase Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides Vastbase JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="VASTBASEG100" instance="plus.wcj.jetbrains.plugins.vastbase.VastbaseDatabaseDbms.VASTBASEG100"/>
+        <extensionFallback dbms="VASTBASEG100" fallbackDbms="POSTGRES"/>
+        <addToHSet item="VASTBASEG100" set="POSTGRES_LIKE"/>
+        <addToHSet item="VASTBASEG100" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="VASTBASEG100P" instance="plus.wcj.jetbrains.plugins.vastbase.VastbaseDatabaseDbms.VASTBASEG100P"/>
+        <extensionFallback dbms="VASTBASEG100P" fallbackDbms="POSTGRES"/>
+        <addToHSet item="VASTBASEG100P" set="POSTGRES_LIKE"/>
+        <addToHSet item="VASTBASEG100P" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="VASTBASEG100_POSTGRES" instance="plus.wcj.jetbrains.plugins.vastbase.VastbaseDatabaseDbms.VASTBASEG100_POSTGRES"/>
+        <extensionFallback dbms="VASTBASE_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="VASTBASEG100_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="VASTBASEG100_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

@@ -30,6 +30,7 @@ include(
     "matrixone-driver-integration",
     "shentongdb-driver-integration",
     "gaiadb-driver-integration",
+    "vastbase-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 
