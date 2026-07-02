@@ -38,6 +38,9 @@
     <version version="1.30.17.1">
       <item type="maven" url="com.dolphindb:jdbc:1.30.17.1"/>
     </version>
+    <version version="1.30">
+      <item type="maven" url="com.dolphindb:jdbc:1.30"/>
+    </version>
     <version version="1.10.4">
       <item type="maven" url="com.dolphindb:jdbc:1.10.4"/>
     </version>

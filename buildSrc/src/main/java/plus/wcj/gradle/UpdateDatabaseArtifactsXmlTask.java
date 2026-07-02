@@ -106,19 +106,15 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
         List<MavenArtifactVersion> versions = new ArrayList<>();
         for (MavenArtifact mavenArtifact : mavenArtifacts) {
             MavenArtifactCoordinate coordinate = parseMavenArtifact(mavenArtifact);
-            for (String version : fetchMavenVersions(coordinate.groupId(), coordinate.artifactId())) {
+            for (String version : fetchMavenVersions(coordinate)) {
                 versions.add(new MavenArtifactVersion(coordinate, version));
             }
         }
         return versions;
     }
 
-    private List<String> fetchMavenVersions(String groupId, String artifactId) throws Exception {
-        String metadataUrl = "https://repo.maven.apache.org/maven2/" +
-            groupId.replace('.', '/') +
-            "/" +
-            artifactId +
-            "/maven-metadata.xml";
+    private List<String> fetchMavenVersions(MavenArtifactCoordinate coordinate) throws Exception {
+        String metadataUrl = metadataUrl(coordinate);
         try (InputStream inputStream = URI.create(metadataUrl).toURL().openStream()) {
             MavenMetadata metadata = XML_MAPPER.readValue(inputStream, MavenMetadata.class);
             if (metadata.versioning == null || metadata.versioning.versions == null) {
@@ -128,12 +124,22 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
         }
     }
 
+    private static String metadataUrl(MavenArtifactCoordinate coordinate) {
+        if (coordinate.repositoryUrl() != null && !coordinate.repositoryUrl().isBlank()) {
+            return repositoryArtifactBaseUrl(coordinate) + "/maven-metadata.xml";
+        }
+        return "https://repo.maven.apache.org/maven2/" +
+            coordinate.groupId().replace('.', '/') +
+            "/" +
+            coordinate.artifactId() +
+            "/maven-metadata.xml";
+    }
+
     private List<MavenArtifactVersion> selectVersions(List<MavenArtifactVersion> availableVersions) {
         Map<String, MavenArtifactVersion> latestVersionsByMajorVersion = new LinkedHashMap<>();
         availableVersions.stream()
             .filter(version -> isAcceptableVersion(version.version()))
             .filter(version -> !isExcludedVersion(version))
-            .filter(version -> numericVersionPartCount(version.version()) >= version.coordinate().majorVersionSegments())
             .sorted(UpdateDatabaseArtifactsXmlTask::compareArtifactVersionsByVersion)
             .forEach(version -> latestVersionsByMajorVersion.put(
                 normalizeArtifactId(version.coordinate().id()) + ":" + version.coordinate().notation() + ":" + majorVersion(version.version(), version.coordinate().majorVersionSegments()),
@@ -210,11 +216,14 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
                 break;
             }
         }
+        while (segmentCount < majorVersionSegments) {
+            if (!builder.isEmpty()) {
+                builder.append('.');
+            }
+            builder.append('0');
+            segmentCount++;
+        }
         return builder.toString();
-    }
-
-    private static int numericVersionPartCount(String version) {
-        return splitVersion(version).length;
     }
 
     private static String artifactVersion(String version) {
@@ -263,8 +272,21 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
             ArtifactVersionXml artifactVersion = new ArtifactVersionXml();
             artifactVersion.version = artifactVersion(version.version());
             ArtifactItemXml item = new ArtifactItemXml();
-            item.type = "maven";
-            item.url = version.coordinate().groupId() + ":" + version.coordinate().artifactId() + ":" + version.version();
+            if (version.coordinate().repositoryUrl() == null || version.coordinate().repositoryUrl().isBlank()) {
+                item.type = "maven";
+                item.url = version.coordinate().groupId() + ":" + version.coordinate().artifactId() + ":" + version.version();
+            }
+            else {
+                item.type = "url";
+                item.url = repositoryArtifactBaseUrl(version.coordinate()) +
+                    "/" +
+                    version.version() +
+                    "/" +
+                    version.coordinate().artifactId() +
+                    "-" +
+                    version.version() +
+                    ".jar";
+            }
             artifactVersion.items = List.of(item);
             if (version.equals(stableVersions.get(version.coordinate()))) {
                 ArtifactChannelXml channel = new ArtifactChannelXml();
@@ -292,7 +314,15 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
         if (parts.length != 2) {
             throw new IllegalArgumentException("Maven artifact must use groupId:artifactId format: " + mavenArtifact.notation());
         }
-        return new MavenArtifactCoordinate(parts[0], parts[1], mavenArtifact.id(), mavenArtifact.name(), mavenArtifact.majorVersionSegments(), mavenArtifact.excludedVersionPatterns());
+        return new MavenArtifactCoordinate(parts[0], parts[1], mavenArtifact.id(), mavenArtifact.name(), mavenArtifact.majorVersionSegments(), mavenArtifact.excludedVersionPatterns(), mavenArtifact.repositoryUrl());
+    }
+
+    private static String repositoryArtifactBaseUrl(MavenArtifactCoordinate coordinate) {
+        return coordinate.repositoryUrl().replaceAll("/+$", "") +
+            "/" +
+            coordinate.groupId().replace('.', '/') +
+            "/" +
+            coordinate.artifactId();
     }
 
     private int compareArtifactVersionsForOutput(MavenArtifactVersion left, MavenArtifactVersion right) {
@@ -359,7 +389,7 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
         }
     }
 
-    private record MavenArtifactCoordinate(String groupId, String artifactId, String id, String name, int majorVersionSegments, List<String> excludedVersionPatterns) {
+    private record MavenArtifactCoordinate(String groupId, String artifactId, String id, String name, int majorVersionSegments, List<String> excludedVersionPatterns, String repositoryUrl) {
         private String notation() {
             return groupId + ":" + artifactId;
         }
