@@ -34,6 +34,7 @@ include(
     "uxdb-driver-integration",
     "greatdb-driver-integration",
     "taurusdb-driver-integration",
+    "tchouse-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

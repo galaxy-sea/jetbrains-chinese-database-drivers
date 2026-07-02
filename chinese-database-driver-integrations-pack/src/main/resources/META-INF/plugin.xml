@@ -40,4 +40,5 @@
     <depends>plus.wcj.jetbrains.plugins.uxdb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.greatdb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.taurusdb-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.tchouse-driver-integration</depends>
 </idea-plugin>

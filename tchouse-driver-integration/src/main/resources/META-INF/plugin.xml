@@ -1,0 +1,35 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.tchouse-driver-integration</id>
+    <name>TCHouse Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides TCHouse JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="TCHOUSE" instance="plus.wcj.jetbrains.plugins.tchouse.TCHouseDatabaseDbms.TCHOUSE"/>
+        <extensionFallback dbms="TCHOUSE" fallbackDbms="MYSQL"/>
+        <addToHSet item="TCHOUSE" set="MYSQL_LIKE"/>
+        <addToHSet item="TCHOUSE" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="TCHOUSE_D_MYSQL" instance="plus.wcj.jetbrains.plugins.tchouse.TCHouseDatabaseDbms.TCHOUSE_D_MYSQL"/>
+        <extensionFallback dbms="TCHOUSE_D_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="TCHOUSE_D_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="TCHOUSE_D_MYSQL" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="TCHOUSE_P_POSTGRES" instance="plus.wcj.jetbrains.plugins.tchouse.TCHouseDatabaseDbms.TCHOUSE_P_POSTGRES"/>
+        <extensionFallback dbms="TCHOUSE_P_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="TCHOUSE_P_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="TCHOUSE_P_POSTGRES" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="TCHOUSE_C_CLICKHOUSE" instance="plus.wcj.jetbrains.plugins.tchouse.TCHouseDatabaseDbms.TCHOUSE_C_CLICKHOUSE"/>
+        <extensionFallback dbms="TCHOUSE_C_CLICKHOUSE" fallbackDbms="CLICKHOUSE"/>
+        <addToHSet item="TCHOUSE_C_CLICKHOUSE" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

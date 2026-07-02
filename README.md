@@ -49,6 +49,7 @@
 | ~~KBase~~<br>放弃                 | 无法查询到相关资料                                                                                                                                                                          |
 | ~~SourceDB~~<br>放弃              | 无法查询到相关资料                                                                                                                                                                          |
 | `TaurusDB`<br>测试中               | TaurusDB[MySQL]<br>TaurusDB (MySQL)                                                                                                                                                |                                                                                                                          |
+| `TCHouse`<br>测试中 | TCHouse[MySQL]<br>TCHouse-D (MySQL)<br>TCHouse-P (PostgreSQL)<br>TCHouse-C (ClickHouse)                                                                                            |  |
 
 进度状态：待适配、开发中、测试中、已发布。
 
