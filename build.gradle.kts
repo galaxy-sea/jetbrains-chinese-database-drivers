@@ -41,6 +41,7 @@ val databaseDriverPluginProjects = listOf(
     ":vastbase-driver-integration",
     ":uxdb-driver-integration",
     ":greatdb-driver-integration",
+    ":taurusdb-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(

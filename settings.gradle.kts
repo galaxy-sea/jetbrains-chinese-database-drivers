@@ -33,6 +33,7 @@ include(
     "vastbase-driver-integration",
     "uxdb-driver-integration",
     "greatdb-driver-integration",
+    "taurusdb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

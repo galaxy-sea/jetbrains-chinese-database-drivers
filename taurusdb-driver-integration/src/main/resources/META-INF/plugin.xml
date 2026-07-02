@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.taurusdb-driver-integration</id>
+    <name>TaurusDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides TaurusDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="TAURUSDB" instance="plus.wcj.jetbrains.plugins.taurusdb.TaurusDBDatabaseDbms.TAURUSDB"/>
+        <extensionFallback dbms="TAURUSDB" fallbackDbms="MYSQL"/>
+        <addToHSet item="TAURUSDB" set="MYSQL_LIKE"/>
+        <addToHSet item="TAURUSDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="TAURUSDB_MYSQL" instance="plus.wcj.jetbrains.plugins.taurusdb.TaurusDBDatabaseDbms.TAURUSDB_MYSQL"/>
+        <extensionFallback dbms="TAURUSDB_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="TAURUSDB_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="TAURUSDB_MYSQL" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

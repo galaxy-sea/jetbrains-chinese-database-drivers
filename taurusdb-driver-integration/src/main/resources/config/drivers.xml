@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="taurusdb" name="TaurusDB" icon="/icons/driversIcon.svg" forced-dbms="TAURUSDB" based-on="mysql.8" group-with="taurusdb">
+    <remarks>TaurusDB</remarks>
+  </driver>
+  <driver id="taurusdb-mysql" name="TaurusDB (MySQL)" icon="/icons/driversIcon.svg" forced-dbms="TAURUSDB_MYSQL" based-on="mysql.8" group-with="taurusdb">
+    <remarks>TaurusDB</remarks>
+  </driver>
+</drivers>
