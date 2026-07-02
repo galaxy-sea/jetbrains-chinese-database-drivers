@@ -3,13 +3,13 @@
   <driver id="tchouse" name="TCHouse" icon="/icons/driversIcon.svg" forced-dbms="TCHOUSE" based-on="mysql.8" group-with="tchouse">
     <remarks>TCHouse</remarks>
   </driver>
-  <driver id="tchouse-mysql" name="TCHouse-D (MySQL)" icon="/icons/driversIcon.svg" forced-dbms="TCHOUSE_D_MYSQL" based-on="mysql.8" group-with="tchouse">
+  <driver id="tchouse-d-mysql" name="TCHouse-D (MySQL)" icon="/icons/driversIcon.svg" forced-dbms="TCHOUSE_D_MYSQL" based-on="mysql.8" group-with="tchouse">
     <remarks>TCHouse</remarks>
   </driver>
-  <driver id="tchouse-postgres" name="TCHouse-P (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="TCHOUSE_P_POSTGRES" based-on="postgresql" group-with="tchouse">
+  <driver id="tchouse-p-postgres" name="TCHouse-P (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="TCHOUSE_P_POSTGRES" based-on="postgresql" group-with="tchouse">
     <remarks>TCHouse</remarks>
   </driver>
-  <driver id="tchouse-clickhouse" name="TCHouse-C (ClickHouse)" icon="/icons/driversIcon.svg" forced-dbms="TCHOUS_C_CLICKHOUSE" based-on="clickhouse" group-with="tchouse">
+  <driver id="tchouse-c-clickhouse" name="TCHouse-C (ClickHouse)" icon="/icons/driversIcon.svg" forced-dbms="TCHOUS_C_CLICKHOUSE" based-on="clickhouse" group-with="tchouse">
     <remarks>TCHouse</remarks>
   </driver>
 </drivers>
