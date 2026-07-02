@@ -215,6 +215,7 @@ public class CreateDriverIntegrationModule {
             case "MYSQL" -> values.add("MYSQL_LIKE");
             case "ORACLE" -> values.add("ORACLE_LIKE");
             case "POSTGRES" -> values.add("POSTGRES_LIKE");
+            case "CLICKHOUSE" -> values.add("CLICKHOUSE_LIKE");
         }
         values.add("PSEUDO_SUPPORTED");
         return values;

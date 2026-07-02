@@ -30,6 +30,7 @@
 
         <dbms id="TCHOUSE_C_CLICKHOUSE" instance="plus.wcj.jetbrains.plugins.tchouse.TCHouseDatabaseDbms.TCHOUSE_C_CLICKHOUSE"/>
         <extensionFallback dbms="TCHOUSE_C_CLICKHOUSE" fallbackDbms="CLICKHOUSE"/>
+        <addToHSet item="TCHOUSE_C_CLICKHOUSE" set="CLICKHOUSE_LIKE"/>
         <addToHSet item="TCHOUSE_C_CLICKHOUSE" set="PSEUDO_SUPPORTED"/>
     </extensions>
 </idea-plugin>
