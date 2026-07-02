@@ -49,7 +49,8 @@
 | ~~KBase~~<br>放弃                 | 无法查询到相关资料                                                                                                                                                                          |
 | ~~SourceDB~~<br>放弃              | 无法查询到相关资料                                                                                                                                                                          |
 | `TaurusDB`<br>测试中               | TaurusDB[MySQL]<br>TaurusDB (MySQL)                                                                                                                                                |                                                                                                                          |
-| `TCHouse`<br>测试中 | TCHouse[MySQL]<br>TCHouse-D (MySQL)<br>TCHouse-P (PostgreSQL)<br>TCHouse-C (ClickHouse)                                                                                            |  |
+| `TCHouse`<br>测试中                | TCHouse[MySQL]<br>TCHouse-D (MySQL)<br>TCHouse-P (PostgreSQL)<br>TCHouse-C (ClickHouse)                                                                                            |                                                                                                                          |
+| `SUNDB`<br>测试中                  | SUNDB[GenericSQL]:<br>`jdbc:sundb`                                                                                                                                                 | `com.csii:sundb-jdbc`                                                                                                    |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -184,8 +185,6 @@ RisingWave
 SequoiaDB   
 GreptimeDB
 
-TCHouse   
-SUNDB   
 YMatrix   
 AntDB   
 CnosDB   

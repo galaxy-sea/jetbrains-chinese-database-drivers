@@ -43,6 +43,7 @@ val databaseDriverPluginProjects = listOf(
     ":greatdb-driver-integration",
     ":taurusdb-driver-integration",
     ":tchouse-driver-integration",
+    ":sundb-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(
