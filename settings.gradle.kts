@@ -32,6 +32,7 @@ include(
     "gaiadb-driver-integration",
     "vastbase-driver-integration",
     "uxdb-driver-integration",
+    "greatdb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

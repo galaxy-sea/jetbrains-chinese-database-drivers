@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="greatdb" name="GreatDB" icon="/icons/driversIcon.svg" forced-dbms="GREATDB" based-on="mysql.8" group-with="greatdb">
+    <remarks>GreatDB</remarks>
+  </driver>
+  <driver id="greatdb-mysql" name="GreatDB (MySQL)" icon="/icons/driversIcon.svg" forced-dbms="GREATDB_MYSQL" based-on="mysql.8" group-with="greatdb">
+    <remarks>GreatDB</remarks>
+  </driver>
+  <driver id="greatdb-oracle" name="GreatDB (Oracle)" icon="/icons/driversIcon.svg" forced-dbms="GREATDB_ORACLE" based-on="oracle.19" group-with="greatdb">
+    <remarks>GreatDB</remarks>
+  </driver>
+</drivers>

@@ -1,0 +1,31 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.greatdb-driver-integration</id>
+    <name>GreatDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides GreatDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="GREATDB" instance="plus.wcj.jetbrains.plugins.greatdb.GreatDBDatabaseDbms.GREATDB"/>
+        <extensionFallback dbms="GREATDB" fallbackDbms="MYSQL"/>
+        <addToHSet item="GREATDB" set="MYSQL_LIKE"/>
+        <addToHSet item="GREATDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="GREATDB_MYSQL" instance="plus.wcj.jetbrains.plugins.greatdb.GreatDBDatabaseDbms.GREATDB_MYSQL"/>
+        <extensionFallback dbms="GREATDB_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="GREATDB_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="GREATDB_MYSQL" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="GREATDB_ORACLE" instance="plus.wcj.jetbrains.plugins.greatdb.GreatDBDatabaseDbms.GREATDB_ORACLE"/>
+        <extensionFallback dbms="GREATDB_ORACLE" fallbackDbms="ORACLE"/>
+        <addToHSet item="GREATDB_ORACLE" set="ORACLE_LIKE"/>
+        <addToHSet item="GREATDB_ORACLE" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>
