@@ -9,7 +9,7 @@
   <driver id="tchouse-p-postgres" name="TCHouse-P (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="TCHOUSE_P_POSTGRES" based-on="postgresql" group-with="tchouse">
     <remarks>TCHouse</remarks>
   </driver>
-  <driver id="tchouse-c-clickhouse" name="TCHouse-C (ClickHouse)" icon="/icons/driversIcon.svg" forced-dbms="TCHOUS_C_CLICKHOUSE" based-on="clickhouse" group-with="tchouse">
+  <driver id="tchouse-c-clickhouse" name="TCHouse-C (ClickHouse)" icon="/icons/driversIcon.svg" forced-dbms="TCHOUSE_C_CLICKHOUSE" based-on="clickhouse" group-with="tchouse">
     <remarks>TCHouse</remarks>
   </driver>
 </drivers>

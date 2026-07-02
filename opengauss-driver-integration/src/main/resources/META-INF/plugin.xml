@@ -23,7 +23,7 @@
         <addToHSet item="GAUSSDB" set="POSTGRES_LIKE"/>
         <addToHSet item="GAUSSDB" set="PSEUDO_SUPPORTED"/>
 
-        <dbms id="GAUSSDBDWS" instance="plus.wcj.jetbrains.plugins.opengauss.OpenGaussDatabaseDbms.GAUSSDB"/>
+        <dbms id="GAUSSDBDWS" instance="plus.wcj.jetbrains.plugins.opengauss.OpenGaussDatabaseDbms.GAUSSDBDWS"/>
         <extensionFallback dbms="GAUSSDBDWS" fallbackDbms="POSTGRES"/>
         <addToHSet item="GAUSSDBDWS" set="POSTGRES_LIKE"/>
         <addToHSet item="GAUSSDBDWS" set="PSEUDO_SUPPORTED"/>

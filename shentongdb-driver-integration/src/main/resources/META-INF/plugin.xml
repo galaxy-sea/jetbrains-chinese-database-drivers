@@ -17,18 +17,17 @@
         <extensionFallback dbms="SHENTONGDB" fallbackDbms="UNKNOWN"/>
         <addToHSet item="SHENTONGDB" set="PSEUDO_SUPPORTED"/>
 
-
-        <dbms id="SHENTONGDB_OPENGAUSS" instance="plus.wcj.jetbrains.plugins.opengauss.OpenGaussDatabaseDbms.OPENGAUSS"/>
+        <dbms id="SHENTONGDB_OPENGAUSS" instance="plus.wcj.jetbrains.plugins.shentongdb.ShentongDBDatabaseDbms.SHENTONGDB_OPENGAUSS"/>
         <extensionFallback dbms="SHENTONGDB_OPENGAUSS" fallbackDbms="POSTGRES"/>
         <addToHSet item="SHENTONGDB_OPENGAUSS" set="POSTGRES_LIKE"/>
         <addToHSet item="SHENTONGDB_OPENGAUSS" set="PSEUDO_SUPPORTED"/>
 
-        <dbms id="SHENTONGDB_GAUSSDB" instance="plus.wcj.jetbrains.plugins.opengauss.OpenGaussDatabaseDbms.GAUSSDB"/>
+        <dbms id="SHENTONGDB_GAUSSDB" instance="plus.wcj.jetbrains.plugins.shentongdb.ShentongDBDatabaseDbms.SHENTONGDB_GAUSSDB"/>
         <extensionFallback dbms="SHENTONGDB_GAUSSDB" fallbackDbms="POSTGRES"/>
         <addToHSet item="SHENTONGDB_GAUSSDB" set="POSTGRES_LIKE"/>
         <addToHSet item="SHENTONGDB_GAUSSDB" set="PSEUDO_SUPPORTED"/>
 
-        <dbms id="SHENTONGDB_POSTGRES" instance="plus.wcj.jetbrains.plugins.opengauss.OpenGaussDatabaseDbms.OPENGAUSS_POSTGRES"/>
+        <dbms id="SHENTONGDB_POSTGRES" instance="plus.wcj.jetbrains.plugins.shentongdb.ShentongDBDatabaseDbms.SHENTONGDB_POSTGRES"/>
         <extensionFallback dbms="SHENTONGDB_POSTGRES" fallbackDbms="POSTGRES"/>
         <addToHSet item="SHENTONGDB_POSTGRES" set="POSTGRES_LIKE"/>
         <addToHSet item="SHENTONGDB_POSTGRES" set="PSEUDO_SUPPORTED"/>
