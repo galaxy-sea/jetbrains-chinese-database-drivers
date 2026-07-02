@@ -163,6 +163,7 @@ AZURE,BigQuery,CassandraQL,ClickHouse,Cockroach,CouchbaseQuery,DB2,Databricks,De
 db2.base,mariadb,mongo.base,mongo_documentdb.base,mysql.8,mysql.base,oracle.base,postgresql,sqlserver.jtds,sqlserver.ms,mariadb,sqlserver.ms,db2.11,db2,db2.jtopen,mongo.4,mongo,documentdb,cockroach,greenplum,tidb,memsql,sqlite.xerial,h2.unified
 
 > 20260701 列表 摩天轮列表会更新，需要在这里将适配过的删除了。
+> 这个榜单不太行呀，有些是云平台名称，根本不是数据库实现啊😊🌞
 
 Milvus
 IvorySQL
