@@ -10,6 +10,13 @@
     <artifact id="GaussDB Driver" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>
   </driver>
+
+  <driver id="gaussdbdws" name="GaussDB DWS" icon="/icons/driversIcon.svg" dialect="PostgreSQL" forced-dbms="GAUSSDBDWS" driver-class="com.huawei.gaussdb.jdbc.Driver" group-with="opengauss">
+    <url-template name="default" template="jdbc:gaussdb://{host::localhost}[:{port::5432}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
+    <artifact id="GaussDB DWS Driver" use="true" rolling="true"/>
+    <option name="auto-sync" value="true"/>
+  </driver>
+
   <driver id="opengauss-postgresql" name="openGauss (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="OPENGAUSS_POSTGRES" group-with="opengauss" based-on="postgresql">
     <remarks>openGauss</remarks>
   </driver>

@@ -12,5 +12,9 @@ object OpenGaussDatabaseDbms : DatabaseDbms() {
     val GAUSSDB: Dbms = create("GAUSSDB", "GaussDB")
 
     @JvmField
+    val GAUSSDBDWS: Dbms = create("GAUSSDBDWS", "GaussDB DWS")
+
+
+    @JvmField
     val OPENGAUSS_POSTGRES: Dbms = create("OPENGAUSS_POSTGRES", "openGauss PostgreSQL")
 }

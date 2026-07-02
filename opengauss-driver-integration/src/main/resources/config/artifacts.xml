@@ -24,4 +24,25 @@
       <channel id="stable"/>
     </version>
   </artifact>
+  <artifact id="GaussDB DWS Driver" name="GaussDB DWS Driver">
+    <version version="8.6.1.3100200">
+      <item type="maven" url="com.huaweicloud.dws:huaweicloud-dws-jdbc:8.6.1.310-200"/>
+      <channel id="stable"/>
+    </version>
+    <version version="8.5.1.2000200">
+      <item type="maven" url="com.huaweicloud.dws:huaweicloud-dws-jdbc:8.5.1.200-200"/>
+    </version>
+    <version version="8.3.1.2000200">
+      <item type="maven" url="com.huaweicloud.dws:huaweicloud-dws-jdbc:8.3.1.200-200"/>
+    </version>
+    <version version="8.2.1.3000200">
+      <item type="maven" url="com.huaweicloud.dws:huaweicloud-dws-jdbc:8.2.1.300-200"/>
+    </version>
+    <version version="8.1.30200">
+      <item type="maven" url="com.huaweicloud.dws:huaweicloud-dws-jdbc:8.1.3-200"/>
+    </version>
+    <version version="1.7.30200">
+      <item type="maven" url="com.huaweicloud.dws:huaweicloud-dws-jdbc:1.7.3-200"/>
+    </version>
+  </artifact>
 </artifacts>
