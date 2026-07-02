@@ -44,6 +44,7 @@
 | `Vastbase G100`<br>测试中          | Vastbase G100[PostgreSQL]:<br>`jdbc:vastbase`<br>Vastbase G100 p[PostgreSQL]:<br>`jdbc:vastbase`<br>Vastbase (PostgreSQL)                                                          | `cn.com.vastdata:vastbase-jdbc`<br>非语义化版本号                                                                               |
 | `UXDB`<br>测试中                   | UXDB[PostgreSQL]:<br>`jdbc:uxdb`<br>UXDB[Oracle]:<br>`jdbc:uxdb`<br>UXDB[MySQL]:<br>`jdbc:uxdb`<br>UXDB (PostgreSQL)                                                               | `com.uxsino.uxdb:uxdbjdbc`                                                                                               |
 | ~~EBASE~~<br>放弃                 | 无法查询到相关资料                                                                                                                                                                          |
+| ~~GDMBASE~~<br>放弃               | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -171,10 +172,9 @@ IvorySQL
 TuGraph
 NebulaGraph
 RisingWave
-
 SequoiaDB   
-GreptimeDB   
-GDMBASE   
+GreptimeDB
+
 万里数据库   
 KBase   
 SourceDB   
