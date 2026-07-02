@@ -29,6 +29,7 @@ include(
     "highgodb-driver-integration",
     "matrixone-driver-integration",
     "shentongdb-driver-integration",
+    "gaiadb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

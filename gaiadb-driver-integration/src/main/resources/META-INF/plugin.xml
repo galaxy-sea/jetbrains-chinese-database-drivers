@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.gaiadb-driver-integration</id>
+    <name>GaiaDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides GaiaDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="GAIADB" instance="plus.wcj.jetbrains.plugins.gaiadb.GaiaDBDatabaseDbms.GAIADB"/>
+        <extensionFallback dbms="GAIADB" fallbackDbms="MYSQL"/>
+        <addToHSet item="GAIADB" set="MYSQL_LIKE"/>
+        <addToHSet item="GAIADB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="GAIADB_MYSQL" instance="plus.wcj.jetbrains.plugins.gaiadb.GaiaDBDatabaseDbms.GAIADB_MYSQL"/>
+        <extensionFallback dbms="GAIADB_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="GAIADB_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="GAIADB_MYSQL" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

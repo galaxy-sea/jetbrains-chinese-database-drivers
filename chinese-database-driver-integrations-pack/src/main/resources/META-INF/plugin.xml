@@ -35,4 +35,5 @@
     <depends>plus.wcj.jetbrains.plugins.highgodb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.matrixone-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.shentongdb-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.gaiadb-driver-integration</depends>
 </idea-plugin>
