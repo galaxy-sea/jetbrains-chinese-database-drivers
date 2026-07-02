@@ -204,6 +204,7 @@ public class CreateDriverIntegrationModule {
             case "ORACLE" -> "Oracle";
             case "POSTGRES" -> "PostgreSQL";
             case "HIVE" -> "Hive";
+            case "CLICKHOUSE" -> "ClickHouse";
             default -> jetbrainsModel;
         };
     }
@@ -455,6 +456,7 @@ public class CreateDriverIntegrationModule {
             case "mysql.8" -> "com.mysql.cj.jdbc.Driver";
             case "oracle.19" -> "oracle.jdbc.OracleDriver";
             case "postgresql" -> "org.postgresql.Driver";
+            case "clickhouse" -> "com.clickhouse.jdbc.ClickHouseDriver";
             default -> "";
         };
     }
@@ -464,6 +466,7 @@ public class CreateDriverIntegrationModule {
             case "mysql.8" -> "jdbc:mysql://{host}:{port}/{database}";
             case "oracle.19" -> "jdbc:oracle:thin:@//{host}:{port}/{database}";
             case "postgresql" -> "jdbc:postgresql://{host}:{port}/{database}";
+            case "clickhouse" -> "jdbc:clickhouse://{host}:{port}/{database}";
             default -> "";
         };
     }
@@ -472,6 +475,7 @@ public class CreateDriverIntegrationModule {
         return switch (basedOn) {
             case "oracle.19" -> 1521;
             case "postgresql" -> 5432;
+            case "clickhouse" -> 8123;
             default -> 3306;
         };
     }
@@ -494,11 +498,11 @@ public class CreateDriverIntegrationModule {
 
             Options:
               --name           Display name, e.g. GoldenDB
-              --fallback       JetBrains fallback DBMS: MYSQL, ORACLE, POSTGRES, HIVE, GENERICSQL
-              --jetbrains-model Additional JetBrains built-in driver model: MYSQL, ORACLE, POSTGRES, HIVE. Repeatable.
+              --fallback       JetBrains fallback DBMS: MYSQL, ORACLE, POSTGRES, HIVE, CLICKHOUSE, GENERICSQL
+              --jetbrains-model Additional JetBrains built-in driver model: MYSQL, ORACLE, POSTGRES, HIVE, CLICKHOUSE. Repeatable.
               --id             Optional module/driver id prefix. Defaults to normalized --name, e.g. GoldenDB -> goldendb.
               --dbms           Optional custom DBMS id. Defaults to normalized --name, e.g. GoldenDB -> GOLDENDB.
-              --based-on       Optional official driver id override. Defaults from --fallback: MYSQL -> mysql.8, ORACLE -> oracle.19, POSTGRES -> postgresql, HIVE -> hive.
+              --based-on       Optional official driver id override. Defaults from --fallback: MYSQL -> mysql.8, ORACLE -> oracle.19, POSTGRES -> postgresql, HIVE -> hive, CLICKHOUSE -> clickhouse.
               --dialect        Optional dialect override. Defaults from --fallback.
               --driver-class   Optional custom JDBC driver class. When omitted, the generated driver uses --based-on.
               --default-port   Required with --driver-class.
@@ -721,6 +725,7 @@ public class CreateDriverIntegrationModule {
                 case "ORACLE" -> "oracle.19";
                 case "POSTGRES" -> "postgresql";
                 case "HIVE" -> "hive";
+                case "CLICKHOUSE" -> "clickhouse";
                 default -> null;
             };
         }
@@ -731,6 +736,7 @@ public class CreateDriverIntegrationModule {
                 case "ORACLE" -> "Oracle";
                 case "POSTGRES" -> "PostgreSQL";
                 case "HIVE" -> "HiveQL";
+                case "CLICKHOUSE" -> "ClickHouse";
                 case "GENERICSQL" -> "GenericSQL";
                 default -> null;
             };
@@ -745,7 +751,7 @@ public class CreateDriverIntegrationModule {
 
         private static boolean isSupportedFallback(String fallbackDbms) {
             return switch (fallbackDbms) {
-                case "MYSQL", "ORACLE", "POSTGRES", "HIVE", "GENERICSQL" -> true;
+                case "MYSQL", "ORACLE", "POSTGRES", "HIVE", "CLICKHOUSE", "GENERICSQL" -> true;
                 default -> false;
             };
         }
