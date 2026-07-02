@@ -31,7 +31,7 @@
 | `Hologres`<br>测试中               | Hologres[PostgreSQL]<br>Hologres (PostgreSQL)                                                                                                                                      |                                                                                                                          |
 | ~~Easysearch~~<br>放弃            | 无jdbc驱动                                                                                                                                                                            |
 | ~~gStore~~<br>放弃                | 无jdbc驱动                                                                                                                                                                            |
-| `CloudWave`<br>测试中              | CloudWave[PostgreSQL]:<br>`jdbc:cloudwave`<br>CloudWave (PostgreSQL)                                                                                                               | ~~GAV~~ 用户自行导入JAR包                                                                                                       |                                               
+| `CloudWave`<br>测试中              | CloudWave[PostgreSQL]:<br>`jdbc:cloudwave`<br>CloudWave (PostgreSQL)                                                                                                               | ~~GAV~~ 用户自行导入JAR包                                                                                                       |
 | `OpenTeleDB`~~TeleDB~~<br>测试中   | OpenTeleDB[PostgreSQL]<br>OpenTeleDB (PostgreSQL)                                                                                                                                  |                                                                                                                          |
 | `ArgoDB`<br>测试中                 | ArgoDB[HiveQL]:<br>`jdbc:transwarp2`<br>ArgoDB (Hive)                                                                                                                              | ~~GAV~~ 用户自行导入JAR包                                                                                                       |
 | `Kingwow`<br>测试中                | Kingwow[MySQL]<br>Kingwow (MySQL)                                                                                                                                                  |                                                                                                                          |
@@ -43,6 +43,7 @@
 | `GaiaDB`<br>测试中                 | GaiaDB[MySQL]<br>GaiaDB (MySQL)                                                                                                                                                    |                                                                                                                          |
 | `Vastbase G100`<br>测试中          | Vastbase G100[PostgreSQL]:<br>`jdbc:vastbase`<br>Vastbase G100 p[PostgreSQL]:<br>`jdbc:vastbase`<br>Vastbase (PostgreSQL)                                                          | `cn.com.vastdata:vastbase-jdbc`<br>非语义化版本号                                                                               |
 | `UXDB`<br>测试中                   | UXDB[PostgreSQL]:<br>`jdbc:uxdb`<br>UXDB[Oracle]:<br>`jdbc:uxdb`<br>UXDB[MySQL]:<br>`jdbc:uxdb`<br>UXDB (PostgreSQL)                                                               | `com.uxsino.uxdb:uxdbjdbc`                                                                                               |
+| ~~EBASE~~<br>放弃                 | 无法查询到相关资料                                                                                                                                                                          |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -171,7 +172,6 @@ TuGraph
 NebulaGraph
 RisingWave
 
-EBASE   
 SequoiaDB   
 GreptimeDB   
 GDMBASE   
