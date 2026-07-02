@@ -46,6 +46,7 @@
 | ~~EBASE~~<br>放弃                 | 无法查询到相关资料                                                                                                                                                                          |
 | ~~GDMBASE~~<br>放弃               | 无jdbc驱动                                                                                                                                                                            |
 | `GreatDB(万里数据库)`<br>测试中         | GreatDB[MySQL]<br>GreatDB (MySQL)<br>GreatDB (Oracle)                                                                                                                              |                                                                                                                          |
+| ~~KBase~~<br>放弃                 | 无法查询到相关资料                                                                                                                                                                          |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -176,7 +177,6 @@ RisingWave
 SequoiaDB   
 GreptimeDB
 
-KBase   
 SourceDB   
 TaurusDB   
 TCHouse   
