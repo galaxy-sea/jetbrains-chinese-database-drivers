@@ -72,6 +72,7 @@
 | ~~KunDB~~<br>放弃                    | 无jdbc驱动                                                                                                                                                                            |
 | ~~GoldenData~~<br>放弃                    | 无jdbc驱动                                                                                                                                                                            |
 | ~~KSMDB~~<br>放弃                    | 无jdbc驱动                                                                                                                                                                            |
+| ~~uniDB~~<br>放弃                    | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -218,7 +219,7 @@ GreatSQL
 
    
    
-uniDB   
+   
 HotDB   
 TcaplusDB   
 Galaxybase   
