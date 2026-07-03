@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.mudb-driver-integration</id>
+    <name>MuDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides MuDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="MUDB" instance="plus.wcj.jetbrains.plugins.mudb.MuDBDatabaseDbms.MUDB"/>
+        <extensionFallback dbms="MUDB" fallbackDbms="POSTGRES"/>
+        <addToHSet item="MUDB" set="POSTGRES_LIKE"/>
+        <addToHSet item="MUDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="MUDB_POSTGRES" instance="plus.wcj.jetbrains.plugins.mudb.MuDBDatabaseDbms.MUDB_POSTGRES"/>
+        <extensionFallback dbms="MUDB_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="MUDB_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="MUDB_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

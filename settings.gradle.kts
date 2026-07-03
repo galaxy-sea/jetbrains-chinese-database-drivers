@@ -44,6 +44,7 @@ include(
     "ymatrix-driver-integration",
     "mogdb-driver-integration",
     "bytehouse-driver-integration",
+    "mudb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 
