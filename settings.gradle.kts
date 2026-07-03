@@ -39,6 +39,7 @@ include(
     "greptimedb-driver-integration",
     "sequoiadb-driver-integration",
     "risingwave-driver-integration",
+    "nebulagraph-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

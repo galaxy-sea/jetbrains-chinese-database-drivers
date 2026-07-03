@@ -1,0 +1,20 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.nebulagraph-driver-integration</id>
+    <name>NebulaGraph Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides NebulaGraph JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="NEBULAGRAPH" instance="plus.wcj.jetbrains.plugins.nebulagraph.NebulaGraphDatabaseDbms.NEBULAGRAPH"/>
+        <extensionFallback dbms="NEBULAGRAPH" fallbackDbms="UNKNOWN"/>
+        <addToHSet item="NEBULAGRAPH" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

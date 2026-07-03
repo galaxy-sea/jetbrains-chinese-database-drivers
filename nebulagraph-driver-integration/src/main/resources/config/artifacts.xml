@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<artifacts>
+  <artifact id="NebulaGraph Driver" name="NebulaGraph Driver">
+    <version version="3.3.0">
+      <item type="maven" url="org.nebula-contrib:nebula-jdbc:3.3.0"/>
+      <channel id="stable"/>
+    </version>
+    <version version="3.0.0">
+      <item type="maven" url="org.nebula-contrib:nebula-jdbc:3.0.0"/>
+    </version>
+  </artifact>
+</artifacts>

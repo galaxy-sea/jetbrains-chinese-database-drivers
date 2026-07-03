@@ -52,8 +52,9 @@
 | `TCHouse`<br>测试中                | TCHouse[MySQL]<br>TCHouse-D (MySQL)<br>TCHouse-P (PostgreSQL)<br>TCHouse-C (ClickHouse)                                                                                            |                                                                                                                          |
 | `SUNDB`<br>测试中                  | SUNDB[GenericSQL]:<br>`jdbc:sundb`                                                                                                                                                 | ~~GAV~~ 用户自行导入JAR包                                                                                                       |
 | `GreptimeDB`<br>测试中             | GreptimeDB[MySQL]<br>GreptimeDB (MySQL)<br>GreptimeDB (PostgreSQL)                                                                                                                 |                                                                                                                          |
-| `SequoiaDB`<br>测试中 | SequoiaDB[MySQL]<br>SequoiaDB (MySQL)<br>SequoiaDB (MariaDB)<br>SequoiaDB (PostgreSQL) |  |
-| `RisingWave`<br>测试中 | RisingWave[PostgreSQL]<br>RisingWave (PostgreSQL) |  |
+| `SequoiaDB`<br>测试中              | SequoiaDB[MySQL]<br>SequoiaDB (MySQL)<br>SequoiaDB (MariaDB)<br>SequoiaDB (PostgreSQL)                                                                                             |                                                                                                                          |
+| `RisingWave`<br>测试中             | RisingWave[PostgreSQL]<br>RisingWave (PostgreSQL)                                                                                                                                  |                                                                                                                          |
+| `NebulaGraph`<br>测试中            | NebulaGraph[GenericSQL]:<br>`jdbc:nebula`                                                                                                                                          | `org.nebula-contrib:nebula-jdbc` 第三方                                                                                     |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -191,8 +192,6 @@ db2.base,mariadb,mongo.base,mongo_documentdb.base,mysql.8,mysql.base,oracle.base
 Milvus
 IvorySQL
 TuGraph
-NebulaGraph
-
 
 YMatrix   
 AntDB   
