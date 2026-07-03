@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.mogdb-driver-integration</id>
+    <name>MogDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides MogDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="MOGDB" instance="plus.wcj.jetbrains.plugins.mogdb.MogDBDatabaseDbms.MOGDB"/>
+        <extensionFallback dbms="MOGDB" fallbackDbms="POSTGRES"/>
+        <addToHSet item="MOGDB" set="POSTGRES_LIKE"/>
+        <addToHSet item="MOGDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="MOGDB_POSTGRES" instance="plus.wcj.jetbrains.plugins.mogdb.MogDBDatabaseDbms.MOGDB_POSTGRES"/>
+        <extensionFallback dbms="MOGDB_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="MOGDB_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="MOGDB_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

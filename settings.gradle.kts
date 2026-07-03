@@ -42,6 +42,7 @@ include(
     "nebulagraph-driver-integration",
     "ivorysql-driver-integration",
     "ymatrix-driver-integration",
+    "mogdb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="mogdb" name="MogDB" icon="/icons/driversIcon.svg" dialect="PostgreSQL" forced-dbms="MOGDB" driver-class="org.opengauss.Driver" group-with="mogdb">
+    <url-template name="default" template="jdbc:opengauss://{host::localhost}[:{port::26000}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
+    <artifact id="MogDB Driver" use="true" rolling="true"/>
+    <option name="auto-sync" value="true"/>
+  </driver>
+  <driver id="mogdb-postgres" name="MogDB (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="MOGDB_POSTGRES" based-on="postgresql" group-with="mogdb">
+    <remarks>MogDB</remarks>
+  </driver>
+</drivers>

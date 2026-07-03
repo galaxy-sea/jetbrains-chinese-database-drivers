@@ -61,6 +61,7 @@
 | `YMatrix`<br>测试中 | YMatrix[PostgreSQL]<br>YMatrix (PostgreSQL) |  |
 | ~~VikingDB~~<br>放弃               | 无jdbc驱动                                                                                                                                                                            |
 | ~~DBOne~~<br>放弃               | 无jdbc驱动                                                                                                                                                                            |
+| `MogDB`<br>测试中 | MogDB[PostgreSQL]:<br>`jdbc:opengauss`<br>MogDB (PostgreSQL) | `org.opengauss:opengauss-jdbc` |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -203,7 +204,7 @@ OpenTenBase
 
 
    
-MogDB   
+   
 九有数据库   
 RadonDB   
 ByteHouse   
