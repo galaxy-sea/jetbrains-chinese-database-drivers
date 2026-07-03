@@ -75,6 +75,7 @@
 | ~~uniDB~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
 | `HotDB`<br>测试中                  | HotDB[MySQL]<br>HotDB (MySQL)                                                                                                                                                      |                                                                                                                          |
 | ~~TcaplusDB~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
+| ~~Galaxybase~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -220,7 +221,7 @@ Vearch
 GreatSQL
 
    
-Galaxybase   
+   
 OpenMLDB   
 TopGraph   
 Tair   
