@@ -43,11 +43,11 @@
 | `GaiaDB`<br>测试中                 | GaiaDB[MySQL]<br>GaiaDB (MySQL)                                                                                                                                                    |                                                                                                                          |
 | `Vastbase G100`<br>测试中          | Vastbase G100[PostgreSQL]:<br>`jdbc:vastbase`<br>Vastbase G100 p[PostgreSQL]:<br>`jdbc:vastbase`<br>Vastbase (PostgreSQL)                                                          | `cn.com.vastdata:vastbase-jdbc`<br>非语义化版本号                                                                               |
 | `UXDB`<br>测试中                   | UXDB[PostgreSQL]:<br>`jdbc:uxdb`<br>UXDB[Oracle]:<br>`jdbc:uxdb`<br>UXDB[MySQL]:<br>`jdbc:uxdb`<br>UXDB (PostgreSQL)                                                               | `com.uxsino.uxdb:uxdbjdbc`                                                                                               |
-| ~~EBASE~~<br>放弃                 | 无法查询到相关资料                                                                                                                                                                          |
+| ~~EBASE~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                          |
 | ~~GDMBASE~~<br>放弃               | 无jdbc驱动                                                                                                                                                                            |
 | `GreatDB(万里数据库)`<br>测试中         | GreatDB[MySQL]<br>GreatDB (MySQL)<br>GreatDB (Oracle)                                                                                                                              |                                                                                                                          |
-| ~~KBase~~<br>放弃                 | 无法查询到相关资料                                                                                                                                                                          |
-| ~~SourceDB~~<br>放弃              | 无法查询到相关资料                                                                                                                                                                          |
+| ~~KBase~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                          |
+| ~~SourceDB~~<br>放弃              | 无jdbc驱动                                                                                                                                                                          |
 | `TaurusDB`<br>测试中               | TaurusDB[MySQL]<br>TaurusDB (MySQL)                                                                                                                                                |                                                                                                                          |
 | `TCHouse`<br>测试中                | TCHouse[MySQL]<br>TCHouse-D (MySQL)<br>TCHouse-P (PostgreSQL)<br>TCHouse-C (ClickHouse)                                                                                            |                                                                                                                          |
 | `SUNDB`<br>测试中                  | SUNDB[GenericSQL]:<br>`jdbc:sundb`                                                                                                                                                 | ~~GAV~~ 用户自行导入JAR包                                                                                                       |
@@ -60,6 +60,7 @@
 | ~~Milvus~~<br>放弃               | 无jdbc驱动                                                                                                                                                                            |
 | `YMatrix`<br>测试中 | YMatrix[PostgreSQL]<br>YMatrix (PostgreSQL) |  |
 | ~~VikingDB~~<br>放弃               | 无jdbc驱动                                                                                                                                                                            |
+| ~~DBOne~~<br>放弃               | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -197,11 +198,11 @@ db2.base,mariadb,mongo.base,mongo_documentdb.base,mysql.8,mysql.base,oracle.base
 
 AntDB   
 CnosDB   
-
-
 openGemini   
 OpenTenBase   
-DBOne   
+
+
+   
 MogDB   
 九有数据库   
 RadonDB   
