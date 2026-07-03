@@ -52,6 +52,7 @@
 | `TCHouse`<br>测试中                | TCHouse[MySQL]<br>TCHouse-D (MySQL)<br>TCHouse-P (PostgreSQL)<br>TCHouse-C (ClickHouse)                                                                                            |                                                                                                                          |
 | `SUNDB`<br>测试中                  | SUNDB[GenericSQL]:<br>`jdbc:sundb`                                                                                                                                                 | ~~GAV~~ 用户自行导入JAR包                                                                                                       |
 | `GreptimeDB`<br>测试中             | GreptimeDB[MySQL]<br>GreptimeDB (MySQL)<br>GreptimeDB (PostgreSQL)                                                                                                                 |                                                                                                                          |
+| `SequoiaDB`<br>测试中 | SequoiaDB[MySQL]<br>SequoiaDB (MySQL)<br>SequoiaDB (MariaDB)<br>SequoiaDB (PostgreSQL) |  |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -191,7 +192,6 @@ IvorySQL
 TuGraph
 NebulaGraph
 RisingWave
-SequoiaDB   
 
 YMatrix   
 AntDB   

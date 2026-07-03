@@ -1,0 +1,36 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.sequoiadb-driver-integration</id>
+    <name>SequoiaDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides SequoiaDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="SEQUOIADB" instance="plus.wcj.jetbrains.plugins.sequoiadb.SequoiaDBDatabaseDbms.SEQUOIADB"/>
+        <extensionFallback dbms="SEQUOIADB" fallbackDbms="MYSQL"/>
+        <addToHSet item="SEQUOIADB" set="MYSQL_LIKE"/>
+        <addToHSet item="SEQUOIADB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="SEQUOIADB_MYSQL" instance="plus.wcj.jetbrains.plugins.sequoiadb.SequoiaDBDatabaseDbms.SEQUOIADB_MYSQL"/>
+        <extensionFallback dbms="SEQUOIADB_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="SEQUOIADB_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="SEQUOIADB_MYSQL" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="SEQUOIADB_MARIADB" instance="plus.wcj.jetbrains.plugins.sequoiadb.SequoiaDBDatabaseDbms.SEQUOIADB_MARIADB"/>
+        <extensionFallback dbms="SEQUOIADB_MARIADB" fallbackDbms="MARIADB"/>
+        <addToHSet item="SEQUOIADB_MARIADB" set="MYSQL_LIKE"/>
+        <addToHSet item="SEQUOIADB_MARIADB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="SEQUOIADB_POSTGRES" instance="plus.wcj.jetbrains.plugins.sequoiadb.SequoiaDBDatabaseDbms.SEQUOIADB_POSTGRES"/>
+        <extensionFallback dbms="SEQUOIADB_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="SEQUOIADB_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="SEQUOIADB_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

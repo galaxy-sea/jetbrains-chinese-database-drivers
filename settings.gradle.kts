@@ -37,6 +37,7 @@ include(
     "tchouse-driver-integration",
     "sundb-driver-integration",
     "greptimedb-driver-integration",
+    "sequoiadb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 
