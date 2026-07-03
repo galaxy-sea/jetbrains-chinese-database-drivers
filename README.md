@@ -71,6 +71,7 @@
 | ~~GeminiDB~~<br>放弃              | 这是一个云平台                                                                                                                                                                            |
 | ~~KunDB~~<br>放弃                    | 无jdbc驱动                                                                                                                                                                            |
 | ~~GoldenData~~<br>放弃                    | 无jdbc驱动                                                                                                                                                                            |
+| ~~KSMDB~~<br>放弃                    | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -217,7 +218,6 @@ GreatSQL
 
    
    
-KSMDB   
 uniDB   
 HotDB   
 TcaplusDB   
