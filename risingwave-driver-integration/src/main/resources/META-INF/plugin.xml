@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.risingwave-driver-integration</id>
+    <name>RisingWave Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides RisingWave JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="RISINGWAVE" instance="plus.wcj.jetbrains.plugins.risingwave.RisingWaveDatabaseDbms.RISINGWAVE"/>
+        <extensionFallback dbms="RISINGWAVE" fallbackDbms="POSTGRES"/>
+        <addToHSet item="RISINGWAVE" set="POSTGRES_LIKE"/>
+        <addToHSet item="RISINGWAVE" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="RISINGWAVE_POSTGRES" instance="plus.wcj.jetbrains.plugins.risingwave.RisingWaveDatabaseDbms.RISINGWAVE_POSTGRES"/>
+        <extensionFallback dbms="RISINGWAVE_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="RISINGWAVE_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="RISINGWAVE_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

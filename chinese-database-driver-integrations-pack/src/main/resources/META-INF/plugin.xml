@@ -44,4 +44,5 @@
     <depends>plus.wcj.jetbrains.plugins.sundb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.greptimedb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.sequoiadb-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.risingwave-driver-integration</depends>
 </idea-plugin>

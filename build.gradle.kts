@@ -46,6 +46,7 @@ val databaseDriverPluginProjects = listOf(
     ":sundb-driver-integration",
     ":greptimedb-driver-integration",
     ":sequoiadb-driver-integration",
+    ":risingwave-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(
