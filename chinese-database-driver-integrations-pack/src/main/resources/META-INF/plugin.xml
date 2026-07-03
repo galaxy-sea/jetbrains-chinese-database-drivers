@@ -46,4 +46,5 @@
     <depends>plus.wcj.jetbrains.plugins.sequoiadb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.risingwave-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.nebulagraph-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.ivorysql-driver-integration</depends>
 </idea-plugin>

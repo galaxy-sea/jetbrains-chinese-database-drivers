@@ -55,6 +55,8 @@
 | `SequoiaDB`<br>测试中              | SequoiaDB[MySQL]<br>SequoiaDB (MySQL)<br>SequoiaDB (MariaDB)<br>SequoiaDB (PostgreSQL)                                                                                             |                                                                                                                          |
 | `RisingWave`<br>测试中             | RisingWave[PostgreSQL]<br>RisingWave (PostgreSQL)                                                                                                                                  |                                                                                                                          |
 | `NebulaGraph`<br>测试中            | NebulaGraph[GenericSQL]:<br>`jdbc:nebula`                                                                                                                                          | `org.nebula-contrib:nebula-jdbc` 第三方                                                                                     |
+| ~~TuGraph~~<br>放弃               | 无jdbc驱动                                                                                                                                                                            |
+| `IvorySQL`<br>测试中               | IvorySQL[PostgreSQL]<br>IvorySQL (PostgreSQL)                                                                                                                                      |                                                                                                                          |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -190,8 +192,6 @@ db2.base,mariadb,mongo.base,mongo_documentdb.base,mysql.8,mysql.base,oracle.base
 > 这个榜单不太行呀，有些是云平台名称，根本不是数据库实现啊😊🌞
 
 Milvus
-IvorySQL
-TuGraph
 
 YMatrix   
 AntDB   

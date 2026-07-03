@@ -40,6 +40,7 @@ include(
     "sequoiadb-driver-integration",
     "risingwave-driver-integration",
     "nebulagraph-driver-integration",
+    "ivorysql-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

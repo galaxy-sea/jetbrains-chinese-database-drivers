@@ -48,6 +48,7 @@ val databaseDriverPluginProjects = listOf(
     ":sequoiadb-driver-integration",
     ":risingwave-driver-integration",
     ":nebulagraph-driver-integration",
+    ":ivorysql-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(

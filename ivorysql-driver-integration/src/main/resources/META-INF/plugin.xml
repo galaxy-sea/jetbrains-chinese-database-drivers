@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.ivorysql-driver-integration</id>
+    <name>IvorySQL Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides IvorySQL JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="IVORYSQL" instance="plus.wcj.jetbrains.plugins.ivorysql.IvorySQLDatabaseDbms.IVORYSQL"/>
+        <extensionFallback dbms="IVORYSQL" fallbackDbms="POSTGRES"/>
+        <addToHSet item="IVORYSQL" set="POSTGRES_LIKE"/>
+        <addToHSet item="IVORYSQL" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="IVORYSQL_POSTGRES" instance="plus.wcj.jetbrains.plugins.ivorysql.IvorySQLDatabaseDbms.IVORYSQL_POSTGRES"/>
+        <extensionFallback dbms="IVORYSQL_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="IVORYSQL_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="IVORYSQL_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>
