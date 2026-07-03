@@ -62,6 +62,7 @@
 | ~~VikingDB~~<br>放弃               | 无jdbc驱动                                                                                                                                                                            |
 | ~~DBOne~~<br>放弃               | 无jdbc驱动                                                                                                                                                                            |
 | `MogDB`<br>测试中 | MogDB[PostgreSQL]:<br>`jdbc:opengauss`<br>MogDB (PostgreSQL) | `org.opengauss:opengauss-jdbc` |
+| ~~九有数据库 ~~<br>放弃               | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -205,7 +206,7 @@ OpenTenBase
 
    
    
-九有数据库   
+  
 RadonDB   
 ByteHouse   
 MuDB   
