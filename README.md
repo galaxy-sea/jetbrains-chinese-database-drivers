@@ -66,6 +66,7 @@
 | `ByteHouse`<br>测试中 | ByteHouse[ClickHouse]:<br>`jdbc:bytehouse`<br>ByteHouse (ClickHouse) | `com.bytedance.bytehouse:driver-java` |
 | `MuDB`<br>测试中 | MuDB[PostgreSQL]:<br>`jdbc:opengauss`<br>MuDB (PostgreSQL) | `org.opengauss:opengauss-jdbc` |
 | ~~BigInsights~~<br>放弃               | 无jdbc驱动                                                                                                                                                                            |
+| ~~SymbolGraph~~<br>放弃               | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -206,6 +207,8 @@ CnosDB
 openGemini   
 OpenTenBase   
 RadonDB   
+Kyligence   
+Vearch   
 
 
    
@@ -213,9 +216,7 @@ RadonDB
   
    
    
-Kyligence   
-Vearch   
-SymbolGraph   
+   
 嬴图   
 GreatSQL   
 GeminiDB   
