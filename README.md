@@ -75,6 +75,7 @@ java scripts/CreateDriverIntegrationModule.java \
   --fallback MYSQL \
   --open-meta-inf \
   # --jetbrains-model MYSQL \
+  # --jetbrains-model MARIADB \
   # --jetbrains-model POSTGRES \
   # --jetbrains-model ORACLE \
   # --jetbrains-model HIVE \
@@ -93,6 +94,7 @@ java scripts/CreateDriverIntegrationModule.java \
   --maven com.example:example-jdbc \
   --open-meta-inf \
   # --jetbrains-model MYSQL \
+  # --jetbrains-model MARIADB \
   # --jetbrains-model POSTGRES \
   # --jetbrains-model ORACLE \
   # --jetbrains-model HIVE \
@@ -104,6 +106,7 @@ java scripts/CreateDriverIntegrationModule.java \
 | fallback     | 自动继承的官方驱动    | 默认方言         |
 |--------------|--------------|--------------|
 | `MYSQL`      | `mysql.8`    | `MySQL`      |
+| `MARIADB`    | `mariadb`    | `MariaDB`    |
 | `ORACLE`     | `oracle.19`  | `Oracle`     |
 | `POSTGRES`   | `postgresql` | `PostgreSQL` |
 | `HIVE`       | `hive`       | `HiveQL`     |
@@ -115,6 +118,7 @@ java scripts/CreateDriverIntegrationModule.java \
 | jetbrains-model | 生成的官方驱动配置               |
 |-----------------|-------------------------|
 | `MYSQL`         | `based-on="mysql.8"`    |
+| `MARIADB`       | `based-on="mariadb"`    |
 | `ORACLE`        | `based-on="oracle.19"`  |
 | `POSTGRES`      | `based-on="postgresql"` |
 | `HIVE`          | `based-on="hive"`       |

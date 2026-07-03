@@ -219,6 +219,7 @@ public class CreateDriverIntegrationModule {
     private static String jetBrainsModelDisplayName(String jetbrainsModel) {
         return switch (jetbrainsModel) {
             case "MYSQL" -> "MySQL";
+            case "MARIADB" -> "MariaDB";
             case "ORACLE" -> "Oracle";
             case "POSTGRES" -> "PostgreSQL";
             case "HIVE" -> "Hive";
@@ -231,6 +232,7 @@ public class CreateDriverIntegrationModule {
         List<String> values = new ArrayList<>();
         switch (fallbackDbms) {
             case "MYSQL" -> values.add("MYSQL_LIKE");
+            case "MARIADB" -> values.add("MYSQL_LIKE");
             case "ORACLE" -> values.add("ORACLE_LIKE");
             case "POSTGRES" -> values.add("POSTGRES_LIKE");
             case "CLICKHOUSE" -> values.add("CLICKHOUSE_LIKE");
@@ -473,6 +475,7 @@ public class CreateDriverIntegrationModule {
     private static String officialDriverClass(String basedOn) {
         return switch (basedOn) {
             case "mysql.8" -> "com.mysql.cj.jdbc.Driver";
+            case "mariadb" -> "org.mariadb.jdbc.Driver";
             case "oracle.19" -> "oracle.jdbc.OracleDriver";
             case "postgresql" -> "org.postgresql.Driver";
             case "clickhouse" -> "com.clickhouse.jdbc.ClickHouseDriver";
@@ -483,6 +486,7 @@ public class CreateDriverIntegrationModule {
     private static String officialUrlTemplate(String basedOn) {
         return switch (basedOn) {
             case "mysql.8" -> "jdbc:mysql://{host}:{port}/{database}";
+            case "mariadb" -> "jdbc:mariadb://{host}:{port}/{database}";
             case "oracle.19" -> "jdbc:oracle:thin:@//{host}:{port}/{database}";
             case "postgresql" -> "jdbc:postgresql://{host}:{port}/{database}";
             case "clickhouse" -> "jdbc:clickhouse://{host}:{port}/{database}";
@@ -517,11 +521,11 @@ public class CreateDriverIntegrationModule {
 
             Options:
               --name           Display name, e.g. GoldenDB
-              --fallback       JetBrains fallback DBMS: MYSQL, ORACLE, POSTGRES, HIVE, CLICKHOUSE, GENERICSQL
-              --jetbrains-model Additional JetBrains built-in driver model: MYSQL, ORACLE, POSTGRES, HIVE, CLICKHOUSE. Repeatable.
+              --fallback       JetBrains fallback DBMS: MYSQL, MARIADB, ORACLE, POSTGRES, HIVE, CLICKHOUSE, GENERICSQL
+              --jetbrains-model Additional JetBrains built-in driver model: MYSQL, MARIADB, ORACLE, POSTGRES, HIVE, CLICKHOUSE. Repeatable.
               --id             Optional module/driver id prefix. Defaults to normalized --name, e.g. GoldenDB -> goldendb.
               --dbms           Optional custom DBMS id. Defaults to normalized --name, e.g. GoldenDB -> GOLDENDB.
-              --based-on       Optional official driver id override. Defaults from --fallback: MYSQL -> mysql.8, ORACLE -> oracle.19, POSTGRES -> postgresql, HIVE -> hive, CLICKHOUSE -> clickhouse.
+              --based-on       Optional official driver id override. Defaults from --fallback: MYSQL -> mysql.8, MARIADB -> mariadb, ORACLE -> oracle.19, POSTGRES -> postgresql, HIVE -> hive, CLICKHOUSE -> clickhouse.
               --dialect        Optional dialect override. Defaults from --fallback.
               --driver-class   Optional custom JDBC driver class. When omitted, the generated driver uses --based-on.
               --default-port   Required with --driver-class.
@@ -747,6 +751,7 @@ public class CreateDriverIntegrationModule {
         private static String defaultBasedOn(String fallbackDbms) {
             return switch (fallbackDbms) {
                 case "MYSQL" -> "mysql.8";
+                case "MARIADB" -> "mariadb";
                 case "ORACLE" -> "oracle.19";
                 case "POSTGRES" -> "postgresql";
                 case "HIVE" -> "hive";
@@ -758,6 +763,7 @@ public class CreateDriverIntegrationModule {
         private static String defaultDialect(String fallbackDbms) {
             return switch (fallbackDbms) {
                 case "MYSQL" -> "MySQL";
+                case "MARIADB" -> "MariaDB";
                 case "ORACLE" -> "Oracle";
                 case "POSTGRES" -> "PostgreSQL";
                 case "HIVE" -> "HiveQL";
@@ -776,7 +782,7 @@ public class CreateDriverIntegrationModule {
 
         private static boolean isSupportedFallback(String fallbackDbms) {
             return switch (fallbackDbms) {
-                case "MYSQL", "ORACLE", "POSTGRES", "HIVE", "CLICKHOUSE", "GENERICSQL" -> true;
+                case "MYSQL", "MARIADB", "ORACLE", "POSTGRES", "HIVE", "CLICKHOUSE", "GENERICSQL" -> true;
                 default -> false;
             };
         }
