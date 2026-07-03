@@ -45,6 +45,7 @@ include(
     "mogdb-driver-integration",
     "bytehouse-driver-integration",
     "mudb-driver-integration",
+    "hotdb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

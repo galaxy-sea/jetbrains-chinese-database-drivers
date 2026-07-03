@@ -69,10 +69,11 @@
 | ~~SymbolGraph~~<br>放弃           | 无jdbc驱动                                                                                                                                                                            |
 | ~~嬴图~~<br>放弃                    | 无jdbc驱动                                                                                                                                                                            |
 | ~~GeminiDB~~<br>放弃              | 这是一个云平台                                                                                                                                                                            |
-| ~~KunDB~~<br>放弃                    | 无jdbc驱动                                                                                                                                                                            |
-| ~~GoldenData~~<br>放弃                    | 无jdbc驱动                                                                                                                                                                            |
-| ~~KSMDB~~<br>放弃                    | 无jdbc驱动                                                                                                                                                                            |
-| ~~uniDB~~<br>放弃                    | 无jdbc驱动                                                                                                                                                                            |
+| ~~KunDB~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
+| ~~GoldenData~~<br>放弃            | 无jdbc驱动                                                                                                                                                                            |
+| ~~KSMDB~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
+| ~~uniDB~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
+| `HotDB`<br>测试中                  | HotDB[MySQL]<br>HotDB (MySQL)                                                                                                                                                      |                                                                                                                          |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -217,10 +218,6 @@ Kyligence
 Vearch   
 GreatSQL
 
-   
-   
-   
-HotDB   
 TcaplusDB   
 Galaxybase   
 OpenMLDB   

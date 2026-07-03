@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.hotdb-driver-integration</id>
+    <name>HotDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides HotDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="HOTDB" instance="plus.wcj.jetbrains.plugins.hotdb.HotDBDatabaseDbms.HOTDB"/>
+        <extensionFallback dbms="HOTDB" fallbackDbms="MYSQL"/>
+        <addToHSet item="HOTDB" set="MYSQL_LIKE"/>
+        <addToHSet item="HOTDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="HOTDB_MYSQL" instance="plus.wcj.jetbrains.plugins.hotdb.HotDBDatabaseDbms.HOTDB_MYSQL"/>
+        <extensionFallback dbms="HOTDB_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="HOTDB_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="HOTDB_MYSQL" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>
