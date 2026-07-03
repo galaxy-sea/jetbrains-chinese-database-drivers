@@ -36,6 +36,7 @@ include(
     "taurusdb-driver-integration",
     "tchouse-driver-integration",
     "sundb-driver-integration",
+    "greptimedb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

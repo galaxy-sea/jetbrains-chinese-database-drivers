@@ -50,7 +50,8 @@
 | ~~SourceDB~~<br>放弃              | 无法查询到相关资料                                                                                                                                                                          |
 | `TaurusDB`<br>测试中               | TaurusDB[MySQL]<br>TaurusDB (MySQL)                                                                                                                                                |                                                                                                                          |
 | `TCHouse`<br>测试中                | TCHouse[MySQL]<br>TCHouse-D (MySQL)<br>TCHouse-P (PostgreSQL)<br>TCHouse-C (ClickHouse)                                                                                            |                                                                                                                          |
-| `SUNDB`<br>测试中                  | SUNDB[GenericSQL]:<br>`jdbc:sundb`                                                                                                                                                 | `com.csii:sundb-jdbc`                                                                                                    |
+| `SUNDB`<br>测试中                  | SUNDB[GenericSQL]:<br>`jdbc:sundb`                                                                                                                                                 | ~~GAV~~ 用户自行导入JAR包                                                                                                       |
+| `GreptimeDB`<br>测试中             | GreptimeDB[MySQL]<br>GreptimeDB (MySQL)<br>GreptimeDB (PostgreSQL)                                                                                                                 |                                                                                                                          |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -72,6 +73,7 @@
 java scripts/CreateDriverIntegrationModule.java \
   --name ExampleDB \
   --fallback MYSQL \
+  --open-meta-inf \
   # --jetbrains-model MYSQL \
   # --jetbrains-model POSTGRES \
   # --jetbrains-model ORACLE \
@@ -89,6 +91,7 @@ java scripts/CreateDriverIntegrationModule.java \
   --default-port 3306 \
   --jdbc-prefix jdbc:example: \
   --maven com.example:example-jdbc \
+  --open-meta-inf \
   # --jetbrains-model MYSQL \
   # --jetbrains-model POSTGRES \
   # --jetbrains-model ORACLE \
@@ -120,6 +123,8 @@ java scripts/CreateDriverIntegrationModule.java \
 例如 `--fallback MYSQL --jetbrains-model ORACLE --jetbrains-model POSTGRES` 会保留主驱动的 MySQL fallback 行为，并额外生成 Oracle/PostgreSQL 官方模型的 driver 标签。
 
 脚本会生成 `xxx-driver-integration` 模块，并更新 `settings.gradle.kts`、根 `build.gradle.kts`、Pack 插件依赖和 README 的“支持的数据库”表格。生成后需要替换 `META-INF/pluginIcon.svg` 为真实数据库图标，并检查 README 表格中自动填入的 JDBC 驱动信息和 Maven 信息。
+
+如果希望生成完成后直接打开插件元信息目录，可以追加 `--open-meta-inf`，脚本会打开 `xxx-driver-integration/src/main/resources/META-INF`。
 
 新增一个数据库 Driver Integration 插件时，需要添加或修改以下内容：
 
@@ -183,7 +188,6 @@ TuGraph
 NebulaGraph
 RisingWave
 SequoiaDB   
-GreptimeDB
 
 YMatrix   
 AntDB   

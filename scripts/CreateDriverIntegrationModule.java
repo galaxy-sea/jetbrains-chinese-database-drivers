@@ -37,7 +37,25 @@ public class CreateDriverIntegrationModule {
         updateReadmeSupportedDatabases(root.resolve("README.md"), options);
 
         System.out.println("Created " + options.moduleName);
+        if (options.openMetaInf) {
+            openDirectory(modulePath.resolve("src/main/resources/META-INF"));
+        }
         System.out.println("Next: ./gradlew :" + options.moduleName + ":buildPlugin");
+    }
+
+    private static void openDirectory(Path path) throws IOException {
+        String osName = System.getProperty("os.name").toLowerCase(Locale.ROOT);
+        ProcessBuilder processBuilder;
+        if (osName.contains("mac")) {
+            processBuilder = new ProcessBuilder("open", path.toString());
+        }
+        else if (osName.contains("win")) {
+            processBuilder = new ProcessBuilder("explorer", path.toString());
+        }
+        else {
+            processBuilder = new ProcessBuilder("xdg-open", path.toString());
+        }
+        processBuilder.start();
     }
 
     private static void createModule(Path root, Path modulePath, Options options) throws IOException {
@@ -513,12 +531,14 @@ public class CreateDriverIntegrationModule {
               --class-prefix   Optional Kotlin class prefix. Defaults to PascalCase --name.
               --group-with     Optional DataGrip driver group id for nested Add Data Source entries.
               --remarks        Optional driver remarks.
+              --open-meta-inf  Open the generated src/main/resources/META-INF directory after generation.
               --root           Optional project root. Defaults to current directory.
             """);
     }
 
     private static final class Options {
         boolean help;
+        boolean openMetaInf;
         String id;
         String displayName;
         String dbmsId;
@@ -550,6 +570,10 @@ public class CreateDriverIntegrationModule {
                 String arg = args[index];
                 if (arg.equals("--help") || arg.equals("-h")) {
                     options.help = true;
+                    continue;
+                }
+                if (arg.equals("--open-meta-inf")) {
+                    options.openMetaInf = true;
                     continue;
                 }
                 if (!arg.startsWith("--")) {

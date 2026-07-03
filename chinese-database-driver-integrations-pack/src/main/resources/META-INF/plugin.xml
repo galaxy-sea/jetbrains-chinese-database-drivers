@@ -42,4 +42,5 @@
     <depends>plus.wcj.jetbrains.plugins.taurusdb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.tchouse-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.sundb-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.greptimedb-driver-integration</depends>
 </idea-plugin>

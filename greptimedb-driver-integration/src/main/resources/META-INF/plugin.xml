@@ -1,0 +1,31 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.greptimedb-driver-integration</id>
+    <name>GreptimeDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides GreptimeDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="GREPTIMEDB" instance="plus.wcj.jetbrains.plugins.greptimedb.GreptimeDBDatabaseDbms.GREPTIMEDB"/>
+        <extensionFallback dbms="GREPTIMEDB" fallbackDbms="MYSQL"/>
+        <addToHSet item="GREPTIMEDB" set="MYSQL_LIKE"/>
+        <addToHSet item="GREPTIMEDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="GREPTIMEDB_MYSQL" instance="plus.wcj.jetbrains.plugins.greptimedb.GreptimeDBDatabaseDbms.GREPTIMEDB_MYSQL"/>
+        <extensionFallback dbms="GREPTIMEDB_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="GREPTIMEDB_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="GREPTIMEDB_MYSQL" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="GREPTIMEDB_POSTGRES" instance="plus.wcj.jetbrains.plugins.greptimedb.GreptimeDBDatabaseDbms.GREPTIMEDB_POSTGRES"/>
+        <extensionFallback dbms="GREPTIMEDB_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="GREPTIMEDB_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="GREPTIMEDB_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>
