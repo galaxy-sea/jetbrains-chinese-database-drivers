@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="ymatrix" name="YMatrix" icon="/icons/driversIcon.svg" forced-dbms="YMATRIX" based-on="postgresql" group-with="ymatrix">
+    <remarks>YMatrix</remarks>
+  </driver>
+  <driver id="ymatrix-postgres" name="YMatrix (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="YMATRIX_POSTGRES" based-on="postgresql" group-with="ymatrix">
+    <remarks>YMatrix</remarks>
+  </driver>
+</drivers>

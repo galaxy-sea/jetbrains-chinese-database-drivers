@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.ymatrix-driver-integration</id>
+    <name>YMatrix Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides YMatrix JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="YMATRIX" instance="plus.wcj.jetbrains.plugins.ymatrix.YMatrixDatabaseDbms.YMATRIX"/>
+        <extensionFallback dbms="YMATRIX" fallbackDbms="POSTGRES"/>
+        <addToHSet item="YMATRIX" set="POSTGRES_LIKE"/>
+        <addToHSet item="YMATRIX" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="YMATRIX_POSTGRES" instance="plus.wcj.jetbrains.plugins.ymatrix.YMatrixDatabaseDbms.YMATRIX_POSTGRES"/>
+        <extensionFallback dbms="YMATRIX_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="YMATRIX_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="YMATRIX_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

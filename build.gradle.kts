@@ -49,6 +49,7 @@ val databaseDriverPluginProjects = listOf(
     ":risingwave-driver-integration",
     ":nebulagraph-driver-integration",
     ":ivorysql-driver-integration",
+    ":ymatrix-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(
