@@ -63,6 +63,7 @@
 | ~~DBOne~~<br>放弃               | 无jdbc驱动                                                                                                                                                                            |
 | `MogDB`<br>测试中 | MogDB[PostgreSQL]:<br>`jdbc:opengauss`<br>MogDB (PostgreSQL) | `org.opengauss:opengauss-jdbc` |
 | ~~九有数据库 ~~<br>放弃               | 无jdbc驱动                                                                                                                                                                            |
+| `ByteHouse`<br>测试中 | ByteHouse[ClickHouse]:<br>`jdbc:bytehouse`<br>ByteHouse (ClickHouse) | `com.bytedance.bytehouse:driver-java` |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -202,13 +203,12 @@ AntDB
 CnosDB   
 openGemini   
 OpenTenBase   
+RadonDB   
 
 
    
    
   
-RadonDB   
-ByteHouse   
 MuDB   
 BigInsights   
 Kyligence   

@@ -43,6 +43,7 @@ include(
     "ivorysql-driver-integration",
     "ymatrix-driver-integration",
     "mogdb-driver-integration",
+    "bytehouse-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

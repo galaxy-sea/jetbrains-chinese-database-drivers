@@ -1,0 +1,31 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.bytehouse-driver-integration</id>
+    <name>ByteHouse Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides ByteHouse JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="BYTEHOUSE" instance="plus.wcj.jetbrains.plugins.bytehouse.ByteHouseDatabaseDbms.BYTEHOUSE"/>
+        <extensionFallback dbms="BYTEHOUSE" fallbackDbms="CLICKHOUSE"/>
+        <addToHSet item="BYTEHOUSE" set="CLICKHOUSE_LIKE"/>
+        <addToHSet item="BYTEHOUSE" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="BYTEHOUSE_CLICKHOUSE" instance="plus.wcj.jetbrains.plugins.bytehouse.ByteHouseDatabaseDbms.BYTEHOUSE_CLICKHOUSE"/>
+        <extensionFallback dbms="BYTEHOUSE_CLICKHOUSE" fallbackDbms="CLICKHOUSE"/>
+        <addToHSet item="BYTEHOUSE_CLICKHOUSE" set="CLICKHOUSE_LIKE"/>
+        <addToHSet item="BYTEHOUSE_CLICKHOUSE" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="BYTEHOUSE_MYSQL" instance="plus.wcj.jetbrains.plugins.bytehouse.ByteHouseDatabaseDbms.BYTEHOUSE_MYSQL"/>
+        <extensionFallback dbms="BYTEHOUSE_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="BYTEHOUSE_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="BYTEHOUSE_MYSQL" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

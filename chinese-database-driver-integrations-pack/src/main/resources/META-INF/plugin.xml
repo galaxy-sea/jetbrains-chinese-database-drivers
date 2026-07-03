@@ -49,4 +49,5 @@
     <depends>plus.wcj.jetbrains.plugins.ivorysql-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.ymatrix-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.mogdb-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.bytehouse-driver-integration</depends>
 </idea-plugin>

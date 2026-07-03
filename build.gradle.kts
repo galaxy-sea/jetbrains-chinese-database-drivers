@@ -51,6 +51,7 @@ val databaseDriverPluginProjects = listOf(
     ":ivorysql-driver-integration",
     ":ymatrix-driver-integration",
     ":mogdb-driver-integration",
+    ":bytehouse-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(
