@@ -59,6 +59,7 @@
 | `IvorySQL`<br>测试中               | IvorySQL[PostgreSQL]<br>IvorySQL (PostgreSQL)                                                                                                                                      |                                                                                                                          |
 | ~~Milvus~~<br>放弃               | 无jdbc驱动                                                                                                                                                                            |
 | `YMatrix`<br>测试中 | YMatrix[PostgreSQL]<br>YMatrix (PostgreSQL) |  |
+| ~~VikingDB~~<br>放弃               | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -196,7 +197,8 @@ db2.base,mariadb,mongo.base,mongo_documentdb.base,mysql.8,mysql.base,oracle.base
 
 AntDB   
 CnosDB   
-VikingDB   
+
+
 openGemini   
 OpenTenBase   
 DBOne   
