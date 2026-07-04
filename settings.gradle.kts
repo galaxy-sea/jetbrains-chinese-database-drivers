@@ -73,6 +73,7 @@ include(
     "actiondb-driver-integration",
     "klustron-driver-integration",
     "indb-driver-integration",
+    "vedb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

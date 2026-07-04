@@ -81,6 +81,7 @@ val databaseDriverPluginProjects = listOf(
     ":actiondb-driver-integration",
     ":klustron-driver-integration",
     ":indb-driver-integration",
+    ":vedb-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(

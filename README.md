@@ -133,6 +133,7 @@
 | ~~博流数据库~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 | ~~HexaDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 | ~~TensorDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
+| `VeDB`<br>测试中 | VeDB[MySQL]<br>VeDB (MySQL) |  |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -294,7 +295,6 @@ Yukon
    
    
    
-VeDB   
 TRS Hybase   
 PowerSQL   
 eZooDB   

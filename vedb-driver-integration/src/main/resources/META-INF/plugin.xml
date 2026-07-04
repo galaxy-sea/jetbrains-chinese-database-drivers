@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.vedb-driver-integration</id>
+    <name>VeDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides VeDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="VEDB" instance="plus.wcj.jetbrains.plugins.vedb.VeDBDatabaseDbms.VEDB"/>
+        <extensionFallback dbms="VEDB" fallbackDbms="MYSQL"/>
+        <addToHSet item="VEDB" set="MYSQL_LIKE"/>
+        <addToHSet item="VEDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="VEDB_MYSQL" instance="plus.wcj.jetbrains.plugins.vedb.VeDBDatabaseDbms.VEDB_MYSQL"/>
+        <extensionFallback dbms="VEDB_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="VEDB_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="VEDB_MYSQL" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

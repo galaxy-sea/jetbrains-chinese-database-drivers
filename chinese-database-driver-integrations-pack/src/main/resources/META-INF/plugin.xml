@@ -79,4 +79,5 @@
     <depends>plus.wcj.jetbrains.plugins.actiondb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.klustron-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.indb-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.vedb-driver-integration</depends>
 </idea-plugin>
