@@ -1,0 +1,31 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.actiondb-driver-integration</id>
+    <name>ActionDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides ActionDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="ACTIONDB" instance="plus.wcj.jetbrains.plugins.actiondb.ActionDBDatabaseDbms.ACTIONDB"/>
+        <extensionFallback dbms="ACTIONDB" fallbackDbms="MYSQL"/>
+        <addToHSet item="ACTIONDB" set="MYSQL_LIKE"/>
+        <addToHSet item="ACTIONDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="ACTIONDB_MYSQL" instance="plus.wcj.jetbrains.plugins.actiondb.ActionDBDatabaseDbms.ACTIONDB_MYSQL"/>
+        <extensionFallback dbms="ACTIONDB_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="ACTIONDB_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="ACTIONDB_MYSQL" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="ACTIONDB_ORACLE" instance="plus.wcj.jetbrains.plugins.actiondb.ActionDBDatabaseDbms.ACTIONDB_ORACLE"/>
+        <extensionFallback dbms="ACTIONDB_ORACLE" fallbackDbms="ORACLE"/>
+        <addToHSet item="ACTIONDB_ORACLE" set="ORACLE_LIKE"/>
+        <addToHSet item="ACTIONDB_ORACLE" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

@@ -70,6 +70,7 @@ include(
     "hashdata-driver-integration",
     "pieclouddb-driver-integration",
     "chronusdb-driver-integration",
+    "actiondb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 
