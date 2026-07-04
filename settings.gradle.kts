@@ -54,6 +54,7 @@ include(
     "lindorm-driver-integration",
     "halo-driver-integration",
     "lightdb-driver-integration",
+    "cisdigitaltimes-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

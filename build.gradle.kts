@@ -62,6 +62,7 @@ val databaseDriverPluginProjects = listOf(
     ":lindorm-driver-integration",
     ":halo-driver-integration",
     ":lightdb-driver-integration",
+    ":cisdigitaltimes-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(
