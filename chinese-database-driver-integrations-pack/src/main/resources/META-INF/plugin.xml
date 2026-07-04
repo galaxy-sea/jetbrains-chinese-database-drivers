@@ -55,4 +55,5 @@
     <depends>plus.wcj.jetbrains.plugins.tair-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.keewidb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.hunghudb-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.tapdb-driver-integration</depends>
 </idea-plugin>

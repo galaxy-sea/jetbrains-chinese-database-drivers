@@ -1,0 +1,24 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.tapdb-driver-integration</id>
+    <name>TapDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides TapDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="TAPDB" instance="plus.wcj.jetbrains.plugins.tapdb.TapDBDatabaseDbms.TAPDB"/>
+        <extensionFallback dbms="TAPDB" fallbackDbms="MONGO"/>
+        <addToHSet item="TAPDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="TAPDB_MONGO" instance="plus.wcj.jetbrains.plugins.tapdb.TapDBDatabaseDbms.TAPDB_MONGO"/>
+        <extensionFallback dbms="TAPDB_MONGO" fallbackDbms="MONGO"/>
+        <addToHSet item="TAPDB_MONGO" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

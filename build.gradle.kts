@@ -57,6 +57,7 @@ val databaseDriverPluginProjects = listOf(
     ":tair-driver-integration",
     ":keewidb-driver-integration",
     ":hunghudb-driver-integration",
+    ":tapdb-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(

@@ -779,7 +779,7 @@ public class CreateDriverIntegrationModule {
                 case "HIVE" -> "HiveQL";
                 case "CLICKHOUSE" -> "ClickHouse";
                 case "REDIS" -> "Redis";
-                case "MONGO" -> "MongoJS";
+                case "MONGO" -> "MongoDB";
                 case "GENERICSQL" -> "GenericSQL";
                 default -> null;
             };

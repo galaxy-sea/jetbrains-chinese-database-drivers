@@ -83,6 +83,7 @@
 | `KeeWiDB`<br>测试中 | KeeWiDB[Redis] |  |
 | ~~sinoregal~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
 | `HungHuDB`<br>测试中 | HungHuDB[PostgreSQL]<br>HungHuDB (PostgreSQL) |  |
+| `TapDB`<br>测试中 | TapDB[MongoDB]<br>TapDB (MongoDB) |  |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -147,7 +148,7 @@ java scripts/CreateDriverIntegrationModule.java \
 | `HIVE`       | `hive`       | `HiveQL`     |
 | `CLICKHOUSE` | `clickhouse` | `ClickHouse` |
 | `REDIS`      | `redis`      | `Redis`      |
-| `MONGODB`    | `mongo`      | `MongoJS`    |
+| `MONGODB`    | `mongo`      | `MongoDB`    |
 | `GENERICSQL` | DBMS         | `GenericSQL` |
 
 `--jetbrains-model` 只用于额外增加复用 JetBrains 内置数据模型的 driver 标签，该参数可以重复传入：
@@ -247,7 +248,7 @@ Kvrocks
    
    
    
-TapDB   
+   
 StarDB   
 Lindorm   
 CirroData   

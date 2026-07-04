@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="tapdb" name="TapDB" icon="/icons/driversIcon.svg" forced-dbms="TAPDB" based-on="mongo" group-with="tapdb">
+    <remarks>TapDB</remarks>
+  </driver>
+  <driver id="tapdb-mongo" name="TapDB (MongoDB)" icon="/icons/driversIcon.svg" forced-dbms="TAPDB_MONGO" based-on="mongo" group-with="tapdb">
+    <remarks>TapDB</remarks>
+  </driver>
+</drivers>
