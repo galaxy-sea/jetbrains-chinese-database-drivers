@@ -106,6 +106,7 @@
 | `Apache Kylin`<br>`Kyligence`<br>测试中 | Apache Kylin[HiveQL]:<br>`jdbc:kylin`                                                                                                                                              | `org.apache.kylin:kylin-jdbc`                                                                                            |
 | `RadonDB`<br>测试中 | RadonDB[MySQL]<br>RadonDB (MySQL) |  |
 | `OpenTenBase`<br>测试中 | OpenTenBase[PostgreSQL]<br>OpenTenBase (PostgreSQL) |  |
+| ~~openGemini~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -255,7 +256,7 @@ db2.base,mariadb,mongo.base,mongo_documentdb.base,mysql.8,mysql.base,oracle.base
 
 AntDB   
 CnosDB   
-openGemini   
+   
    
 
 ----------
