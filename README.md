@@ -118,6 +118,7 @@
 | `HashData`<br>测试中 | HashData[PostgreSQL]<br>HashData (PostgreSQL) |  |
 | ~~RapidsDB~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 | `PieCloudDB`<br>测试中 | PieCloudDB[PostgreSQL]<br>PieCloudDB (PostgreSQL) |  |
+| ~~ShinDB~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -286,7 +287,7 @@ Yukon
    
    
    
-ShinDB   
+   
 SyncBASE   
 ChronusDB   
 Beaver   
