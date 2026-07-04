@@ -1,5 +1,1 @@
-<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-  <rect x="1" y="1" width="14" height="14" rx="2" fill="#2F6FED"/>
-  <path d="M4 4h8v2H4V4Zm0 3h8v2H4V7Zm0 3h8v2H4v-2Z" fill="#FFFFFF" opacity=".9"/>
-  <text x="8" y="11.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" font-weight="700" fill="#2F6FED">O</text>
-</svg>
+<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1783177683132" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="52260" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16"><path d="M255.168 64L594.56 572.8 448 786.432 227.52 430.976V960H0V64h255.168zM910.208 64v672H1024V960h-341.312V64h227.52z" fill="#33AC71" p-id="52261"></path></svg>
