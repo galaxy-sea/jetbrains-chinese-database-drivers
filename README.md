@@ -87,6 +87,7 @@
 | `StarDB`<br>测试中                 | StarDB[MySQL]<br>StarDB (MySQL)                                                                                                                                                    |                                                                                                                          |
 | `Lindorm`<br>测试中                | Lindorm[MySQL]:<br>`jdbc:lindorm:table`<br>`jdbc:lindorm:tsdb`<br>`jdbc:lindorm:search`<br>Lindorm (MySQL)<br>Lindorm (Cassandra)<br>Lindorm (Hive)                                | `com.aliyun.lindorm:lindorm-all-client`                                                                                  |
 | ~~CirroData~~<br>放弃             | 无jdbc驱动                                                                                                                                                                            |
+| ~~Hubble~~<br>放弃             | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
