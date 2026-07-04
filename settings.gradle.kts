@@ -66,6 +66,7 @@ include(
     "opentenbase-driver-integration",
     "cnosdb-driver-integration",
     "antdb-driver-integration",
+    "protonbase-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

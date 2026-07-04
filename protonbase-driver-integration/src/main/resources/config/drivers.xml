@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="protonbase" name="ProtonBase" icon="/icons/driversIcon.svg" forced-dbms="PROTONBASE" based-on="postgresql" group-with="protonbase">
+    <remarks>ProtonBase</remarks>
+  </driver>
+  <driver id="protonbase-postgres" name="ProtonBase (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="PROTONBASE_POSTGRES" based-on="postgresql" group-with="protonbase">
+    <remarks>ProtonBase</remarks>
+  </driver>
+</drivers>

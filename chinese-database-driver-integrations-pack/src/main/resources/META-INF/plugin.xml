@@ -72,4 +72,5 @@
     <depends>plus.wcj.jetbrains.plugins.opentenbase-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.cnosdb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.antdb-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.protonbase-driver-integration</depends>
 </idea-plugin>

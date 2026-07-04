@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.protonbase-driver-integration</id>
+    <name>ProtonBase Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides ProtonBase JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="PROTONBASE" instance="plus.wcj.jetbrains.plugins.protonbase.ProtonBaseDatabaseDbms.PROTONBASE"/>
+        <extensionFallback dbms="PROTONBASE" fallbackDbms="POSTGRES"/>
+        <addToHSet item="PROTONBASE" set="POSTGRES_LIKE"/>
+        <addToHSet item="PROTONBASE" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="PROTONBASE_POSTGRES" instance="plus.wcj.jetbrains.plugins.protonbase.ProtonBaseDatabaseDbms.PROTONBASE_POSTGRES"/>
+        <extensionFallback dbms="PROTONBASE_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="PROTONBASE_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="PROTONBASE_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

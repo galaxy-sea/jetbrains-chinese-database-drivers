@@ -114,6 +114,7 @@
 | ~~pSpace~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 | ~~百度云VectorDB~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 | ~~KingHistorian~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
+| `ProtonBase`<br>测试中 | ProtonBase[PostgreSQL]<br>ProtonBase (PostgreSQL) |  |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -280,7 +281,6 @@ Yukon
    
    
    
-ProtonBase   
 HashData   
 RapidsDB   
 PieCloudDB   
