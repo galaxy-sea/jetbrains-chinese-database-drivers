@@ -66,6 +66,7 @@ val databaseDriverPluginProjects = listOf(
     ":tendis-driver-integration",
     ":apachekvrocks-driver-integration",
     ":byconity-driver-integration",
+    ":databend-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(

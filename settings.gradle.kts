@@ -58,6 +58,7 @@ include(
     "tendis-driver-integration",
     "apachekvrocks-driver-integration",
     "byconity-driver-integration",
+    "databend-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

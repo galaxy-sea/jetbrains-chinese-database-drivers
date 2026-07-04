@@ -64,4 +64,5 @@
     <depends>plus.wcj.jetbrains.plugins.tendis-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.apachekvrocks-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.byconity-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.databend-driver-integration</depends>
 </idea-plugin>
