@@ -68,6 +68,7 @@ val databaseDriverPluginProjects = listOf(
     ":byconity-driver-integration",
     ":databend-driver-integration",
     ":openmldb-driver-integration",
+    ":greatsql-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(

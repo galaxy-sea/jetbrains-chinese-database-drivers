@@ -60,6 +60,7 @@ include(
     "byconity-driver-integration",
     "databend-driver-integration",
     "openmldb-driver-integration",
+    "greatsql-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 
