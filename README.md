@@ -81,6 +81,7 @@
 | ~~腾讯云VectorDB~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
 | ~~AbutionGraph~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
 | `KeeWiDB`<br>测试中 | KeeWiDB[Redis] |  |
+| ~~sinoregal~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -236,7 +237,7 @@ Kvrocks
    
    
    
-SinoDB   
+   
 HungHuDB   
 TapDB   
 StarDB   
