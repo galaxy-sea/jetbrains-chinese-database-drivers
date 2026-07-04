@@ -67,6 +67,7 @@ include(
     "cnosdb-driver-integration",
     "antdb-driver-integration",
     "protonbase-driver-integration",
+    "hashdata-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

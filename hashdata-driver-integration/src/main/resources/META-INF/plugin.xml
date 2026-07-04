@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.hashdata-driver-integration</id>
+    <name>HashData Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides HashData JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="HASHDATA" instance="plus.wcj.jetbrains.plugins.hashdata.HashDataDatabaseDbms.HASHDATA"/>
+        <extensionFallback dbms="HASHDATA" fallbackDbms="POSTGRES"/>
+        <addToHSet item="HASHDATA" set="POSTGRES_LIKE"/>
+        <addToHSet item="HASHDATA" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="HASHDATA_POSTGRES" instance="plus.wcj.jetbrains.plugins.hashdata.HashDataDatabaseDbms.HASHDATA_POSTGRES"/>
+        <extensionFallback dbms="HASHDATA_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="HASHDATA_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="HASHDATA_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>
