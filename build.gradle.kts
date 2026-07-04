@@ -73,6 +73,7 @@ val databaseDriverPluginProjects = listOf(
     ":radondb-driver-integration",
     ":opentenbase-driver-integration",
     ":cnosdb-driver-integration",
+    ":antdb-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(

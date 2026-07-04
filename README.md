@@ -108,6 +108,7 @@
 | `OpenTenBase`<br>测试中 | OpenTenBase[PostgreSQL]<br>OpenTenBase (PostgreSQL) |  |
 | ~~openGemini~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 | `CnosDB`<br>测试中 | CnosDB[GenericSQL]:<br>`jdbc:arrow-flight-sql` | `org.apache.arrow:flight-sql-jdbc-driver` |
+| `AntDB`<br>测试中 | AntDB[PostgreSQL]<br>AntDB (PostgreSQL) |  |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -255,7 +256,7 @@ db2.base,mariadb,mongo.base,mongo_documentdb.base,mysql.8,mysql.base,oracle.base
 > 这个榜单不太行呀，有些是云平台名称，根本不是数据库实现啊😊🌞
 
 
-AntDB   
+   
    
    
    

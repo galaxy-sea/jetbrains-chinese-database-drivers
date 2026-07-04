@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="antdb" name="AntDB" icon="/icons/driversIcon.svg" forced-dbms="ANTDB" based-on="postgresql" group-with="antdb">
+    <remarks>AntDB</remarks>
+  </driver>
+  <driver id="antdb-postgres" name="AntDB (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="ANTDB_POSTGRES" based-on="postgresql" group-with="antdb">
+    <remarks>AntDB</remarks>
+  </driver>
+</drivers>

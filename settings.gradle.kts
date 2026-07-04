@@ -65,6 +65,7 @@ include(
     "radondb-driver-integration",
     "opentenbase-driver-integration",
     "cnosdb-driver-integration",
+    "antdb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 
