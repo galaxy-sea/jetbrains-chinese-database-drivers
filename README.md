@@ -110,6 +110,7 @@
 | `CnosDB`<br>测试中 | CnosDB[GenericSQL]:<br>`jdbc:arrow-flight-sql` | `org.apache.arrow:flight-sql-jdbc-driver` |
 | `AntDB`<br>测试中 | AntDB[PostgreSQL]<br>AntDB (PostgreSQL) |  |
 | ~~HaiRuoVectorDB~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
+| ~~HHDB~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -262,24 +263,28 @@ db2.base,mariadb,mongo.base,mongo_documentdb.base,mysql.8,mysql.base,oracle.base
    
    
 
+DingoDB   
+OushuDB   
+PikiwiDB   
+Havenask   
+CloudberryDB   
+Todis（ToplingDB）  
+Yukon   
+
 ----------
    
-HHDB   
+   
 pSpace   
 百度云VectorDB   
 KingHistorian   
 ProtonBase   
 HashData   
-DingoDB   
 RapidsDB   
 PieCloudDB   
 ShinDB   
-OushuDB   
 SyncBASE   
-PikiwiDB   
 ChronusDB   
 Beaver   
-Havenask   
 ActionDB   
 Klustron   
 RealHistorian   
@@ -287,8 +292,6 @@ openPlant
 InDB   
 BGraph   
 ProcessDB   
-CloudberryDB   
-Todis（ToplingDB）   
 HeroDB   
 博流数据库   
 HexaDB   
@@ -310,5 +313,4 @@ ZettaBase
 CeaSQL   
 CUDB   
 NseaDB   
-Yukon   
 航天天域数据库   
