@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="byconity" name="ByConity" icon="/icons/driversIcon.svg" forced-dbms="BYCONITY" based-on="clickhouse" group-with="byconity">
+    <remarks>ByConity</remarks>
+  </driver>
+  <driver id="byconity-clickhouse" name="ByConity (ClickHouse)" icon="/icons/driversIcon.svg" forced-dbms="BYCONITY_CLICKHOUSE" based-on="clickhouse" group-with="byconity">
+    <remarks>ByConity</remarks>
+  </driver>
+</drivers>

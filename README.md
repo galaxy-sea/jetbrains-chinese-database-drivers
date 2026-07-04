@@ -97,6 +97,7 @@
 | ~~BeyonDB~~<br>放弃             | 无jdbc驱动                                                                                                                                                                            |
 | `Tendis`<br>测试中 | Tendis[Redis] |  |
 | `Apache Kvrocks`<br>测试中 | Apache Kvrocks[Redis] |  |
+| `ByConity`<br>测试中 | ByConity[ClickHouse]<br>ByConity (ClickHouse) |  |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -255,7 +256,7 @@ GreatSQL
 OpenMLDB   
 HugeGraph   
 Databend   
-ByConity   
+   
 
 
    

@@ -57,6 +57,7 @@ include(
     "cisdigitaltimes-driver-integration",
     "tendis-driver-integration",
     "apachekvrocks-driver-integration",
+    "byconity-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

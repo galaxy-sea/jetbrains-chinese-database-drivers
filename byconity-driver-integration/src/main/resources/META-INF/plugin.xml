@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.byconity-driver-integration</id>
+    <name>ByConity Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides ByConity JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="BYCONITY" instance="plus.wcj.jetbrains.plugins.byconity.ByConityDatabaseDbms.BYCONITY"/>
+        <extensionFallback dbms="BYCONITY" fallbackDbms="CLICKHOUSE"/>
+        <addToHSet item="BYCONITY" set="CLICKHOUSE_LIKE"/>
+        <addToHSet item="BYCONITY" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="BYCONITY_CLICKHOUSE" instance="plus.wcj.jetbrains.plugins.byconity.ByConityDatabaseDbms.BYCONITY_CLICKHOUSE"/>
+        <extensionFallback dbms="BYCONITY_CLICKHOUSE" fallbackDbms="CLICKHOUSE"/>
+        <addToHSet item="BYCONITY_CLICKHOUSE" set="CLICKHOUSE_LIKE"/>
+        <addToHSet item="BYCONITY_CLICKHOUSE" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

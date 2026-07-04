@@ -63,4 +63,5 @@
     <depends>plus.wcj.jetbrains.plugins.cisdigitaltimes-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.tendis-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.apachekvrocks-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.byconity-driver-integration</depends>
 </idea-plugin>
