@@ -79,6 +79,7 @@
 | ~~TopGraph~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
 | `Tair`<br>测试中 | Tair[Redis] |  |
 | ~~腾讯云VectorDB~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
+| ~~AbutionGraph~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -225,18 +226,18 @@ Vearch
 GreatSQL
 OpenMLDB   
 HugeGraph   
+Databend   
+ByConity   
+Kvrocks   
 
    
    
    
    
-Databend   
-AbutionGraph   
-ByConity   
+   
 KeeWiDB   
 SinoDB   
 HungHuDB   
-Kvrocks   
 TapDB   
 StarDB   
 Lindorm   
