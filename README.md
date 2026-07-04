@@ -94,6 +94,7 @@
 | ~~SeaboxSQL~~<br>放弃             | 无jdbc驱动                                                                                                                                                                            |
 | `LightDB`<br>测试中 | LightDB[PostgreSQL]<br>LightDB (PostgreSQL) |  |
 | `CISDigital-TimeS`<br>测试中 | CISDigitalTimeS[GenericSQL]:<br>`jdbc:iotdb` | `org.apache.iotdb:iotdb-jdbc` |
+| ~~BeyonDB~~<br>放弃             | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -261,7 +262,7 @@ Tendis
    
    
    
-BeyonDB
+
 ----------
 HaiRuoVectorDB   
 HHDB   
