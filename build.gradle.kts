@@ -60,6 +60,7 @@ val databaseDriverPluginProjects = listOf(
     ":tapdb-driver-integration",
     ":stardb-driver-integration",
     ":lindorm-driver-integration",
+    ":halo-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(

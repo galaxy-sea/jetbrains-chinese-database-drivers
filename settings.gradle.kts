@@ -52,6 +52,7 @@ include(
     "tapdb-driver-integration",
     "stardb-driver-integration",
     "lindorm-driver-integration",
+    "halo-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

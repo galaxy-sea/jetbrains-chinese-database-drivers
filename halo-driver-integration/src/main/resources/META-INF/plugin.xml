@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.halo-driver-integration</id>
+    <name>Halo Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides Halo JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="HALO" instance="plus.wcj.jetbrains.plugins.halo.HaloDatabaseDbms.HALO"/>
+        <extensionFallback dbms="HALO" fallbackDbms="POSTGRES"/>
+        <addToHSet item="HALO" set="POSTGRES_LIKE"/>
+        <addToHSet item="HALO" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="HALO_POSTGRES" instance="plus.wcj.jetbrains.plugins.halo.HaloDatabaseDbms.HALO_POSTGRES"/>
+        <extensionFallback dbms="HALO_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="HALO_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="HALO_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

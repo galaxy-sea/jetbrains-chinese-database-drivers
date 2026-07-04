@@ -90,6 +90,7 @@
 | ~~Hubble~~<br>放弃             | 无jdbc驱动                                                                                                                                                                            |
 | ~~Intcube OLAP~~<br>放弃             | 无jdbc驱动                                                                                                                                                                            |
 | ~~HyperDB~~<br>放弃             | 无jdbc驱动                                                                                                                                                                            |
+| `Halo`<br>测试中 | Halo[PostgreSQL]<br>Halo (PostgreSQL) |  |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -254,7 +255,7 @@ Tendis
 
    
    
-Halo   
+   
 SeaboxSQL   
 LightDB   
 CISDigital-TimeS   
