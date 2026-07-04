@@ -82,6 +82,7 @@
 | ~~AbutionGraph~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
 | `KeeWiDB`<br>测试中 | KeeWiDB[Redis] |  |
 | ~~sinoregal~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
+| `HungHuDB`<br>测试中 | HungHuDB[PostgreSQL]<br>HungHuDB (PostgreSQL) |  |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -238,7 +239,7 @@ Kvrocks
    
    
    
-HungHuDB   
+   
 TapDB   
 StarDB   
 Lindorm   

@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.hunghudb-driver-integration</id>
+    <name>HungHuDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides HungHuDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="HUNGHUDB" instance="plus.wcj.jetbrains.plugins.hunghudb.HungHuDBDatabaseDbms.HUNGHUDB"/>
+        <extensionFallback dbms="HUNGHUDB" fallbackDbms="POSTGRES"/>
+        <addToHSet item="HUNGHUDB" set="POSTGRES_LIKE"/>
+        <addToHSet item="HUNGHUDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="HUNGHUDB_POSTGRES" instance="plus.wcj.jetbrains.plugins.hunghudb.HungHuDBDatabaseDbms.HUNGHUDB_POSTGRES"/>
+        <extensionFallback dbms="HUNGHUDB_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="HUNGHUDB_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="HUNGHUDB_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

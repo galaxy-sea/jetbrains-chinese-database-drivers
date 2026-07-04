@@ -54,4 +54,5 @@
     <depends>plus.wcj.jetbrains.plugins.hotdb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.tair-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.keewidb-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.hunghudb-driver-integration</depends>
 </idea-plugin>

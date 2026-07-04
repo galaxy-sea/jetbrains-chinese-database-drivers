@@ -48,6 +48,7 @@ include(
     "hotdb-driver-integration",
     "tair-driver-integration",
     "keewidb-driver-integration",
+    "hunghudb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

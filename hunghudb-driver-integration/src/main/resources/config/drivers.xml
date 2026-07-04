@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="hunghudb" name="HungHuDB" icon="/icons/driversIcon.svg" forced-dbms="HUNGHUDB" based-on="postgresql" group-with="hunghudb">
+    <remarks>HungHuDB</remarks>
+  </driver>
+  <driver id="hunghudb-postgres" name="HungHuDB (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="HUNGHUDB_POSTGRES" based-on="postgresql" group-with="hunghudb">
+    <remarks>HungHuDB</remarks>
+  </driver>
+</drivers>
