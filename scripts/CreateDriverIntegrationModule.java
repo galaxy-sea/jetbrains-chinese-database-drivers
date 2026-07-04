@@ -224,6 +224,8 @@ public class CreateDriverIntegrationModule {
             case "POSTGRES" -> "PostgreSQL";
             case "HIVE" -> "Hive";
             case "CLICKHOUSE" -> "ClickHouse";
+            case "REDIS" -> "Redis";
+            case "MONGO" -> "MongoDB";
             default -> jetbrainsModel;
         };
     }
@@ -480,6 +482,7 @@ public class CreateDriverIntegrationModule {
             case "postgresql" -> "org.postgresql.Driver";
             case "clickhouse" -> "com.clickhouse.jdbc.ClickHouseDriver";
             case "redis" -> "redis.clients.jedis.Jedis";
+            case "mongo" -> "com.mongodb.jdbc.MongoDriver";
             default -> "";
         };
     }
@@ -492,6 +495,7 @@ public class CreateDriverIntegrationModule {
             case "postgresql" -> "jdbc:postgresql://{host}:{port}/{database}";
             case "clickhouse" -> "jdbc:clickhouse://{host}:{port}/{database}";
             case "redis" -> "redis://{host}:{port}";
+            case "mongo" -> "mongodb://{host}:{port}";
             default -> "";
         };
     }
@@ -502,6 +506,7 @@ public class CreateDriverIntegrationModule {
             case "postgresql" -> 5432;
             case "clickhouse" -> 8123;
             case "redis" -> 6379;
+            case "mongo" -> 27017;
             default -> 3306;
         };
     }
@@ -524,11 +529,11 @@ public class CreateDriverIntegrationModule {
 
             Options:
               --name           Display name, e.g. GoldenDB
-              --fallback       JetBrains fallback DBMS: MYSQL, MARIADB, ORACLE, POSTGRES, HIVE, CLICKHOUSE, REDIS, GENERICSQL
-              --jetbrains-model Additional JetBrains built-in driver model: MYSQL, MARIADB, ORACLE, POSTGRES, HIVE, CLICKHOUSE. Repeatable.
+              --fallback       JetBrains fallback DBMS: MYSQL, MARIADB, ORACLE, POSTGRES, HIVE, CLICKHOUSE, REDIS, MONGODB, GENERICSQL
+              --jetbrains-model Additional JetBrains built-in driver model: MYSQL, MARIADB, ORACLE, POSTGRES, HIVE, CLICKHOUSE, REDIS, MONGODB. Repeatable.
               --id             Optional module/driver id prefix. Defaults to normalized --name, e.g. GoldenDB -> goldendb.
               --dbms           Optional custom DBMS id. Defaults to normalized --name, e.g. GoldenDB -> GOLDENDB.
-              --based-on       Optional official driver id override. Defaults from --fallback: MYSQL -> mysql.8, MARIADB -> mariadb, ORACLE -> oracle.19, POSTGRES -> postgresql, HIVE -> hive, CLICKHOUSE -> clickhouse, REDIS -> redis.
+              --based-on       Optional official driver id override. Defaults from --fallback: MYSQL -> mysql.8, MARIADB -> mariadb, ORACLE -> oracle.19, POSTGRES -> postgresql, HIVE -> hive, CLICKHOUSE -> clickhouse, REDIS -> redis, MONGODB -> mongo.
               --dialect        Optional dialect override. Defaults from --fallback.
               --driver-class   Optional custom JDBC driver class. When omitted, the generated driver uses --based-on.
               --default-port   Required with --driver-class.
@@ -625,7 +630,7 @@ public class CreateDriverIntegrationModule {
         void validate() {
             require(displayName, "--name");
             require(fallbackDbms, "--fallback");
-            fallbackDbms = fallbackDbms.toUpperCase(Locale.ROOT);
+            fallbackDbms = canonicalModel(fallbackDbms.toUpperCase(Locale.ROOT));
             if (!isSupportedFallback(fallbackDbms)) {
                 throw new IllegalArgumentException("Unsupported --fallback: " + fallbackDbms);
             }
@@ -638,7 +643,7 @@ public class CreateDriverIntegrationModule {
                 dialect = defaultDialect(requestedFallbackDbms);
             }
             for (int index = 0; index < jetbrainsModels.size(); index++) {
-                String jetbrainsModel = jetbrainsModels.get(index).toUpperCase(Locale.ROOT);
+                String jetbrainsModel = canonicalModel(jetbrainsModels.get(index).toUpperCase(Locale.ROOT));
                 if (!isSupportedJetBrainsModel(jetbrainsModel)) {
                     throw new IllegalArgumentException("Unsupported --jetbrains-model: " + jetbrainsModels.get(index));
                 }
@@ -760,6 +765,7 @@ public class CreateDriverIntegrationModule {
                 case "HIVE" -> "hive";
                 case "CLICKHOUSE" -> "clickhouse";
                 case "REDIS" -> "redis";
+                case "MONGO" -> "mongo";
                 default -> null;
             };
         }
@@ -773,6 +779,7 @@ public class CreateDriverIntegrationModule {
                 case "HIVE" -> "HiveQL";
                 case "CLICKHOUSE" -> "ClickHouse";
                 case "REDIS" -> "Redis";
+                case "MONGO" -> "MongoJS";
                 case "GENERICSQL" -> "GenericSQL";
                 default -> null;
             };
@@ -787,15 +794,22 @@ public class CreateDriverIntegrationModule {
 
         private static boolean isSupportedFallback(String fallbackDbms) {
             return switch (fallbackDbms) {
-                case "MYSQL", "MARIADB", "ORACLE", "POSTGRES", "HIVE", "CLICKHOUSE", "REDIS", "GENERICSQL" -> true;
+                case "MYSQL", "MARIADB", "ORACLE", "POSTGRES", "HIVE", "CLICKHOUSE", "REDIS", "MONGO", "GENERICSQL" -> true;
                 default -> false;
             };
         }
 
         private static boolean isSupportedJetBrainsModel(String jetbrainsModel) {
             return switch (jetbrainsModel) {
-                case "MYSQL", "MARIADB", "ORACLE", "POSTGRES", "HIVE", "CLICKHOUSE" -> true;
+                case "MYSQL", "MARIADB", "ORACLE", "POSTGRES", "HIVE", "CLICKHOUSE", "REDIS", "MONGO" -> true;
                 default -> false;
+            };
+        }
+
+        private static String canonicalModel(String model) {
+            return switch (model) {
+                case "MONGODB" -> "MONGO";
+                default -> model;
             };
         }
 
