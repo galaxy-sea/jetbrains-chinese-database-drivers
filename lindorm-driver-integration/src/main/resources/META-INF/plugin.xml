@@ -1,0 +1,34 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.lindorm-driver-integration</id>
+    <name>Lindorm Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides Lindorm JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="LINDORM" instance="plus.wcj.jetbrains.plugins.lindorm.LindormDatabaseDbms.LINDORM"/>
+        <extensionFallback dbms="LINDORM" fallbackDbms="MYSQL"/>
+        <addToHSet item="LINDORM" set="MYSQL_LIKE"/>
+        <addToHSet item="LINDORM" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="LINDORM_MYSQL" instance="plus.wcj.jetbrains.plugins.lindorm.LindormDatabaseDbms.LINDORM_MYSQL"/>
+        <extensionFallback dbms="LINDORM_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="LINDORM_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="LINDORM_MYSQL" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="LINDORM_CASSANDRA" instance="plus.wcj.jetbrains.plugins.lindorm.LindormDatabaseDbms.LINDORM_CASSANDRA"/>
+        <extensionFallback dbms="LINDORM_CASSANDRA" fallbackDbms="CASSANDRA"/>
+        <addToHSet item="LINDORM_CASSANDRA" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="LINDORM_HIVE" instance="plus.wcj.jetbrains.plugins.lindorm.LindormDatabaseDbms.LINDORM_HIVE"/>
+        <extensionFallback dbms="LINDORM_HIVE" fallbackDbms="HIVE"/>
+        <addToHSet item="LINDORM_HIVE" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

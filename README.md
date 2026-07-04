@@ -74,17 +74,18 @@
 | ~~KSMDB~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
 | ~~uniDB~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
 | `HotDB`<br>测试中                  | HotDB[MySQL]<br>HotDB (MySQL)                                                                                                                                                      |                                                                                                                          |
-| ~~TcaplusDB~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
-| ~~Galaxybase~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
-| ~~TopGraph~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
-| `Tair`<br>测试中 | Tair[Redis] |  |
-| ~~腾讯云VectorDB~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
-| ~~AbutionGraph~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
-| `KeeWiDB`<br>测试中 | KeeWiDB[Redis] |  |
-| ~~sinoregal~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
-| `HungHuDB`<br>测试中 | HungHuDB[PostgreSQL]<br>HungHuDB (PostgreSQL) |  |
-| `TapDB`<br>测试中 | TapDB[MongoDB]<br>TapDB (MongoDB) |  |
-| `StarDB`<br>测试中 | StarDB[MySQL]<br>StarDB (MySQL) |  |
+| ~~TcaplusDB~~<br>放弃             | 无jdbc驱动                                                                                                                                                                            |
+| ~~Galaxybase~~<br>放弃            | 无jdbc驱动                                                                                                                                                                            |
+| ~~TopGraph~~<br>放弃              | 无jdbc驱动                                                                                                                                                                            |
+| `Tair`<br>测试中                   | Tair[Redis]                                                                                                                                                                        |                                                                                                                          |
+| ~~腾讯云VectorDB~~<br>放弃           | 无jdbc驱动                                                                                                                                                                            |
+| ~~AbutionGraph~~<br>放弃          | 无jdbc驱动                                                                                                                                                                            |
+| `KeeWiDB`<br>测试中                | KeeWiDB[Redis]                                                                                                                                                                     |                                                                                                                          |
+| ~~sinoregal~~<br>放弃             | 无jdbc驱动                                                                                                                                                                            |
+| `HungHuDB`<br>测试中               | HungHuDB[PostgreSQL]<br>HungHuDB (PostgreSQL)                                                                                                                                      |                                                                                                                          |
+| `TapDB`<br>测试中                  | TapDB[MongoDB]<br>TapDB (MongoDB)                                                                                                                                                  |                                                                                                                          |
+| `StarDB`<br>测试中                 | StarDB[MySQL]<br>StarDB (MySQL)                                                                                                                                                    |                                                                                                                          |
+| `Lindorm`<br>测试中                | Lindorm[MySQL]:<br>`jdbc:lindorm:table`<br>`jdbc:lindorm:tsdb`<br>`jdbc:lindorm:search`<br>Lindorm (MySQL)<br>Lindorm (Cassandra)<br>Lindorm (Hive)                                | `com.aliyun.lindorm:lindorm-all-client`                                                                                  |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -142,18 +143,18 @@ java scripts/CreateDriverIntegrationModule.java \
 
 `--fallback` 可选值：
 
-| fallback     | 自动继承的官方驱动    | 默认方言         |
-|--------------|--------------|--------------|
-| `MYSQL`      | `mysql.8`    | `MySQL`      |
-| `MARIADB`    | `mariadb`    | `MariaDB`    |
-| `ORACLE`     | `oracle.19`  | `Oracle`     |
-| `POSTGRES`   | `postgresql` | `PostgreSQL` |
-| `HIVE`       | `hive`       | `HiveQL`     |
-| `CLICKHOUSE` | `clickhouse` | `ClickHouse` |
-| `REDIS`      | `redis`      | `Redis`      |
-| `MONGODB`    | `mongo`      | `MongoDB`    |
+| fallback     | 自动继承的官方驱动    | 默认方言          |
+|--------------|--------------|---------------|
+| `MYSQL`      | `mysql.8`    | `MySQL`       |
+| `MARIADB`    | `mariadb`    | `MariaDB`     |
+| `ORACLE`     | `oracle.19`  | `Oracle`      |
+| `POSTGRES`   | `postgresql` | `PostgreSQL`  |
+| `HIVE`       | `hive`       | `HiveQL`      |
+| `CLICKHOUSE` | `clickhouse` | `ClickHouse`  |
+| `REDIS`      | `redis`      | `Redis`       |
+| `MONGODB`    | `mongo`      | `MongoDB`     |
 | `CASSANDRA`  | `cassandra`  | `CassandraQL` |
-| `GENERICSQL` | DBMS         | `GenericSQL` |
+| `GENERICSQL` | DBMS         | `GenericSQL`  |
 
 `--jetbrains-model` 只用于额外增加复用 JetBrains 内置数据模型的 driver 标签，该参数可以重复传入：
 
@@ -245,17 +246,8 @@ HugeGraph
 Databend   
 ByConity   
 Kvrocks   
-Tendis   
+Tendis
 
-   
-   
-   
-   
-   
-   
-   
-   
-Lindorm   
 CirroData   
 Hubble   
 Intcube OLAP   
@@ -264,7 +256,7 @@ Halo
 SeaboxSQL   
 LightDB   
 CISDigital-TimeS   
-BeyonDB   
+BeyonDB
 ----------
 HaiRuoVectorDB   
 HHDB   
