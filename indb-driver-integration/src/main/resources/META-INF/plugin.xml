@@ -1,0 +1,36 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.indb-driver-integration</id>
+    <name>InDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides InDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="INDB" instance="plus.wcj.jetbrains.plugins.indb.InDBDatabaseDbms.INDB"/>
+        <extensionFallback dbms="INDB" fallbackDbms="POSTGRES"/>
+        <addToHSet item="INDB" set="POSTGRES_LIKE"/>
+        <addToHSet item="INDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="INDB_POSTGRES" instance="plus.wcj.jetbrains.plugins.indb.InDBDatabaseDbms.INDB_POSTGRES"/>
+        <extensionFallback dbms="INDB_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="INDB_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="INDB_POSTGRES" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="INDB_MYSQL" instance="plus.wcj.jetbrains.plugins.indb.InDBDatabaseDbms.INDB_MYSQL"/>
+        <extensionFallback dbms="INDB_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="INDB_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="INDB_MYSQL" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="INDB_ORACLE" instance="plus.wcj.jetbrains.plugins.indb.InDBDatabaseDbms.INDB_ORACLE"/>
+        <extensionFallback dbms="INDB_ORACLE" fallbackDbms="ORACLE"/>
+        <addToHSet item="INDB_ORACLE" set="ORACLE_LIKE"/>
+        <addToHSet item="INDB_ORACLE" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

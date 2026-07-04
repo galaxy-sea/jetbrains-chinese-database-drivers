@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="indb" name="InDB" icon="/icons/driversIcon.svg" forced-dbms="INDB" based-on="postgresql" group-with="indb">
+    <remarks>InDB</remarks>
+  </driver>
+  <driver id="indb-postgres" name="InDB (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="INDB_POSTGRES" based-on="postgresql" group-with="indb">
+    <remarks>InDB</remarks>
+  </driver>
+  <driver id="indb-mysql" name="InDB (MySQL)" icon="/icons/driversIcon.svg" forced-dbms="INDB_MYSQL" based-on="mysql.8" group-with="indb">
+    <remarks>InDB</remarks>
+  </driver>
+  <driver id="indb-oracle" name="InDB (Oracle)" icon="/icons/driversIcon.svg" forced-dbms="INDB_ORACLE" based-on="oracle.19" group-with="indb">
+    <remarks>InDB</remarks>
+  </driver>
+</drivers>
