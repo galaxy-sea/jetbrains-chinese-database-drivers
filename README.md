@@ -104,21 +104,22 @@
 | `GreatSQL`<br>测试中                    | GreatSQL[MySQL]<br>GreatSQL (MySQL)                                                                                                                                                |                                                                                                                          |
 | ~~Vearch~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 | `Apache Kylin`<br>`Kyligence`<br>测试中 | Apache Kylin[HiveQL]:<br>`jdbc:kylin`                                                                                                                                              | `org.apache.kylin:kylin-jdbc`                                                                                            |
-| `RadonDB`<br>测试中 | RadonDB[MySQL]<br>RadonDB (MySQL) |  |
-| `OpenTenBase`<br>测试中 | OpenTenBase[PostgreSQL]<br>OpenTenBase (PostgreSQL) |  |
-| ~~openGemini~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
-| `CnosDB`<br>测试中 | CnosDB[GenericSQL]:<br>`jdbc:arrow-flight-sql` | `org.apache.arrow:flight-sql-jdbc-driver` |
-| `AntDB`<br>测试中 | AntDB[PostgreSQL]<br>AntDB (PostgreSQL) |  |
-| ~~HaiRuoVectorDB~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
-| ~~HHDB~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
+| `RadonDB`<br>测试中                     | RadonDB[MySQL]<br>RadonDB (MySQL)                                                                                                                                                  |                                                                                                                          |
+| `OpenTenBase`<br>测试中                 | OpenTenBase[PostgreSQL]<br>OpenTenBase (PostgreSQL)                                                                                                                                |                                                                                                                          |
+| ~~openGemini~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
+| `CnosDB`<br>测试中                      | CnosDB[GenericSQL]:<br>`jdbc:arrow-flight-sql`                                                                                                                                     | `org.apache.arrow:flight-sql-jdbc-driver`                                                                                |
+| `AntDB`<br>测试中                       | AntDB[PostgreSQL]<br>AntDB (PostgreSQL)                                                                                                                                            |                                                                                                                          |
+| ~~HaiRuoVectorDB~~<br>放弃             | 无jdbc驱动                                                                                                                                                                            |
+| ~~HHDB~~<br>放弃                       | 无jdbc驱动                                                                                                                                                                            |
 | ~~pSpace~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
-| ~~百度云VectorDB~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
-| ~~KingHistorian~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
-| `ProtonBase`<br>测试中 | ProtonBase[PostgreSQL]<br>ProtonBase (PostgreSQL) |  |
-| `HashData`<br>测试中 | HashData[PostgreSQL]<br>HashData (PostgreSQL) |  |
-| ~~RapidsDB~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
-| `PieCloudDB`<br>测试中 | PieCloudDB[PostgreSQL]<br>PieCloudDB (PostgreSQL) |  |
+| ~~百度云VectorDB~~<br>放弃                | 无jdbc驱动                                                                                                                                                                            |
+| ~~KingHistorian~~<br>放弃              | 无jdbc驱动                                                                                                                                                                            |
+| `ProtonBase`<br>测试中                  | ProtonBase[PostgreSQL]<br>ProtonBase (PostgreSQL)                                                                                                                                  |                                                                                                                          |
+| `HashData`<br>测试中                    | HashData[PostgreSQL]<br>HashData (PostgreSQL)                                                                                                                                      |                                                                                                                          |
+| ~~RapidsDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
+| `PieCloudDB`<br>测试中                  | PieCloudDB[PostgreSQL]<br>PieCloudDB (PostgreSQL)                                                                                                                                  |                                                                                                                          |
 | ~~ShinDB~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
+| ~~SyncBASE~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -265,30 +266,14 @@ db2.base,mariadb,mongo.base,mongo_documentdb.base,mysql.8,mysql.base,oracle.base
 > 20260701 列表 摩天轮列表会更新，需要在这里将适配过的删除了。
 > 这个榜单不太行呀，有些是云平台名称，根本不是数据库实现啊😊🌞
 
-
-   
-   
-   
-   
-
 DingoDB   
 OushuDB   
 PikiwiDB   
 Havenask   
 CloudberryDB   
 Todis（ToplingDB）  
-Yukon   
+Yukon
 
-----------
-   
-   
-   
-   
-   
-   
-   
-   
-SyncBASE   
 ChronusDB   
 Beaver   
 ActionDB   
