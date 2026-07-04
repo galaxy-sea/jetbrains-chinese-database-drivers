@@ -129,6 +129,7 @@
 | `InDB`<br>测试中 | InDB[PostgreSQL]<br>InDB (PostgreSQL)<br>InDB (MySQL)<br>InDB (Oracle) |  |
 | ~~BGraph~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 | ~~ProcessDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
+| ~~HeroDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -286,7 +287,7 @@ Yukon
    
    
    
-HeroDB   
+   
 博流数据库   
 HexaDB   
 TensorDB   
