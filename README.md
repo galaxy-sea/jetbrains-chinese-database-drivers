@@ -77,6 +77,7 @@
 | ~~TcaplusDB~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
 | ~~Galaxybase~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
 | ~~TopGraph~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
+| `Tair`<br>测试中 | Tair[Redis] |  |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -226,7 +227,6 @@ OpenMLDB
    
    
    
-Tair   
 HugeGraph   
 腾讯云VectorDB   
 Databend   

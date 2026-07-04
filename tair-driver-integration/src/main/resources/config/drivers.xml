@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="tair" name="Tair" icon="/icons/driversIcon.svg" forced-dbms="TAIR" based-on="redis" group-with="tair">
+    <remarks>Tair</remarks>
+  </driver>
+</drivers>

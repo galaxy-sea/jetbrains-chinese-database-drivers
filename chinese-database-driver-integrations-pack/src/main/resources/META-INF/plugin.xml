@@ -52,4 +52,5 @@
     <depends>plus.wcj.jetbrains.plugins.bytehouse-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.mudb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.hotdb-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.tair-driver-integration</depends>
 </idea-plugin>
