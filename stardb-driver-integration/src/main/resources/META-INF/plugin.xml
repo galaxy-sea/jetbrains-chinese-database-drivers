@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.stardb-driver-integration</id>
+    <name>StarDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides StarDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="STARDB" instance="plus.wcj.jetbrains.plugins.stardb.StarDBDatabaseDbms.STARDB"/>
+        <extensionFallback dbms="STARDB" fallbackDbms="MYSQL"/>
+        <addToHSet item="STARDB" set="MYSQL_LIKE"/>
+        <addToHSet item="STARDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="STARDB_MYSQL" instance="plus.wcj.jetbrains.plugins.stardb.StarDBDatabaseDbms.STARDB_MYSQL"/>
+        <extensionFallback dbms="STARDB_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="STARDB_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="STARDB_MYSQL" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

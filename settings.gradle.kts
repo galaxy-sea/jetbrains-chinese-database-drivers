@@ -50,6 +50,7 @@ include(
     "keewidb-driver-integration",
     "hunghudb-driver-integration",
     "tapdb-driver-integration",
+    "stardb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

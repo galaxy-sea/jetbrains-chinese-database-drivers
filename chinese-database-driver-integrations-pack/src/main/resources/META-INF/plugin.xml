@@ -56,4 +56,5 @@
     <depends>plus.wcj.jetbrains.plugins.keewidb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.hunghudb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.tapdb-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.stardb-driver-integration</depends>
 </idea-plugin>

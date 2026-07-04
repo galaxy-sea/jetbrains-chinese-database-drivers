@@ -84,6 +84,7 @@
 | ~~sinoregal~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
 | `HungHuDB`<br>测试中 | HungHuDB[PostgreSQL]<br>HungHuDB (PostgreSQL) |  |
 | `TapDB`<br>测试中 | TapDB[MongoDB]<br>TapDB (MongoDB) |  |
+| `StarDB`<br>测试中 | StarDB[MySQL]<br>StarDB (MySQL) |  |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -240,6 +241,7 @@ HugeGraph
 Databend   
 ByConity   
 Kvrocks   
+Tendis   
 
    
    
@@ -249,7 +251,6 @@ Kvrocks
    
    
    
-StarDB   
 Lindorm   
 CirroData   
 Hubble   
@@ -258,9 +259,9 @@ HyperDB
 Halo   
 SeaboxSQL   
 LightDB   
-Tendis   
 CISDigital-TimeS   
 BeyonDB   
+----------
 HaiRuoVectorDB   
 HHDB   
 pSpace   
