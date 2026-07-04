@@ -69,6 +69,7 @@ include(
     "protonbase-driver-integration",
     "hashdata-driver-integration",
     "pieclouddb-driver-integration",
+    "chronusdb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

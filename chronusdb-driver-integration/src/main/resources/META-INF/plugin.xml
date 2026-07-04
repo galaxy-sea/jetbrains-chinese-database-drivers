@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.chronusdb-driver-integration</id>
+    <name>ChronusDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides ChronusDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="CHRONUSDB" instance="plus.wcj.jetbrains.plugins.chronusdb.ChronusDBDatabaseDbms.CHRONUSDB"/>
+        <extensionFallback dbms="CHRONUSDB" fallbackDbms="CLICKHOUSE"/>
+        <addToHSet item="CHRONUSDB" set="CLICKHOUSE_LIKE"/>
+        <addToHSet item="CHRONUSDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="CHRONUSDB_CLICKHOUSE" instance="plus.wcj.jetbrains.plugins.chronusdb.ChronusDBDatabaseDbms.CHRONUSDB_CLICKHOUSE"/>
+        <extensionFallback dbms="CHRONUSDB_CLICKHOUSE" fallbackDbms="CLICKHOUSE"/>
+        <addToHSet item="CHRONUSDB_CLICKHOUSE" set="CLICKHOUSE_LIKE"/>
+        <addToHSet item="CHRONUSDB_CLICKHOUSE" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>
