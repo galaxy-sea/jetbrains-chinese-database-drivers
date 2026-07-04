@@ -113,6 +113,7 @@
 | ~~HHDB~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 | ~~pSpace~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 | ~~百度云VectorDB~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
+| ~~KingHistorian~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -278,7 +279,7 @@ Yukon
    
    
    
-KingHistorian   
+   
 ProtonBase   
 HashData   
 RapidsDB   
