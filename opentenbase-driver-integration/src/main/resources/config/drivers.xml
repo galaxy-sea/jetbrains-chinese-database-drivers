@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="opentenbase" name="OpenTenBase" icon="/icons/driversIcon.svg" forced-dbms="OPENTENBASE" based-on="postgresql" group-with="opentenbase">
+    <remarks>OpenTenBase</remarks>
+  </driver>
+  <driver id="opentenbase-postgres" name="OpenTenBase (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="OPENTENBASE_POSTGRES" based-on="postgresql" group-with="opentenbase">
+    <remarks>OpenTenBase</remarks>
+  </driver>
+</drivers>

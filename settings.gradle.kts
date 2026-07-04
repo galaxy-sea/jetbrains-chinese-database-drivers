@@ -63,6 +63,7 @@ include(
     "greatsql-driver-integration",
     "apachekylin-driver-integration",
     "radondb-driver-integration",
+    "opentenbase-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 
