@@ -111,6 +111,7 @@
 | `AntDB`<br>测试中 | AntDB[PostgreSQL]<br>AntDB (PostgreSQL) |  |
 | ~~HaiRuoVectorDB~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 | ~~HHDB~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
+| ~~pSpace~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -274,7 +275,7 @@ Yukon
 ----------
    
    
-pSpace   
+   
 百度云VectorDB   
 KingHistorian   
 ProtonBase   
