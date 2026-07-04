@@ -136,6 +136,7 @@
 | `VeDB`<br>测试中 | VeDB[MySQL]<br>VeDB (MySQL) |  |
 | `TRS Hybase`<br>测试中 | VeDB[MySQL]<br>VeDB (MySQL) |  |
 | ~~PowerSQL~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
+| ~~eZooDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -299,7 +300,7 @@ Yukon
    
    
    
-eZooDB   
+   
 GridsumDB   
 SeaSQL   
 LNXDB   
