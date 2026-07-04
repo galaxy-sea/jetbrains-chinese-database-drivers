@@ -47,6 +47,7 @@ include(
     "mudb-driver-integration",
     "hotdb-driver-integration",
     "tair-driver-integration",
+    "keewidb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

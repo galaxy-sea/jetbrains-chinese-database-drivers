@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="keewidb" name="KeeWiDB" icon="/icons/driversIcon.svg" forced-dbms="KEEWIDB" based-on="redis" group-with="keewidb">
+    <remarks>KeeWiDB</remarks>
+  </driver>
+</drivers>

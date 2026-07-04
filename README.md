@@ -80,6 +80,7 @@
 | `Tair`<br>测试中 | Tair[Redis] |  |
 | ~~腾讯云VectorDB~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
 | ~~AbutionGraph~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
+| `KeeWiDB`<br>测试中 | KeeWiDB[Redis] |  |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -235,7 +236,6 @@ Kvrocks
    
    
    
-KeeWiDB   
 SinoDB   
 HungHuDB   
 TapDB   
