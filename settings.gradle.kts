@@ -55,6 +55,7 @@ include(
     "halo-driver-integration",
     "lightdb-driver-integration",
     "cisdigitaltimes-driver-integration",
+    "tendis-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

@@ -61,4 +61,5 @@
     <depends>plus.wcj.jetbrains.plugins.halo-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.lightdb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.cisdigitaltimes-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.tendis-driver-integration</depends>
 </idea-plugin>

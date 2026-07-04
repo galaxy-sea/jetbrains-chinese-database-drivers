@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="tendis" name="Tendis" icon="/icons/driversIcon.svg" forced-dbms="TENDIS" based-on="redis" group-with="tendis">
+    <remarks>Tendis</remarks>
+  </driver>
+</drivers>

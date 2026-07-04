@@ -1,0 +1,20 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.tendis-driver-integration</id>
+    <name>Tendis Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides Tendis JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="TENDIS" instance="plus.wcj.jetbrains.plugins.tendis.TendisDatabaseDbms.TENDIS"/>
+        <extensionFallback dbms="TENDIS" fallbackDbms="REDIS"/>
+        <addToHSet item="TENDIS" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>
