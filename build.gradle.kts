@@ -76,6 +76,7 @@ val databaseDriverPluginProjects = listOf(
     ":antdb-driver-integration",
     ":protonbase-driver-integration",
     ":hashdata-driver-integration",
+    ":pieclouddb-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(

@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.pieclouddb-driver-integration</id>
+    <name>PieCloudDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides PieCloudDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="PIECLOUDDB" instance="plus.wcj.jetbrains.plugins.pieclouddb.PieCloudDBDatabaseDbms.PIECLOUDDB"/>
+        <extensionFallback dbms="PIECLOUDDB" fallbackDbms="POSTGRES"/>
+        <addToHSet item="PIECLOUDDB" set="POSTGRES_LIKE"/>
+        <addToHSet item="PIECLOUDDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="PIECLOUDDB_POSTGRES" instance="plus.wcj.jetbrains.plugins.pieclouddb.PieCloudDBDatabaseDbms.PIECLOUDDB_POSTGRES"/>
+        <extensionFallback dbms="PIECLOUDDB_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="PIECLOUDDB_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="PIECLOUDDB_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

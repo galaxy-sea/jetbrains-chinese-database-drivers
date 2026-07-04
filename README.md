@@ -117,6 +117,7 @@
 | `ProtonBase`<br>测试中 | ProtonBase[PostgreSQL]<br>ProtonBase (PostgreSQL) |  |
 | `HashData`<br>测试中 | HashData[PostgreSQL]<br>HashData (PostgreSQL) |  |
 | ~~RapidsDB~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
+| `PieCloudDB`<br>测试中 | PieCloudDB[PostgreSQL]<br>PieCloudDB (PostgreSQL) |  |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -284,7 +285,7 @@ Yukon
    
    
    
-PieCloudDB   
+   
 ShinDB   
 SyncBASE   
 ChronusDB   

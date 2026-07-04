@@ -68,6 +68,7 @@ include(
     "antdb-driver-integration",
     "protonbase-driver-integration",
     "hashdata-driver-integration",
+    "pieclouddb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

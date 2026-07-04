@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="pieclouddb" name="PieCloudDB" icon="/icons/driversIcon.svg" forced-dbms="PIECLOUDDB" based-on="postgresql" group-with="pieclouddb">
+    <remarks>PieCloudDB</remarks>
+  </driver>
+  <driver id="pieclouddb-postgres" name="PieCloudDB (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="PIECLOUDDB_POSTGRES" based-on="postgresql" group-with="pieclouddb">
+    <remarks>PieCloudDB</remarks>
+  </driver>
+</drivers>

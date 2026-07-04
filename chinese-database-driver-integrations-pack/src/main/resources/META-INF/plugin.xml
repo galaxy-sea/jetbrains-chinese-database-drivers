@@ -74,4 +74,5 @@
     <depends>plus.wcj.jetbrains.plugins.antdb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.protonbase-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.hashdata-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.pieclouddb-driver-integration</depends>
 </idea-plugin>
