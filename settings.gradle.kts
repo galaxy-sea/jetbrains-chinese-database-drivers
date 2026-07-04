@@ -59,6 +59,7 @@ include(
     "apachekvrocks-driver-integration",
     "byconity-driver-integration",
     "databend-driver-integration",
+    "openmldb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

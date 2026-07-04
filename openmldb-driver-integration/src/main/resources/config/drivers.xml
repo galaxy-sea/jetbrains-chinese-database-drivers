@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="openmldb" name="OpenMLDB" icon="/icons/driversIcon.svg" dialect="MySQL" forced-dbms="OPENMLDB" driver-class="com._4paradigm.openmldb.jdbc.SQLDriver" group-with="openmldb">
+    <url-template name="default" template="jdbc:openmldb://{host::localhost}[:{port::2181}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
+    <artifact id="OpenMLDB Driver" use="true" rolling="true"/>
+    <option name="auto-sync" value="true"/>
+  </driver>
+  <driver id="openmldb-mysql" name="OpenMLDB (MySQL)" icon="/icons/driversIcon.svg" forced-dbms="OPENMLDB_MYSQL" based-on="mysql.8" group-with="openmldb">
+    <remarks>OpenMLDB</remarks>
+  </driver>
+</drivers>

@@ -100,6 +100,7 @@
 | `ByConity`<br>测试中 | ByConity[ClickHouse]<br>ByConity (ClickHouse) |  |
 | `Databend`<br>测试中 | Databend[MySQL]:<br>`jdbc:databend` | `com.databend:databend-jdbc` |
 | ~~HugeGraph~~<br>放弃             | 无jdbc驱动                                                                                                                                                                            |
+| `OpenMLDB`<br>测试中 | OpenMLDB[MySQL]:<br>`jdbc:openmldb`<br>OpenMLDB (MySQL) | `com.4paradigm.openmldb:openmldb-jdbc` |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -255,7 +256,6 @@ RadonDB
 Kyligence   
 Vearch   
 GreatSQL
-OpenMLDB   
    
    
    
