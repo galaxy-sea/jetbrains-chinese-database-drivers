@@ -114,7 +114,8 @@ java scripts/CreateDriverIntegrationModule.java \
   # --jetbrains-model HIVE \
   # --jetbrains-model CLICKHOUSE \
   # --jetbrains-model REDIS \
-  # --jetbrains-model MONGODB
+  # --jetbrains-model MONGODB \
+  # --jetbrains-model CASSANDRA
 ```
 
 使用数据库自己的 JDBC 驱动：
@@ -135,7 +136,8 @@ java scripts/CreateDriverIntegrationModule.java \
   # --jetbrains-model HIVE \
   # --jetbrains-model CLICKHOUSE \
   # --jetbrains-model REDIS \
-  # --jetbrains-model MONGODB
+  # --jetbrains-model MONGODB \
+  # --jetbrains-model CASSANDRA
 ```
 
 `--fallback` 可选值：
@@ -150,6 +152,7 @@ java scripts/CreateDriverIntegrationModule.java \
 | `CLICKHOUSE` | `clickhouse` | `ClickHouse` |
 | `REDIS`      | `redis`      | `Redis`      |
 | `MONGODB`    | `mongo`      | `MongoDB`    |
+| `CASSANDRA`  | `cassandra`  | `CassandraQL` |
 | `GENERICSQL` | DBMS         | `GenericSQL` |
 
 `--jetbrains-model` 只用于额外增加复用 JetBrains 内置数据模型的 driver 标签，该参数可以重复传入：
@@ -164,6 +167,7 @@ java scripts/CreateDriverIntegrationModule.java \
 | `CLICKHOUSE`    | `based-on="clickhouse"` |
 | `REDIS`         | `based-on="redis"`      |
 | `MONGODB`       | `based-on="mongo"`      |
+| `CASSANDRA`     | `based-on="cassandra"`  |
 
 例如 `--fallback MYSQL --jetbrains-model ORACLE --jetbrains-model POSTGRES` 会保留主驱动的 MySQL fallback 行为，并额外生成 Oracle/PostgreSQL 官方模型的 driver 标签。
 
