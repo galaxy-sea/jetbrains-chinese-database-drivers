@@ -136,6 +136,7 @@ java scripts/CreateDriverIntegrationModule.java \
 | `POSTGRES`   | `postgresql` | `PostgreSQL` |
 | `HIVE`       | `hive`       | `HiveQL`     |
 | `CLICKHOUSE` | `clickhouse` | `ClickHouse` |
+| `REDIS`      | `redis`      | `Redis`      |
 | `GENERICSQL` | DBMS         | `GenericSQL` |
 
 `--jetbrains-model` 只用于额外增加复用 JetBrains 内置数据模型的 driver 标签，该参数可以重复传入：
