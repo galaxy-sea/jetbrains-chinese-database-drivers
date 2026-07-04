@@ -76,6 +76,7 @@
 | `HotDB`<br>测试中                  | HotDB[MySQL]<br>HotDB (MySQL)                                                                                                                                                      |                                                                                                                          |
 | ~~TcaplusDB~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
 | ~~Galaxybase~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
+| ~~TopGraph~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -219,11 +220,11 @@ RadonDB
 Kyligence   
 Vearch   
 GreatSQL
+OpenMLDB   
 
    
    
-OpenMLDB   
-TopGraph   
+   
 Tair   
 HugeGraph   
 腾讯云VectorDB   
