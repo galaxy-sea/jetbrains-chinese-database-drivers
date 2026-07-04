@@ -64,6 +64,7 @@ include(
     "apachekylin-driver-integration",
     "radondb-driver-integration",
     "opentenbase-driver-integration",
+    "cnosdb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

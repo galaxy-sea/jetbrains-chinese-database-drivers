@@ -70,4 +70,5 @@
     <depends>plus.wcj.jetbrains.plugins.apachekylin-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.radondb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.opentenbase-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.cnosdb-driver-integration</depends>
 </idea-plugin>

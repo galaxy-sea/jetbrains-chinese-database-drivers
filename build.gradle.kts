@@ -72,6 +72,7 @@ val databaseDriverPluginProjects = listOf(
     ":apachekylin-driver-integration",
     ":radondb-driver-integration",
     ":opentenbase-driver-integration",
+    ":cnosdb-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(
