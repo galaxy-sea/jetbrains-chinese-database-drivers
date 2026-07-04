@@ -125,6 +125,7 @@
 | `ActionDB`<br>测试中 | ActionDB[MySQL]<br>ActionDB (MySQL)<br>ActionDB (Oracle) |  |
 | `Klustron`<br>测试中 | Klustron[PostgreSQL]<br>Klustron (PostgreSQL)<br>Klustron (MySQL) |  |
 | ~~RealHistorian~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
+| ~~openPlant~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -279,7 +280,7 @@ CloudberryDB
 Todis（ToplingDB）  
 Yukon
 
-openPlant   
+   
 InDB   
 BGraph   
 ProcessDB   
