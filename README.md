@@ -121,6 +121,7 @@
 | ~~ShinDB~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 | ~~SyncBASE~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 | `ChronusDB`<br>测试中 | ChronusDB[ClickHouse]<br>ChronusDB (ClickHouse) |  |
+| ~~Beaver~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -276,7 +277,7 @@ Todis（ToplingDB）
 Yukon
 
    
-Beaver   
+   
 ActionDB   
 Klustron   
 RealHistorian   
