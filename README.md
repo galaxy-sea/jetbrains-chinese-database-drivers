@@ -130,6 +130,7 @@
 | ~~BGraph~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 | ~~ProcessDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 | ~~HeroDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
+| ~~博流数据库~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -288,7 +289,7 @@ Yukon
    
    
    
-博流数据库   
+   
 HexaDB   
 TensorDB   
 VeDB   
