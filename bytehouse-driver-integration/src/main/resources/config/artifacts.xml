@@ -1,3 +1,153 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <artifacts>
+  <artifact id="ByteHouse Driver" name="ByteHouse Driver">
+    <version version="1.1.93">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.93/driver-java-1.1.93.jar"/>
+      <channel id="stable"/>
+    </version>
+    <version version="1.1.92">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.92/driver-java-1.1.92.jar"/>
+    </version>
+    <version version="1.1.88">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.88/driver-java-1.1.88.jar"/>
+    </version>
+    <version version="1.1.87">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.87/driver-java-1.1.87.jar"/>
+    </version>
+    <version version="1.1.84">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.84/driver-java-1.1.84.jar"/>
+    </version>
+    <version version="1.1.83">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.83/driver-java-1.1.83.jar"/>
+    </version>
+    <version version="1.1.82">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.82/driver-java-1.1.82.jar"/>
+    </version>
+    <version version="1.1.80">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.80/driver-java-1.1.80.jar"/>
+    </version>
+    <version version="1.1.78">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.78/driver-java-1.1.78.jar"/>
+    </version>
+    <version version="1.1.77">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.77/driver-java-1.1.77.jar"/>
+    </version>
+    <version version="1.1.76">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.76/driver-java-1.1.76.jar"/>
+    </version>
+    <version version="1.1.75">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.75/driver-java-1.1.75.jar"/>
+    </version>
+    <version version="1.1.74">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.74/driver-java-1.1.74.jar"/>
+    </version>
+    <version version="1.1.73">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.73/driver-java-1.1.73.jar"/>
+    </version>
+    <version version="1.1.72">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.72/driver-java-1.1.72.jar"/>
+    </version>
+    <version version="1.1.71">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.71/driver-java-1.1.71.jar"/>
+    </version>
+    <version version="1.1.70">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.70/driver-java-1.1.70.jar"/>
+    </version>
+    <version version="1.1.69">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.69/driver-java-1.1.69.jar"/>
+    </version>
+    <version version="1.1.68">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.68/driver-java-1.1.68.jar"/>
+    </version>
+    <version version="1.1.67">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.67/driver-java-1.1.67.jar"/>
+    </version>
+    <version version="1.1.65">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.65/driver-java-1.1.65.jar"/>
+    </version>
+    <version version="1.1.64">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.64/driver-java-1.1.64.jar"/>
+    </version>
+    <version version="1.1.63">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.63/driver-java-1.1.63.jar"/>
+    </version>
+    <version version="1.1.62">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.62/driver-java-1.1.62.jar"/>
+    </version>
+    <version version="1.1.61">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.61/driver-java-1.1.61.jar"/>
+    </version>
+    <version version="1.1.60">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.60/driver-java-1.1.60.jar"/>
+    </version>
+    <version version="1.1.59">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.59/driver-java-1.1.59.jar"/>
+    </version>
+    <version version="1.1.58">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.58/driver-java-1.1.58.jar"/>
+    </version>
+    <version version="1.1.57">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.57/driver-java-1.1.57.jar"/>
+    </version>
+    <version version="1.1.56">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.56/driver-java-1.1.56.jar"/>
+    </version>
+    <version version="1.1.55">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.55/driver-java-1.1.55.jar"/>
+    </version>
+    <version version="1.1.54">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.54/driver-java-1.1.54.jar"/>
+    </version>
+    <version version="1.1.53">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.53/driver-java-1.1.53.jar"/>
+    </version>
+    <version version="1.1.51">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.51/driver-java-1.1.51.jar"/>
+    </version>
+    <version version="1.1.47">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.47/driver-java-1.1.47.jar"/>
+    </version>
+    <version version="1.1.44">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.44/driver-java-1.1.44.jar"/>
+    </version>
+    <version version="1.1.33">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.33/driver-java-1.1.33.jar"/>
+    </version>
+    <version version="1.1.32">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.32/driver-java-1.1.32.jar"/>
+    </version>
+    <version version="1.1.31">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.31/driver-java-1.1.31.jar"/>
+    </version>
+    <version version="1.1.27">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.27/driver-java-1.1.27.jar"/>
+    </version>
+    <version version="1.1.26">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.26/driver-java-1.1.26.jar"/>
+    </version>
+    <version version="1.1.24">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.24/driver-java-1.1.24.jar"/>
+    </version>
+    <version version="1.1.23">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.23/driver-java-1.1.23.jar"/>
+    </version>
+    <version version="1.1.22">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.22/driver-java-1.1.22.jar"/>
+    </version>
+    <version version="1.1.20">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.20/driver-java-1.1.20.jar"/>
+    </version>
+    <version version="1.1.12">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.12/driver-java-1.1.12.jar"/>
+    </version>
+    <version version="1.1.1">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.1/driver-java-1.1.1.jar"/>
+    </version>
+    <version version="1.1.0">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.1.0/driver-java-1.1.0.jar"/>
+    </version>
+    <version version="1.0.0">
+      <item type="url" url="https://artifact.bytedance.com/repository/releases/com/bytedance/bytehouse/driver-java/1.0.0/driver-java-1.0.0.jar"/>
+    </version>
+  </artifact>
 </artifacts>
