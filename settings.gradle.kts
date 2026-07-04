@@ -56,6 +56,7 @@ include(
     "lightdb-driver-integration",
     "cisdigitaltimes-driver-integration",
     "tendis-driver-integration",
+    "apachekvrocks-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 
