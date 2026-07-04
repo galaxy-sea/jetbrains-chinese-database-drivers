@@ -89,6 +89,7 @@
 | ~~CirroData~~<br>放弃             | 无jdbc驱动                                                                                                                                                                            |
 | ~~Hubble~~<br>放弃             | 无jdbc驱动                                                                                                                                                                            |
 | ~~Intcube OLAP~~<br>放弃             | 无jdbc驱动                                                                                                                                                                            |
+| ~~HyperDB~~<br>放弃             | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -252,7 +253,7 @@ Kvrocks
 Tendis
 
    
-HyperDB   
+   
 Halo   
 SeaboxSQL   
 LightDB   
