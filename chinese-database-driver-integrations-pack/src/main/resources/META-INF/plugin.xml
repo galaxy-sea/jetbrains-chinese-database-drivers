@@ -59,4 +59,5 @@
     <depends>plus.wcj.jetbrains.plugins.stardb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.lindorm-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.halo-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.lightdb-driver-integration</depends>
 </idea-plugin>

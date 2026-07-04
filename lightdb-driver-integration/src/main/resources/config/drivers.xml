@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="lightdb" name="LightDB" icon="/icons/driversIcon.svg" forced-dbms="LIGHTDB" based-on="postgresql" group-with="lightdb">
+    <remarks>LightDB</remarks>
+  </driver>
+  <driver id="lightdb-postgres" name="LightDB (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="LIGHTDB_POSTGRES" based-on="postgresql" group-with="lightdb">
+    <remarks>LightDB</remarks>
+  </driver>
+</drivers>

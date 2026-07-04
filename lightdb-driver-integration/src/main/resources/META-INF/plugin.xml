@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.lightdb-driver-integration</id>
+    <name>LightDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides LightDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="LIGHTDB" instance="plus.wcj.jetbrains.plugins.lightdb.LightDBDatabaseDbms.LIGHTDB"/>
+        <extensionFallback dbms="LIGHTDB" fallbackDbms="POSTGRES"/>
+        <addToHSet item="LIGHTDB" set="POSTGRES_LIKE"/>
+        <addToHSet item="LIGHTDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="LIGHTDB_POSTGRES" instance="plus.wcj.jetbrains.plugins.lightdb.LightDBDatabaseDbms.LIGHTDB_POSTGRES"/>
+        <extensionFallback dbms="LIGHTDB_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="LIGHTDB_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="LIGHTDB_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

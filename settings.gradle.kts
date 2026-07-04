@@ -53,6 +53,7 @@ include(
     "stardb-driver-integration",
     "lindorm-driver-integration",
     "halo-driver-integration",
+    "lightdb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 
