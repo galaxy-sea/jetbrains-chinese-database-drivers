@@ -78,6 +78,7 @@
 | ~~Galaxybase~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
 | ~~TopGraph~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
 | `Tair`<br>测试中 | Tair[Redis] |  |
+| ~~腾讯云VectorDB~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -223,12 +224,12 @@ Kyligence
 Vearch   
 GreatSQL
 OpenMLDB   
+HugeGraph   
 
    
    
    
-HugeGraph   
-腾讯云VectorDB   
+   
 Databend   
 AbutionGraph   
 ByConity   
