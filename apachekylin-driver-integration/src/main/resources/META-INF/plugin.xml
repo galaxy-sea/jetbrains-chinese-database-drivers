@@ -1,0 +1,20 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.apachekylin-driver-integration</id>
+    <name>Apache Kylin Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides Apache Kylin JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="APACHEKYLIN" instance="plus.wcj.jetbrains.plugins.apachekylin.ApacheKylinDatabaseDbms.APACHEKYLIN"/>
+        <extensionFallback dbms="APACHEKYLIN" fallbackDbms="HIVE"/>
+        <addToHSet item="APACHEKYLIN" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

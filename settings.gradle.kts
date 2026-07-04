@@ -61,6 +61,7 @@ include(
     "databend-driver-integration",
     "openmldb-driver-integration",
     "greatsql-driver-integration",
+    "apachekylin-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

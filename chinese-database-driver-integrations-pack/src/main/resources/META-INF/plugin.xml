@@ -67,4 +67,5 @@
     <depends>plus.wcj.jetbrains.plugins.databend-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.openmldb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.greatsql-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.apachekylin-driver-integration</depends>
 </idea-plugin>
