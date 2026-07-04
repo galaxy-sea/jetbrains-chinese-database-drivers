@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.radondb-driver-integration</id>
+    <name>RadonDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides RadonDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="RADONDB" instance="plus.wcj.jetbrains.plugins.radondb.RadonDBDatabaseDbms.RADONDB"/>
+        <extensionFallback dbms="RADONDB" fallbackDbms="MYSQL"/>
+        <addToHSet item="RADONDB" set="MYSQL_LIKE"/>
+        <addToHSet item="RADONDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="RADONDB_MYSQL" instance="plus.wcj.jetbrains.plugins.radondb.RadonDBDatabaseDbms.RADONDB_MYSQL"/>
+        <extensionFallback dbms="RADONDB_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="RADONDB_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="RADONDB_MYSQL" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

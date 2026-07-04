@@ -70,6 +70,7 @@ val databaseDriverPluginProjects = listOf(
     ":openmldb-driver-integration",
     ":greatsql-driver-integration",
     ":apachekylin-driver-integration",
+    ":radondb-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(

@@ -104,6 +104,7 @@
 | `GreatSQL`<br>测试中                    | GreatSQL[MySQL]<br>GreatSQL (MySQL)                                                                                                                                                |                                                                                                                          |
 | ~~Vearch~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 | `Apache Kylin`<br>`Kyligence`<br>测试中 | Apache Kylin[HiveQL]:<br>`jdbc:kylin`                                                                                                                                              | `org.apache.kylin:kylin-jdbc`                                                                                            |
+| `RadonDB`<br>测试中 | RadonDB[MySQL]<br>RadonDB (MySQL) |  |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -255,7 +256,6 @@ AntDB
 CnosDB   
 openGemini   
 OpenTenBase   
-RadonDB
 
 ----------
 HaiRuoVectorDB   

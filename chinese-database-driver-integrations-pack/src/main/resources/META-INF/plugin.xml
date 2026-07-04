@@ -68,4 +68,5 @@
     <depends>plus.wcj.jetbrains.plugins.openmldb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.greatsql-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.apachekylin-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.radondb-driver-integration</depends>
 </idea-plugin>

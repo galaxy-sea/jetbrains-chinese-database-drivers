@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="radondb" name="RadonDB" icon="/icons/driversIcon.svg" forced-dbms="RADONDB" based-on="mysql.8" group-with="radondb">
+    <remarks>RadonDB</remarks>
+  </driver>
+  <driver id="radondb-mysql" name="RadonDB (MySQL)" icon="/icons/driversIcon.svg" forced-dbms="RADONDB_MYSQL" based-on="mysql.8" group-with="radondb">
+    <remarks>RadonDB</remarks>
+  </driver>
+</drivers>
