@@ -71,6 +71,7 @@ include(
     "pieclouddb-driver-integration",
     "chronusdb-driver-integration",
     "actiondb-driver-integration",
+    "klustron-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

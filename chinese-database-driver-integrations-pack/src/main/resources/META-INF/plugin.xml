@@ -77,4 +77,5 @@
     <depends>plus.wcj.jetbrains.plugins.pieclouddb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.chronusdb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.actiondb-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.klustron-driver-integration</depends>
 </idea-plugin>

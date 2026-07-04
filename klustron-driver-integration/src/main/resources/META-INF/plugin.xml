@@ -1,0 +1,31 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.klustron-driver-integration</id>
+    <name>Klustron Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides Klustron JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="KLUSTRON" instance="plus.wcj.jetbrains.plugins.klustron.KlustronDatabaseDbms.KLUSTRON"/>
+        <extensionFallback dbms="KLUSTRON" fallbackDbms="POSTGRES"/>
+        <addToHSet item="KLUSTRON" set="POSTGRES_LIKE"/>
+        <addToHSet item="KLUSTRON" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="KLUSTRON_POSTGRES" instance="plus.wcj.jetbrains.plugins.klustron.KlustronDatabaseDbms.KLUSTRON_POSTGRES"/>
+        <extensionFallback dbms="KLUSTRON_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="KLUSTRON_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="KLUSTRON_POSTGRES" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="KLUSTRON_MYSQL" instance="plus.wcj.jetbrains.plugins.klustron.KlustronDatabaseDbms.KLUSTRON_MYSQL"/>
+        <extensionFallback dbms="KLUSTRON_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="KLUSTRON_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="KLUSTRON_MYSQL" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>
