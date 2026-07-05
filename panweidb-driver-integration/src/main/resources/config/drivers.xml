@@ -8,4 +8,7 @@
   <driver id="panweidb-postgres" name="PanWeiDB (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="PANWEIDB_POSTGRES" group-with="panweidb" based-on="postgresql">
     <remarks>PanWeiDB</remarks>
   </driver>
+
+  <md-name>PanWeiDB</md-name>
+  <md-name>磐维数据库</md-name>
 </drivers>

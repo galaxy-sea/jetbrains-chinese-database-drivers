@@ -9,4 +9,8 @@
   <driver id="haishandb-postgres" name="HaishanDB (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="HAISHANDB_POSTGRES" group-with="haishandb" based-on="postgresql">
     <remarks>HaishanDB</remarks>
   </driver>
+
+  <md-name>HaishanDB</md-name>
+  <md-name>He3DB</md-name>
+
 </drivers>

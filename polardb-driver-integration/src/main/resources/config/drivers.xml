@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
+
+
   <driver id="polardb" name="PolarDB" icon="/icons/driversIcon.svg" forced-dbms="POLARDB_MYSQL" group-with="polardb" based-on="mysql.8">
     <remarks>PolarDB</remarks>
   </driver>
@@ -18,4 +20,8 @@
   <driver id="polardb-oracle" name="PolarDB (Oracle)" icon="/icons/driversIcon.svg" forced-dbms="POLARDB_ORACLE" group-with="polardb" based-on="oracle.19">
     <remarks>PolarDB</remarks>
   </driver>
+
+
+  <md-name>PolarDB</md-name>
+  <md-name>PolarDB-X</md-name>
 </drivers>

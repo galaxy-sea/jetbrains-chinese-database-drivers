@@ -43,12 +43,13 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
     public abstract RegularFileProperty getArtifactsFile();
 
     public UpdateDatabaseArtifactsXmlTask() {
+        getArtifactsFile().convention(getProject().getLayout().getProjectDirectory().file("src/main/resources/config/artifacts.xml"));
         getOutputs().upToDateWhen(task -> false);
     }
 
     @TaskAction
     public void updateArtifactsXml() {
-        File outputFile = getArtifactsFile().getAsFile().get();
+        File outputFile = artifactsFile();
         if (!outputFile.isFile()) {
             getLogger().warn("Skip updating artifacts.xml: {} does not exist.", outputFile.getPath());
             return;
@@ -77,6 +78,13 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
                 e
             );
         }
+    }
+
+    private File artifactsFile() {
+        if (getArtifactsFile().isPresent()) {
+            return getArtifactsFile().getAsFile().get();
+        }
+        return getProject().file("src/main/resources/config/artifacts.xml");
     }
 
     private void validateMavenArtifacts(List<MavenArtifact> mavenArtifacts) {

@@ -5,4 +5,7 @@
     <artifact id="CISDigitalTimeS Driver" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>
   </driver>
+
+  <md-name>CISDigital-TimeS</md-name>
+  <md-name>CISDigitalTimeS</md-name>
 </drivers>

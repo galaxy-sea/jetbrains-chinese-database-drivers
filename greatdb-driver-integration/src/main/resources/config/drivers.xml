@@ -9,4 +9,7 @@
   <driver id="greatdb-oracle" name="GreatDB (Oracle)" icon="/icons/driversIcon.svg" forced-dbms="GREATDB_ORACLE" based-on="oracle.19" group-with="greatdb">
     <remarks>GreatDB</remarks>
   </driver>
+
+  <md-name>GreatDB</md-name>
+  <md-name>万里数据库</md-name>
 </drivers>

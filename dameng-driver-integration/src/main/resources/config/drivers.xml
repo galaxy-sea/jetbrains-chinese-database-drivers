@@ -6,4 +6,7 @@
     <artifact id="Dameng Driver DmJdbcDriver11" use="false" rolling="true"/>
     <option name="auto-sync" value="true"/>
   </driver>
+
+  <md-name>Dameng</md-name>
+  <md-name>达梦数据库</md-name>
 </drivers>

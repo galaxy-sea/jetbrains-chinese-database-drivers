@@ -22,4 +22,6 @@
   </driver>
 
 
+  <md-name>openGauss</md-name>
+  <md-name>GaussDB</md-name>
 </drivers>

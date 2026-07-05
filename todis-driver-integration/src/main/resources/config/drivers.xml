@@ -3,4 +3,7 @@
   <driver id="todis" name="Todis" icon="/icons/driversIcon.svg" forced-dbms="TODIS" based-on="redis" group-with="todis">
     <remarks>Todis</remarks>
   </driver>
+
+  <md-name>Todis</md-name>
+  <md-name>ToplingDB</md-name>
 </drivers>

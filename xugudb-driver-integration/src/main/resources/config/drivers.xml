@@ -5,4 +5,7 @@
     <artifact id="XuguDB Driver" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>
   </driver>
+
+  <md-name>XuguDB</md-name>
+  <md-name>虚谷数据库</md-name>
 </drivers>

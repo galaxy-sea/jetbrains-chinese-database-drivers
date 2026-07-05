@@ -5,4 +5,7 @@
     <artifact id="KingBase Driver" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>
   </driver>
+
+  <md-name>KingBase</md-name>
+  <md-name>金仓数据库</md-name>
 </drivers>

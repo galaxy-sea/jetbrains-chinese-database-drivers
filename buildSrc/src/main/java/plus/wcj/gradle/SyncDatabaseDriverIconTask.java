@@ -25,15 +25,20 @@ public abstract class SyncDatabaseDriverIconTask extends DefaultTask {
     @OutputFile
     public abstract RegularFileProperty getDriverIconFile();
 
+    public SyncDatabaseDriverIconTask() {
+        getPluginIconFile().convention(getProject().getLayout().getProjectDirectory().file("src/main/resources/META-INF/pluginIcon.svg"));
+        getDriverIconFile().convention(getProject().getLayout().getProjectDirectory().file("src/main/resources/icons/driversIcon.svg"));
+    }
+
     @TaskAction
     public void syncDriverIcon() throws Exception {
-        File inputFile = getPluginIconFile().getAsFile().get();
+        File inputFile = pluginIconFile();
         if (!inputFile.isFile()) {
             getLogger().warn("Skip syncing driver icon: {} does not exist.", inputFile.getPath());
             return;
         }
 
-        File outputFile = getDriverIconFile().getAsFile().get();
+        File outputFile = driverIconFile();
         File outputDirectory = outputFile.getParentFile();
         if (outputDirectory != null) {
             Files.createDirectories(outputDirectory.toPath());
@@ -44,6 +49,20 @@ public abstract class SyncDatabaseDriverIconTask extends DefaultTask {
         Files.copy(inputFile.toPath(), outputFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
         validateSvgIconSize(outputFile);
         getLogger().lifecycle("Synced {} from {}.", outputFile.getPath(), inputFile.getPath());
+    }
+
+    private File pluginIconFile() {
+        if (getPluginIconFile().isPresent()) {
+            return getPluginIconFile().getAsFile().get();
+        }
+        return getProject().file("src/main/resources/META-INF/pluginIcon.svg");
+    }
+
+    private File driverIconFile() {
+        if (getDriverIconFile().isPresent()) {
+            return getDriverIconFile().getAsFile().get();
+        }
+        return getProject().file("src/main/resources/icons/driversIcon.svg");
     }
 
     private static void validateSvgIconSize(File iconFile) {

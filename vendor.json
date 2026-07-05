@@ -1,0 +1,18 @@
+{
+    "teamcityServers": [],
+    "plugins": [
+        {
+            "id": 32679,
+            "name": "ActionDB Driver Integration",
+            "link": "/plugin/32679-actiondb-driver-integration"
+        }
+    ],
+    "id": "10074870-7896-48cf-8af5-5d4d4a7601db",
+    "name": "ChangJin Wei (魏昌进)",
+    "link": "/author/10074870-7896-48cf-8af5-5d4d4a7601db",
+    "hubLogin": "ChangJinWei",
+    "email": "weichangjin1996@gmail.com",
+    "emailBanned": false,
+    "icon": "https://hub.jetbrains.com/api/rest/avatar/10074870-7896-48cf-8af5-5d4d4a7601db",
+    "showMarketoCheckbox": false
+}
