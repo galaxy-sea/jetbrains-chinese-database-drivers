@@ -74,6 +74,7 @@ include(
     "klustron-driver-integration",
     "indb-driver-integration",
     "vedb-driver-integration",
+    "gridsumdb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

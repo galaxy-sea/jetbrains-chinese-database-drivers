@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.gridsumdb-driver-integration</id>
+    <name>GridsumDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides GridsumDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="GRIDSUMDB" instance="plus.wcj.jetbrains.plugins.gridsumdb.GridsumDBDatabaseDbms.GRIDSUMDB"/>
+        <extensionFallback dbms="GRIDSUMDB" fallbackDbms="MYSQL"/>
+        <addToHSet item="GRIDSUMDB" set="MYSQL_LIKE"/>
+        <addToHSet item="GRIDSUMDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="GRIDSUMDB_MYSQL" instance="plus.wcj.jetbrains.plugins.gridsumdb.GridsumDBDatabaseDbms.GRIDSUMDB_MYSQL"/>
+        <extensionFallback dbms="GRIDSUMDB_MYSQL" fallbackDbms="MYSQL"/>
+        <addToHSet item="GRIDSUMDB_MYSQL" set="MYSQL_LIKE"/>
+        <addToHSet item="GRIDSUMDB_MYSQL" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>
