@@ -151,6 +151,7 @@
 | ~~CUDB~~<br>放弃                   | 系列产品名称                                                                                                                                                                            |
 | ~~NseaDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 | ~~航天天域数据库~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
+| ~~Yukon~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -303,7 +304,7 @@ PikiwiDB
 Havenask   
 CloudberryDB   
 Todis（ToplingDB）  
-Yukon
+
 
    
    
