@@ -80,6 +80,7 @@ include(
     "todis-driver-integration",
     "apachecloudberry-driver-integration",
     "pikiwidb-driver-integration",
+    "oushudb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

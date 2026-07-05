@@ -86,4 +86,5 @@
     <depends>plus.wcj.jetbrains.plugins.todis-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.apachecloudberry-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.pikiwidb-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.oushudb-driver-integration</depends>
 </idea-plugin>
