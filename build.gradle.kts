@@ -171,6 +171,16 @@ configure(databaseDriverPluginProjects.map { project(it) }) {
     }
 }
 
+configure(listOf(project(":chinese-database-driver-integrations-pack"))) {
+    dependencies {
+        extensions.configure<IntelliJPlatformDependenciesExtension>("intellijPlatform") {
+            databaseDriverPluginProjects.forEach {
+                localPlugin(project(it))
+            }
+        }
+    }
+}
+
 tasks.register("buildAllPlugins") {
     group = chineseDatabaseDriversTaskGroup
     description = "Builds all database driver integration plugin distributions."
