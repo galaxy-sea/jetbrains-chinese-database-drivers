@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="fusiondb" name="FusionDB" icon="/icons/driversIcon.svg" forced-dbms="FUSIONDB" based-on="postgresql" group-with="fusiondb">
+    <remarks>FusionDB</remarks>
+  </driver>
+  <driver id="fusiondb-postgres" name="FusionDB (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="FUSIONDB_POSTGRES" based-on="postgresql" group-with="fusiondb">
+    <remarks>FusionDB</remarks>
+  </driver>
+</drivers>

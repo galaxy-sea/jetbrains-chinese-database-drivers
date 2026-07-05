@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.fusiondb-driver-integration</id>
+    <name>FusionDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides FusionDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="FUSIONDB" instance="plus.wcj.jetbrains.plugins.fusiondb.FusionDBDatabaseDbms.FUSIONDB"/>
+        <extensionFallback dbms="FUSIONDB" fallbackDbms="POSTGRES"/>
+        <addToHSet item="FUSIONDB" set="POSTGRES_LIKE"/>
+        <addToHSet item="FUSIONDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="FUSIONDB_POSTGRES" instance="plus.wcj.jetbrains.plugins.fusiondb.FusionDBDatabaseDbms.FUSIONDB_POSTGRES"/>
+        <extensionFallback dbms="FUSIONDB_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="FUSIONDB_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="FUSIONDB_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>
