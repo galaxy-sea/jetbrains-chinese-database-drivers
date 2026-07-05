@@ -39,7 +39,7 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
         "https://plugins.jetbrains.com/api/vendors/chinese-database-drivers/plugins?page=1&size=999";
 
     private static final String TABLE_HEADER = """
-        | 数据库 | 驱动名称 (驱动) [方言] | 驱动来源 |
+        | 数据库 | 驱动名称 (驱动) [方言] | 驱动信息 |
         |---|---|---|
         """;
 
@@ -306,7 +306,7 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
         if (marketplaceCell.isBlank()) {
             return mavenCell;
         }
-        return mavenCell + "<br>" + marketplaceCell;
+        return marketplaceCell + "<br>" + mavenCell;
     }
 
     private static String gav(String notation) {
