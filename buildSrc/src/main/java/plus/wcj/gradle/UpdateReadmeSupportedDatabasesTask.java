@@ -39,8 +39,8 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
         "https://plugins.jetbrains.com/api/vendors/chinese-database-drivers/plugins?page=1&size=999";
 
     private static final String TABLE_HEADER = """
-        | 数据库 | 驱动名称 (驱动) [方言] | Maven | 插件市场 |
-        |---|---|---|---|
+        | 数据库 | 驱动名称 (驱动) [方言] | 驱动来源 |
+        |---|---|---|
         """;
 
     @InputFile
@@ -90,9 +90,7 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
                     .append(" | ")
                     .append(info.driverCell())
                     .append(" | ")
-                    .append(info.mavenCell())
-                    .append(" | ")
-                    .append(info.marketplaceCell())
+                    .append(info.sourceCell())
                     .append(" |\n");
             }
 
@@ -207,7 +205,11 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
             throw new GradleException("No drivers configured in " + modulePath);
         }
 
-        return new ModuleInfo(databaseCell(driversDocument, drivers), driverCell(drivers), mavenCell(artifactsDocument, drivers), marketplaceCell(marketplacePlugins.get(pluginId)));
+        return new ModuleInfo(
+            databaseCell(driversDocument, drivers),
+            driverCell(drivers),
+            sourceCell(mavenCell(artifactsDocument, drivers), marketplaceCell(marketplacePlugins.get(pluginId)))
+        );
     }
 
     private static DriverInfo driverInfo(Element driver) {
@@ -294,7 +296,17 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
         }
         String link = "https://plugins.jetbrains.com/plugin/" + plugin.id();
         String badge = "https://img.shields.io/jetbrains/plugin/v/" + plugin.id() + "?style=flat-square&label=";
-        return "[#" + plugin.id() + "](" + link + ")<br>[![JetBrains Plugin](" + badge + ")](" + link + ")";
+        return "JetBrains：[#" + plugin.id() + "](" + link + ")<br>[![JetBrains Plugin](" + badge + ")](" + link + ")";
+    }
+
+    private static String sourceCell(String mavenCell, String marketplaceCell) {
+        if (mavenCell.isBlank()) {
+            return marketplaceCell;
+        }
+        if (marketplaceCell.isBlank()) {
+            return mavenCell;
+        }
+        return mavenCell + "<br>" + marketplaceCell;
     }
 
     private static String gav(String notation) {
@@ -357,7 +369,7 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
     private record DriverInfo(String name, String dialect, String basedOn, String driverClass, String protocol) {
     }
 
-    private record ModuleInfo(String databaseCell, String driverCell, String mavenCell, String marketplaceCell) {
+    private record ModuleInfo(String databaseCell, String driverCell, String sourceCell) {
     }
 
     private record MarketplacePlugin(String id, String xmlId, String name, String link) {
