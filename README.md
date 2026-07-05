@@ -2,11 +2,10 @@
 
 一个面向 JetBrains Database Tools 的国产数据库 JDBC Driver Integration 插件集合。
 
-本项目为常见国产数据库提供 JDBC 驱动元数据、下载配置和连接模板，帮助用户在支持 Database Tools 的 JetBrains IDE 中更方便地创建数据库连接。
-项目本身不实现 JDBC Driver，只集成各数据库厂商或兼容生态提供的 JDBC 驱动。
-
 在数据库连接配置可用后，可以进一步配合 `JPA Buddy`、`MyBatisCodeHelperPro` 等持久层开发插件提升实体建模、SQL 编写和代码生成效率；
 也可以结合 `JetBrains AI Assistant`，在已有数据源上下文中辅助完成查询分析、代码生成和开发调试。
+
+本项目为常见国产数据库提供 JDBC 驱动元数据、下载配置和连接模板，帮助用户在支持 Database Tools 的 JetBrains IDE 中更方便地创建数据库连接。
 
 ## 支持的数据库
 
@@ -17,7 +16,6 @@
 | `KingBase(金仓数据库)`<br>测试中             | KingBase[PostgreSQL]:<br>`jdbc:kingbase8`                                                                                                                                          | `cn.com.kingbase:kingbase8`                                                                                              |
 | `PolarDB`<br>测试中                     | PolarDB(MySQL)<br>PolarDB-X[MySQL]:<br>`jdbc:polardbx`<br>PolarDB (PostgreSQL)<br>PolarDB (Oracle)                                                                                 | `com.alibaba.polardbx:polardbx-connector-java`                                                                           |
 | `GoldenDB`<br>测试中                    | GoldenDB[MySQL]:<br>`jdbc:goldendb`<br>GoldenDB (MySQL)                                                                                                                            | ~~GAV~~ 用户自行导入JAR包                                                                                                       |
-| ~~TiDB~~                             | JetBrains已支持                                                                                                                                                                       |                                                                                                                          |
 | `GBase 8s`<br>测试中                    | GBase 8s[Oracle]:<br>`jdbc:gbasedbt-sqli`                                                                                                                                          | GBase 8s:<br>`com.gbasedbt:jdbc`                                                                                         |
 | `openGauss`<br>`GaussDB`<br>测试中      | openGauss[PostgreSQL]:<br>`jdbc:opengauss`<br>GaussDB[PostgreSQL]:<br>`jdbc:gaussdb`<br>GaussDB[PostgreSQL]:<br>`jdbc:gaussdb`<br>openGauss (PostgreSQL)                           | `org.opengauss:opengauss-jdbc`<br>`com.huaweicloud:gaussdbjdbc`<br>`com.huaweicloud.dws:huaweicloud-dws-jdbc`<br>非语义化版本号 |
 | `YashanDB`<br>测试中                    | YashanDB[Oracle]:<br>`jdbc:yashandb`<br>YashanDB (MySQL)                                                                                                                           | `com.yashandb:yashandb-jdbc`                                                                                             |
@@ -29,8 +27,6 @@
 | `XuguDB(虚谷数据库)`<br>测试中               | XuguDB[Oracle]:<br>`jdbc:xugu`                                                                                                                                                     | `com.xugudb:xugu-jdbc`                                                                                                   |
 | `HaishanDB`<br>`He3DB`<br>测试中        | HaishanDB[PostgreSQL]<br>He3DB[PostgreSQL]<br>HaishanDB (PostgreSQL)                                                                                                               | 好像不维护了                                                                                                                   |
 | `Hologres`<br>测试中                    | Hologres[PostgreSQL]<br>Hologres (PostgreSQL)                                                                                                                                      |                                                                                                                          |
-| ~~Easysearch~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
-| ~~gStore~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 | `CloudWave`<br>测试中                   | CloudWave[PostgreSQL]:<br>`jdbc:cloudwave`<br>CloudWave (PostgreSQL)                                                                                                               | ~~GAV~~ 用户自行导入JAR包                                                                                                       |
 | `OpenTeleDB`~~TeleDB~~<br>测试中        | OpenTeleDB[PostgreSQL]<br>OpenTeleDB (PostgreSQL)                                                                                                                                  |                                                                                                                          |
 | `ArgoDB`<br>测试中                      | ArgoDB[HiveQL]:<br>`jdbc:transwarp2`<br>ArgoDB (Hive)                                                                                                                              | ~~GAV~~ 用户自行导入JAR包                                                                                                       |
@@ -43,11 +39,7 @@
 | `GaiaDB`<br>测试中                      | GaiaDB[MySQL]<br>GaiaDB (MySQL)                                                                                                                                                    |                                                                                                                          |
 | `Vastbase G100`<br>测试中               | Vastbase G100[PostgreSQL]:<br>`jdbc:vastbase`<br>Vastbase G100 p[PostgreSQL]:<br>`jdbc:vastbase`<br>Vastbase (PostgreSQL)                                                          | `cn.com.vastdata:vastbase-jdbc`<br>非语义化版本号                                                                               |
 | `UXDB`<br>测试中                        | UXDB[PostgreSQL]:<br>`jdbc:uxdb`<br>UXDB[Oracle]:<br>`jdbc:uxdb`<br>UXDB[MySQL]:<br>`jdbc:uxdb`<br>UXDB (PostgreSQL)                                                               | `com.uxsino.uxdb:uxdbjdbc`                                                                                               |
-| ~~EBASE~~<br>放弃                      | 无jdbc驱动                                                                                                                                                                            |
-| ~~GDMBASE~~<br>放弃                    | 无jdbc驱动                                                                                                                                                                            |
 | `GreatDB(万里数据库)`<br>测试中              | GreatDB[MySQL]<br>GreatDB (MySQL)<br>GreatDB (Oracle)                                                                                                                              |                                                                                                                          |
-| ~~KBase~~<br>放弃                      | 无jdbc驱动                                                                                                                                                                            |
-| ~~SourceDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 | `TaurusDB`<br>测试中                    | TaurusDB[MySQL]<br>TaurusDB (MySQL)                                                                                                                                                |                                                                                                                          |
 | `TCHouse`<br>测试中                     | TCHouse[MySQL]<br>TCHouse-D (MySQL)<br>TCHouse-P (PostgreSQL)<br>TCHouse-C (ClickHouse)                                                                                            |                                                                                                                          |
 | `SUNDB`<br>测试中                       | SUNDB[GenericSQL]:<br>`jdbc:sundb`                                                                                                                                                 | ~~GAV~~ 用户自行导入JAR包                                                                                                       |
@@ -55,16 +47,60 @@
 | `SequoiaDB`<br>测试中                   | SequoiaDB[MySQL]<br>SequoiaDB (MySQL)<br>SequoiaDB (MariaDB)<br>SequoiaDB (PostgreSQL)                                                                                             |                                                                                                                          |
 | `RisingWave`<br>测试中                  | RisingWave[PostgreSQL]<br>RisingWave (PostgreSQL)                                                                                                                                  |                                                                                                                          |
 | `NebulaGraph`<br>测试中                 | NebulaGraph[GenericSQL]:<br>`jdbc:nebula`                                                                                                                                          | `org.nebula-contrib:nebula-jdbc` 第三方                                                                                     |
-| ~~TuGraph~~<br>放弃                    | 无jdbc驱动                                                                                                                                                                            |
 | `IvorySQL`<br>测试中                    | IvorySQL[PostgreSQL]<br>IvorySQL (PostgreSQL)                                                                                                                                      |                                                                                                                          |
-| ~~Milvus~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 | `YMatrix`<br>测试中                     | YMatrix[PostgreSQL]<br>YMatrix (PostgreSQL)                                                                                                                                        |                                                                                                                          |
-| ~~VikingDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
-| ~~DBOne~~<br>放弃                      | 无jdbc驱动                                                                                                                                                                            |
 | `MogDB`<br>测试中                       | MogDB[PostgreSQL]:<br>`jdbc:opengauss`<br>MogDB (PostgreSQL)                                                                                                                       | `org.opengauss:opengauss-jdbc`                                                                                           |
-| ~~九有数据库 ~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 | `ByteHouse`<br>测试中                   | ByteHouse[ClickHouse]:<br>`jdbc:bytehouse`<br>ByteHouse (ClickHouse)                                                                                                               | `com.bytedance.bytehouse:driver-java`                                                                                    |
 | `MuDB`<br>测试中                        | MuDB[PostgreSQL]:<br>`jdbc:opengauss`<br>MuDB (PostgreSQL)                                                                                                                         | `org.opengauss:opengauss-jdbc`                                                                                           |
+| `HotDB`<br>测试中                       | HotDB[MySQL]<br>HotDB (MySQL)                                                                                                                                                      |                                                                                                                          |
+| `Tair`<br>测试中                        | Tair[Redis]                                                                                                                                                                        |                                                                                                                          |
+| `KeeWiDB`<br>测试中                     | KeeWiDB[Redis]                                                                                                                                                                     |                                                                                                                          |
+| `HungHuDB`<br>测试中                    | HungHuDB[PostgreSQL]<br>HungHuDB (PostgreSQL)                                                                                                                                      |                                                                                                                          |
+| `TapDB`<br>测试中                       | TapDB[MongoDB]<br>TapDB (MongoDB)                                                                                                                                                  |                                                                                                                          |
+| `StarDB`<br>测试中                      | StarDB[MySQL]<br>StarDB (MySQL)                                                                                                                                                    |                                                                                                                          |
+| `Lindorm`<br>测试中                     | Lindorm[MySQL]:<br>`jdbc:lindorm:table`<br>`jdbc:lindorm:tsdb`<br>`jdbc:lindorm:search`<br>Lindorm (MySQL)<br>Lindorm (Cassandra)<br>Lindorm (Hive)                                | `com.aliyun.lindorm:lindorm-all-client`                                                                                  |
+| `Halo`<br>测试中                        | Halo[PostgreSQL]<br>Halo (PostgreSQL)                                                                                                                                              |                                                                                                                          |
+| `LightDB`<br>测试中                     | LightDB[PostgreSQL]<br>LightDB (PostgreSQL)                                                                                                                                        |                                                                                                                          |
+| `CISDigital-TimeS`<br>测试中            | CISDigitalTimeS[GenericSQL]:<br>`jdbc:iotdb`                                                                                                                                       | `org.apache.iotdb:iotdb-jdbc`                                                                                            |
+| `Tendis`<br>测试中                      | Tendis[Redis]                                                                                                                                                                      |                                                                                                                          |
+| `Apache Kvrocks`<br>测试中              | Apache Kvrocks[Redis]                                                                                                                                                              |                                                                                                                          |
+| `ByConity`<br>测试中                    | ByConity[ClickHouse]<br>ByConity (ClickHouse)                                                                                                                                      |                                                                                                                          |
+| `Databend`<br>测试中                    | Databend[MySQL]:<br>`jdbc:databend`                                                                                                                                                | `com.databend:databend-jdbc`                                                                                             |
+| `OpenMLDB`<br>测试中                    | OpenMLDB[MySQL]:<br>`jdbc:openmldb`<br>OpenMLDB (MySQL)                                                                                                                            | `com.4paradigm.openmldb:openmldb-jdbc`                                                                                   |
+| `GreatSQL`<br>测试中                    | GreatSQL[MySQL]<br>GreatSQL (MySQL)                                                                                                                                                |                                                                                                                          |
+| `Apache Kylin`<br>`Kyligence`<br>测试中 | Apache Kylin[HiveQL]:<br>`jdbc:kylin`                                                                                                                                              | `org.apache.kylin:kylin-jdbc`                                                                                            |
+| `RadonDB`<br>测试中                     | RadonDB[MySQL]<br>RadonDB (MySQL)                                                                                                                                                  |                                                                                                                          |
+| `OpenTenBase`<br>测试中                 | OpenTenBase[PostgreSQL]<br>OpenTenBase (PostgreSQL)                                                                                                                                |                                                                                                                          |
+| `CnosDB`<br>测试中                      | CnosDB[GenericSQL]:<br>`jdbc:arrow-flight-sql`                                                                                                                                     | `org.apache.arrow:flight-sql-jdbc-driver`                                                                                |
+| `AntDB`<br>测试中                       | AntDB[PostgreSQL]<br>AntDB (PostgreSQL)                                                                                                                                            |                                                                                                                          |
+| `ProtonBase`<br>测试中                  | ProtonBase[PostgreSQL]<br>ProtonBase (PostgreSQL)                                                                                                                                  |                                                                                                                          |
+| `HashData`<br>测试中                    | HashData[PostgreSQL]<br>HashData (PostgreSQL)                                                                                                                                      |                                                                                                                          |
+| `PieCloudDB`<br>测试中                  | PieCloudDB[PostgreSQL]<br>PieCloudDB (PostgreSQL)                                                                                                                                  |                                                                                                                          |
+| `ChronusDB`<br>测试中                   | ChronusDB[ClickHouse]<br>ChronusDB (ClickHouse)                                                                                                                                    |                                                                                                                          |
+| `ActionDB`<br>测试中                    | ActionDB[MySQL]<br>ActionDB (MySQL)<br>ActionDB (Oracle)                                                                                                                           |                                                                                                                          |
+| `Klustron`<br>测试中                    | Klustron[PostgreSQL]<br>Klustron (PostgreSQL)<br>Klustron (MySQL)                                                                                                                  |                                                                                                                          |
+| `InDB`<br>测试中                        | InDB[PostgreSQL]<br>InDB (PostgreSQL)<br>InDB (MySQL)<br>InDB (Oracle)                                                                                                             |                                                                                                                          |
+| `VeDB`<br>测试中                        | VeDB[MySQL]<br>VeDB (MySQL)                                                                                                                                                        |                                                                                                                          |
+| `TRS Hybase`<br>测试中                  | VeDB[MySQL]<br>VeDB (MySQL)                                                                                                                                                        |                                                                                                                          |
+| `GridsumDB`<br>测试中                   | GridsumDB[MySQL]<br>GridsumDB (MySQL)                                                                                                                                              |                                                                                                                          |
+| `FusionDB`<br>测试中                    | FusionDB[PostgreSQL]<br>FusionDB (PostgreSQL)                                                                                                                                      |                                                                                                                          |
+| `PolonDB`<br>测试中                     | PolonDB[PostgreSQL]<br>PolonDB (PostgreSQL)                                                                                                                                        |                                                                                                                          |
+| `Todis（ToplingDB）`<br>测试中            | Todis[Redis]                                                                                                                                                                       |                                                                                                                          |
+| `Apache Cloudberry`<br>测试中           | Apache Cloudberry[PostgreSQL]<br>Apache Cloudberry (PostgreSQL)                                                                                                                    |                                                                                                                          |
+| `PikiwiDB`<br>测试中                    | PikiwiDB[Redis]                                                                                                                                                                    |                                                                                                                          |
+| `OushuDB`<br>测试中                     | OushuDB[PostgreSQL]<br>OushuDB (PostgreSQL)                                                                                                                                        |                                                                                                                          |
+| ~~TiDB~~                             | JetBrains已支持                                                                                                                                                                       |                                                                                                                          |
+| ~~Easysearch~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
+| ~~gStore~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
+| ~~EBASE~~<br>放弃                      | 无jdbc驱动                                                                                                                                                                            |
+| ~~GDMBASE~~<br>放弃                    | 无jdbc驱动                                                                                                                                                                            |
+| ~~KBase~~<br>放弃                      | 无jdbc驱动                                                                                                                                                                            |
+| ~~SourceDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
+| ~~TuGraph~~<br>放弃                    | 无jdbc驱动                                                                                                                                                                            |
+| ~~Milvus~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
+| ~~VikingDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
+| ~~DBOne~~<br>放弃                      | 无jdbc驱动                                                                                                                                                                            |
+| ~~九有数据库 ~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 | ~~BigInsights~~<br>放弃                | 无jdbc驱动                                                                                                                                                                            |
 | ~~SymbolGraph~~<br>放弃                | 无jdbc驱动                                                                                                                                                                            |
 | ~~嬴图~~<br>放弃                         | 无jdbc驱动                                                                                                                                                                            |
@@ -73,263 +109,71 @@
 | ~~GoldenData~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
 | ~~KSMDB~~<br>放弃                      | 无jdbc驱动                                                                                                                                                                            |
 | ~~uniDB~~<br>放弃                      | 无jdbc驱动                                                                                                                                                                            |
-| `HotDB`<br>测试中                       | HotDB[MySQL]<br>HotDB (MySQL)                                                                                                                                                      |                                                                                                                          |
 | ~~TcaplusDB~~<br>放弃                  | 无jdbc驱动                                                                                                                                                                            |
 | ~~Galaxybase~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
 | ~~TopGraph~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
-| `Tair`<br>测试中                        | Tair[Redis]                                                                                                                                                                        |                                                                                                                          |
 | ~~腾讯云VectorDB~~<br>放弃                | 无jdbc驱动                                                                                                                                                                            |
 | ~~AbutionGraph~~<br>放弃               | 无jdbc驱动                                                                                                                                                                            |
-| `KeeWiDB`<br>测试中                     | KeeWiDB[Redis]                                                                                                                                                                     |                                                                                                                          |
 | ~~sinoregal~~<br>放弃                  | 无jdbc驱动                                                                                                                                                                            |
-| `HungHuDB`<br>测试中                    | HungHuDB[PostgreSQL]<br>HungHuDB (PostgreSQL)                                                                                                                                      |                                                                                                                          |
-| `TapDB`<br>测试中                       | TapDB[MongoDB]<br>TapDB (MongoDB)                                                                                                                                                  |                                                                                                                          |
-| `StarDB`<br>测试中                      | StarDB[MySQL]<br>StarDB (MySQL)                                                                                                                                                    |                                                                                                                          |
-| `Lindorm`<br>测试中                     | Lindorm[MySQL]:<br>`jdbc:lindorm:table`<br>`jdbc:lindorm:tsdb`<br>`jdbc:lindorm:search`<br>Lindorm (MySQL)<br>Lindorm (Cassandra)<br>Lindorm (Hive)                                | `com.aliyun.lindorm:lindorm-all-client`                                                                                  |
 | ~~CirroData~~<br>放弃                  | 无jdbc驱动                                                                                                                                                                            |
 | ~~Hubble~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 | ~~Intcube OLAP~~<br>放弃               | 无jdbc驱动                                                                                                                                                                            |
 | ~~HyperDB~~<br>放弃                    | 无jdbc驱动                                                                                                                                                                            |
-| `Halo`<br>测试中                        | Halo[PostgreSQL]<br>Halo (PostgreSQL)                                                                                                                                              |                                                                                                                          |
 | ~~SeaboxSQL~~<br>放弃                  | 无jdbc驱动                                                                                                                                                                            |
-| `LightDB`<br>测试中                     | LightDB[PostgreSQL]<br>LightDB (PostgreSQL)                                                                                                                                        |                                                                                                                          |
-| `CISDigital-TimeS`<br>测试中            | CISDigitalTimeS[GenericSQL]:<br>`jdbc:iotdb`                                                                                                                                       | `org.apache.iotdb:iotdb-jdbc`                                                                                            |
 | ~~BeyonDB~~<br>放弃                    | 无jdbc驱动                                                                                                                                                                            |
-| `Tendis`<br>测试中                      | Tendis[Redis]                                                                                                                                                                      |                                                                                                                          |
-| `Apache Kvrocks`<br>测试中              | Apache Kvrocks[Redis]                                                                                                                                                              |                                                                                                                          |
-| `ByConity`<br>测试中                    | ByConity[ClickHouse]<br>ByConity (ClickHouse)                                                                                                                                      |                                                                                                                          |
-| `Databend`<br>测试中                    | Databend[MySQL]:<br>`jdbc:databend`                                                                                                                                                | `com.databend:databend-jdbc`                                                                                             |
 | ~~HugeGraph~~<br>放弃                  | 无jdbc驱动                                                                                                                                                                            |
-| `OpenMLDB`<br>测试中                    | OpenMLDB[MySQL]:<br>`jdbc:openmldb`<br>OpenMLDB (MySQL)                                                                                                                            | `com.4paradigm.openmldb:openmldb-jdbc`                                                                                   |
-| `GreatSQL`<br>测试中                    | GreatSQL[MySQL]<br>GreatSQL (MySQL)                                                                                                                                                |                                                                                                                          |
 | ~~Vearch~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
-| `Apache Kylin`<br>`Kyligence`<br>测试中 | Apache Kylin[HiveQL]:<br>`jdbc:kylin`                                                                                                                                              | `org.apache.kylin:kylin-jdbc`                                                                                            |
-| `RadonDB`<br>测试中                     | RadonDB[MySQL]<br>RadonDB (MySQL)                                                                                                                                                  |                                                                                                                          |
-| `OpenTenBase`<br>测试中                 | OpenTenBase[PostgreSQL]<br>OpenTenBase (PostgreSQL)                                                                                                                                |                                                                                                                          |
 | ~~openGemini~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
-| `CnosDB`<br>测试中                      | CnosDB[GenericSQL]:<br>`jdbc:arrow-flight-sql`                                                                                                                                     | `org.apache.arrow:flight-sql-jdbc-driver`                                                                                |
-| `AntDB`<br>测试中                       | AntDB[PostgreSQL]<br>AntDB (PostgreSQL)                                                                                                                                            |                                                                                                                          |
 | ~~HaiRuoVectorDB~~<br>放弃             | 无jdbc驱动                                                                                                                                                                            |
 | ~~HHDB~~<br>放弃                       | 无jdbc驱动                                                                                                                                                                            |
 | ~~pSpace~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 | ~~百度云VectorDB~~<br>放弃                | 无jdbc驱动                                                                                                                                                                            |
 | ~~KingHistorian~~<br>放弃              | 无jdbc驱动                                                                                                                                                                            |
-| `ProtonBase`<br>测试中                  | ProtonBase[PostgreSQL]<br>ProtonBase (PostgreSQL)                                                                                                                                  |                                                                                                                          |
-| `HashData`<br>测试中                    | HashData[PostgreSQL]<br>HashData (PostgreSQL)                                                                                                                                      |                                                                                                                          |
 | ~~RapidsDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
-| `PieCloudDB`<br>测试中                  | PieCloudDB[PostgreSQL]<br>PieCloudDB (PostgreSQL)                                                                                                                                  |                                                                                                                          |
 | ~~ShinDB~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 | ~~SyncBASE~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
-| `ChronusDB`<br>测试中 | ChronusDB[ClickHouse]<br>ChronusDB (ClickHouse) |  |
-| ~~Beaver~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
-| `ActionDB`<br>测试中 | ActionDB[MySQL]<br>ActionDB (MySQL)<br>ActionDB (Oracle) |  |
-| `Klustron`<br>测试中 | Klustron[PostgreSQL]<br>Klustron (PostgreSQL)<br>Klustron (MySQL) |  |
-| ~~RealHistorian~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
-| ~~openPlant~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
-| `InDB`<br>测试中 | InDB[PostgreSQL]<br>InDB (PostgreSQL)<br>InDB (MySQL)<br>InDB (Oracle) |  |
-| ~~BGraph~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
-| ~~ProcessDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
-| ~~HeroDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
-| ~~博流数据库~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
-| ~~HexaDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
+| ~~Beaver~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
+| ~~RealHistorian~~<br>放弃              | 无jdbc驱动                                                                                                                                                                            |
+| ~~openPlant~~<br>放弃                  | 无jdbc驱动                                                                                                                                                                            |
+| ~~BGraph~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
+| ~~ProcessDB~~<br>放弃                  | 无jdbc驱动                                                                                                                                                                            |
+| ~~HeroDB~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
+| ~~博流数据库~~<br>放弃                      | 无jdbc驱动                                                                                                                                                                            |
+| ~~HexaDB~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 | ~~TensorDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
-| `VeDB`<br>测试中 | VeDB[MySQL]<br>VeDB (MySQL) |  |
-| `TRS Hybase`<br>测试中 | VeDB[MySQL]<br>VeDB (MySQL) |  |
 | ~~PowerSQL~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
-| ~~eZooDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
-| `GridsumDB`<br>测试中 | GridsumDB[MySQL]<br>GridsumDB (MySQL) |  |
-| ~~SeaSQL~~<br>放弃                   | 系列产品名称                                                                                                                                                                            |
-| ~~LNXDB~~<br>放弃                   | 系列产品名称                                                                                                                                                                            |
-| `FusionDB`<br>测试中 | FusionDB[PostgreSQL]<br>FusionDB (PostgreSQL) |  |
-| ~~Qcubic~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
-| `PolonDB`<br>测试中 | PolonDB[PostgreSQL]<br>PolonDB (PostgreSQL) |  |
+| ~~eZooDB~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
+| ~~SeaSQL~~<br>放弃                     | 系列产品名称                                                                                                                                                                             |
+| ~~LNXDB~~<br>放弃                      | 系列产品名称                                                                                                                                                                             |
+| ~~Qcubic~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
 | ~~xigemaDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
-| ~~ArteryBase~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
-| ~~AtlasGraph~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
-| ~~ZettaBase~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
-| ~~CeaSQL~~<br>放弃                   | 系列产品名称                                                                                                                                                                            |
-| ~~CUDB~~<br>放弃                   | 系列产品名称                                                                                                                                                                            |
-| ~~NseaDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
-| ~~航天天域数据库~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
-| ~~Yukon~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
-| `Todis（ToplingDB）`<br>测试中 | Todis[Redis] |  |
-| `Apache Cloudberry`<br>测试中 | Apache Cloudberry[PostgreSQL]<br>Apache Cloudberry (PostgreSQL) |  |
+| ~~ArteryBase~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
+| ~~AtlasGraph~~<br>放弃                 | 无jdbc驱动                                                                                                                                                                            |
+| ~~ZettaBase~~<br>放弃                  | 无jdbc驱动                                                                                                                                                                            |
+| ~~CeaSQL~~<br>放弃                     | 系列产品名称                                                                                                                                                                             |
+| ~~CUDB~~<br>放弃                       | 系列产品名称                                                                                                                                                                             |
+| ~~NseaDB~~<br>放弃                     | 无jdbc驱动                                                                                                                                                                            |
+| ~~航天天域数据库~~<br>放弃                    | 无jdbc驱动                                                                                                                                                                            |
 | ~~Havenask~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
-| `PikiwiDB`<br>测试中 | PikiwiDB[Redis] |  |
-| `OushuDB`<br>测试中 | OushuDB[PostgreSQL]<br>OushuDB (PostgreSQL) |  |
-| ~~DingoDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
+| ~~Yukon~~<br>放弃                      | 无jdbc驱动                                                                                                                                                                            |
+| ~~DingoDB~~<br>放弃                    | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
-适配顺序按照[墨天轮中国数据库流行度排行](https://www.modb.pro/dbRank)进行适配
+共计146个，适配77个，未适配67个，
 
 ## 插件包
 
 可以单独安装某一个数据库的 Driver Integration 插件，也可以安装 `Chinese Database Driver Integrations Pack`。Pack 插件声明了对所有 Driver Integration 插件的依赖，用于一次性安装完整的国产数据库驱动配置集合。
 
-## 新增数据库插件模块
+`⚠️但是呢，这个Pack用来测试挺不错的，全量安装那么多插件没有必要！！！`
 
-优先使用脚本生成模块骨架。脚本只依赖 JDK，macOS 和 Windows 都可以运行；Windows PowerShell 可以使用单行命令，或将下面示例中的 `\` 换成 PowerShell 的反引号换行。
+## 如何贡献
 
-复用 JetBrains 官方 JDBC 驱动配置：
+欢迎补充新的国产数据库 Driver Integration 插件、修复驱动元数据或完善 README 中的数据库信息。
 
-使用第三方驱动的
-
-```shell
-java scripts/CreateDriverIntegrationModule.java \
-  --name ExampleDB \
-  --fallback MYSQL \
-  --open-meta-inf \
-  # --jetbrains-model MYSQL \
-  # --jetbrains-model MARIADB \
-  # --jetbrains-model POSTGRES \
-  # --jetbrains-model ORACLE \
-  # --jetbrains-model HIVE \
-  # --jetbrains-model CLICKHOUSE \
-  # --jetbrains-model REDIS \
-  # --jetbrains-model MONGODB \
-  # --jetbrains-model CASSANDRA
-```
-
-使用数据库自己的 JDBC 驱动：
-
-```shell
-java scripts/CreateDriverIntegrationModule.java \
-  --name ExampleDB \
-  --fallback MYSQL \
-  --driver-class com.example.Driver \
-  --default-port 3306 \
-  --jdbc-prefix jdbc:example: \
-  --maven com.example:example-jdbc \
-  --open-meta-inf \
-  # --jetbrains-model MYSQL \
-  # --jetbrains-model MARIADB \
-  # --jetbrains-model POSTGRES \
-  # --jetbrains-model ORACLE \
-  # --jetbrains-model HIVE \
-  # --jetbrains-model CLICKHOUSE \
-  # --jetbrains-model REDIS \
-  # --jetbrains-model MONGODB \
-  # --jetbrains-model CASSANDRA
-```
-
-`--fallback` 可选值：
-
-| fallback     | 自动继承的官方驱动    | 默认方言          |
-|--------------|--------------|---------------|
-| `MYSQL`      | `mysql.8`    | `MySQL`       |
-| `MARIADB`    | `mariadb`    | `MariaDB`     |
-| `ORACLE`     | `oracle.19`  | `Oracle`      |
-| `POSTGRES`   | `postgresql` | `PostgreSQL`  |
-| `HIVE`       | `hive`       | `HiveQL`      |
-| `CLICKHOUSE` | `clickhouse` | `ClickHouse`  |
-| `REDIS`      | `redis`      | `Redis`       |
-| `MONGODB`    | `mongo`      | `MongoDB`     |
-| `CASSANDRA`  | `cassandra`  | `CassandraQL` |
-| `GENERICSQL` | DBMS         | `GenericSQL`  |
-
-`--jetbrains-model` 只用于额外增加复用 JetBrains 内置数据模型的 driver 标签，该参数可以重复传入：
-
-| jetbrains-model | 生成的官方驱动配置               |
-|-----------------|-------------------------|
-| `MYSQL`         | `based-on="mysql.8"`    |
-| `MARIADB`       | `based-on="mariadb"`    |
-| `ORACLE`        | `based-on="oracle.19"`  |
-| `POSTGRES`      | `based-on="postgresql"` |
-| `HIVE`          | `based-on="hive"`       |
-| `CLICKHOUSE`    | `based-on="clickhouse"` |
-| `REDIS`         | `based-on="redis"`      |
-| `MONGODB`       | `based-on="mongo"`      |
-| `CASSANDRA`     | `based-on="cassandra"`  |
-
-例如 `--fallback MYSQL --jetbrains-model ORACLE --jetbrains-model POSTGRES` 会保留主驱动的 MySQL fallback 行为，并额外生成 Oracle/PostgreSQL 官方模型的 driver 标签。
-
-脚本会生成 `xxx-driver-integration` 模块，并更新 `settings.gradle.kts`、根 `build.gradle.kts`、Pack 插件依赖和 README 的“支持的数据库”表格。生成后需要替换 `META-INF/pluginIcon.svg` 为真实数据库图标，并检查 README 表格中自动填入的 JDBC 驱动信息和 Maven 信息。
-
-如果希望生成完成后直接打开插件元信息目录，可以追加 `--open-meta-inf`，脚本会打开 `xxx-driver-integration/src/main/resources/META-INF`。
-
-新增一个数据库 Driver Integration 插件时，需要添加或修改以下内容：
-
-1. 在 `settings.gradle.kts` 中 `include("xxx-driver-integration")`。
-2. 在根 `build.gradle.kts` 的 `databaseDriverPluginProjects` 中加入 `":xxx-driver-integration"`。
-3. 新增 `xxx-driver-integration/build.gradle.kts`，配置插件 `id`、`name`、`description`，并通过 `databaseArtifactConfig` 配置驱动 artifact：
-
-```kotlin
-// artifacts.xml 元数据
-extensions.configure<DatabaseArtifactConfigExtension>("databaseArtifactConfig") {
-    mavenArtifacts.set(
-        listOf(
-            mavenArtifact("xxxx Driver", "groupId:artifactId", 3)
-        )
-    ) // 第一个参数是 artifacts.xml 的 artifact id/name，通常与 drivers.xml 中引用的 artifact id 保持一致；第二个参数是 Maven 坐标，格式为 groupId:artifactId；第三个参数按版本前 N 段分组，默认使用 3。
-}
-
-```
-
-每个 `mavenArtifact` 都必须声明自己的 artifact id；如果需要 id 和 name 不同，可以写成 `mavenArtifact("artifact id", "artifact name", "groupId:artifactId", 3)`。同一个模块内 Maven 坐标和 artifact id 不能重复，重复会直接构建失败。如果某个坐标需要按前
-2 段版本分组，可以写成 `mavenArtifact("xxxx Driver", "groupId:artifactId", 2)`。第四个及后续参数是排除版本的正则表达式，例如 `mavenArtifact("xxxx Driver", "groupId:artifactId", 2, "505\\..*")`。
-
-4. 新增 `xxx-driver-integration/src/main/resources/META-INF/plugin.xml`，声明 `driversConfig`、`artifactsConfig`，并按需声明该插件自己的 `dbms`、`extensionFallback`、`addToHSet`。
-5. 新增 `xxx-driver-integration/src/main/resources/config/drivers.xml`，声明 DataGrip 驱动元数据，包括驱动 ID、显示名称、方言、Driver Class、URL 模板、图标和 artifact 引用。
-6. 新增 `xxx-driver-integration/src/main/resources/config/artifacts.xml`，保留基础结构即可；构建时会由 `updateDatabaseArtifactsXml` 根据 Maven 元数据更新版本列表。
-7. 新增 `xxx-driver-integration/src/main/resources/META-INF/pluginIcon.svg`，用于 JetBrains 插件图标，尺寸使用 16x16。
-8. `syncDatabaseDriverIcon` 会在构建时将 `META-INF/pluginIcon.svg` 复制到 `icons/driversIcon.svg`，用于 Data Sources and Drivers 驱动列表图标和自定义 DBMS 图标。
-9. 按需新增 `xxx-driver-integration/src/main/kotlin/.../XxxDriverDefinition.kt` 和 `XxxDatabaseDbms.kt`，用于保留驱动定义常量和该插件自己的 DBMS 实例。
-10. 在 `chinese-database-driver-integrations-pack/src/main/resources/META-INF/plugin.xml` 中增加对新插件 ID 的 `<depends>`，让 Pack 插件可以一次性安装它。
-11. 在 README 的“支持的数据库”表格中补充新数据库信息。
+新增数据库插件模块优先使用脚本生成骨架；完整流程、参数说明和检查清单见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 ## 图标来源
 
 项目中使用的数据库图标来自 [iconfont](https://www.iconfont.cn/)、或者GitHub仓库，图标版权归原作者及来源平台所有。
-
-## JetBrains内置的数据库列表
-
-重名不代表已经适配了，有可能是占位，例如“GBase”只是JetBrains官方占用的一个名字，
-日志出现```Multiple DBMS registered with id=``` 说明这个ID被占用了
-```com.intellij.database.dialects.generic.GenericDbms``` 查看具体，重复统计的情况下共有74个被占用，
-
-
-> DBMS id
-
-ATHENA,AZURE,BIGQUERY,CASSANDRA,CLICKHOUSE,CLOUD_SPANNER,COCKROACH,COUCHBASE,CRATE,DATABRICKS,DB2,DB2_IS,DB2_LUW,DB2_ZOS,DENODO,DERBY,DRILL,DUCKDB,DYNAMO,ELASTICSEARCH,EXASOL,FILEMAKER,FIREBIRD,FRONTBASE,GBASE,GITBASE,GREENPLUM,H2,HANA,HIVE,HSQLDB,IGNITE,IMPALA,INFLUXDB,INFORMIX,INGRES,IRIS,KDB,MARIADB,MEMSQL,MONET,MONGO,MSACCESS,MSSQL,MSSQL_LOCALDB,MYSQL,MYSQL_AURORA,NETEZZA,NETSUITE,OCEANBASE,OPENEDGE,ORACLE,PHOENIX,POSTGRES,PRESTO,REDIS,REDSHIFT,SALESFORCE,SNOWFLAKE,SPARK,SQLANYWHERE,SQLITE,SYBASE,SYNAPSE,TERADATA,TIBERO,TIDB,TIMESTREAM,TRINO,UNKNOWN,VERTICA,VITESS,YUGABYTE,ZEN
-
-> dialect
-
-AZURE,BigQuery,CassandraQL,ClickHouse,Cockroach,CouchbaseQuery,DB2,Databricks,Derby,Dynamo,Exasol,GenericSQL,Greenplum,H2,HSQLDB,HiveQL,MariaDB,MongoJS,MySQL,Oracle,PostgreSQL,Redis,Redshift,SQLite,Snowflake,SparkSQL,Sybase,TSQL,Vertica
-
-> based-on
-
-db2.base,mariadb,mongo.base,mongo_documentdb.base,mysql.8,mysql.base,oracle.base,postgresql,sqlserver.jtds,sqlserver.ms,mariadb,sqlserver.ms,db2.11,db2,db2.jtopen,mongo.4,mongo,documentdb,cockroach,greenplum,tidb,memsql,sqlite.xerial,h2.unified
-
-> 20260701 列表 摩天轮列表会更新，需要在这里将适配过的删除了。
-> 这个榜单不太行呀，有些是云平台名称，根本不是数据库实现啊😊🌞
-
-   
-   
-   
-   
-   
-  
-
-
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
