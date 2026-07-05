@@ -1,10 +1,13 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.hotdb-driver-integration</id>
     <name>HotDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides HotDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：热璞科技
+<br>强一致、 智能运维、 高可用、 强透明、 高性能、 分布式
+<br>简介：热璞HotDB，一款具备成熟稳定的金融级和工业级两种特性的分布式事务数据库产品，定位于OLTP业务场景，在银行业务系统中主要解决交易过程中产生的两大三高问题。AI算法智能优化数据分片字段、数据分片类型，做到数据架构设计的零门槛和零成本。产品已经成功应用于国家开发银行、华夏银行、交通银行信用卡、苏州农商行、鄞州银行等，助力银行在数字化转型中实现技术架构创新。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

@@ -1,10 +1,12 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.ivorysql-driver-integration</id>
     <name>IvorySQL Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides IvorySQL JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：瀚高软件
+<br>简介：IvorySQL 是先进的、功能齐全的开源 兼容 Oracle的PostgreSQL数据库，并坚定地承诺始终保持 100% 兼容并直接替换最新的 PostgreSQL。IvorySQL 添加了一个“compatible_db”切换开关以在 Oracle 和 PostgreSQL 兼容模式之间切换。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

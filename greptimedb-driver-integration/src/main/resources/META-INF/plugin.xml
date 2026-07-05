@@ -1,10 +1,12 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.greptimedb-driver-integration</id>
     <name>GreptimeDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides GreptimeDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：格睿科技
+<br>简介：GreptimeDB 是 Greptime（格睿科技）研发打磨的时序数据库产品。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

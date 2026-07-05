@@ -1,10 +1,13 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.stardb-driver-integration</id>
     <name>StarDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides StarDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：京东云
+<br>金融级高可用、 弹性伸缩、 高性能、 安全合规、 智能管控
+<br>简介：StarDB是京东自主设计研发的一款金融级国产分布式数据库，支持持海量数据高并发在线事务处理，具备金融级高可用、弹性伸缩、高性能、安全合规、智能管控、高度兼容MySQL等重要特性。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

@@ -1,10 +1,13 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.indb-driver-integration</id>
     <name>InDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides InDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：浪潮云
+<br>兼容MySQL、 兼容Oracle、 全密态、 安全审计
+<br>简介：浪潮云岳数据库 InDB 是基于openGauss内核增强提升，推出的一款稳定、可靠的云原生关系型数据库，高度兼容MySQL、Oracle协议，支持全密态、安全审计、备份恢复、多维度监控、弹性伸缩、智能运维等关键能力，可作为政企应用关系型数据存储的坚实底座。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

@@ -1,10 +1,12 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.tendis-driver-integration</id>
     <name>Tendis Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides Tendis JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：腾讯云
+<br>简介：云数据库 Tendis 是腾讯云自研的100%兼容 Redis 协议的分布式高性能 KV 存储数据库。可提供大容量、低成本、强持久化的数据库能力，适用于兼容 Redis 协议、需要大容量且较高访问性能的温冷数据存储场景,如游戏场景、直播场景、电商场景。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

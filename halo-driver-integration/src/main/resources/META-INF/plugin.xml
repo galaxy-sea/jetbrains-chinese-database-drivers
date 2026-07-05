@@ -1,10 +1,12 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.halo-driver-integration</id>
     <name>Halo Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides Halo JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：易景数通
+<br>简介：羲和数据库（简称 Halo)是杭州易景数通科技自主研发、精心打造的新一代高性能安全自主可控全场景通用型统一数据库。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

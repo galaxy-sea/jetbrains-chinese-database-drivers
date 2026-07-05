@@ -1,11 +1,22 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.chinese-database-driver-integrations-pack</id>
     <name>Chinese Database Driver Integrations Pack</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
-        Provides a one-click installation entry for Chinese database JDBC driver integrations,
-        including OceanBase, Dameng, KingBase, PolarDB, and GoldenDB driver configuration plugins.
+        <p>
+            Chinese Database Driver Integrations Pack provides a one-click installation entry for Chinese database
+            JDBC driver integration plugins.
+        </p>
+        <p>
+            中文数据库驱动集成包，用于一次性安装国产数据库 JDBC 驱动配置插件。安装后可以在 JetBrains 数据库工具中
+            快速创建 OceanBase、Dameng、KingBase、openGauss、PolarDB、GoldenDB、GBase、YashanDB、AnalyticDB、
+            DolphinDB、StarRocks、Apache IoTDB 等数据库连接。
+        </p>
+        <p>
+            该插件包本身不提供 JDBC 驱动文件，而是聚合各个独立的 driver-integration 插件；具体驱动版本、下载源、
+            URL 模板、数据库方言和 JetBrains 内置驱动模型复用能力由对应的数据库插件模块提供。
+        </p>
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

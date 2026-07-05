@@ -1,10 +1,12 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.haishandb-driver-integration</id>
     <name>HaishanDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides HaishanDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：移动云
+<br>简介：移动云HaishanDB 是移动云开源的云原生数据库产品，He3DB通过计算/存储分离、数据冷热分层和压缩、智能中间件等技术，来保证高性能和低成本完美兼得，在获得高性能的同时，最大化的帮助客户节省数据库使用成本。2026年6月，移动云大云海山数据库（He3DB）正式焕新升级，启用全新品牌标识——HaishanDB。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

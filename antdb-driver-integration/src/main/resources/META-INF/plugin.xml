@@ -1,10 +1,14 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.antdb-driver-integration</id>
     <name>AntDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides AntDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：亚信安慧
+<br>广泛的语法兼容、 一键进行迁移、 融入国产生态、 在线弹性扩容、 内核级读写分离
+<br>简介：AntDB数据库始于2008年，隶属于亚信科技旗下通用型企业级数据库产品，在运营商的核心系统上，为全国24个省份的10亿多用户提供在线服务，具备高性能、弹性扩展、可靠性等产品特性，峰值每秒可处理百万笔通信核心交易，应用范围包含通信、金融、交通、能源、物联网等行业。
+
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

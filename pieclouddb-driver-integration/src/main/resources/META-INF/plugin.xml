@@ -1,10 +1,13 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.pieclouddb-driver-integration</id>
     <name>PieCloudDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides PieCloudDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：拓数派
+<br>存算分离、 弹性计算、 多云部署、 实时处理、 数据安全
+<br>简介：PieCloudDB 云原生数据库实现了数仓上云虚拟化，将物理数仓整合，可根据数据授权动态创建虚拟数仓，按需灵活计算，打破数据孤岛，支撑更大模型所需的数据和计算。PieCloudDB存储和计算作为两个独立变量，各自在云里弹性伸缩，解决基于PC的传统MPP的缺陷，不仅可实现秒级扩缩容。还支持用户对云中数据同时开启多个集群进行数据计算，并能持续将所有数据在云中存储，为已有的应用和未来真正实现数据共享。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

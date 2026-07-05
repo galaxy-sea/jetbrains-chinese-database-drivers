@@ -1,10 +1,12 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.pikiwidb-driver-integration</id>
     <name>PikiwiDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides PikiwiDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：开放原子开源基金会
+<br>简介：PikiwiDB（曾用名：Pika）是360公司推出的一款可持久化的大容量redis存储服务，兼容string、hash、list、zset、set的绝大部分接口(兼容详情)，解决redis由于存储数据量巨大而导致内存不够用的容量瓶颈，并且可以像redis一样，通过slaveof命令进行主从备份，支持全同步和部分同步。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

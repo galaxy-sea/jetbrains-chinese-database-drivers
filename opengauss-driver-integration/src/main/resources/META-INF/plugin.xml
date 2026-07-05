@@ -1,10 +1,13 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.opengauss-driver-integration</id>
     <name>openGauss Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides openGauss JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：openGauss社区
+<br>高性能、 高可用、 高安全、 易运维、 全开放
+<br>简介：openGauss是一款开源关系型数据库管理系统，采用木兰宽松许可证v2发行。openGauss深度融合华为在数据库领域多年的经验，结合企业级场景需求，持续构建竞争力特性。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

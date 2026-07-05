@@ -1,10 +1,12 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.nebulagraph-driver-integration</id>
     <name>NebulaGraph Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides NebulaGraph JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：欧若数网(Vesoft)
+<br>简介：NebulaGraph 一款开源、分布式图数据库，擅长处理超大规模数据集。 Nebula Graph 采用存储计算分离架构，支持水平扩展，利用 RAFT 分布式 concensus 协议来实现金融级的高可用，类 SQL 查询语言降低了 SQL 程序员迁移成本。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

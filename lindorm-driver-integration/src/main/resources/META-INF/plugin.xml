@@ -1,10 +1,12 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.lindorm-driver-integration</id>
     <name>Lindorm Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides Lindorm JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：阿里云
+<br>简介：Lindorm是阿里云推出的业内首款云原生多模数据库，支持海量数据的低成本存储处理和弹性按需付费，提供宽表、时序、搜索、文件等多种数据模型，兼容HBase、Cassandra、Phoenix、OpenTSDB、Solr、SQL等多种开源标准接口，是互联网、IoT、车联网、广告、社交、监控、游戏、风控等场景首选数据库，也是为阿里巴巴核心业务提供关键支撑的数据库之一。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

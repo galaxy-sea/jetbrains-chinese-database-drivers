@@ -1,10 +1,12 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.keewidb-driver-integration</id>
     <name>KeeWiDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides KeeWiDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：腾讯云
+<br>简介：云数据库 KeeWiDB 是腾讯云自研、100%兼容 Redis 协议的新一代分布式KV存储数据库，实现了数据的冷热分级，满足业务高性能、持久化、低成本、大规模的四大诉求，完美的平衡性能和成本之间的冲突。云数据库 KeeWiDB 支持主从热备，提供自动容灾切换、数据备份、故障迁移、实例监控、在线扩容、数据回档等全套的数据库服务。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

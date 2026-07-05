@@ -1,10 +1,13 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.databend-driver-integration</id>
     <name>Databend Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides Databend JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：数变科技
+<br>简介：Databend 是一个开源的Elastic和Workload-Aware现代云数据仓库。Databend 使用最新的矢量化查询处理技术，让您可以在对象存储（ S3、Azure Blob、谷歌云存储、华为云 OBS或MinIO）上进行超快的数据分析。
+
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

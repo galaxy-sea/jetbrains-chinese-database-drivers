@@ -1,10 +1,14 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.dolphindb-driver-integration</id>
     <name>DolphinDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides DolphinDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：智臾科技
+<br>一站式大数据方案、 性能优异、 快速开发、 降低综合使用成本
+<br>简介：DolphinDB是由浙江智臾科技有限公司研发的一款基于高性能时序数据库、支持复杂分析与流式处理的实时计算平台，为海量数据的快速存储、检索、分析及计算提供一站式解决方案，适用于量化金融、电力、高端制造等广泛领域。
+
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

@@ -1,10 +1,12 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.kingwow-driver-integration</id>
     <name>Kingwow Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides Kingwow JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：丛云科技
+<br>简介：Kingwow(金乌)是丛云科技研发的原生分布式OLTP数据库，SQL语法高度兼容Oracle、DB2和MySQL，内部实现数据分片对用户完全透明，学习及使用成本较低，具有集中式关系型数据库不具备的高可用高可靠优势、性能优势及横向可扩展能力，同时能够提供多地多活部署。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

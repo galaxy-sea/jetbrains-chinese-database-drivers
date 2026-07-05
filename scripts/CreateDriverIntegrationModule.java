@@ -100,7 +100,7 @@ public class CreateDriverIntegrationModule {
             <idea-plugin>
                 <id>%s</id>
                 <name>%s Driver Integration</name>
-                <vendor>plus.wcj</vendor>
+                <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
                 <description><![CDATA[
                     Provides %s JDBC driver connection metadata for JetBrains IDEs.

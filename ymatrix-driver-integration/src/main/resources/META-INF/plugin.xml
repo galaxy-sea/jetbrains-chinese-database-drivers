@@ -1,10 +1,13 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.ymatrix-driver-integration</id>
     <name>YMatrix Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides YMatrix JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：四维纵横
+<br>超融合架构、 微内核、 分布式 MPP 架构、 高性能
+<br>简介：YMatrix（原MatrixDB）是四维纵横推出的超融合型分布式数据库产品，是全球首款同时支持在线事务处理（OLTP）、在线分析处理（OLAP）和物联网时序应用的数据库，具备严格分布式事务一致性、水平在线扩容、安全可靠、成熟稳定、兼容PostgreSQL/Greenplum协议和生态等重要特性。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

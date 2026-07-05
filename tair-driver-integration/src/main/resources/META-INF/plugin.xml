@@ -1,10 +1,12 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.tair-driver-integration</id>
     <name>Tair Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides Tair JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：阿里云
+<br>简介：云原生内存数据库Tair（Redis企业版）是阿里云推出的支持高并发低延迟访问的云原生内存数据库，完全兼容Redis数据结构和API。支持主从与集群架构，采用多样存储介质应对不同数据温度场景，并提供全球多活、数据闪回、大热Key探测与优化、和丰富的数据模型等特性，赋能大规模高性能要求的在线数据业务。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

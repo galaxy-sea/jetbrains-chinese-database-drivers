@@ -1,10 +1,12 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.polondb-driver-integration</id>
     <name>PolonDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides PolonDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：青云科技
+<br>简介：企业级混合云服务商青云QingCloud(qingcloud.com)日前宣布，分布式关系型数据库PolonDB正式上线，全面无缝兼容PostgreSQL生态。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

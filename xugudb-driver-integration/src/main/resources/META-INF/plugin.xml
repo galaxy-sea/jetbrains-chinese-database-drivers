@@ -1,10 +1,13 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.xugudb-driver-integration</id>
     <name>XuguDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides XuguDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>虚谷数据库, 厂商：虚谷伟业
+<br>自主可控、 高可用、 高性能、 高安全、 高拓展
+<br>简介：虚谷团队成立于2002年，公司创办于2006年，同年发布了虚谷数据库1.0版本，是国内最早一批独立运营的数据库企业。虚谷选择的技术路线是原生分布式架构，即无状态的SQL引擎层与通用的存储引擎层相结合，目前迭代到 12.0版本，整个产品的打造思路是围绕“实用主义”来构建的，实现了“对Oracle和MySQL兼容性强的原创分布式单机一体化数据库“。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

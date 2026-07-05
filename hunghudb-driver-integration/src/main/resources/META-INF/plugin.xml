@@ -1,10 +1,12 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.hunghudb-driver-integration</id>
     <name>HungHuDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides HungHuDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：文武信息
+<br>简介：HungHuDB鸿鹄数据库是由成都文武信息技术打造的基于PostgreSQL数据库开发的数据处理平台，拥有原生的列存储技术和压缩技术。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

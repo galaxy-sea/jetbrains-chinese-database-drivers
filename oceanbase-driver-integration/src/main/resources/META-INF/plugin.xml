@@ -1,10 +1,13 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.oceanbase-driver-integration</id>
     <name>OceanBase Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides OceanBase JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：奥星贝斯
+<br>原生分布式、 高兼容、 HTAP、 稳定可靠、 自主研发、 高性价比
+<br>简介：OceanBase是由蚂蚁集团完全自主研发的企业级分布式关系数据库，基于分布式架构和通用服务器、实现了金融级可靠性及数据一致性，拥有100%的知识产权，始创于2010年。OceanBase具有数据强一致、高可用、高性能、在线扩展、高度兼容SQL标准和主流关系数据库、低成本等特点。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

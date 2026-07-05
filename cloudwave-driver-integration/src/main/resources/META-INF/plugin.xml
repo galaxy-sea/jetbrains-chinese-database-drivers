@@ -1,10 +1,13 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.cloudwave-driver-integration</id>
     <name>CloudWave Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides CloudWave JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：翰云时代
+        <br>简介：翰云云原生数仓CloudWave是公司在国产数据库领域十余年积淀基础之上研发出的新一代云数据仓产品。解决了传统数据库不能在云上弹性伸缩、数据源格式比较单一及不能数据共享等问题。其独特的多集群共享数据架构专为云而构建，彻底的存算分离、弹性伸缩、数据共享。支持全域数据；安全、高效、低成本、易使用；使其成为数据科学、数据治理、数据分析、商业智能、现代数据共享和开发数据应用程序的理想平台。
+
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

@@ -1,10 +1,13 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.tapdb-driver-integration</id>
     <name>TapDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides TapDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：钛铂数据（Tapdata）
+<br>原生JSON API支持、 信创认证、 多场景应用
+<br>简介：TapDB 是一个国产化分布式文档数据库，全面兼容 MongoDB 社区版本，原生 JSON API 支持，国产化文档数据库无缝迁移，适配国产芯片鲲鹏，海光，海思, 以及麒麟等操作系统。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

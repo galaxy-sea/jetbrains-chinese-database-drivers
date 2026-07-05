@@ -1,10 +1,13 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.chronusdb-driver-integration</id>
     <name>ChronusDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides ChronusDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：青云科技
+<br>简介：ChronusDB 是青云QingCloud 自研的一款高效、安全、易用，具备强大分析能力的时序数据库，具备超强的查询分析功能、高性能并发读写、低成本存储、丰富的时序数据处理能力、稳定可扩展等特性。
+
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

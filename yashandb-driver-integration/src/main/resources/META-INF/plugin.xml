@@ -1,10 +1,13 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.yashandb-driver-integration</id>
     <name>YashanDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides YashanDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：深圳计算科学研究院
+<br>源头创新、 100%自研、 超越融合、 业务敏捷、 AIOps、 一站式应用迁移
+<br>简介：崖山数据库系统YashanDB是深圳计算科学研究院完全自主研发设计的新型数据库系统，融入原创理论，支持单机/主备、共享集群、分布式等多种部署方式，覆盖OLTP/HTAP/OLAP交易和分析混合负载场景，为客户提供一站式的企业级融合数据管理解决方案。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

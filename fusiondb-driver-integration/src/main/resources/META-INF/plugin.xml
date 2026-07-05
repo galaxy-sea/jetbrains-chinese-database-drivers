@@ -1,10 +1,13 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.fusiondb-driver-integration</id>
     <name>FusionDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides FusionDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：百度云
+<br>简介：百度云数据库 FusionDB 是一种兼容 PostgreSQL 协议的在线大规模并行处理（MPP）数据仓库服务。基于开源 Greenplum 项目开发，支持 TB/PB 级海量数据的存储和处理，具备融合 SQL、存储过程、软硬件结合、AI 支持等特性。云数据库 FusionDB 融合了传统数据库与数据仓库的优势，能够提供流式、实时、离线、在线数据聚合等灵活的混合分析能力。
+
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

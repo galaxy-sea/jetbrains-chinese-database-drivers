@@ -1,10 +1,13 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.uxdb-driver-integration</id>
     <name>UXDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides UXDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：北京优炫数据库股份有限公司（优炫数据）
+<br>多写多读、 平滑迁移、 多模态融合、 极速OLAP、 HTAP
+<br>简介：优炫数据库（UXDB）是由北京优炫数据库股份有限公司研发的企业级数据库产品。产品以可靠、安全、多模融合和智能驱动为核心特性，通过统一架构支撑全场景的数据管理、开发与业务洞察，致力于从数据管理、数据科学到生态协作的持续演进，打造面向未来数智产业的数据底座。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

@@ -1,10 +1,12 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.panweidb-driver-integration</id>
     <name>PanWeiDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides PanWeiDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：中国移动
+<br>简介：磐维数据库（PanWeiDB）是中国移动首个基于中国本土开源数据库打造的面向ICT基础设施的自研数据库产品，是具备企业级复杂事务混合负载能力的全国产化数据库。为数据管理提供综合性解决方案，支持多种部署形态，具备行业内高质量安全生产能力，是企业数智化转型的坚实数据基座。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

@@ -1,10 +1,13 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.lightdb-driver-integration</id>
     <name>LightDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides LightDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：恒生电子
+<br>更稳定、 更兼容、 更易用、 更懂应用、 更智能
+<br>简介：LightDB是恒生电子推出的同时支持在线事务处理与在线分析处理的融合型分布式数据库产品，具备SQL兼容性高、容量弹性伸缩、金融级高可用、现代硬件融合、纯内存计算等核心特性，主要适用于对可用性、一致性要求较高的系统。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

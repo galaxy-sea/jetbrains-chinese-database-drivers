@@ -1,10 +1,12 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.radondb-driver-integration</id>
     <name>RadonDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides RadonDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：青云科技
+<br>简介：RadonDB 是新一代企业级云原生数据库品牌，提供包括：关系型数据库、分布式数据库、时序&分析型数据库、数据库管理平台等企业级云数据库产品和服务。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

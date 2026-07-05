@@ -1,10 +1,12 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.vastbase-driver-integration</id>
     <name>Vastbase Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides Vastbase JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：海量数据
+<br>简介：Vastbase是海量数据自主研发的纯国产企业级数据库系列，涵盖Vastbase G100与Vastbase V100两大核心产品，以 “高性能、高可靠、高兼容、强扩展” 等为核心优势，既能支撑核心业务的稳定运行，又能适配 AI 时代的海量数据智能分析需求，成为制造、金融、医疗、交通等千行百业国产化替代与数字化转型的核心数据基座。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

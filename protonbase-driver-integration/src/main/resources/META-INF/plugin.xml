@@ -1,10 +1,13 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.protonbase-driver-integration</id>
     <name>ProtonBase Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides ProtonBase JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：小质科技
+<br>多云原生、 所有数据、 极简体验
+<br>简介：ProtonBase 是多云原生、兼容 PostgreSQL 的分布式 Data Warebase (Data Warehouse + Database) ，在一个系统内实现了事务处理、实时数仓、数据湖分析、全文检索、以及向量检索等企业级核心数据存储和查询的需求。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

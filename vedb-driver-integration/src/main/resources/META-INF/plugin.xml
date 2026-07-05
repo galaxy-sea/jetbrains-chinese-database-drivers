@@ -1,10 +1,12 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.vedb-driver-integration</id>
     <name>VeDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides VeDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：火山引擎
+<br>简介：云数据库 veDB 是火山引擎自研新一代云原生关系型数据库。100%兼容MySQL & PostgreSQL 语法，适用于企业多样化的数据库应用场景。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

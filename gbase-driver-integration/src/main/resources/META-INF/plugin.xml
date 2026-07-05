@@ -1,10 +1,14 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.gbase-driver-integration</id>
     <name>GBASE Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides GBASE JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：南大通用
+<br>联邦构架、 海量数据分布式、 高效压缩、 智能索引、 在线高性能扩展、 高并发
+<br>简介：GBASE是南大通用自主研发的国产数据库系列品牌，GBase系列数据库产品包括分布式逻辑数据仓库GBase 8a、基于共享存储的数据库集群GBase 8s、多模多态分布式数据库GBase 8c等。
+
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

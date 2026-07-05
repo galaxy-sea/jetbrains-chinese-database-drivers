@@ -1,10 +1,13 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.highgodb-driver-integration</id>
     <name>HighgoDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides HighgoDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：瀚高软件
+<br>30倍以上性能提升、 强大的数据接口能力、 千万级事务处理能力、 高可用，无惧断电、 强大的分析功能
+<br>简介：瀚高数据库HighgoDB是瀚高为企业级客户精心打造的一款拥有完全国产自主知识产权、面向核心交易型业务处理的企业级关系型数据库，全面拓展了丰富的企业级功能，在业务处理性能、高可用性、安全性及易用性方面均有不同程度的增强。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

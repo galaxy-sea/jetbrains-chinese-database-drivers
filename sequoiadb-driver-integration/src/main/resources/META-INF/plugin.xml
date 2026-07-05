@@ -1,10 +1,13 @@
 <idea-plugin>
     <id>plus.wcj.jetbrains.plugins.sequoiadb-driver-integration</id>
     <name>SequoiaDB Driver Integration</name>
-    <vendor>plus.wcj</vendor>
+    <vendor email="WeiChangJin1996@gmail.com" url="https://wcj.plus/">ChangJin Wei (魏昌进)</vendor>
 
     <description><![CDATA[
         Provides SequoiaDB JDBC driver connection metadata for JetBrains IDEs.
+        <br>厂商：巨杉软件
+<br>引擎级多模、 STP序列时钟协议、 数据安全
+<br>简介：巨杉数据库自2011年成立以来，专注数据库技术研发，坚持从零开始打造原生分布式数据库引擎，连续三年入榜 Gartner报告，成为当前新一代主流数据库体系的灯塔厂商。
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>
