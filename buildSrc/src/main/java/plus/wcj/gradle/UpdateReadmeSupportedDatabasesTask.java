@@ -292,8 +292,9 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
         if (plugin == null) {
             return "";
         }
-        String link = plugin.link().startsWith("http") ? plugin.link() : "https://plugins.jetbrains.com" + plugin.link();
-        return "[#" + plugin.id() + "](" + link + ")";
+        String link = "https://plugins.jetbrains.com/plugin/" + plugin.id();
+        String badge = "https://img.shields.io/jetbrains/plugin/v/" + plugin.id() + "?style=flat-square&label=";
+        return "[#" + plugin.id() + "](" + link + ")<br>[![JetBrains Plugin](" + badge + ")](" + link + ")";
     }
 
     private static String gav(String notation) {
