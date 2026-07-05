@@ -141,6 +141,7 @@
 | ~~SeaSQL~~<br>放弃                   | 系列产品名称                                                                                                                                                                            |
 | ~~LNXDB~~<br>放弃                   | 系列产品名称                                                                                                                                                                            |
 | `FusionDB`<br>测试中 | FusionDB[PostgreSQL]<br>FusionDB (PostgreSQL) |  |
+| ~~Qcubic~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -307,7 +308,7 @@ Yukon
    
    
    
-Qcubic   
+   
 PolonDB   
 xigemaDB   
 ArteryBase   
