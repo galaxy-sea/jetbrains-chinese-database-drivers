@@ -84,4 +84,5 @@
     <depends>plus.wcj.jetbrains.plugins.fusiondb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.polondb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.todis-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.apachecloudberry-driver-integration</depends>
 </idea-plugin>

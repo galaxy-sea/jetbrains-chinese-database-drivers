@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.apachecloudberry-driver-integration</id>
+    <name>Apache Cloudberry Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides Apache Cloudberry JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="APACHECLOUDBERRY" instance="plus.wcj.jetbrains.plugins.apachecloudberry.ApacheCloudberryDatabaseDbms.APACHECLOUDBERRY"/>
+        <extensionFallback dbms="APACHECLOUDBERRY" fallbackDbms="POSTGRES"/>
+        <addToHSet item="APACHECLOUDBERRY" set="POSTGRES_LIKE"/>
+        <addToHSet item="APACHECLOUDBERRY" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="APACHECLOUDBERRY_POSTGRES" instance="plus.wcj.jetbrains.plugins.apachecloudberry.ApacheCloudberryDatabaseDbms.APACHECLOUDBERRY_POSTGRES"/>
+        <extensionFallback dbms="APACHECLOUDBERRY_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="APACHECLOUDBERRY_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="APACHECLOUDBERRY_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

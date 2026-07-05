@@ -78,6 +78,7 @@ include(
     "fusiondb-driver-integration",
     "polondb-driver-integration",
     "todis-driver-integration",
+    "apachecloudberry-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 
