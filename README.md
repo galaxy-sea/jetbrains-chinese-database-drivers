@@ -143,6 +143,7 @@
 | `FusionDB`<br>测试中 | FusionDB[PostgreSQL]<br>FusionDB (PostgreSQL) |  |
 | ~~Qcubic~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 | `PolonDB`<br>测试中 | PolonDB[PostgreSQL]<br>PolonDB (PostgreSQL) |  |
+| ~~xigemaDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -311,7 +312,7 @@ Yukon
    
    
    
-xigemaDB   
+   
 ArteryBase   
 AtlasGraph   
 ZettaBase   
