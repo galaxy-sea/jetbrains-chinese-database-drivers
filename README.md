@@ -139,6 +139,7 @@
 | ~~eZooDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 | `GridsumDB`<br>测试中 | GridsumDB[MySQL]<br>GridsumDB (MySQL) |  |
 | ~~SeaSQL~~<br>放弃                   | 系列产品名称                                                                                                                                                                            |
+| ~~LNXDB~~<br>放弃                   | 系列产品名称                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -305,7 +306,6 @@ Yukon
    
    
    
-LNXDB   
 百度云FusionDB   
 Qcubic   
 PolonDB   
