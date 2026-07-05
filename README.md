@@ -157,6 +157,7 @@
 | ~~Havenask~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 | `PikiwiDB`<br>测试中 | PikiwiDB[Redis] |  |
 | `OushuDB`<br>测试中 | OushuDB[PostgreSQL]<br>OushuDB (PostgreSQL) |  |
+| ~~DingoDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -303,7 +304,7 @@ db2.base,mariadb,mongo.base,mongo_documentdb.base,mysql.8,mysql.base,oracle.base
 > 20260701 列表 摩天轮列表会更新，需要在这里将适配过的删除了。
 > 这个榜单不太行呀，有些是云平台名称，根本不是数据库实现啊😊🌞
 
-DingoDB   
+   
    
    
    
