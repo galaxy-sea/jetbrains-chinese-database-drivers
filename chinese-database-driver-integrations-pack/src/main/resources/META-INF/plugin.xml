@@ -82,4 +82,5 @@
     <depends>plus.wcj.jetbrains.plugins.vedb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.gridsumdb-driver-integration</depends>
     <depends>plus.wcj.jetbrains.plugins.fusiondb-driver-integration</depends>
+    <depends>plus.wcj.jetbrains.plugins.polondb-driver-integration</depends>
 </idea-plugin>

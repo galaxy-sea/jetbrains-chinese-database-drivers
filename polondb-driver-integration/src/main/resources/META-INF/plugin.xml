@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.polondb-driver-integration</id>
+    <name>PolonDB Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides PolonDB JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="POLONDB" instance="plus.wcj.jetbrains.plugins.polondb.PolonDBDatabaseDbms.POLONDB"/>
+        <extensionFallback dbms="POLONDB" fallbackDbms="POSTGRES"/>
+        <addToHSet item="POLONDB" set="POSTGRES_LIKE"/>
+        <addToHSet item="POLONDB" set="PSEUDO_SUPPORTED"/>
+
+        <dbms id="POLONDB_POSTGRES" instance="plus.wcj.jetbrains.plugins.polondb.PolonDBDatabaseDbms.POLONDB_POSTGRES"/>
+        <extensionFallback dbms="POLONDB_POSTGRES" fallbackDbms="POSTGRES"/>
+        <addToHSet item="POLONDB_POSTGRES" set="POSTGRES_LIKE"/>
+        <addToHSet item="POLONDB_POSTGRES" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="polondb" name="PolonDB" icon="/icons/driversIcon.svg" forced-dbms="POLONDB" based-on="postgresql" group-with="polondb">
+    <remarks>PolonDB</remarks>
+  </driver>
+  <driver id="polondb-postgres" name="PolonDB (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="POLONDB_POSTGRES" based-on="postgresql" group-with="polondb">
+    <remarks>PolonDB</remarks>
+  </driver>
+</drivers>

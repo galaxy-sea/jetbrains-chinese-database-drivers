@@ -76,6 +76,7 @@ include(
     "vedb-driver-integration",
     "gridsumdb-driver-integration",
     "fusiondb-driver-integration",
+    "polondb-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 
