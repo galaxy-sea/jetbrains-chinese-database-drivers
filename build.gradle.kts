@@ -4,6 +4,8 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 import plus.wcj.gradle.DatabaseArtifactConfigExtension
 import plus.wcj.gradle.SyncDatabaseDriverIconTask
 import plus.wcj.gradle.UpdateDatabaseArtifactsXmlTask
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 plugins {
     id("org.jetbrains.kotlin.jvm") apply false
@@ -96,6 +98,15 @@ val pluginProjects = databaseDriverPluginProjects + listOf(
 )
 
 val chineseDatabaseDriversTaskGroup = "Chinese Database Drivers"
+val pluginVersion = providers.gradleProperty("pluginVersion").orElse(
+    providers.provider {
+        DateTimeFormatter.ofPattern("yyyy.M.d.'1'HHmmss").format(LocalDateTime.now())
+    },
+)
+
+allprojects {
+    version = pluginVersion.get()
+}
 
 subprojects {
     apply(plugin = "org.jetbrains.kotlin.jvm")
