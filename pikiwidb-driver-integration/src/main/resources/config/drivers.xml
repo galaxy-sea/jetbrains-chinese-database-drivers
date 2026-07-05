@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="pikiwidb" name="PikiwiDB" icon="/icons/driversIcon.svg" forced-dbms="PIKIWIDB" based-on="redis" group-with="pikiwidb">
+    <remarks>PikiwiDB</remarks>
+  </driver>
+</drivers>

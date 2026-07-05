@@ -87,6 +87,7 @@ val databaseDriverPluginProjects = listOf(
     ":polondb-driver-integration",
     ":todis-driver-integration",
     ":apachecloudberry-driver-integration",
+    ":pikiwidb-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(
