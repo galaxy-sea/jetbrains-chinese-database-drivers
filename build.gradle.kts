@@ -1,5 +1,6 @@
 import org.jetbrains.intellij.platform.gradle.extensions.IntelliJPlatformDependenciesExtension
 import org.jetbrains.intellij.platform.gradle.TestFrameworkType
+import org.gradle.api.file.DuplicatesStrategy
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 import plus.wcj.gradle.DatabaseArtifactConfigExtension
 import plus.wcj.gradle.SyncDatabaseDriverIconTask
@@ -192,8 +193,38 @@ configure(listOf(project(":chinese-database-driver-integrations-pack"))) {
     }
 }
 
+// val buildPluginTasks = pluginProjects.map { project(it).tasks.named("buildPlugin") }
+//
+// val cleanPluginDistributions = tasks.register<Delete>("cleanPluginDistributions") {
+//     group = chineseDatabaseDriversTaskGroup
+//     description = "Deletes old plugin ZIP distributions before building current plugin packages."
+//
+//     delete(layout.buildDirectory.dir("distributions"))
+//     delete(pluginProjects.map { project(it).layout.buildDirectory.dir("distributions") })
+// }
+//
+// buildPluginTasks.forEach {
+//     it.configure {
+//         mustRunAfter(cleanPluginDistributions)
+//     }
+// }
+//
+// val collectPluginZips = tasks.register<Copy>("collectPluginZips") {
+//     group = chineseDatabaseDriversTaskGroup
+//     description = "Collects all built plugin ZIP distributions into the root build/distributions directory."
+//
+//     dependsOn(cleanPluginDistributions)
+//     dependsOn(buildPluginTasks)
+//     duplicatesStrategy = DuplicatesStrategy.FAIL
+//
+//     from(pluginProjects.map { project(it).layout.buildDirectory.dir("distributions") }) {
+//         include("*.zip")
+//     }
+//     into(layout.buildDirectory.dir("distributions"))
+// }
+
 tasks.register("buildAllPlugins") {
     group = chineseDatabaseDriversTaskGroup
     description = "Builds all database driver integration plugin distributions."
-    dependsOn(pluginProjects.map { project(it).tasks.named("buildPlugin") })
+    // dependsOn(collectPluginZips) // 第一次发版需要手动上传，先保留源码，也许以后用得上呐
 }
