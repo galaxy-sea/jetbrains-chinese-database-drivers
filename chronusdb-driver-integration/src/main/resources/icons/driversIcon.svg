@@ -1,5 +1,29 @@
-<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-  <rect x="1" y="1" width="14" height="14" rx="2" fill="#2F6FED"/>
-  <path d="M4 4h8v2H4V4Zm0 3h8v2H4V7Zm0 3h8v2H4v-2Z" fill="#FFFFFF" opacity=".9"/>
-  <text x="8" y="11.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" font-weight="700" fill="#2F6FED">C</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16" height="16" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
+    <title>Product-icon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Product" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Product-icon">
+            <rect id="矩形" fill="#86DBA2" x="0" y="0" width="40" height="40"></rect>
+            <g id="编组-3" transform="translate(4.093817, 4.093817)">
+                <rect id="矩形" fill="#00A971" x="0" y="0" width="9.80810235" height="3.92324094"></rect>
+                <rect id="矩形备份" fill="#00A971" x="0" y="0" width="3.92324094" height="21.8336887"></rect>
+                <rect id="矩形备份-3" fill="#00A971" x="0" y="0" width="9.80810235" height="3.92324094"></rect>
+                <rect id="矩形备份-2" fill="#00A971" x="0" y="0" width="3.92324094" height="21.8336887"></rect>
+                <rect id="矩形备份-5" fill="#00A971" x="0" y="0" width="9.80810235" height="3.92324094"></rect>
+                <rect id="矩形备份-4" fill="#00A971" x="0" y="0" width="3.92324094" height="21.8336887"></rect>
+                <rect id="矩形备份-7" fill="#00A971" x="0" y="0" width="9.80810235" height="3.92324094"></rect>
+                <rect id="矩形备份-6" fill="#00A971" x="0" y="0" width="3.92324094" height="21.8336887"></rect>
+                <g id="编组-2" transform="translate(15.948827, 15.906183) scale(-1, -1) translate(-15.948827, -15.906183) translate(0.085288, 0.000000)">
+                    <rect id="矩形备份-9" fill="#00A971" x="0" y="0" width="21.8336887" height="3.92324094"></rect>
+                    <rect id="矩形备份-10" fill="#3D3E49" x="27.803838" y="0" width="3.92324094" height="3.92324094"></rect>
+                    <rect id="矩形备份-11" fill="#3D3E49" x="15.9488273" y="27.8891258" width="3.92324094" height="3.92324094"></rect>
+                    <rect id="矩形备份-12" fill="#3D3E49" x="9.97867804" y="27.8891258" width="3.92324094" height="3.92324094"></rect>
+                    <rect id="矩形备份-13" fill="#3D3E49" x="4.00852878" y="27.8891258" width="3.92324094" height="3.92324094"></rect>
+                    <rect id="矩形备份-8" fill="#00A971" x="0" y="0" width="3.92324094" height="21.8336887"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
 </svg>
