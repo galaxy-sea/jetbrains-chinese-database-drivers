@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="todis" name="Todis" icon="/icons/driversIcon.svg" forced-dbms="TODIS" based-on="redis" group-with="todis">
+    <remarks>Todis</remarks>
+  </driver>
+</drivers>

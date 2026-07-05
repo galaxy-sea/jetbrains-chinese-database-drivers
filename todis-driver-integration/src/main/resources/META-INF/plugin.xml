@@ -1,0 +1,20 @@
+<idea-plugin>
+    <id>plus.wcj.jetbrains.plugins.todis-driver-integration</id>
+    <name>Todis Driver Integration</name>
+    <vendor>plus.wcj</vendor>
+
+    <description><![CDATA[
+        Provides Todis JDBC driver connection metadata for JetBrains IDEs.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+
+    <extensions defaultExtensionNs="com.intellij.database">
+        <driversConfig config="config/drivers.xml"/>
+        <artifactsConfig config="config/artifacts.xml"/>
+        <dbms id="TODIS" instance="plus.wcj.jetbrains.plugins.todis.TodisDatabaseDbms.TODIS"/>
+        <extensionFallback dbms="TODIS" fallbackDbms="REDIS"/>
+        <addToHSet item="TODIS" set="PSEUDO_SUPPORTED"/>
+    </extensions>
+</idea-plugin>

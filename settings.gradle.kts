@@ -77,6 +77,7 @@ include(
     "gridsumdb-driver-integration",
     "fusiondb-driver-integration",
     "polondb-driver-integration",
+    "todis-driver-integration",
     "chinese-database-driver-integrations-pack",
 )
 

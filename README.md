@@ -152,6 +152,7 @@
 | ~~NseaDB~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 | ~~航天天域数据库~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 | ~~Yukon~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
+| `Todis（ToplingDB）`<br>测试中 | Todis[Redis] |  |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -303,7 +304,7 @@ OushuDB
 PikiwiDB   
 Havenask   
 CloudberryDB   
-Todis（ToplingDB）  
+  
 
 
    

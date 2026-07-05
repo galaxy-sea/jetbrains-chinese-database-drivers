@@ -85,6 +85,7 @@ val databaseDriverPluginProjects = listOf(
     ":gridsumdb-driver-integration",
     ":fusiondb-driver-integration",
     ":polondb-driver-integration",
+    ":todis-driver-integration",
 )
 
 val pluginProjects = databaseDriverPluginProjects + listOf(
