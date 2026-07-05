@@ -147,6 +147,7 @@
 | ~~ArteryBase~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 | ~~AtlasGraph~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
 | ~~ZettaBase~~<br>放弃                   | 无jdbc驱动                                                                                                                                                                            |
+| ~~CeaSQL~~<br>放弃                   | 系列产品名称                                                                                                                                                                            |
 
 进度状态：待适配、开发中、测试中、已发布。
 
@@ -319,7 +320,7 @@ Yukon
    
    
    
-CeaSQL   
+   
 CUDB   
 NseaDB   
 航天天域数据库   
