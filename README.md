@@ -91,8 +91,6 @@
 
 进度状态：待适配、开发中、测试中、已发布。
 
-共计146个，适配79个，未适配67个，
-
 ~~TiDB~~:JetBrains已支持, ~~Easysearch~~:无jdbc驱动, ~~gStore~~:无jdbc驱动, ~~EBASE~~:无jdbc驱动, ~~GDMBASE~~:无jdbc驱动, ~~KBase~~:无jdbc驱动, ~~SourceDB~~:无jdbc驱动, ~~TuGraph~~:无jdbc驱动, ~~Milvus~~:无jdbc驱动, ~~VikingDB~~:无jdbc驱动, ~~DBOne~~:无jdbc驱动, ~~九有数据库 ~~:无jdbc驱动, ~~BigInsights~~:无jdbc驱动, ~~SymbolGraph~~:无jdbc驱动, ~~嬴图~~:无jdbc驱动, ~~GeminiDB~~:这是一个云平台, ~~KunDB~~:无jdbc驱动, ~~GoldenData~~:无jdbc驱动, ~~KSMDB~~:无jdbc驱动, ~~uniDB~~:无jdbc驱动, ~~
 TcaplusDB~~:无jdbc驱动, ~~Galaxybase~~:无jdbc驱动, ~~TopGraph~~:无jdbc驱动, ~~腾讯云VectorDB~~:无jdbc驱动, ~~AbutionGraph~~:无jdbc驱动, ~~sinoregal~~:无jdbc驱动, ~~CirroData~~:无jdbc驱动, ~~Hubble~~:无jdbc驱动, ~~Intcube OLAP~~:无jdbc驱动, ~~HyperDB~~:无jdbc驱动, ~~SeaboxSQL~~:无jdbc驱动, ~~BeyonDB~~:无jdbc驱动, ~~HugeGraph~~:无jdbc驱动, ~~Vearch~~:无jdbc驱动, ~~openGemini~~:无jdbc驱动, ~~HaiRuoVectorDB~~:无jdbc驱动, ~~HHDB~~:无jdbc驱动, ~~pSpace~~:无jdbc驱动, ~~百度云VectorDB~~:无jdbc驱动, ~~
 KingHistorian~~:无jdbc驱动, ~~RapidsDB~~:无jdbc驱动, ~~ShinDB~~:无jdbc驱动, ~~SyncBASE~~:无jdbc驱动, ~~Beaver~~:无jdbc驱动, ~~RealHistorian~~:无jdbc驱动, ~~openPlant~~:无jdbc驱动, ~~BGraph~~:无jdbc驱动, ~~ProcessDB~~:无jdbc驱动, ~~HeroDB~~:无jdbc驱动, ~~博流数据库~~:无jdbc驱动, ~~HexaDB~~:无jdbc驱动, ~~TensorDB~~:无jdbc驱动, ~~PowerSQL~~:无jdbc驱动, ~~eZooDB~~:无jdbc驱动, ~~SeaSQL~~:系列产品名称, ~~LNXDB~~:系列产品名称, ~~Qcubic~~:无jdbc驱动, ~~xigemaDB~~:无jdbc驱动, ~~ArteryBase~~:无jdbc驱动,
@@ -117,3 +115,19 @@ KingHistorian~~:无jdbc驱动, ~~RapidsDB~~:无jdbc驱动, ~~ShinDB~~:无jdbc驱
 ## 图标来源
 
 项目中使用的数据库图标来自 [iconfont](https://www.iconfont.cn/)、或者GitHub仓库，图标版权归原作者及来源平台所有。
+
+## 数据统计
+
+以下数据仅用于说明本项目插件、驱动配置、JDBC 协议、SQL 方言和 Maven 元数据的覆盖情况，不代表数据库市场占有率、商业影响力或产品能力排名。
+
+统计：共 78 个插件，已上架 78 个，未匹配 Marketplace 0 个；共 162 个 driver 配置。
+
+JDBC 协议：共 29 种，url-template 38 个；jdbc:opengauss 4 个，jdbc:gaussdb 3 个，jdbc:uxdb 3 个，jdbc:iotdb 2 个，jdbc:vastbase 2 个，jdbc:arrow-flight-sql 1 个，jdbc:bytehouse 1 个，jdbc:cloudwave 1 个，jdbc:databend 1 个，jdbc:dm 1 个，jdbc:dolphindb 1 个，jdbc:gbasedbt-sqli 1 个，jdbc:goldendb 1 个，jdbc:highgo 1 个，jdbc:kaiwudb 1 个，jdbc:kingbase8 1 个，jdbc:kylin 1 个，jdbc:lindorm:table 1 个，jdbc:nebula 1 个，jdbc:oceanbase 1 个，jdbc:openmldb 1 个，jdbc:oscar 1 个，jdbc:panweidb 1 个，jdbc:polardbx 1 个，jdbc:starrocks 1 个，jdbc:sundb 1 个，jdbc:transwarp2 1 个，jdbc:xugu 1 个，jdbc:yashandb 1 个。
+
+Driver Class：共 29 种，38 个 driver 使用自定义 driver-class；org.opengauss.Driver 4 个，com.huawei.gaussdb.jdbc.Driver 3 个，com.uxsino.uxdb.Driver 3 个，cn.com.vastbase.Driver 2 个，org.apache.iotdb.jdbc.IoTDBDriver 2 个，com._4paradigm.openmldb.jdbc.SQLDriver 1 个，com.alibaba.polardbx.Driver 1 个，com.aliyun.lindorm.table.client.Driver 1 个，com.bytehouse.jdbc.ByteHouseDriver 1 个，com.cloudwave.jdbc.CloudDriver 1 个，com.databend.jdbc.DatabendDriver 1 个，com.dolphindb.jdbc.Driver 1 个，com.gbasedbt.jdbc.Driver 1 个，com.goldendb.jdbc.Driver 1 个，com.highgo.jdbc.Driver 1 个，com.kaiwudb.Driver 1 个，com.kingbase8.Driver 1 个，com.oceanbase.jdbc.Driver 1 个，com.oscar.Driver 1 个，com.starrocks.cj.jdbc.Driver 1 个，com.vesoft.nebula.jdbc.NebulaDriver 1 个，com.xugu.cloudjdbc.Driver 1 个，com.yashandb.Driver 1 个，csii.sundb.jdbc.SundbDriver 1 个，dm.jdbc.driver.DmDriver 1 个，org.apache.arrow.driver.jdbc.ArrowFlightJdbcDriver 1 个，org.apache.hive.jdbc.HiveDriver 1 个，org.apache.kylin.jdbc.Driver 1 个，org.panweidb.Driver 1 个。
+
+Driver Class 方言：PostgreSQL 15 个，MySQL 8 个，GenericSQL 7 个，Oracle 5 个，HiveQL 2 个，ClickHouse 1 个。
+
+SQL 方言/JetBrains 模型：PostgreSQL 70 个，MySQL 53 个，Oracle 10 个，ClickHouse 7 个，GenericSQL 7 个，Redis 6 个，HiveQL 5 个，MongoDB 2 个，Cassandra 1 个，MariaDB 1 个。
+
+Maven：明确 GAV 24 种，drivers.xml artifact 引用 39 个，artifact 无有效 GAV 11 个，自定义 driver 缺少有效 GAV 11 个。

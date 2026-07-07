@@ -25,9 +25,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.LinkedHashMap;
 import java.util.Set;
@@ -83,8 +83,11 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
             table.append(startMarker);
             table.append(TABLE_HEADER);
             Map<String, MarketplacePlugin> marketplacePlugins = marketplacePlugins();
+            Statistics statistics = new Statistics();
+            statistics.addPack(packPublished(root, marketplacePlugins));
             for (String moduleName : moduleNames(root)) {
                 ModuleInfo info = moduleInfo(root.resolve(moduleName), marketplacePlugins);
+                statistics.add(info);
                 table.append("| ")
                     .append(info.databaseCell())
                     .append(" | ")
@@ -94,7 +97,8 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
                     .append(" |\n");
             }
 
-            Files.writeString(readme, text.substring(0, start) + table + text.substring(end), StandardCharsets.UTF_8);
+            String updatedText = text.substring(0, start) + table + text.substring(end);
+            Files.writeString(readme, updateStatistics(updatedText, statistics), StandardCharsets.UTF_8);
         }
         catch (Exception e) {
             if (e instanceof GradleException gradleException) {
@@ -102,6 +106,30 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
             }
             throw new GradleException("Could not update README supported database table.", e);
         }
+    }
+
+    private static boolean packPublished(Path root, Map<String, MarketplacePlugin> marketplacePlugins) throws Exception {
+        Path pluginXml = root.resolve("chinese-database-driver-integrations-pack/src/main/resources/META-INF/plugin.xml");
+        if (!Files.exists(pluginXml)) {
+            return false;
+        }
+        Document pluginDocument = document(pluginXml);
+        String pluginId = text(pluginDocument.getDocumentElement(), "id");
+        return marketplacePlugins.containsKey(pluginId);
+    }
+
+    private static String updateStatistics(String text, Statistics statistics) {
+        String cleanedText = removeStatistics(text).stripTrailing();
+        return cleanedText + "\n\n## 数据统计\n\n" + statistics.description() + "\n\n" + statistics.markdown() + "\n";
+    }
+
+    private static String removeStatistics(String text) {
+        String withoutStatisticsSection = Pattern.compile("(?ms)\\n*## 数据统计\\n\\n.*?(?=\\n## |\\z)")
+            .matcher(text)
+            .replaceAll("");
+        return Pattern.compile("(?ms)\\n\\n(?:共计 [^\\n]*|统计：.*?)(?=\\n\\n(?:~~|遗漏列表|##|$))")
+            .matcher(withoutStatisticsSection)
+            .replaceAll("");
     }
 
     private Path projectRootPath() {
@@ -205,10 +233,18 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
             throw new GradleException("No drivers configured in " + modulePath);
         }
 
+        Map<String, Set<String>> artifactMavenGavs = artifactMavenGavs(artifactsDocument);
+        Set<String> mavenGavs = mavenGavs(artifactMavenGavs);
         return new ModuleInfo(
             databaseCell(driversDocument, drivers),
             driverCell(drivers),
-            sourceCell(mavenCell(artifactsDocument, drivers), marketplaceCell(marketplacePlugins.get(pluginId)))
+            sourceCell(mavenCell(mavenGavs, drivers), marketplaceCell(marketplacePlugins.get(pluginId))),
+            marketplacePlugins.containsKey(pluginId),
+            drivers,
+            mavenGavs,
+            artifactReferenceCount(drivers),
+            missingArtifactReferenceCount(drivers, artifactMavenGavs),
+            customDriverMissingMavenCount(drivers, artifactMavenGavs)
         );
     }
 
@@ -222,7 +258,19 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
         if (children.getLength() > 0) {
             protocol = jdbcProtocol(attribute((Element) children.item(0), "template"));
         }
-        return new DriverInfo(name, dialect, basedOn, driverClass, protocol);
+        return new DriverInfo(name, dialect, basedOn, driverClass, protocol, artifactIds(driver));
+    }
+
+    private static List<String> artifactIds(Element driver) {
+        List<String> ids = new ArrayList<>();
+        NodeList children = driver.getElementsByTagName("artifact");
+        for (int index = 0; index < children.getLength(); index++) {
+            String id = attribute((Element) children.item(index), "id");
+            if (!id.isBlank()) {
+                ids.add(id);
+            }
+        }
+        return ids;
     }
 
     private static String databaseCell(Document driversDocument, List<DriverInfo> drivers) {
@@ -261,24 +309,90 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
         return String.join("<br>", lines);
     }
 
-    private static String mavenCell(Document artifactsDocument, List<DriverInfo> drivers) {
-        Set<String> notations = new LinkedHashSet<>();
-        NodeList items = artifactsDocument.getDocumentElement().getElementsByTagName("item");
-        for (int index = 0; index < items.getLength(); index++) {
-            Element item = (Element) items.item(index);
-            if (!"maven".equals(attribute(item, "type"))) {
+    private static Map<String, Set<String>> artifactMavenGavs(Document artifactsDocument) {
+        Map<String, Set<String>> artifactMavenGavs = new LinkedHashMap<>();
+        NodeList artifacts = artifactsDocument.getDocumentElement().getElementsByTagName("artifact");
+        for (int artifactIndex = 0; artifactIndex < artifacts.getLength(); artifactIndex++) {
+            Element artifact = (Element) artifacts.item(artifactIndex);
+            String artifactId = attribute(artifact, "id");
+            if (artifactId.isBlank()) {
                 continue;
             }
-            String notation = attribute(item, "url");
-            String gav = gav(notation);
-            if (!gav.isBlank()) {
-                notations.add("`" + gav + "`");
+            Set<String> gavs = new LinkedHashSet<>();
+            NodeList items = artifact.getElementsByTagName("item");
+            for (int itemIndex = 0; itemIndex < items.getLength(); itemIndex++) {
+                Element item = (Element) items.item(itemIndex);
+                if (!"maven".equals(attribute(item, "type"))) {
+                    continue;
+                }
+                String gav = gav(attribute(item, "url"));
+                if (!gav.isBlank()) {
+                    gavs.add(gav);
+                }
             }
+            artifactMavenGavs.put(artifactId, gavs);
         }
+        return artifactMavenGavs;
+    }
+
+    private static Set<String> mavenGavs(Map<String, Set<String>> artifactMavenGavs) {
+        Set<String> notations = new LinkedHashSet<>();
+        for (Set<String> gavs : artifactMavenGavs.values()) {
+            notations.addAll(gavs);
+        }
+        return notations;
+    }
+
+    private static String mavenCell(Set<String> notations, List<DriverInfo> drivers) {
         if (!notations.isEmpty()) {
-            return String.join("<br>", notations);
+            List<String> values = new ArrayList<>();
+            for (String notation : notations) {
+                values.add("`" + notation + "`");
+            }
+            return String.join("<br>", values);
         }
         return hasCustomJdbcDriver(drivers) ? "~~GAV~~ 用户自行导入JAR包" : "";
+    }
+
+    private static int artifactReferenceCount(List<DriverInfo> drivers) {
+        int count = 0;
+        for (DriverInfo driver : drivers) {
+            count += driver.artifactIds().size();
+        }
+        return count;
+    }
+
+    private static int missingArtifactReferenceCount(List<DriverInfo> drivers, Map<String, Set<String>> artifactMavenGavs) {
+        int count = 0;
+        for (DriverInfo driver : drivers) {
+            for (String artifactId : driver.artifactIds()) {
+                Set<String> gavs = artifactMavenGavs.get(artifactId);
+                if (gavs == null || gavs.isEmpty()) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    private static int customDriverMissingMavenCount(List<DriverInfo> drivers, Map<String, Set<String>> artifactMavenGavs) {
+        int count = 0;
+        for (DriverInfo driver : drivers) {
+            if (!driver.driverClass().isBlank() && !hasEffectiveMaven(driver, artifactMavenGavs)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    private static boolean hasEffectiveMaven(DriverInfo driver, Map<String, Set<String>> artifactMavenGavs) {
+        for (String artifactId : driver.artifactIds()) {
+            Set<String> gavs = artifactMavenGavs.get(artifactId);
+            if (gavs != null && !gavs.isEmpty()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private static boolean hasCustomJdbcDriver(List<DriverInfo> drivers) {
@@ -344,6 +458,34 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
         return value;
     }
 
+    private static String effectiveDialect(DriverInfo driver) {
+        return !driver.dialect().isBlank() ? driver.dialect() : dialect(driver.basedOn());
+    }
+
+    private static void increment(Map<String, Integer> counts, String key) {
+        if (key.isBlank()) {
+            return;
+        }
+        counts.put(key, counts.getOrDefault(key, 0) + 1);
+    }
+
+    private static String formatCounts(Map<String, Integer> counts) {
+        if (counts.isEmpty()) {
+            return "无";
+        }
+        List<Map.Entry<String, Integer>> entries = new ArrayList<>(counts.entrySet());
+        entries.sort(
+            Comparator.<Map.Entry<String, Integer>>comparingInt(entry -> entry.getValue())
+                .reversed()
+                .thenComparing(entry -> entry.getKey())
+        );
+        List<String> values = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : entries) {
+            values.add(entry.getKey() + " " + entry.getValue() + " 个");
+        }
+        return String.join("，", values);
+    }
+
     private static String attribute(Element element, String name) {
         return element.hasAttribute(name) ? element.getAttribute(name) : "";
     }
@@ -366,12 +508,105 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
         return factory.newDocumentBuilder().parse(path.toFile());
     }
 
-    private record DriverInfo(String name, String dialect, String basedOn, String driverClass, String protocol) {
+    private record DriverInfo(
+        String name,
+        String dialect,
+        String basedOn,
+        String driverClass,
+        String protocol,
+        List<String> artifactIds
+    ) {
     }
 
-    private record ModuleInfo(String databaseCell, String driverCell, String sourceCell) {
+    private record ModuleInfo(
+        String databaseCell,
+        String driverCell,
+        String sourceCell,
+        boolean published,
+        List<DriverInfo> drivers,
+        Set<String> mavenGavs,
+        int artifactReferenceCount,
+        int missingArtifactReferenceCount,
+        int customDriverMissingMavenCount
+    ) {
     }
 
     private record MarketplacePlugin(String id, String xmlId, String name, String link) {
+    }
+
+    private static final class Statistics {
+        private int pluginCount;
+        private int publishedPluginCount;
+        private int driverCount;
+        private int customDriverCount;
+        private int urlTemplateCount;
+        private int artifactReferenceCount;
+        private int missingArtifactReferenceCount;
+        private int customDriverMissingMavenCount;
+        private final Set<String> mavenGavs = new LinkedHashSet<>();
+        private final Set<String> driverClasses = new LinkedHashSet<>();
+        private final Map<String, Integer> protocolCounts = new LinkedHashMap<>();
+        private final Map<String, Integer> dialectCounts = new LinkedHashMap<>();
+        private final Map<String, Integer> customDriverDialectCounts = new LinkedHashMap<>();
+        private final Map<String, Integer> driverClassCounts = new LinkedHashMap<>();
+
+        private void addPack(boolean published) {
+            pluginCount++;
+            if (published) {
+                publishedPluginCount++;
+            }
+        }
+
+        private void add(ModuleInfo info) {
+            pluginCount++;
+            if (info.published()) {
+                publishedPluginCount++;
+            }
+            driverCount += info.drivers().size();
+            artifactReferenceCount += info.artifactReferenceCount();
+            missingArtifactReferenceCount += info.missingArtifactReferenceCount();
+            customDriverMissingMavenCount += info.customDriverMissingMavenCount();
+            mavenGavs.addAll(info.mavenGavs());
+            for (DriverInfo driver : info.drivers()) {
+                String dialect = effectiveDialect(driver);
+                if (!driver.driverClass().isBlank()) {
+                    customDriverCount++;
+                    driverClasses.add(driver.driverClass());
+                    increment(driverClassCounts, driver.driverClass());
+                    increment(customDriverDialectCounts, dialect);
+                }
+                if (!driver.protocol().isBlank()) {
+                    urlTemplateCount++;
+                    increment(protocolCounts, driver.protocol());
+                }
+                increment(dialectCounts, dialect);
+            }
+        }
+
+        private String markdown() {
+            int unpublishedPluginCount = pluginCount - publishedPluginCount;
+            return "统计：共 " + pluginCount +
+                " 个插件，已上架 " + publishedPluginCount +
+                " 个，未匹配 Marketplace " + unpublishedPluginCount +
+                " 个；共 " + driverCount +
+                " 个 driver 配置。\n\n" +
+                "JDBC 协议：共 " + protocolCounts.size() +
+                " 种，url-template " + urlTemplateCount +
+                " 个；" + formatCounts(protocolCounts) + "。\n\n" +
+                "Driver Class：共 " + driverClasses.size() +
+                " 种，" + customDriverCount +
+                " 个 driver 使用自定义 driver-class；" + formatCounts(driverClassCounts) + "。\n\n" +
+                "Driver Class 方言：" + formatCounts(customDriverDialectCounts) + "。\n\n" +
+                "SQL 方言/JetBrains 模型：" + formatCounts(dialectCounts) + "。\n\n" +
+                "Maven：明确 GAV " + mavenGavs.size() +
+                " 种，drivers.xml artifact 引用 " + artifactReferenceCount +
+                " 个，artifact 无有效 GAV " + missingArtifactReferenceCount +
+                " 个，自定义 driver 缺少有效 GAV " + customDriverMissingMavenCount +
+                " 个。";
+        }
+
+        private String description() {
+            return "以下数据仅用于说明本项目插件、驱动配置、JDBC 协议、SQL 方言和 Maven 元数据的覆盖情况，不代表数据库市场占有率、商业影响力或产品能力排名。";
+        }
     }
 }
