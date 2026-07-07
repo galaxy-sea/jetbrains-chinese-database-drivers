@@ -74,7 +74,6 @@ public class CreateDriverIntegrationModule {
         write(resourcesPath.resolve("icons/driversIcon.svg"), pluginIconSvg(options));
         write(resourcesPath.resolve("config/drivers.xml"), driversXml(options));
         write(resourcesPath.resolve("config/artifacts.xml"), emptyArtifactsXml());
-        write(kotlinPath.resolve(options.classPrefix + "DriverDefinition.kt"), driverDefinitionKt(options));
         write(kotlinPath.resolve(options.classPrefix + "DatabaseDbms.kt"), databaseDbmsKt(options));
     }
 
@@ -258,33 +257,6 @@ public class CreateDriverIntegrationModule {
             artifactIds.add(artifactId(options, mavenArtifact));
         }
         return artifactIds;
-    }
-
-    private static String driverDefinitionKt(Options options) {
-        String driverClass = options.driverClass != null ? options.driverClass : officialDriverClass(options.basedOn);
-        String urlTemplate = options.urlTemplate != null ? options.urlTemplate : officialUrlTemplate(options.basedOn);
-        int defaultPort = options.defaultPort != null ? options.defaultPort : officialDefaultPort(options.basedOn);
-
-        return """
-            package %s
-
-            import %s.DatabaseDriverDefinition
-
-            val %sDriverDefinition = DatabaseDriverDefinition(
-                databaseId = "%s",
-                driverClass = "%s",
-                defaultPort = %d,
-                urlTemplate = "%s",
-            )
-            """.formatted(
-            options.packageName,
-            CORE_PACKAGE,
-            options.lowerCamelName,
-            options.driverId,
-            escapeKotlin(driverClass),
-            defaultPort,
-            escapeKotlin(urlTemplate)
-        );
     }
 
     private static String databaseDbmsKt(Options options) {
@@ -475,46 +447,6 @@ public class CreateDriverIntegrationModule {
         return value.replace("\\", "\\\\").replace("\"", "\\\"");
     }
 
-    private static String officialDriverClass(String basedOn) {
-        return switch (basedOn) {
-            case "mysql.8" -> "com.mysql.cj.jdbc.Driver";
-            case "mariadb" -> "org.mariadb.jdbc.Driver";
-            case "oracle.19" -> "oracle.jdbc.OracleDriver";
-            case "postgresql" -> "org.postgresql.Driver";
-            case "clickhouse" -> "com.clickhouse.jdbc.ClickHouseDriver";
-            case "redis" -> "redis.clients.jedis.Jedis";
-            case "mongo" -> "com.mongodb.jdbc.MongoDriver";
-            case "cassandra" -> "com.ing.data.cassandra.jdbc.CassandraDriver";
-            default -> "";
-        };
-    }
-
-    private static String officialUrlTemplate(String basedOn) {
-        return switch (basedOn) {
-            case "mysql.8" -> "jdbc:mysql://{host}:{port}/{database}";
-            case "mariadb" -> "jdbc:mariadb://{host}:{port}/{database}";
-            case "oracle.19" -> "jdbc:oracle:thin:@//{host}:{port}/{database}";
-            case "postgresql" -> "jdbc:postgresql://{host}:{port}/{database}";
-            case "clickhouse" -> "jdbc:clickhouse://{host}:{port}/{database}";
-            case "redis" -> "redis://{host}:{port}";
-            case "mongo" -> "mongodb://{host}:{port}";
-            case "cassandra" -> "jdbc:cassandra://{host}:{port}/{database}";
-            default -> "";
-        };
-    }
-
-    private static int officialDefaultPort(String basedOn) {
-        return switch (basedOn) {
-            case "oracle.19" -> 1521;
-            case "postgresql" -> 5432;
-            case "clickhouse" -> 8123;
-            case "redis" -> 6379;
-            case "mongo" -> 27017;
-            case "cassandra" -> 9042;
-            default -> 3306;
-        };
-    }
-
     private static void printUsage() {
         System.out.println("""
             Usage:
@@ -577,7 +509,6 @@ public class CreateDriverIntegrationModule {
         String driverId;
         String pluginId;
         String packageName;
-        String lowerCamelName;
 
         static Options parse(String[] args) {
             Options options = new Options();
@@ -676,7 +607,6 @@ public class CreateDriverIntegrationModule {
             String packageLeaf = packageSuffix != null ? normalizePackageLeaf(packageSuffix) : normalizePackageLeaf(driverId);
             packageName = PACKAGE_PREFIX + packageLeaf;
             classPrefix = classPrefix != null ? classPrefix : pascalCase(displayName);
-            lowerCamelName = lowerCamel(classPrefix);
             pluginId = PLUGIN_ID_PREFIX + moduleName;
             dbmsId = dbmsId != null ? normalizeDbmsId(dbmsId) : defaultDbmsId(displayName);
             if (remarks == null) {
@@ -832,10 +762,6 @@ public class CreateDriverIntegrationModule {
                 throw new IllegalArgumentException("Cannot derive class prefix from --name");
             }
             return result.toString();
-        }
-
-        private static String lowerCamel(String value) {
-            return value.substring(0, 1).toLowerCase(Locale.ROOT) + value.substring(1);
         }
     }
 }
