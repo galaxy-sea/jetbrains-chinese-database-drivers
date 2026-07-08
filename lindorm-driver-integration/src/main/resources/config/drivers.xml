@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
   <driver id="lindorm" name="Lindorm" icon="/icons/driversIcon.svg" dialect="MySQL" forced-dbms="LINDORM" driver-class="com.aliyun.lindorm.table.client.Driver" group-with="lindorm">
-    <url-template name="default" template="jdbc:lindorm:table//{host::localhost}[:{port::30060}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
-    <url-template name="TSDB" template="jdbc:lindorm:tsdb//{host::localhost}[:{port::8242}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
-    <url-template name="Search" template="jdbc:lindorm:search//{host::localhost}[:{port::30070}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
+    <url-template name="default" template="jdbc:lindorm:table:url=http://{host::localhost}[:{port::30060}][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
+    <artifact id="Lindorm Driver" use="true" rolling="true"/>
+    <option name="auto-sync" value="true"/>
+  </driver>
+  <driver id="lindorm-tsdb" name="Lindorm TSDB" icon="/icons/driversIcon.svg" dialect="MySQL" forced-dbms="LINDORM" driver-class="com.aliyun.lindorm.tsdb.client.Driver" group-with="lindorm">
+    <url-template name="default" template="jdbc:lindorm:tsdb:url=http://{host::localhost}[:{port::8242}][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
+    <artifact id="Lindorm Driver" use="true" rolling="true"/>
+    <option name="auto-sync" value="true"/>
+  </driver>
+  <driver id="lindorm-search" name="Lindorm Search" icon="/icons/driversIcon.svg" dialect="MySQL" forced-dbms="LINDORM" driver-class="com.aliyun.lindorm.search.client.Driver" group-with="lindorm">
+    <url-template name="default" template="jdbc:lindorm:search:url=http://{host::localhost}[:{port::30070}][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
     <artifact id="Lindorm Driver" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>
   </driver>
