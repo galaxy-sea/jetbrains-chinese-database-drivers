@@ -3,28 +3,26 @@
   <artifact id="OpenMLDB Driver" name="OpenMLDB Driver">
     <version version="0.9.3">
       <item type="maven" url="com.4paradigm.openmldb:openmldb-jdbc:0.9.3"/>
+      <item type="maven" os="mac" url="com.4paradigm.openmldb:openmldb-native:0.9.3-macos"/>
+      <item type="maven" os="linux" arch="X86_64" url="com.4paradigm.openmldb:openmldb-native:0.9.3-linux-x86_64"/>
+      <item type="maven" os="linux" arch="ARM64" url="com.4paradigm.openmldb:openmldb-native:0.9.3-linux-aarch64"/>
       <channel id="stable"/>
     </version>
     <version version="0.8.5">
       <item type="maven" url="com.4paradigm.openmldb:openmldb-jdbc:0.8.5"/>
+      <item type="maven" url="com.4paradigm.openmldb:openmldb-native:jar:0.8.5-allinone"/>
     </version>
     <version version="0.7.3">
       <item type="maven" url="com.4paradigm.openmldb:openmldb-jdbc:0.7.3"/>
+      <item type="maven" url="com.4paradigm.openmldb:openmldb-native:jar:0.7.3-allinone"/>
     </version>
     <version version="0.6.9">
       <item type="maven" url="com.4paradigm.openmldb:openmldb-jdbc:0.6.9"/>
+      <item type="maven" url="com.4paradigm.openmldb:openmldb-native:jar:0.6.9-allinone"/>
     </version>
     <version version="0.5.3">
       <item type="maven" url="com.4paradigm.openmldb:openmldb-jdbc:0.5.3"/>
-    </version>
-    <version version="0.4.4">
-      <item type="maven" url="com.4paradigm.openmldb:openmldb-jdbc:0.4.4"/>
-    </version>
-    <version version="0.3.2">
-      <item type="maven" url="com.4paradigm.openmldb:openmldb-jdbc:0.3.2"/>
-    </version>
-    <version version="0.2.3">
-      <item type="maven" url="com.4paradigm.openmldb:openmldb-jdbc:0.2.3"/>
+      <item type="maven" url="com.4paradigm.openmldb:openmldb-native:jar:0.5.3-allinone"/>
     </version>
   </artifact>
 </artifacts>

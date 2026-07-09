@@ -102,6 +102,14 @@ extensions.configure<DatabaseArtifactConfigExtension>("databaseArtifactConfig") 
 每个 `mavenArtifact` 都必须声明自己的 artifact id；如果需要 id 和 name 不同，可以写成 `mavenArtifact("artifact id", "artifact name", "groupId:artifactId", 3)`。同一个模块内 Maven 坐标和 artifact id 不能重复，重复会直接构建失败。如果某个坐标需要按前
 2 段版本分组，可以写成 `mavenArtifact("xxxx Driver", "groupId:artifactId", 2)`。第四个及后续参数是排除版本的正则表达式，例如 `mavenArtifact("xxxx Driver", "groupId:artifactId", 2, "505\\..*")`。
 
+如果某个模块的 `artifacts.xml` 需要手写维护，例如同一个版本下需要多个 `item`、native JAR、OS/arch 区分或非 Maven Central URL，可以给 `mavenArtifact` 增加 `check=true`：
+
+```kotlin
+mavenArtifact("OpenMLDB Driver", "com.4paradigm.openmldb:openmldb-jdbc", 2, true, ".*[A-Za-z].*")
+```
+
+`check=true` 时，`updateDatabaseArtifactsXml` 不会覆盖该 artifact，只会根据 Maven metadata 计算理论版本列表，并和当前 `artifacts.xml` 中同名 artifact 的 `<version version="...">` 列表比较。版本一致则通过；版本不一致会终止构建，提醒维护者手动更新 `artifacts.xml`。
+
 4. 新增 `xxx-driver-integration/src/main/resources/META-INF/plugin.xml`，声明 `driversConfig`、`artifactsConfig`，并按需声明该插件自己的 `dbms`、`extensionFallback`、`addToHSet`。
 5. 新增 `xxx-driver-integration/src/main/resources/config/drivers.xml`，声明 DataGrip 驱动元数据，包括驱动 ID、显示名称、方言、Driver Class、URL 模板、图标和 artifact 引用。
 6. 新增 `xxx-driver-integration/src/main/resources/config/artifacts.xml`，保留基础结构即可；构建时会由 `updateDatabaseArtifactsXml` 根据 Maven 元数据更新版本列表。
@@ -134,7 +142,7 @@ Windows PowerShell：
 | `:xxx-driver-integration:buildPlugin` | 编译指定数据库 Driver Integration 插件并生成插件包 |
 | `:xxx-driver-integration:runIde` | 启动测试 IDE |
 | `:xxx-driver-integration:cleanSandboxRunIde` | 清理插件构建产物、清理 sandbox 后启动测试 IDE |
-| `:xxx-driver-integration:updateDatabaseArtifactsXml` | 根据 Maven metadata 更新该模块的 `artifacts.xml` |
+| `:xxx-driver-integration:updateDatabaseArtifactsXml` | 根据 Maven metadata 更新或检查该模块的 `artifacts.xml` |
 | `:xxx-driver-integration:syncDatabaseDriverIcon` | 校验并同步 `META-INF/pluginIcon.svg` 到 `icons/driversIcon.svg` |
 | `buildAllPlugins` | 更新 README 支持数据库表格，并构建聚合任务入口 |
 
@@ -165,7 +173,7 @@ Windows PowerShell：
 ./gradlew :oceanbase-driver-integration:updateDatabaseArtifactsXml
 ```
 
-`updateDatabaseArtifactsXml` 会访问 Maven metadata；如果数据库驱动没有公开 Maven metadata，或者需要手写多 JAR、native、OS/arch 区分等复杂依赖，可以直接维护 `src/main/resources/config/artifacts.xml`。
+`updateDatabaseArtifactsXml` 会访问 Maven metadata；如果数据库驱动没有公开 Maven metadata，或者需要手写多 JAR、native、OS/arch 区分等复杂依赖，可以直接维护 `src/main/resources/config/artifacts.xml`，并使用 `mavenArtifact(..., check=true, ...)` 校验版本列表是否需要手动更新。
 
 ---
 
@@ -219,4 +227,4 @@ db2.base,mariadb,mongo.base,mongo_documentdb.base,mysql.8,mysql.base,oracle.base
 `<item>` 支持这些属性：
 type: maven, jar, pack, native, license, none<br>
 os: linux, mac, win<br>
-arch: x86, x86_64, arm64, arm32
+arch: X86, X86_64, ARM64, ARM32

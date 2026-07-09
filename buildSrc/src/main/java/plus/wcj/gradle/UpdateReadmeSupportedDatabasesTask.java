@@ -336,18 +336,18 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
     }
 
     private static Set<String> mavenGavs(Map<String, Set<String>> artifactMavenGavs) {
-        Set<String> notations = new LinkedHashSet<>();
-        for (Set<String> gavs : artifactMavenGavs.values()) {
-            notations.addAll(gavs);
+        Set<String> gavs = new LinkedHashSet<>();
+        for (Set<String> artifactGavs : artifactMavenGavs.values()) {
+            gavs.addAll(artifactGavs);
         }
-        return notations;
+        return gavs;
     }
 
-    private static String mavenCell(Set<String> notations, List<DriverInfo> drivers) {
-        if (!notations.isEmpty()) {
+    private static String mavenCell(Set<String> gavs, List<DriverInfo> drivers) {
+        if (!gavs.isEmpty()) {
             List<String> values = new ArrayList<>();
-            for (String notation : notations) {
-                values.add("`" + notation + "`");
+            for (String gav : gavs) {
+                values.add("`" + gav + "`");
             }
             return String.join("<br>", values);
         }
@@ -423,8 +423,8 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
         return marketplaceCell + "<br>" + mavenCell;
     }
 
-    private static String gav(String notation) {
-        String[] parts = notation.split(":");
+    private static String gav(String value) {
+        String[] parts = value.split(":");
         if (parts.length < 2) {
             return "";
         }

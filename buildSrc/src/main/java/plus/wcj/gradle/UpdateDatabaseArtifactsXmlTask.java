@@ -60,6 +60,7 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
         }
 
         validateMavenArtifacts(getMavenArtifacts().get());
+        boolean hasCheckArtifact = getMavenArtifacts().get().stream().anyMatch(MavenArtifact::check);
 
         try {
             List<MavenArtifactVersion> availableVersions = fetchMavenVersions(getMavenArtifacts().get());
@@ -68,10 +69,25 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
                 throw new IllegalStateException("No Maven versions available for " + getMavenArtifacts().get());
             }
 
-            XML_MAPPER.writerWithDefaultPrettyPrinter().writeValue(outputFile, createArtifactsXml(selectedVersions, stableVersions(selectedVersions)));
-            getLogger().lifecycle("Updated {} with {}.", outputFile.getPath(), selectedVersions.stream().map(MavenArtifactVersion::version).toList());
+            checkArtifactsXml(outputFile, selectedVersions);
+            List<MavenArtifactVersion> updateVersions = selectedVersions.stream()
+                .filter(version -> !version.coordinate().check())
+                .toList();
+            if (updateVersions.isEmpty()) {
+                getLogger().lifecycle("Checked {} with {}.", outputFile.getPath(), selectedVersions.stream().map(MavenArtifactVersion::version).toList());
+                return;
+            }
+
+            XML_MAPPER.writerWithDefaultPrettyPrinter().writeValue(outputFile, createArtifactsXml(outputFile, updateVersions, stableVersions(updateVersions), hasCheckArtifact));
+            getLogger().lifecycle("Updated {} with {}.", outputFile.getPath(), updateVersions.stream().map(MavenArtifactVersion::version).toList());
         }
         catch (Exception e) {
+            if (hasCheckArtifact) {
+                if (e instanceof IllegalStateException illegalStateException) {
+                    throw illegalStateException;
+                }
+                throw new IllegalStateException("Could not check " + outputFile.getPath() + " from Maven metadata.", e);
+            }
             getLogger().warn(
                 "Could not update {} from Maven metadata. Using copied resource file.",
                 outputFile.getPath(),
@@ -90,10 +106,10 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
     private void validateMavenArtifacts(List<MavenArtifact> mavenArtifacts) {
         for (MavenArtifact mavenArtifact : mavenArtifacts) {
             if (mavenArtifact.id() == null || mavenArtifact.id().isBlank()) {
-                throw new IllegalArgumentException("Maven artifact id is required: " + mavenArtifact.notation());
+                throw new IllegalArgumentException("Maven artifact id is required: " + mavenArtifact.gav());
             }
             if (mavenArtifact.name() == null || mavenArtifact.name().isBlank()) {
-                throw new IllegalArgumentException("Maven artifact name is required: " + mavenArtifact.notation());
+                throw new IllegalArgumentException("Maven artifact name is required: " + mavenArtifact.gav());
             }
         }
         validateNoDuplicateMavenArtifacts(mavenArtifacts);
@@ -150,7 +166,7 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
             .filter(version -> !isExcludedVersion(version))
             .sorted(UpdateDatabaseArtifactsXmlTask::compareArtifactVersionsByVersion)
             .forEach(version -> latestVersionsByMajorVersion.put(
-                normalizeArtifactId(version.coordinate().id()) + ":" + version.coordinate().notation() + ":" + majorVersion(version.version(), version.coordinate().majorVersionSegments()),
+                normalizeArtifactId(version.coordinate().id()) + ":" + version.coordinate().gav() + ":" + majorVersion(version.version(), version.coordinate().majorVersionSegments()),
                 version
             ));
 
@@ -267,6 +283,66 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
         return stableVersions;
     }
 
+    private void checkArtifactsXml(File outputFile, List<MavenArtifactVersion> versions) throws Exception {
+        Map<String, List<String>> expectedVersionsByArtifactId = new LinkedHashMap<>();
+        for (MavenArtifactVersion version : versions) {
+            if (!version.coordinate().check()) {
+                continue;
+            }
+            expectedVersionsByArtifactId
+                .computeIfAbsent(normalizeArtifactId(version.coordinate().id()), ignored -> new ArrayList<>())
+                .add(artifactVersion(version.version()));
+        }
+        if (expectedVersionsByArtifactId.isEmpty()) {
+            return;
+        }
+
+        ArtifactsXml currentArtifactsXml = XML_MAPPER.readValue(outputFile, ArtifactsXml.class);
+        Map<String, List<String>> actualVersionsByArtifactId = new LinkedHashMap<>();
+        for (ArtifactXml artifact : currentArtifactsXml.artifacts) {
+            List<String> artifactVersions = new ArrayList<>();
+            for (ArtifactVersionXml version : artifact.versions) {
+                artifactVersions.add(version.version);
+            }
+            actualVersionsByArtifactId.put(normalizeArtifactId(artifact.id), artifactVersions);
+        }
+
+        List<String> mismatches = new ArrayList<>();
+        for (Map.Entry<String, List<String>> entry : expectedVersionsByArtifactId.entrySet()) {
+            List<String> actualVersions = actualVersionsByArtifactId.get(entry.getKey());
+            if (!entry.getValue().equals(actualVersions)) {
+                mismatches.add(entry.getKey() + " expected " + entry.getValue() + " but was " + (actualVersions == null ? List.of() : actualVersions));
+            }
+        }
+        if (!mismatches.isEmpty()) {
+            throw new IllegalStateException("artifacts.xml is out of date. Please update it manually: " + String.join("; ", mismatches));
+        }
+    }
+
+    private ArtifactsXml createArtifactsXml(File outputFile, List<MavenArtifactVersion> versions, Map<MavenArtifactCoordinate, MavenArtifactVersion> stableVersions, boolean preserveExistingArtifacts) throws Exception {
+        if (!preserveExistingArtifacts) {
+            return createArtifactsXml(versions, stableVersions);
+        }
+
+        ArtifactsXml currentArtifactsXml = XML_MAPPER.readValue(outputFile, ArtifactsXml.class);
+        ArtifactsXml generatedArtifactsXml = createArtifactsXml(versions, stableVersions);
+        Map<String, ArtifactXml> generatedArtifactsById = new LinkedHashMap<>();
+        for (ArtifactXml artifact : generatedArtifactsXml.artifacts) {
+            generatedArtifactsById.put(normalizeArtifactId(artifact.id), artifact);
+        }
+
+        List<ArtifactXml> mergedArtifacts = new ArrayList<>();
+        for (ArtifactXml artifact : currentArtifactsXml.artifacts) {
+            ArtifactXml generatedArtifact = generatedArtifactsById.remove(normalizeArtifactId(artifact.id));
+            mergedArtifacts.add(generatedArtifact == null ? artifact : generatedArtifact);
+        }
+        mergedArtifacts.addAll(generatedArtifactsById.values());
+
+        ArtifactsXml artifacts = new ArtifactsXml();
+        artifacts.artifacts = mergedArtifacts;
+        return artifacts;
+    }
+
     private ArtifactsXml createArtifactsXml(List<MavenArtifactVersion> versions, Map<MavenArtifactCoordinate, MavenArtifactVersion> stableVersions) {
         Map<MavenArtifactCoordinate, ArtifactXml> artifactsByCoordinate = new LinkedHashMap<>();
         for (MavenArtifactVersion version : versions) {
@@ -318,11 +394,11 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
     }
 
     private static MavenArtifactCoordinate parseMavenArtifact(MavenArtifact mavenArtifact) {
-        String[] parts = mavenArtifact.notation().split(":");
+        String[] parts = mavenArtifact.gav().split(":");
         if (parts.length != 2) {
-            throw new IllegalArgumentException("Maven artifact must use groupId:artifactId format: " + mavenArtifact.notation());
+            throw new IllegalArgumentException("Maven artifact GAV must use groupId:artifactId format: " + mavenArtifact.gav());
         }
-        return new MavenArtifactCoordinate(parts[0], parts[1], mavenArtifact.id(), mavenArtifact.name(), mavenArtifact.majorVersionSegments(), mavenArtifact.excludedVersionPatterns(), mavenArtifact.repositoryUrl());
+        return new MavenArtifactCoordinate(parts[0], parts[1], mavenArtifact.id(), mavenArtifact.name(), mavenArtifact.majorVersionSegments(), mavenArtifact.check(), mavenArtifact.excludedVersionPatterns(), mavenArtifact.repositoryUrl());
     }
 
     private static String repositoryArtifactBaseUrl(MavenArtifactCoordinate coordinate) {
@@ -356,7 +432,7 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
         if (versionCompareResult != 0) {
             return versionCompareResult;
         }
-        return left.coordinate().notation().compareTo(right.coordinate().notation());
+        return left.coordinate().gav().compareTo(right.coordinate().gav());
     }
 
     private static int compareVersions(String left, String right) {
@@ -397,8 +473,8 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
         }
     }
 
-    private record MavenArtifactCoordinate(String groupId, String artifactId, String id, String name, int majorVersionSegments, List<String> excludedVersionPatterns, String repositoryUrl) {
-        private String notation() {
+    private record MavenArtifactCoordinate(String groupId, String artifactId, String id, String name, int majorVersionSegments, boolean check, List<String> excludedVersionPatterns, String repositoryUrl) {
+        private String gav() {
             return groupId + ":" + artifactId;
         }
 
@@ -451,12 +527,22 @@ public abstract class UpdateDatabaseArtifactsXmlTask extends DefaultTask {
         public List<ArtifactChannelXml> channels = List.of();
     }
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     private static class ArtifactItemXml {
         @JacksonXmlProperty(isAttribute = true)
         public String type;
 
         @JacksonXmlProperty(isAttribute = true)
         public String url;
+
+        @JacksonXmlProperty(isAttribute = true)
+        public String os;
+
+        @JacksonXmlProperty(isAttribute = true)
+        public String arch;
+
+        @JacksonXmlProperty(isAttribute = true)
+        public String archDependsOn;
     }
 
     private static class ArtifactChannelXml {
