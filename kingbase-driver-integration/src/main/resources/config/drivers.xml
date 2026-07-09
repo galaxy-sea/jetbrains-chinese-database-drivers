@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="kingbase" name="KingBase" icon="/icons/driversIcon.svg" dialect="PostgreSQL" forced-dbms="KINGBASE" driver-class="com.kingbase8.Driver">
+  <driver id="kingbase" name="KingBase" dialect="PostgreSQL" forced-dbms="KINGBASE" driver-class="com.kingbase8.Driver">
     <url-template name="default" template="jdbc:kingbase8://{host::localhost}[:{port::54321}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
     <artifact id="KingBase Driver" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>

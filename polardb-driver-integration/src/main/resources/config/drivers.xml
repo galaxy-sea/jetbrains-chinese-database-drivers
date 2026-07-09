@@ -2,22 +2,22 @@
 <drivers>
 
 
-  <driver id="polardb" name="PolarDB" icon="/icons/driversIcon.svg" forced-dbms="POLARDB_MYSQL" group-with="polardb" based-on="mysql.8">
+  <driver id="polardb" name="PolarDB" forced-dbms="POLARDB_MYSQL" group-with="polardb" based-on="mysql.8">
     <remarks>PolarDB</remarks>
   </driver>
-  <driver id="polardb-x" name="PolarDB-X" icon="/icons/driversIcon.svg" dialect="MySQL" forced-dbms="POLARDB_X" driver-class="com.alibaba.polardbx.Driver" group-with="polardb">
+  <driver id="polardb-x" name="PolarDB-X" dialect="MySQL" forced-dbms="POLARDB_X" driver-class="com.alibaba.polardbx.Driver" group-with="polardb">
     <remarks>PolarDB-X</remarks>
     <url-template name="default" template="jdbc:polardbx://{host::localhost}[:{port::3306}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
     <artifact id="PolarDB-X Driver" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>
   </driver>
-  <driver id="polardb-mysql" name="PolarDB (MySQL)" icon="/icons/driversIcon.svg" forced-dbms="POLARDB_MYSQL" group-with="polardb" based-on="mysql.8">
+  <driver id="polardb-mysql" name="PolarDB (MySQL)" forced-dbms="POLARDB_MYSQL" group-with="polardb" based-on="mysql.8">
     <remarks>PolarDB</remarks>
   </driver>
-  <driver id="polardb-postgresql" name="PolarDB (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="POLARDB_POSTGRES" group-with="polardb" based-on="postgresql">
+  <driver id="polardb-postgresql" name="PolarDB (PostgreSQL)" forced-dbms="POLARDB_POSTGRES" group-with="polardb" based-on="postgresql">
     <remarks>PolarDB</remarks>
   </driver>
-  <driver id="polardb-oracle" name="PolarDB (Oracle)" icon="/icons/driversIcon.svg" forced-dbms="POLARDB_ORACLE" group-with="polardb" based-on="oracle.19">
+  <driver id="polardb-oracle" name="PolarDB (Oracle)" forced-dbms="POLARDB_ORACLE" group-with="polardb" based-on="oracle.19">
     <remarks>PolarDB</remarks>
   </driver>
 

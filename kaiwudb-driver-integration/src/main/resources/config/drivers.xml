@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="kaiwudb" name="KaiwuDB" icon="/icons/driversIcon.svg" dialect="PostgreSQL" forced-dbms="KAIWUDB" group-with="kaiwudb" driver-class="com.kaiwudb.Driver">
+  <driver id="kaiwudb" name="KaiwuDB" dialect="PostgreSQL" forced-dbms="KAIWUDB" group-with="kaiwudb" driver-class="com.kaiwudb.Driver">
     <url-template name="default" template="jdbc:kaiwudb://{host::localhost}[:{port::26257}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
     <artifact id="KaiwuDB Driver" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>

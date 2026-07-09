@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="apachekvrocks" name="Apache Kvrocks" icon="/icons/driversIcon.svg" forced-dbms="APACHEKVROCKS" based-on="redis" group-with="apachekvrocks">
+  <driver id="apachekvrocks" name="Apache Kvrocks" forced-dbms="APACHEKVROCKS" based-on="redis" group-with="apachekvrocks">
     <remarks>Apache Kvrocks</remarks>
   </driver>
 </drivers>

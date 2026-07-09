@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="chronusdb" name="ChronusDB" icon="/icons/driversIcon.svg" forced-dbms="CHRONUSDB" based-on="clickhouse" group-with="chronusdb">
+  <driver id="chronusdb" name="ChronusDB" forced-dbms="CHRONUSDB" based-on="clickhouse" group-with="chronusdb">
     <remarks>ChronusDB</remarks>
   </driver>
-  <driver id="chronusdb-clickhouse" name="ChronusDB (ClickHouse)" icon="/icons/driversIcon.svg" forced-dbms="CHRONUSDB_CLICKHOUSE" based-on="clickhouse" group-with="chronusdb">
+  <driver id="chronusdb-clickhouse" name="ChronusDB (ClickHouse)" forced-dbms="CHRONUSDB_CLICKHOUSE" based-on="clickhouse" group-with="chronusdb">
     <remarks>ChronusDB</remarks>
   </driver>
 </drivers>

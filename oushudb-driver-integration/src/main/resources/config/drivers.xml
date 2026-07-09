@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="oushudb" name="OushuDB" icon="/icons/driversIcon.svg" forced-dbms="OUSHUDB" based-on="postgresql" group-with="oushudb">
+  <driver id="oushudb" name="OushuDB" forced-dbms="OUSHUDB" based-on="postgresql" group-with="oushudb">
     <remarks>OushuDB</remarks>
   </driver>
-  <driver id="oushudb-postgres" name="OushuDB (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="OUSHUDB_POSTGRES" based-on="postgresql" group-with="oushudb">
+  <driver id="oushudb-postgres" name="OushuDB (PostgreSQL)" forced-dbms="OUSHUDB_POSTGRES" based-on="postgresql" group-with="oushudb">
     <remarks>OushuDB</remarks>
   </driver>
 </drivers>

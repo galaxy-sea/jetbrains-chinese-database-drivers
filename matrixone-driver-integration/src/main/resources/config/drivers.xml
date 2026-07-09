@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="matrixone" name="MatrixOne" icon="/icons/driversIcon.svg" forced-dbms="MATRIXONE" based-on="mysql.8" group-with="matrixone">
+  <driver id="matrixone" name="MatrixOne" forced-dbms="MATRIXONE" based-on="mysql.8" group-with="matrixone">
     <remarks>MatrixOne</remarks>
   </driver>
-  <driver id="matrixone-mysql" name="MatrixOne (MySQL)" icon="/icons/driversIcon.svg" forced-dbms="MATRIXONE_MYSQL" based-on="mysql.8" group-with="matrixone">
+  <driver id="matrixone-mysql" name="MatrixOne (MySQL)" forced-dbms="MATRIXONE_MYSQL" based-on="mysql.8" group-with="matrixone">
     <remarks>MatrixOne</remarks>
   </driver>
 </drivers>

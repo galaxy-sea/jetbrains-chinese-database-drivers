@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="selectdb" name="SelectDB" icon="/icons/driversIcon.svg" forced-dbms="SELECTDB" group-with="selectdb" based-on="mysql.8">
+  <driver id="selectdb" name="SelectDB" forced-dbms="SELECTDB" group-with="selectdb" based-on="mysql.8">
     <remarks>SelectDB</remarks>
   </driver>
-  <driver id="selectdb-mysql" name="SelectDB (MySQL)" icon="/icons/driversIcon.svg" forced-dbms="SELECTDB_MYSQL" group-with="selectdb" based-on="mysql.8">
+  <driver id="selectdb-mysql" name="SelectDB (MySQL)" forced-dbms="SELECTDB_MYSQL" group-with="selectdb" based-on="mysql.8">
     <remarks>SelectDB</remarks>
   </driver>
 </drivers>

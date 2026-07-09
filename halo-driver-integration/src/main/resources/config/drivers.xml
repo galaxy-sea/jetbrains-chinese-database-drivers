@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="halo" name="Halo" icon="/icons/driversIcon.svg" forced-dbms="HALO" based-on="postgresql" group-with="halo">
+  <driver id="halo" name="Halo" forced-dbms="HALO" based-on="postgresql" group-with="halo">
     <remarks>Halo</remarks>
   </driver>
-  <driver id="halo-postgres" name="Halo (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="HALO_POSTGRES" based-on="postgresql" group-with="halo">
+  <driver id="halo-postgres" name="Halo (PostgreSQL)" forced-dbms="HALO_POSTGRES" based-on="postgresql" group-with="halo">
     <remarks>Halo</remarks>
   </driver>
 </drivers>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="ivorysql" name="IvorySQL" icon="/icons/driversIcon.svg" forced-dbms="IVORYSQL" based-on="postgresql" group-with="ivorysql">
+  <driver id="ivorysql" name="IvorySQL" forced-dbms="IVORYSQL" based-on="postgresql" group-with="ivorysql">
     <remarks>IvorySQL</remarks>
   </driver>
-  <driver id="ivorysql-postgres" name="IvorySQL (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="IVORYSQL_POSTGRES" based-on="postgresql" group-with="ivorysql">
+  <driver id="ivorysql-postgres" name="IvorySQL (PostgreSQL)" forced-dbms="IVORYSQL_POSTGRES" based-on="postgresql" group-with="ivorysql">
     <remarks>IvorySQL</remarks>
   </driver>
 </drivers>

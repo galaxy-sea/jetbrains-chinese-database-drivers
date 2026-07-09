@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="cloudwave" name="CloudWave" icon="/icons/driversIcon.svg" dialect="PostgreSQL" forced-dbms="CLOUDWAVE" driver-class="com.cloudwave.jdbc.CloudDriver" group-with="cloudwave">
+  <driver id="cloudwave" name="CloudWave" dialect="PostgreSQL" forced-dbms="CLOUDWAVE" driver-class="com.cloudwave.jdbc.CloudDriver" group-with="cloudwave">
     <url-template name="default" template="jdbc:cloudwave://{host::localhost}[:{port::1978}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
     <artifact id="CloudWave Driver" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>
   </driver>
-  <driver id="cloudwave-postgres" name="CloudWave (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="CLOUDWAVE_POSTGRES" based-on="postgresql" group-with="cloudwave">
+  <driver id="cloudwave-postgres" name="CloudWave (PostgreSQL)" forced-dbms="CLOUDWAVE_POSTGRES" based-on="postgresql" group-with="cloudwave">
     <remarks>CloudWave</remarks>
   </driver>
 </drivers>

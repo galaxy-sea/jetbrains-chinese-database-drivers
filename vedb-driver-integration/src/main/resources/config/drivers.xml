@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="vedb" name="VeDB" icon="/icons/driversIcon.svg" forced-dbms="VEDB" based-on="mysql.8" group-with="vedb">
+  <driver id="vedb" name="VeDB" forced-dbms="VEDB" based-on="mysql.8" group-with="vedb">
     <remarks>VeDB</remarks>
   </driver>
-  <driver id="vedb-mysql" name="VeDB (MySQL)" icon="/icons/driversIcon.svg" forced-dbms="VEDB_MYSQL" based-on="mysql.8" group-with="vedb">
+  <driver id="vedb-mysql" name="VeDB (MySQL)" forced-dbms="VEDB_MYSQL" based-on="mysql.8" group-with="vedb">
     <remarks>VeDB</remarks>
   </driver>
 </drivers>

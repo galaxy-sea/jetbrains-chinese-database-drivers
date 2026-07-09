@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="sundb" name="SUNDB" icon="/icons/driversIcon.svg" dialect="GenericSQL" forced-dbms="SUNDB" driver-class="csii.sundb.jdbc.SundbDriver" group-with="sundb">
+  <driver id="sundb" name="SUNDB" dialect="GenericSQL" forced-dbms="SUNDB" driver-class="csii.sundb.jdbc.SundbDriver" group-with="sundb">
     <url-template name="default" template="jdbc:sundb://{host::localhost}[:{port::22581}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
     <artifact id="SUNDB Driver" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>

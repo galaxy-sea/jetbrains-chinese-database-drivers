@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="hologres" name="Hologres" icon="/icons/driversIcon.svg" forced-dbms="HOLOGRES" based-on="postgresql" group-with="hologres">
+  <driver id="hologres" name="Hologres" forced-dbms="HOLOGRES" based-on="postgresql" group-with="hologres">
     <remarks>Hologres</remarks>
   </driver>
-  <driver id="hologres-postgres" name="Hologres (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="HOLOGRES_POSTGRES" based-on="postgresql" group-with="hologres">
+  <driver id="hologres-postgres" name="Hologres (PostgreSQL)" forced-dbms="HOLOGRES_POSTGRES" based-on="postgresql" group-with="hologres">
     <remarks>Hologres</remarks>
   </driver>
 </drivers>

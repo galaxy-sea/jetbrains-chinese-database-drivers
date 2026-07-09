@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="mudb" name="MuDB" icon="/icons/driversIcon.svg" dialect="PostgreSQL" forced-dbms="MUDB" driver-class="org.opengauss.Driver" group-with="mudb">
+  <driver id="mudb" name="MuDB" dialect="PostgreSQL" forced-dbms="MUDB" driver-class="org.opengauss.Driver" group-with="mudb">
     <url-template name="default" template="jdbc:opengauss://{host::localhost}[:{port::26000}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
     <artifact id="MuDB Driver" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>
   </driver>
-  <driver id="mudb-postgres" name="MuDB (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="MUDB_POSTGRES" based-on="postgresql" group-with="mudb">
+  <driver id="mudb-postgres" name="MuDB (PostgreSQL)" forced-dbms="MUDB_POSTGRES" based-on="postgresql" group-with="mudb">
     <remarks>MuDB</remarks>
   </driver>
 </drivers>

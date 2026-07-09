@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="kingwow" name="Kingwow" icon="/icons/driversIcon.svg" forced-dbms="KINGWOW" based-on="mysql.8" group-with="kingwow">
+  <driver id="kingwow" name="Kingwow" forced-dbms="KINGWOW" based-on="mysql.8" group-with="kingwow">
     <remarks>Kingwow</remarks>
   </driver>
-  <driver id="kingwow-mysql" name="Kingwow (MySQL)" icon="/icons/driversIcon.svg" forced-dbms="KINGWOW_MYSQL" based-on="mysql.8" group-with="kingwow">
+  <driver id="kingwow-mysql" name="Kingwow (MySQL)" forced-dbms="KINGWOW_MYSQL" based-on="mysql.8" group-with="kingwow">
     <remarks>Kingwow</remarks>
   </driver>
 </drivers>

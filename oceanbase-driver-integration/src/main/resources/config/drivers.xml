@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="oceanbase" name="OceanBase" icon="/icons/driversIcon.svg" dialect="MySQL" forced-dbms="OCEANBASE_MYSQL" driver-class="com.oceanbase.jdbc.Driver" group-with="oceanbase">
+  <driver id="oceanbase" name="OceanBase" dialect="MySQL" forced-dbms="OCEANBASE_MYSQL" driver-class="com.oceanbase.jdbc.Driver" group-with="oceanbase">
     <remarks>OceanBase</remarks>
     <url-template name="default" template="jdbc:oceanbase://{host::localhost}[:{port::2881}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
     <artifact id="OceanBase Driver" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>
   </driver>
-  <driver id="oceanbase-mysql" name="OceanBase (MySQL)" icon="/icons/driversIcon.svg" forced-dbms="OCEANBASE_MYSQL" group-with="oceanbase" based-on="mysql.8">
+  <driver id="oceanbase-mysql" name="OceanBase (MySQL)" forced-dbms="OCEANBASE_MYSQL" group-with="oceanbase" based-on="mysql.8">
     <remarks>OceanBase</remarks>
   </driver>
-  <driver id="oceanbase-oracle" name="OceanBase (Oracle)" icon="/icons/driversIcon.svg" forced-dbms="OCEANBASE_ORACLE" group-with="oceanbase" based-on="oracle.19">
+  <driver id="oceanbase-oracle" name="OceanBase (Oracle)" forced-dbms="OCEANBASE_ORACLE" group-with="oceanbase" based-on="oracle.19">
     <remarks>OceanBase</remarks>
   </driver>
 </drivers>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="highgodb" name="HighgoDB" icon="/icons/driversIcon.svg" dialect="PostgreSQL" forced-dbms="HIGHGODB" driver-class="com.highgo.jdbc.Driver" group-with="highgodb">
+  <driver id="highgodb" name="HighgoDB" dialect="PostgreSQL" forced-dbms="HIGHGODB" driver-class="com.highgo.jdbc.Driver" group-with="highgodb">
     <url-template name="default" template="jdbc:highgo://{host::localhost}[:{port::5866}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
     <artifact id="HighgoDB Driver" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>
   </driver>
-  <driver id="highgodb-postgres" name="HighgoDB (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="HIGHGODB_POSTGRES" based-on="postgresql" group-with="highgodb">
+  <driver id="highgodb-postgres" name="HighgoDB (PostgreSQL)" forced-dbms="HIGHGODB_POSTGRES" based-on="postgresql" group-with="highgodb">
     <remarks>HighgoDB</remarks>
   </driver>
 </drivers>

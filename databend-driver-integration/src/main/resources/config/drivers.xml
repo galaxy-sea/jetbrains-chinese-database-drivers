@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="databend" name="Databend" icon="/icons/driversIcon.svg" dialect="MySQL" forced-dbms="DATABEND" driver-class="com.databend.jdbc.DatabendDriver" group-with="databend">
+  <driver id="databend" name="Databend" dialect="MySQL" forced-dbms="DATABEND" driver-class="com.databend.jdbc.DatabendDriver" group-with="databend">
     <url-template name="default" template="jdbc:databend://{host::localhost}[:{port::8000}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
     <artifact id="Databend Driver" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>

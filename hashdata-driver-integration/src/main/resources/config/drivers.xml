@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="hashdata" name="HashData" icon="/icons/driversIcon.svg" forced-dbms="HASHDATA" based-on="postgresql" group-with="hashdata">
+  <driver id="hashdata" name="HashData" forced-dbms="HASHDATA" based-on="postgresql" group-with="hashdata">
     <remarks>HashData</remarks>
   </driver>
-  <driver id="hashdata-postgres" name="HashData (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="HASHDATA_POSTGRES" based-on="postgresql" group-with="hashdata">
+  <driver id="hashdata-postgres" name="HashData (PostgreSQL)" forced-dbms="HASHDATA_POSTGRES" based-on="postgresql" group-with="hashdata">
     <remarks>HashData</remarks>
   </driver>
 </drivers>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="nebulagraph" name="NebulaGraph" icon="/icons/driversIcon.svg" dialect="GenericSQL" forced-dbms="NEBULAGRAPH" driver-class="com.vesoft.nebula.jdbc.NebulaDriver" group-with="nebulagraph">
+  <driver id="nebulagraph" name="NebulaGraph" dialect="GenericSQL" forced-dbms="NEBULAGRAPH" driver-class="com.vesoft.nebula.jdbc.NebulaDriver" group-with="nebulagraph">
     <url-template name="default" template="jdbc:nebula://{host::localhost}[:{port::9669}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
     <artifact id="NebulaGraph Driver" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>

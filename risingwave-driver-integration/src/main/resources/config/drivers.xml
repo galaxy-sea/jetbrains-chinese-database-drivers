@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="risingwave" name="RisingWave" icon="/icons/driversIcon.svg" forced-dbms="RISINGWAVE" based-on="postgresql" group-with="risingwave">
+  <driver id="risingwave" name="RisingWave" forced-dbms="RISINGWAVE" based-on="postgresql" group-with="risingwave">
     <remarks>RisingWave</remarks>
   </driver>
-  <driver id="risingwave-postgres" name="RisingWave (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="RISINGWAVE_POSTGRES" based-on="postgresql" group-with="risingwave">
+  <driver id="risingwave-postgres" name="RisingWave (PostgreSQL)" forced-dbms="RISINGWAVE_POSTGRES" based-on="postgresql" group-with="risingwave">
     <remarks>RisingWave</remarks>
   </driver>
 </drivers>

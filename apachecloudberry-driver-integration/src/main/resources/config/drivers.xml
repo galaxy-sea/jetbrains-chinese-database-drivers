@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="apachecloudberry" name="Apache Cloudberry" icon="/icons/driversIcon.svg" forced-dbms="APACHECLOUDBERRY" based-on="postgresql" group-with="apachecloudberry">
+  <driver id="apachecloudberry" name="Apache Cloudberry" forced-dbms="APACHECLOUDBERRY" based-on="postgresql" group-with="apachecloudberry">
     <remarks>Apache Cloudberry</remarks>
   </driver>
-  <driver id="apachecloudberry-postgres" name="Apache Cloudberry (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="APACHECLOUDBERRY_POSTGRES" based-on="postgresql" group-with="apachecloudberry">
+  <driver id="apachecloudberry-postgres" name="Apache Cloudberry (PostgreSQL)" forced-dbms="APACHECLOUDBERRY_POSTGRES" based-on="postgresql" group-with="apachecloudberry">
     <remarks>Apache Cloudberry</remarks>
   </driver>
 </drivers>

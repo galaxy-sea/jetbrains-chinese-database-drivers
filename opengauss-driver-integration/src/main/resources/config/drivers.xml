@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="opengauss" name="openGauss" icon="/icons/driversIcon.svg" dialect="PostgreSQL" forced-dbms="OPENGAUSS" driver-class="org.opengauss.Driver" group-with="opengauss">
+  <driver id="opengauss" name="openGauss" dialect="PostgreSQL" forced-dbms="OPENGAUSS" driver-class="org.opengauss.Driver" group-with="opengauss">
     <url-template name="default" template="jdbc:opengauss://{host::localhost}[:{port::5432}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
     <artifact id="openGauss Driver" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>
   </driver>
-  <driver id="gaussdb" name="GaussDB" icon="/icons/driversIcon.svg" dialect="PostgreSQL" forced-dbms="GAUSSDB" driver-class="com.huawei.gaussdb.jdbc.Driver" group-with="opengauss">
+  <driver id="gaussdb" name="GaussDB" dialect="PostgreSQL" forced-dbms="GAUSSDB" driver-class="com.huawei.gaussdb.jdbc.Driver" group-with="opengauss">
     <url-template name="default" template="jdbc:gaussdb://{host::localhost}[:{port::5432}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
     <artifact id="GaussDB Driver" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>
   </driver>
 
-  <driver id="gaussdbdws" name="GaussDB DWS" icon="/icons/driversIcon.svg" dialect="PostgreSQL" forced-dbms="GAUSSDBDWS" driver-class="com.huawei.gaussdb.jdbc.Driver" group-with="opengauss">
+  <driver id="gaussdbdws" name="GaussDB DWS" dialect="PostgreSQL" forced-dbms="GAUSSDBDWS" driver-class="com.huawei.gaussdb.jdbc.Driver" group-with="opengauss">
     <url-template name="default" template="jdbc:gaussdb://{host::localhost}[:{port::5432}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
     <artifact id="GaussDB DWS Driver" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>
   </driver>
 
-  <driver id="opengauss-postgresql" name="openGauss (PostgreSQL)" icon="/icons/driversIcon.svg" forced-dbms="OPENGAUSS_POSTGRES" group-with="opengauss" based-on="postgresql">
+  <driver id="opengauss-postgresql" name="openGauss (PostgreSQL)" forced-dbms="OPENGAUSS_POSTGRES" group-with="opengauss" based-on="postgresql">
     <remarks>openGauss</remarks>
   </driver>
 

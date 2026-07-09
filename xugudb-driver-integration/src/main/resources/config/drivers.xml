@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="xugudb" name="XuguDB" icon="/icons/driversIcon.svg" dialect="Oracle" forced-dbms="XUGUDB" group-with="xugudb" driver-class="com.xugu.cloudjdbc.Driver">
+  <driver id="xugudb" name="XuguDB" dialect="Oracle" forced-dbms="XUGUDB" group-with="xugudb" driver-class="com.xugu.cloudjdbc.Driver">
     <url-template name="default" template="jdbc:xugu://{host::localhost}[:{port::5138}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
     <artifact id="XuguDB Driver" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>

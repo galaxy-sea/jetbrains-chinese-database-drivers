@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="apachekylin" name="Apache Kylin" icon="/icons/driversIcon.svg" dialect="HiveQL" forced-dbms="APACHEKYLIN" driver-class="org.apache.kylin.jdbc.Driver" group-with="apachekylin">
+  <driver id="apachekylin" name="Apache Kylin" dialect="HiveQL" forced-dbms="APACHEKYLIN" driver-class="org.apache.kylin.jdbc.Driver" group-with="apachekylin">
     <url-template name="default" template="jdbc:kylin://{host::localhost}[:{port::7070}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
     <artifact id="Apache Kylin Driver" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>

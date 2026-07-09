@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="cisdigitaltimes" name="CISDigitalTimeS" icon="/icons/driversIcon.svg" dialect="GenericSQL" forced-dbms="CISDIGITALTIMES" driver-class="org.apache.iotdb.jdbc.IoTDBDriver" group-with="cisdigitaltimes">
+  <driver id="cisdigitaltimes" name="CISDigitalTimeS" dialect="GenericSQL" forced-dbms="CISDIGITALTIMES" driver-class="org.apache.iotdb.jdbc.IoTDBDriver" group-with="cisdigitaltimes">
     <url-template name="default" template="jdbc:iotdb://{host::localhost}[:{port::6667}][/{database}?][\?&lt;&amp;,user={user},password={password},{:identifier}={:param}&gt;]"/>
     <artifact id="CISDigitalTimeS Driver" use="true" rolling="true"/>
     <option name="auto-sync" value="true"/>
