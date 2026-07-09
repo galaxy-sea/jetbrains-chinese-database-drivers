@@ -111,14 +111,37 @@ extensions.configure<DatabaseArtifactConfigExtension>("databaseArtifactConfig") 
 10. 在 `chinese-database-driver-integrations-pack/src/main/resources/META-INF/plugin.xml` 中增加对新插件 ID 的 `<depends>`，让 Pack 插件可以一次性安装它。
 11. 在 README 的“支持的数据库”表格中补充新数据库信息。
 
-## 测试插件包
+## 构建与运行
 
-`chinese-database-driver-integrations-pack` 是聚合插件，依赖各个 driver-integration 子插件。测试 Pack 不需要先发布这些子插件；根 `build.gradle.kts` 已经将所有本地 driver-integration 模块配置为 Pack 的 `localPlugin` 依赖。
+本项目使用 Gradle Wrapper，直接使用仓库根目录下的 `gradlew` / `gradlew.bat`，不需要单独安装 Gradle。项目使用 JDK 21 toolchain。
 
-运行 Pack 测试 IDE：
+macOS / Linux：
 
 ```shell
-./gradlew :chinese-database-driver-integrations-pack:cleanSandboxRunIde
+./gradlew :oceanbase-driver-integration:buildPlugin
+```
+
+Windows PowerShell：
+
+```powershell
+.\gradlew.bat :oceanbase-driver-integration:buildPlugin
+```
+
+常用任务：
+
+| 任务 | 用途 |
+| --- | --- |
+| `:xxx-driver-integration:buildPlugin` | 编译指定数据库 Driver Integration 插件并生成插件包 |
+| `:xxx-driver-integration:runIde` | 启动测试 IDE |
+| `:xxx-driver-integration:cleanSandboxRunIde` | 清理插件构建产物、清理 sandbox 后启动测试 IDE |
+| `:xxx-driver-integration:updateDatabaseArtifactsXml` | 根据 Maven metadata 更新该模块的 `artifacts.xml` |
+| `:xxx-driver-integration:syncDatabaseDriverIcon` | 校验并同步 `META-INF/pluginIcon.svg` 到 `icons/driversIcon.svg` |
+| `buildAllPlugins` | 更新 README 支持数据库表格，并构建聚合任务入口 |
+
+编译单个数据库插件：
+
+```shell
+./gradlew :oceanbase-driver-integration:buildPlugin
 ```
 
 运行单个数据库插件测试 IDE：
@@ -126,6 +149,23 @@ extensions.configure<DatabaseArtifactConfigExtension>("databaseArtifactConfig") 
 ```shell
 ./gradlew :oceanbase-driver-integration:cleanSandboxRunIde
 ```
+
+运行 Pack 插件测试 IDE：
+
+`chinese-database-driver-integrations-pack` 是聚合插件，依赖各个 driver-integration 子插件。测试 Pack 不需要先发布这些子插件；根 `build.gradle.kts` 已经将所有本地 driver-integration 模块配置为 Pack 的 `localPlugin` 依赖。
+
+```shell
+./gradlew :chinese-database-driver-integrations-pack:cleanSandboxRunIde
+```
+
+构建前常用检查：
+
+```shell
+./gradlew :oceanbase-driver-integration:syncDatabaseDriverIcon
+./gradlew :oceanbase-driver-integration:updateDatabaseArtifactsXml
+```
+
+`updateDatabaseArtifactsXml` 会访问 Maven metadata；如果数据库驱动没有公开 Maven metadata，或者需要手写多 JAR、native、OS/arch 区分等复杂依赖，可以直接维护 `src/main/resources/config/artifacts.xml`。
 
 ---
 
@@ -180,4 +220,3 @@ db2.base,mariadb,mongo.base,mongo_documentdb.base,mysql.8,mysql.base,oracle.base
 type: maven, jar, pack, native, license, none<br>
 os: linux, mac, win<br>
 arch: x86, x86_64, arm64, arm32
-
