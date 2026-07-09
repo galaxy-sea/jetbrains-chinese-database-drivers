@@ -147,3 +147,37 @@ AZURE,BigQuery,CassandraQL,ClickHouse,Cockroach,CouchbaseQuery,DB2,Databricks,De
 > based-on
 
 db2.base,mariadb,mongo.base,mongo_documentdb.base,mysql.8,mysql.base,oracle.base,postgresql,sqlserver.jtds,sqlserver.ms,mariadb,sqlserver.ms,db2.11,db2,db2.jtopen,mongo.4,mongo,documentdb,cockroach,greenplum,tidb,memsql,sqlite.xerial,h2.unified
+
+
+### 驱动依赖设计规则
+
+| 场景 | 配置方式 | 说明 |
+| --- | --- | --- |
+| 一个驱动必须同时依赖多个 JAR | `artifacts.xml` 中一个 `artifact`，同一个 `version` 下多个 `item` | 例如 JDBC 主包 + native 包 |
+| 一个 Driver 支持多个可选驱动来源 | `drivers.xml` 中一个 `driver` 下多个 `artifact` | 用户在多个驱动包中选择其一 |
+| 一个数据库存在多个模式或多个 JetBrains 内置模型 | `drivers.xml` 中多个 `driver`，并使用 `group-with` 分组 | 例如 MySQL 模式、Oracle 模式、PostgreSQL 模式 |
+
+
+> artifacts.xml
+
+```xml
+<artifacts>
+  <artifact id="..." name="...">
+    <version version="...">
+      <item
+        name="..."
+        url="..."
+        type="..."
+        os="..."
+        arch="..."
+        archDependsOn="..."
+      />
+    </version>
+  </artifact>
+</artifacts>
+```
+`<item>` 支持这些属性：
+type: maven, jar, pack, native, license, none<br>
+os: linux, mac, win<br>
+arch: x86, x86_64, arm64, arm32
+
