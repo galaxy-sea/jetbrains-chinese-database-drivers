@@ -7,6 +7,8 @@
         Provides MuDB JDBC driver connection metadata for JetBrains IDEs.
         <br>厂商：沐融信息
 <br>简介：MuDB 是北京沐融信息科技股份有限公司基于 openGauss 2.0.0 研发的企业级关系型数据库，也是 openGauss 商业发型版之一，MuDB 已通过高斯开源社区认证。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

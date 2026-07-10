@@ -8,6 +8,8 @@
         <br>厂商：诺司时空
 <br>简介：CnosDB是一款由社区驱动的高性能、高压缩率、高易用性的开源分布式时序数据库；支持超大数据规模、快速的批量写入、超高数据压缩比、丰富的计算函数和优秀的生态系统等功能特性；可用于DevOps（包括服务和服务器）监控、 IoT（包括物联网设备）监控、实时分析等场景。
 
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

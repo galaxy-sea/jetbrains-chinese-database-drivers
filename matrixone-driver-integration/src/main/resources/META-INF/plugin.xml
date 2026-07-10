@@ -8,6 +8,8 @@
         <br>厂商：MatrixOrigin
 <br>超融合引擎、 异构云原生、 极致的性能
 <br>简介：MatrixOne 是矩阵起源研发的一款新一代超融合异构云原生数据库，它通过简化的分布式数据库引擎支持跨多个数据中心、云、边缘和其他异构基础架构的事务、分析和流工作负载。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

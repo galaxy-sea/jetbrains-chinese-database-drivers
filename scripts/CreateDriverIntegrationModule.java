@@ -103,7 +103,9 @@ public class CreateDriverIntegrationModule {
 
                 <description><![CDATA[
                     Provides %s JDBC driver connection metadata for JetBrains IDEs.
-                ]]></description>
+                    <br>QQ群：737639828
+                    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues 
+    ]]></description>
 
                 <depends>com.intellij.modules.platform</depends>
                 <depends>com.intellij.database</depends>

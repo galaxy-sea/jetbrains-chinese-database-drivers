@@ -8,6 +8,8 @@
         <br>厂商：达梦数据
 <br>100% 自主研发、 高性能、 最高安全等级、 灵活部署、 平滑迁移、 易用性、 HTAP
 <br>简介：新一代大型通用关系型数据库，全面支持 ANSI SQL 标准和主流编程语言接口/开发框架。行列融合存储技术，在兼顾 OLAP 和 OLTP 的同时，满足 HTAP 混合应用场景。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

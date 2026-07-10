@@ -8,6 +8,8 @@
         <br>厂商：巨杉软件
 <br>引擎级多模、 STP序列时钟协议、 数据安全
 <br>简介：巨杉数据库自2011年成立以来，专注数据库技术研发，坚持从零开始打造原生分布式数据库引擎，连续三年入榜 Gartner报告，成为当前新一代主流数据库体系的灯塔厂商。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

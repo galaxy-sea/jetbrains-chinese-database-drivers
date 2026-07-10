@@ -8,6 +8,8 @@
         <br>厂商：中冶赛迪
 <br>高压缩率、 云原生分布式、 低延时
 <br>简介：水土云工业实时数据库系统（CISDigital-TimeS）具有支持多种工业采集协议、高速数据写入、低延时数据查询、海量数据存储、高压缩率、高兼容性、丰富的函数库、灵活的数据加工、自定义报表及组态等核心关键能力
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

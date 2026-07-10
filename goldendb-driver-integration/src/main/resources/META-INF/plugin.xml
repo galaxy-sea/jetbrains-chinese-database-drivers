@@ -9,6 +9,8 @@
 <br>全分布式架构、 在线扩容、 金融级实时一致、 金融级可靠性
 <br>简介：GoldenDB数据库数据库是中兴通讯旗下金篆信科自主研发的国产数据库，具备20+年研发积累和10+年重点行业锤炼经验，具备强一致、高性能、高可靠、高兼容、云原生、易运维的领先特性，于2024年9月成为首批通过国家安全可靠测评的分布式数据库。GoldenDB数据库在金融、运营商核心系统市场份额排名第一，在银行核心系统零故障连续运行超过5年。
 
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

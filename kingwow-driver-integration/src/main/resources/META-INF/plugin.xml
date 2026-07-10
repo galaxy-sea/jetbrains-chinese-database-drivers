@@ -7,6 +7,8 @@
         Provides Kingwow JDBC driver connection metadata for JetBrains IDEs.
         <br>厂商：丛云科技
 <br>简介：Kingwow(金乌)是丛云科技研发的原生分布式OLTP数据库，SQL语法高度兼容Oracle、DB2和MySQL，内部实现数据分片对用户完全透明，学习及使用成本较低，具有集中式关系型数据库不具备的高可用高可靠优势、性能优势及横向可扩展能力，同时能够提供多地多活部署。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

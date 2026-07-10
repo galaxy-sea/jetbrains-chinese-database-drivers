@@ -8,6 +8,8 @@
         <br>厂商：京东云
 <br>金融级高可用、 弹性伸缩、 高性能、 安全合规、 智能管控
 <br>简介：StarDB是京东自主设计研发的一款金融级国产分布式数据库，支持持海量数据高并发在线事务处理，具备金融级高可用、弹性伸缩、高性能、安全合规、智能管控、高度兼容MySQL等重要特性。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

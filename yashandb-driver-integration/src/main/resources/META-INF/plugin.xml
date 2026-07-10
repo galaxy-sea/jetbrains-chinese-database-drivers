@@ -8,6 +8,8 @@
         <br>厂商：深圳计算科学研究院
 <br>源头创新、 100%自研、 超越融合、 业务敏捷、 AIOps、 一站式应用迁移
 <br>简介：崖山数据库系统YashanDB是深圳计算科学研究院完全自主研发设计的新型数据库系统，融入原创理论，支持单机/主备、共享集群、分布式等多种部署方式，覆盖OLTP/HTAP/OLAP交易和分析混合负载场景，为客户提供一站式的企业级融合数据管理解决方案。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

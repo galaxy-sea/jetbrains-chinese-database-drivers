@@ -8,6 +8,8 @@
         <br>厂商：神舟通用
 <br>高性能、 高可用、 高可靠、 高兼容、 易使用、 通用性
 <br>简介：神通数据库管理系统（简称神通数据库，原OSCAR数据库）是神舟软件拥有自主知识产权的大型通用关系数据库管理系统软件，是国家核高基科技重大专项、国家863计划在基础软件领域所取得的一项重要成果。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

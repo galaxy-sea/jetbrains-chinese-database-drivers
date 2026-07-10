@@ -8,6 +8,8 @@
         <br>厂商：火山引擎
 <br>简介：ByteHouse 是火山引擎基于ClickHouse研发的一款分析型数据库产品，能够对 PB 级海量数据进行高效分析。目前，在字节跳动内部，ByteHouse已经支持了80%的分析应用，能够高效赋能精准营销、广告效果评估、增长分析等多种场景。
 
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

@@ -8,6 +8,8 @@
         <br>厂商：Linux 基金会
 <br>架构精简、 向量化引擎、 智能查询优化、 联邦查询、 高效更新、 存算分离、 现代化物化视图
 <br>简介：自 2020 年面世以来，StarRocks专注于打造世界顶级的新一代极速全场景 MPP 数据库，帮助企业构建极速统一的湖仓分析新范式，助力企业全面数字化经营。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

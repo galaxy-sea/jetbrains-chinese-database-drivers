@@ -8,6 +8,8 @@
         <br>厂商：百度云
 <br>简介：2020年8月20日，百度自研云数据库品牌 GaiaDB 重磅发布！旗下有三款云数据库产品：云原生数据库 GaiaDB-S、分布式关系型数据库 GaiaDB-X、图数据库 GaiaDB-G。
 
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

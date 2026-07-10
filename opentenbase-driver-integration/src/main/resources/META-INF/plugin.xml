@@ -8,6 +8,8 @@
         <br>厂商：开放原子开源基金会
 <br>商业数据库语法兼容、 分布式HTAP引擎、 多级容灾
 <br>简介：OpenTenBase是由开放原子开源基金会（OpenAtom Foundation）孵化及运营的一款开源、开放中立的企业级分布式HTAP开源数据库，具备高扩展性、商业数据库语法兼容、分布式HTAP引擎、多级容灾和多维度资源隔离等能力，已成功应用在金融、医疗、航天等多个行业的核心业务系统。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

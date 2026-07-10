@@ -7,6 +7,8 @@
         Provides VeDB JDBC driver connection metadata for JetBrains IDEs.
         <br>厂商：火山引擎
 <br>简介：云数据库 veDB 是火山引擎自研新一代云原生关系型数据库。100%兼容MySQL & PostgreSQL 语法，适用于企业多样化的数据库应用场景。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

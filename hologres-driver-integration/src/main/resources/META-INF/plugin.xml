@@ -8,6 +8,8 @@
         <br>Hologres
 <br>墨天轮官方账号：阿里云瑶池数据库
 <br>简介：阿里云 Hologres是一站式实时数据仓库引擎，支持海量数据实时写入、实时更新、实时分析，支持标准SQL（兼容PostgreSQL协议），支持PB级数据多维分析（OLAP）与即席分析（Ad Hoc），支持高并发低延迟的在线数据服务（Serving），与MaxCompute、Flink、DataWorks深度融合，提供离在线一体化全栈数仓解决方案。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

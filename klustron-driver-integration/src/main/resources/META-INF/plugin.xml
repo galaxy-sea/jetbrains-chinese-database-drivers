@@ -8,6 +8,8 @@
         <br>厂商：泽拓科技
 <br>弹性伸缩、 兼容MySQL、 兼容PostgreSQL、 极致性能、 极致安全、 用户友好
 <br>简介：Klustron（旧名称：KunlunBase）是泽拓科技研发的一款国产的关系型数据库，作为 NewSQL 的一个代表，可处理 TB 和 PB 级别海量数据， 并且具有高性能，高可扩展性，高可用性和具有完备容灾能力。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

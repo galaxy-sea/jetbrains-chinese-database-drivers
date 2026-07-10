@@ -8,6 +8,8 @@
         <br>厂商：星环科技
 <br>完整的SQL支持、 高效计算引擎、 新硬件支持、 多模型支持、 联邦计算
 <br>简介：Transwarp ArgoDB是星环全新推出的一款分布式闪存数据库产品。它可以替代 Hadoop + MPP 混合架构，一站式满足企业对大数据平台的各种诉求。让企业更高效地使用大数据平台，从而更好地利用大数据的商业价值。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

@@ -9,6 +9,8 @@
 <br>联邦构架、 海量数据分布式、 高效压缩、 智能索引、 在线高性能扩展、 高并发
 <br>简介：GBASE是南大通用自主研发的国产数据库系列品牌，GBase系列数据库产品包括分布式逻辑数据仓库GBase 8a、基于共享存储的数据库集群GBase 8s、多模多态分布式数据库GBase 8c等。
 
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

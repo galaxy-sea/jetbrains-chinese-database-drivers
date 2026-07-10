@@ -8,6 +8,8 @@
         <br>厂商：电科金仓
 <br>技术先进、 生态完善、 稳定可靠、 性能强劲、 深度适配、 代码自主率100%
 <br>简介：金仓数据库管理系统 KingbaseES（KES） 是面向全行业、全客户关键应用的企业级大型通用数据库管理系统，适用于联机事务处理、查询密集型数据仓库、要求苛刻的互联网应用等场景，提供全部应用开发及系统管理功能，提供性能增强特性，可支持主备集群、读写分离集群、多活共享存储集群等全集群架构，具有高性能、高安全、高可用、易使用、易管理、易维护的特点，支持所有国内外主流CPU、操作系统与云平台部署。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

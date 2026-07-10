@@ -7,6 +7,8 @@
         Provides TaurusDB JDBC driver connection metadata for JetBrains IDEs.
         <br>厂商：华为云
 <br>简介：TaurusDB是华为自研的最新一代**企业级高扩展海量存储分布式数据库**，完全兼容MySQL。基于华为最新一代DFV存储，采用计算存储分离架构，支持1主15只读的高扩展性、128TB的海量存储，无需分库分表，数据0丢失，适用于金融和高并发复杂业务场景，成为企业级数据库解决方案。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

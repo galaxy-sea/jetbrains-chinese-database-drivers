@@ -8,6 +8,8 @@
         <br>厂商：字节跳动
 <br>简介：ByConity 是字节跳动开源的云原生数据仓库，它采用计算-存储分离的架构，支持多个关键功能特性，如计算存储分离、弹性扩缩容、租户资源隔离和数据读写的强一致性等。通过利用主流的 OLAP 引擎优化，如列存储、向量化执行、MPP 执行、查询优化等，ByConity 可以提供优异的读写性能。
 
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

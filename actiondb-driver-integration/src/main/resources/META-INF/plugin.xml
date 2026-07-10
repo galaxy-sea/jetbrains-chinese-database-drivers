@@ -8,6 +8,8 @@
         <br>厂商：爱可生
 <br>简介：ActionDB是爱可生发布的基于OceanBase开源内核的商业发行版，是一款自主可控、完全兼容MySQL的关系型数据库产品，提供集中式和分布式两种部署形态，具备灵活弹性扩展、金融级强一致高可靠、白屏化高效运维、多地多中心容灾、全面兼容国产软硬件生态等特性。
 
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

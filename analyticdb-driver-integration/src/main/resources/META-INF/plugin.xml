@@ -9,6 +9,8 @@
 <br>云原生弹性、 高性能、 简单易用、 高性价比、 高可用性
 <br>简介：AnalyticDB是阿里云自主研发的云原生数据仓库，采用存储计算分离+多副本架构，支持最大5000节点规模的弹性扩容，对复杂SQL查询速度比传统的关系型数据库快10倍以上。AnalyticDB高度兼容MySQL、PostgreSQL，Oracle应用，迁移成本低，可对万亿级别的数据进行实时的多维度分析透视，极大地提升了企业挖掘数据价值效率。
 
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

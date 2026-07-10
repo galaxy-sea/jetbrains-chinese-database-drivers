@@ -7,6 +7,8 @@
         Provides Todis JDBC driver connection metadata for JetBrains IDEs.
         <br>厂商：拓扑岭
         <br>简介：拓扑岭公司的云数据库 Todis 直击开源 Redis 的痛点，采用计算存储分离架构，不仅完全兼容 Redis 协议，而且突破了开源 Redis 的内存限制，在保证热数据驻留内存的同时，将冷数据置换入分布式存储池进行持久化存储，最大程度的降低使用成本。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

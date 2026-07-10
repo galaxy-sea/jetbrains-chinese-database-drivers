@@ -8,6 +8,8 @@
         <br>厂商：青云科技
 <br>简介：ChronusDB 是青云QingCloud 自研的一款高效、安全、易用，具备强大分析能力的时序数据库，具备超强的查询分析功能、高性能并发读写、低成本存储、丰富的时序数据处理能力、稳定可扩展等特性。
 
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

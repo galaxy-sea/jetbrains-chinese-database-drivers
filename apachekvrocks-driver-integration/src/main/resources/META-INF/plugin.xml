@@ -9,6 +9,8 @@
 <br>简介：Kvrocks 是一个开源的键值数据库，基于rocksdb，兼容Redis 协议。与Redis相比，旨在降低内存成本并提高能力。
 <br>Kvrocks 是基于 RocksDB 之上兼容 Redis 协议的 NoSQL 键值数据库，设计目标是提供一个低成本以及大容量的 Redis 服务，作为 Redis 在大数据量场景的互补服务，简单易用且业务迁移成本低。目前线上使用的公司包含: 美图、携程、百度以及白山云等，在线上经过两年多大规模实例的验证。
 
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

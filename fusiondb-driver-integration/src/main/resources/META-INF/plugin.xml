@@ -8,6 +8,8 @@
         <br>厂商：百度云
 <br>简介：百度云数据库 FusionDB 是一种兼容 PostgreSQL 协议的在线大规模并行处理（MPP）数据仓库服务。基于开源 Greenplum 项目开发，支持 TB/PB 级海量数据的存储和处理，具备融合 SQL、存储过程、软硬件结合、AI 支持等特性。云数据库 FusionDB 融合了传统数据库与数据仓库的优势，能够提供流式、实时、离线、在线数据聚合等灵活的混合分析能力。
 
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

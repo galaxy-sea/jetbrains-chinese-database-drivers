@@ -7,6 +7,8 @@
         Provides RadonDB JDBC driver connection metadata for JetBrains IDEs.
         <br>厂商：青云科技
 <br>简介：RadonDB 是新一代企业级云原生数据库品牌，提供包括：关系型数据库、分布式数据库、时序&分析型数据库、数据库管理平台等企业级云数据库产品和服务。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

@@ -8,6 +8,8 @@
         <br>厂商：科蓝软件
 <br>高性能、 分布式架构、 高可靠、 高兼容、 双存储引擎
 <br>简介：SUNDB数据库是科蓝软件自主研发的高性能数据库产品系列，主要为SUNDB通用数据库、SUNDB内存数据库和轻量级数据库SUNDB Lite。SUNDB通用数据库和SUNDB内存数据库支持集中式与分布式两种部署方式，实现存储和计算的横向扩展，支持金融级的跨节点全局事务及复杂查询，与主流数据库产品的兼容性达到80%以上。SUNDB Lite适用于券商等需要微秒级超快速响应场景。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

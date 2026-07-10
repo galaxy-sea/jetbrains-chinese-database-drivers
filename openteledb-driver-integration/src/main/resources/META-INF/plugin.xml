@@ -8,6 +8,8 @@
         <br>厂商：天翼云
 <br>安全可靠、 完整事务、 灵活部署、 容灾与恢复、 弹性伸缩、 HTAP能力
 <br>简介：天翼云TeleDB数据库是中国电信集团企业信息化部在中国电信集团核心系统互联网转型项目中，孵化出的具有自主知识产权的云数据库解决方案和数据库产品，可以为客户提供多种产品形态。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

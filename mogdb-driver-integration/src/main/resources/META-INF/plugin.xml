@@ -8,6 +8,8 @@
         <br>厂商：云和恩墨
 <br>高安全、 高性能、 高兼容、 易运维
 <br>简介：MogDB 是云和恩墨基于 openGauss 内核进行增强提升，推出的一款安稳易用的企业级关系型数据库。该产品具备金融级高可用和全密态计算的极致安全、面向多核处理器的极致性能、AI自诊断调优的极致智能能力，能够满足从核心交易到复杂计算的企业级业务需求。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

@@ -8,6 +8,8 @@
         <br>厂商：偶数科技
 <br>云原生、 高性能、 强兼容、 纯国产、 应用广
 <br>简介：OushuDB 是一款高性能云原生数据库，由国人自主研发、符合信创标准；OushuDB通过计算存储分离架构解决了传统数据库高成本、高门槛、难维护、难拓展的问题。同时支持各大公有云和私有云。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

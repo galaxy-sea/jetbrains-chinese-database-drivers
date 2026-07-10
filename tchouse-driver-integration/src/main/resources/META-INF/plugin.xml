@@ -7,6 +7,8 @@
         Provides TCHouse JDBC driver connection metadata for JetBrains IDEs.
         <br>厂商：腾讯云
 <br>简介：腾讯云数据仓库 TCHouse 是腾讯云系列企业级托管型云数仓产品，兼备稳定性、安全性的同时提供高效的自主运维工具和自主开发环境等配套设施。满足用户不同业务数据仓库场景的方案选型，提升用户分析查询效率、赋能用户数据价值。产品服务覆盖移动互联、广告、银行、保险、游戏、教育、地图等客户场景。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

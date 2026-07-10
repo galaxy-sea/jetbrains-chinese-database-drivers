@@ -8,6 +8,8 @@
         <br>厂商：阿里云
 <br>云原生、 存算分离、 秒级弹性、 高性能、 海量存储、 安全可靠、 支持分布式扩展
 <br>简介：云原生数据库 PolarDB 是阿里云自研产品，在存储计算分离架构下，利用了软硬件结合的优势，为用户提供秒级弹性、高性能、海量存储、安全可靠的数据库服务。100%兼容MySQL和PostgreSQL生态，支持分布式扩展，高度兼容Oracle语法。PolarDB 坚定遵循自主可控、开放生态的发展思路，于2021年正式开源。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

@@ -8,6 +8,8 @@
         <br>厂商：数变科技
 <br>简介：Databend 是一个开源的Elastic和Workload-Aware现代云数据仓库。Databend 使用最新的矢量化查询处理技术，让您可以在对象存储（ S3、Azure Blob、谷歌云存储、华为云 OBS或MinIO）上进行超快的数据分析。
 
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

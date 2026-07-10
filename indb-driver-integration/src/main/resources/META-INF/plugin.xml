@@ -8,6 +8,8 @@
         <br>厂商：浪潮云
 <br>兼容MySQL、 兼容Oracle、 全密态、 安全审计
 <br>简介：浪潮云岳数据库 InDB 是基于openGauss内核增强提升，推出的一款稳定、可靠的云原生关系型数据库，高度兼容MySQL、Oracle协议，支持全密态、安全审计、备份恢复、多维度监控、弹性伸缩、智能运维等关键能力，可作为政企应用关系型数据存储的坚实底座。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

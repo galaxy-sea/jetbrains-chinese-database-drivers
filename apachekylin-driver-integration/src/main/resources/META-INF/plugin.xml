@@ -8,6 +8,8 @@
         <br>厂商：跬智信息（Kyligence）
 <br>统一语义层、 AI 增强引擎、 云原生架构、 统一数据服务
 <br>简介：Kyligence 由 Apache Kylin 创始团队于 2016 年创办，致力于打造下一代企业级智能多维数据库，为企业简化数据湖上的多维数据分析（OLAP）。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

@@ -7,6 +7,8 @@
         Provides HashData JDBC driver connection metadata for JetBrains IDEs.
         <br>厂商： 酷克数据
 <br>简介：HashData数据仓库是一个高性能、完全托管的PB级云数据仓库服务，让企业用户能够更轻松地分析海量数据。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

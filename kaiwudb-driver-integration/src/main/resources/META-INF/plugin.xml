@@ -8,6 +8,8 @@
         <br>厂商：浪潮沄熹
 <br>高性能、 低成本、 多模融合、 实时查询与分析、 HTAP 混合模式、 流式计算
 <br>简介：KaiwuDB 是一款分布式、多模融合，支持原生 AI 的数据库产品，拥有就地计算重点技术，具备高速写入、极速查询、SQL 支持、随需压缩、智能预计算、订阅发布、集群部署等特性，具有稳定安全、高可用、易运维等特点。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

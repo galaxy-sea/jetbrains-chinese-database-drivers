@@ -7,6 +7,8 @@
         Provides GridsumDB JDBC driver connection metadata for JetBrains IDEs.
         <br>厂商：国双科技
 <br>简介：国双分布式关系型数据库管理系统（简称：Gridsum DB ）是国双自主研发的企业级数据库产品，采用分布式架构，拥有高性 能、高扩展性，高稳定性的特点，承载了国双在大规模并行计算和数据库管理领域最新的研发成果。Gridsum DB适 用于超大并发、超高性能、超大容量的OLTP类场景，满足自主可控的数据系统建设的需求，为替代国外数据库提供 高性价比方案。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

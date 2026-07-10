@@ -17,6 +17,8 @@
             该插件包本身不提供 JDBC 驱动文件，而是聚合各个独立的 driver-integration 插件；具体驱动版本、下载源、
             URL 模板、数据库方言和 JetBrains 内置驱动模型复用能力由对应的数据库插件模块提供。
         </p>
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

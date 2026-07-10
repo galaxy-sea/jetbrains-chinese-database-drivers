@@ -9,6 +9,8 @@
 <br>高吞吐量读写、 高效的目录结构、 丰富的查询语义、 硬件成本低、 部署灵活
 <br>简介：IoTDB 是清华大学研发的一款聚焦工业物联网、高性能轻量级的时序数据管理系统，提供数据采集、存储、分析的功能。基准测试表明IoTDB读写性能均优于现有的时序数据库InfluxDB、OpenTSDB、Cassandra以及GE的工业大数据平台Predix。
 
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

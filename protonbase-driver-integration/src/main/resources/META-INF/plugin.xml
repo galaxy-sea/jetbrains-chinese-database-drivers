@@ -8,6 +8,8 @@
         <br>厂商：小质科技
 <br>多云原生、 所有数据、 极简体验
 <br>简介：ProtonBase 是多云原生、兼容 PostgreSQL 的分布式 Data Warebase (Data Warehouse + Database) ，在一个系统内实现了事务处理、实时数仓、数据湖分析、全文检索、以及向量检索等企业级核心数据存储和查询的需求。
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>

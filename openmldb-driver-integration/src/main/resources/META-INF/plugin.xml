@@ -8,6 +8,8 @@
         <br>厂商：4Paradigm
         <br>简介：OpenMLDB是第四范式推出的面向机器学习应用提供正确、高效数据供给的开源数据库。除了超过10倍的机器学习数据开发效率的提升，OpenMLDB也提供了统一的计算与存储引擎减少开发运维的复杂性与总体成本。
         <h1>该驱动不支持Windows平台，仅支持Mac和Linux</h1>
+    <br>QQ群：737639828
+    <br>bug反馈：https://github.com/galaxy-sea/jetbrains-chinese-database-drivers/issues
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>
