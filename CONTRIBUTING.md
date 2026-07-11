@@ -140,11 +140,13 @@ Windows PowerShell：
 | 任务 | 用途 |
 | --- | --- |
 | `:xxx-driver-integration:buildPlugin` | 编译指定数据库 Driver Integration 插件并生成插件包 |
+| `:xxx-driver-integration:publishPlugin` | 发布指定数据库 Driver Integration 插件到 JetBrains Marketplace |
 | `:xxx-driver-integration:runIde` | 启动测试 IDE |
 | `:xxx-driver-integration:cleanSandboxRunIde` | 清理插件构建产物、清理 sandbox 后启动测试 IDE |
 | `:xxx-driver-integration:updateDatabaseArtifactsXml` | 根据 Maven metadata 更新或检查该模块的 `artifacts.xml` |
 | `:xxx-driver-integration:syncDatabaseDriverIcon` | 校验并同步 `META-INF/pluginIcon.svg` 到 `icons/driversIcon.svg` |
 | `buildAllPlugins` | 更新 README 支持数据库表格，并构建聚合任务入口 |
+| `publishAllPlugins` | 按模块列表顺序发布全部 Driver Integration 插件和 Pack 插件 |
 
 编译单个数据库插件：
 

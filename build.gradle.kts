@@ -1,4 +1,5 @@
 import org.jetbrains.intellij.platform.gradle.extensions.IntelliJPlatformDependenciesExtension
+import org.jetbrains.intellij.platform.gradle.extensions.IntelliJPlatformExtension
 import org.jetbrains.intellij.platform.gradle.TestFrameworkType
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 import plus.wcj.gradle.CollectPluginZipsTask
@@ -126,7 +127,13 @@ subprojects {
 configure(pluginProjects.map { project(it) }) {
     apply(plugin = "org.jetbrains.intellij.platform")
 
-    tasks.matching { it.name in setOf("clean", "build", "cleanSandbox", "buildPlugin", "runIde") }.configureEach {
+    extensions.configure<IntelliJPlatformExtension>("intellijPlatform") {
+        publishing {
+            token.set(providers.gradleProperty("intellijPlatformPublishingToken"))
+        }
+    }
+
+    tasks.matching { it.name in setOf("clean", "build", "cleanSandbox", "buildPlugin", "publishPlugin", "runIde") }.configureEach {
         group = chineseDatabaseDriversTaskGroup
     }
 
@@ -199,4 +206,17 @@ tasks.register("buildAllPlugins") {
     description = "Builds all database driver integration plugin distributions."
     dependsOn(updateReadmeSupportedDatabases)
     // dependsOn(collectPluginZips) // 第一次发版需要手动上传，先保留源码，也许以后用得上呐
+}
+
+val publishPluginTasks = pluginProjects.map { project(it).tasks.named("publishPlugin") }
+publishPluginTasks.zipWithNext().forEach { (previousTask, nextTask) ->
+    nextTask.configure {
+        mustRunAfter(previousTask)
+    }
+}
+
+tasks.register("publishAllPlugins") {
+    group = chineseDatabaseDriversTaskGroup
+    description = "Publishes all database driver integration plugins and the pack plugin to JetBrains Marketplace."
+    dependsOn(publishPluginTasks)
 }
