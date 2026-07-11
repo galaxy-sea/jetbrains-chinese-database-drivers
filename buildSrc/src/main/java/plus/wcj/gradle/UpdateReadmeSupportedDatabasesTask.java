@@ -85,9 +85,18 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
             Map<String, MarketplacePlugin> marketplacePlugins = marketplacePlugins();
             Statistics statistics = new Statistics();
             statistics.addPack(packPublished(root, marketplacePlugins));
+            List<ModuleInfo> modules = new ArrayList<>();
             for (String moduleName : moduleNames(root)) {
                 ModuleInfo info = moduleInfo(root.resolve(moduleName), marketplacePlugins);
                 statistics.add(info);
+                modules.add(info);
+            }
+            modules.sort(
+                Comparator.comparingInt(ModuleInfo::downloads)
+                    .reversed()
+                    .thenComparing(ModuleInfo::databaseCell)
+            );
+            for (ModuleInfo info : modules) {
                 table.append("| ")
                     .append(info.databaseCell())
                     .append(" | ")
@@ -177,7 +186,7 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
         String json = Files.readString(vendorFile, StandardCharsets.UTF_8);
         Map<String, MarketplacePlugin> plugins = new LinkedHashMap<>();
         Matcher matcher = Pattern.compile(
-            "\\{[^{}]*\"id\"\\s*:\\s*(\\d+)\\s*,\\s*\"xmlId\"\\s*:\\s*\"([^\"]+)\"\\s*,\\s*\"link\"\\s*:\\s*\"([^\"]+)\"\\s*,\\s*\"name\"\\s*:\\s*\"([^\"]+)\"",
+            "\\{[^{}]*\"id\"\\s*:\\s*(\\d+)\\s*,\\s*\"xmlId\"\\s*:\\s*\"([^\"]+)\"\\s*,\\s*\"link\"\\s*:\\s*\"([^\"]+)\"\\s*,\\s*\"name\"\\s*:\\s*\"([^\"]+)\".*?\"downloads\"\\s*:\\s*(\\d+)",
             Pattern.DOTALL
         ).matcher(json);
         while (matcher.find()) {
@@ -185,7 +194,8 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
             String xmlId = matcher.group(2);
             String link = matcher.group(3);
             String name = matcher.group(4);
-            plugins.put(xmlId, new MarketplacePlugin(id, xmlId, name, link));
+            int downloads = Integer.parseInt(matcher.group(5));
+            plugins.put(xmlId, new MarketplacePlugin(id, xmlId, name, link, downloads));
         }
         return plugins;
     }
@@ -235,11 +245,13 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
 
         Map<String, Set<String>> artifactMavenGavs = artifactMavenGavs(artifactsDocument);
         Set<String> mavenGavs = mavenGavs(artifactMavenGavs);
+        MarketplacePlugin marketplacePlugin = marketplacePlugins.get(pluginId);
         return new ModuleInfo(
             databaseCell(driversDocument, drivers),
             driverCell(drivers),
-            sourceCell(mavenCell(mavenGavs, drivers), marketplaceCell(marketplacePlugins.get(pluginId))),
-            marketplacePlugins.containsKey(pluginId),
+            sourceCell(mavenCell(mavenGavs, drivers), marketplaceCell(marketplacePlugin)),
+            marketplacePlugin != null,
+            marketplacePlugin == null ? 0 : marketplacePlugin.downloads(),
             drivers,
             mavenGavs,
             artifactReferenceCount(drivers),
@@ -409,8 +421,9 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
             return "";
         }
         String link = "https://plugins.jetbrains.com/plugin/" + plugin.id();
-        String badge = "https://img.shields.io/jetbrains/plugin/v/" + plugin.id() + "?style=flat-square&label=";
-        return "JetBrains：[#" + plugin.id() + "](" + link + ")<br>[![JetBrains Plugin](" + badge + ")](" + link + ")";
+        String versionBadge = "https://img.shields.io/jetbrains/plugin/v/" + plugin.id() + "?style=flat-square&label=";
+        String downloadsBadge = "https://img.shields.io/badge/downloads-" + plugin.downloads() + "-blue?style=flat-square";
+        return "JetBrains：[#" + plugin.id() + "](" + link + ")<br>[![JetBrains Plugin](" + versionBadge + ")](" + link + ") [![Downloads](" + downloadsBadge + ")](" + link + ")";
     }
 
     private static String sourceCell(String mavenCell, String marketplaceCell) {
@@ -523,6 +536,7 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
         String driverCell,
         String sourceCell,
         boolean published,
+        int downloads,
         List<DriverInfo> drivers,
         Set<String> mavenGavs,
         int artifactReferenceCount,
@@ -531,7 +545,7 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
     ) {
     }
 
-    private record MarketplacePlugin(String id, String xmlId, String name, String link) {
+    private record MarketplacePlugin(String id, String xmlId, String name, String link, int downloads) {
     }
 
     private static final class Statistics {
