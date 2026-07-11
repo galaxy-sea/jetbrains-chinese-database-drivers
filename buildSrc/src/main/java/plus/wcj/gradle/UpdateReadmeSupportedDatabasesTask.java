@@ -461,6 +461,10 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
 
     private static String jdbcProtocol(String template) {
         String value = template.trim();
+        int optionalTemplateStart = value.indexOf('[');
+        if (optionalTemplateStart >= 0) {
+            value = value.substring(0, optionalTemplateStart);
+        }
         int hostTemplateStart = value.indexOf("{host");
         if (hostTemplateStart >= 0) {
             value = value.substring(0, hostTemplateStart);
