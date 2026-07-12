@@ -6,7 +6,7 @@ plugins {
 
 dependencies {
     extensions.configure<IntelliJPlatformDependenciesExtension>("intellijPlatform") {
-        datagrip("2025.3.5")
+        datagrip(rootProject.extra["targetDataGripVersion"].toString())
         bundledPlugin("com.intellij.database")
     }
 }

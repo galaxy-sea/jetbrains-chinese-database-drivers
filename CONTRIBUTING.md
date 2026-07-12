@@ -121,7 +121,7 @@ mavenArtifact("OpenMLDB Driver", "com.4paradigm.openmldb:openmldb-jdbc", 2, true
 
 ## 构建与运行
 
-本项目使用 Gradle Wrapper，直接使用仓库根目录下的 `gradlew` / `gradlew.bat`，不需要单独安装 Gradle。项目使用 JDK 21 toolchain。
+本项目使用 Gradle Wrapper，直接使用仓库根目录下的 `gradlew` / `gradlew.bat`，不需要单独安装 Gradle。项目目标 IDE 为 DataGrip 2023.3.x，插件代码使用 JDK 17 toolchain。
 
 macOS / Linux：
 
@@ -141,8 +141,10 @@ Windows PowerShell：
 | --- | --- |
 | `:xxx-driver-integration:buildPlugin` | 编译指定数据库 Driver Integration 插件并生成插件包 |
 | `:xxx-driver-integration:publishPlugin` | 发布指定数据库 Driver Integration 插件到 JetBrains Marketplace |
-| `:xxx-driver-integration:runIde` | 启动测试 IDE |
+| `:xxx-driver-integration:runIde` | 使用最低适配版本 DataGrip 2023.3.x 启动测试 IDE |
+| `:xxx-driver-integration:runIdeLatest` | 使用 DataGrip 2025.3.5 启动测试 IDE |
 | `:xxx-driver-integration:cleanSandboxRunIde` | 清理插件构建产物、清理 sandbox 后启动测试 IDE |
+| `:xxx-driver-integration:cleanSandboxRunIdeLatest` | 清理插件构建产物后使用 DataGrip 2025.3.5 启动测试 IDE |
 | `:xxx-driver-integration:updateDatabaseArtifactsXml` | 根据 Maven metadata 更新或检查该模块的 `artifacts.xml` |
 | `:xxx-driver-integration:syncDatabaseDriverIcon` | 校验并同步 `META-INF/pluginIcon.svg` 到 `icons/driversIcon.svg` |
 | `buildAllPlugins` | 更新 README 支持数据库表格，并构建聚合任务入口 |
@@ -158,6 +160,12 @@ Windows PowerShell：
 
 ```shell
 ./gradlew :oceanbase-driver-integration:cleanSandboxRunIde
+```
+
+使用较新 DataGrip 运行测试 IDE：
+
+```shell
+./gradlew :oceanbase-driver-integration:cleanSandboxRunIdeLatest
 ```
 
 运行 Pack 插件测试 IDE：

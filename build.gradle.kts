@@ -1,5 +1,7 @@
+import org.jetbrains.intellij.platform.gradle.IntelliJPlatformType
 import org.jetbrains.intellij.platform.gradle.extensions.IntelliJPlatformDependenciesExtension
 import org.jetbrains.intellij.platform.gradle.extensions.IntelliJPlatformExtension
+import org.jetbrains.intellij.platform.gradle.extensions.IntelliJPlatformTestingExtension
 import org.jetbrains.intellij.platform.gradle.TestFrameworkType
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 import plus.wcj.gradle.CollectPluginZipsTask
@@ -101,6 +103,11 @@ val pluginProjects = databaseDriverPluginProjects + listOf(
 )
 
 val chineseDatabaseDriversTaskGroup = "Chinese Database Drivers"
+val targetDataGripVersion = "2023.3"
+val runIdeDataGripVersion = "2025.3.5"
+val targetSinceBuild = "233"
+val targetJvmVersion = 17
+extra["targetDataGripVersion"] = targetDataGripVersion
 val pluginVersion = providers.gradleProperty("pluginVersion").orElse(
     providers.provider {
         DateTimeFormatter.ofPattern("yyyy.M.d.'1'HHmmss").format(LocalDateTime.now())
@@ -115,7 +122,7 @@ subprojects {
     apply(plugin = "org.jetbrains.kotlin.jvm")
 
     extensions.configure<KotlinJvmProjectExtension>("kotlin") {
-        jvmToolchain(21)
+        jvmToolchain(targetJvmVersion)
     }
 
     dependencies {
@@ -128,6 +135,11 @@ configure(pluginProjects.map { project(it) }) {
     apply(plugin = "org.jetbrains.intellij.platform")
 
     extensions.configure<IntelliJPlatformExtension>("intellijPlatform") {
+        pluginConfiguration {
+            ideaVersion {
+                sinceBuild.set(targetSinceBuild)
+            }
+        }
         publishing {
             token.set(providers.gradleProperty("intellijPlatformPublishingToken"))
         }
@@ -137,9 +149,21 @@ configure(pluginProjects.map { project(it) }) {
         group = chineseDatabaseDriversTaskGroup
     }
 
+    extensions.configure<IntelliJPlatformTestingExtension>("intellijPlatformTesting") {
+        runIde.create("runIdeLatest") {
+            type.set(IntelliJPlatformType.DataGrip)
+            version.set(runIdeDataGripVersion)
+            task {
+                group = chineseDatabaseDriversTaskGroup
+                description = "Runs the IDE using DataGrip $runIdeDataGripVersion while compiling against DataGrip $targetDataGripVersion."
+            }
+        }
+    }
+
     val cleanTask = tasks.named("clean")
     val cleanSandboxTask = tasks.named("cleanSandbox")
     val runIdeTask = tasks.named("runIde")
+    val runIdeLatestTask = tasks.named("runIdeLatest")
 
     tasks.register("cleanSandboxRunIde") {
         group = chineseDatabaseDriversTaskGroup
@@ -156,10 +180,21 @@ configure(pluginProjects.map { project(it) }) {
     runIdeTask.configure {
         mustRunAfter(cleanSandboxTask)
     }
+    runIdeLatestTask.configure {
+        mustRunAfter(cleanTask)
+    }
+
+    tasks.register("cleanSandboxRunIdeLatest") {
+        group = chineseDatabaseDriversTaskGroup
+        description = "Runs clean and runIdeLatest in order."
+
+        dependsOn(cleanTask)
+        dependsOn(runIdeLatestTask)
+    }
 
     dependencies {
         extensions.configure<IntelliJPlatformDependenciesExtension>("intellijPlatform") {
-            datagrip("2025.3.5")
+            datagrip(targetDataGripVersion)
             testFramework(TestFrameworkType.Platform)
         }
     }
