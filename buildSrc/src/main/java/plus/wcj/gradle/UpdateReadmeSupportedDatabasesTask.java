@@ -422,7 +422,7 @@ public abstract class UpdateReadmeSupportedDatabasesTask extends DefaultTask {
         }
         String link = "https://plugins.jetbrains.com/plugin/" + plugin.id();
         String versionBadge = "https://img.shields.io/jetbrains/plugin/v/" + plugin.id() + "?style=flat-square&label=";
-        String downloadsBadge = "https://img.shields.io/badge/downloads-" + plugin.downloads() + "-blue?style=flat-square";
+        String downloadsBadge = "https://img.shields.io/jetbrains/plugin/d/" + plugin.id() + "?style=flat-square";
         return "JetBrains：[#" + plugin.id() + "](" + link + ")<br>[![JetBrains Plugin](" + versionBadge + ")](" + link + ") [![Downloads](" + downloadsBadge + ")](" + link + ")";
     }
 
