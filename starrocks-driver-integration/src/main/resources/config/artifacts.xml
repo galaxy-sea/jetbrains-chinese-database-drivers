@@ -1,9 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <artifacts>
   <artifact id="StarRocks Driver" name="StarRocks Driver">
+    <version version="1.1.2">
+      <item type="maven" url="com.starrocks:starrocks-connector-j:1.1.2"/>
+      <channel id="stable"/>
+    </version>
     <version version="1.1.1">
       <item type="maven" url="com.starrocks:starrocks-connector-j:1.1.1"/>
-      <channel id="stable"/>
     </version>
   </artifact>
 </artifacts>
