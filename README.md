@@ -102,11 +102,7 @@ QQ群：737639828
 ~~TiDB~~:JetBrains已支持, ~~Easysearch~~:无jdbc驱动, ~~gStore~~:无jdbc驱动, ~~EBASE~~:无jdbc驱动, ~~GDMBASE~~:无jdbc驱动, ~~KBase~~:无jdbc驱动, ~~SourceDB~~:无jdbc驱动, ~~TuGraph~~:无jdbc驱动, ~~Milvus~~:无jdbc驱动, ~~VikingDB~~:无jdbc驱动, ~~DBOne~~:无jdbc驱动, ~~九有数据库 ~~:无jdbc驱动, ~~BigInsights~~:无jdbc驱动, ~~SymbolGraph~~:无jdbc驱动, ~~嬴图~~:无jdbc驱动, ~~GeminiDB~~:这是一个云平台, ~~KunDB~~:无jdbc驱动, ~~GoldenData~~:无jdbc驱动, ~~KSMDB~~:无jdbc驱动, ~~uniDB~~:无jdbc驱动, ~~
 TcaplusDB~~:无jdbc驱动, ~~Galaxybase~~:无jdbc驱动, ~~TopGraph~~:无jdbc驱动, ~~腾讯云VectorDB~~:无jdbc驱动, ~~AbutionGraph~~:无jdbc驱动, ~~sinoregal~~:无jdbc驱动, ~~CirroData~~:无jdbc驱动, ~~Hubble~~:无jdbc驱动, ~~Intcube OLAP~~:无jdbc驱动, ~~HyperDB~~:无jdbc驱动, ~~SeaboxSQL~~:无jdbc驱动, ~~BeyonDB~~:无jdbc驱动, ~~HugeGraph~~:无jdbc驱动, ~~Vearch~~:无jdbc驱动, ~~openGemini~~:无jdbc驱动, ~~HaiRuoVectorDB~~:无jdbc驱动, ~~HHDB~~:无jdbc驱动, ~~pSpace~~:无jdbc驱动, ~~百度云VectorDB~~:无jdbc驱动, ~~
 KingHistorian~~:无jdbc驱动, ~~RapidsDB~~:无jdbc驱动, ~~ShinDB~~:无jdbc驱动, ~~SyncBASE~~:无jdbc驱动, ~~Beaver~~:无jdbc驱动, ~~RealHistorian~~:无jdbc驱动, ~~openPlant~~:无jdbc驱动, ~~BGraph~~:无jdbc驱动, ~~ProcessDB~~:无jdbc驱动, ~~HeroDB~~:无jdbc驱动, ~~博流数据库~~:无jdbc驱动, ~~HexaDB~~:无jdbc驱动, ~~TensorDB~~:无jdbc驱动, ~~PowerSQL~~:无jdbc驱动, ~~eZooDB~~:无jdbc驱动, ~~SeaSQL~~:系列产品名称, ~~LNXDB~~:系列产品名称, ~~Qcubic~~:无jdbc驱动, ~~xigemaDB~~:无jdbc驱动, ~~ArteryBase~~:无jdbc驱动,
-~~AtlasGraph~~:无jdbc驱动, ~~ZettaBase~~:无jdbc驱动, ~~CeaSQL~~:系列产品名称, ~~CUDB~~:系列产品名称, ~~NseaDB~~:无jdbc驱动, ~~航天天域数据库~~:无jdbc驱动, ~~Havenask~~:无jdbc驱动, ~~Yukon~~:无jdbc驱动, ~~DingoDB~~:无jdbc驱动,
-
-遗漏列表
-
-- TRS Hybase
+~~AtlasGraph~~:无jdbc驱动, ~~ZettaBase~~:无jdbc驱动, ~~CeaSQL~~:系列产品名称, ~~CUDB~~:系列产品名称, ~~NseaDB~~:无jdbc驱动, ~~航天天域数据库~~:无jdbc驱动, ~~Havenask~~:无jdbc驱动, ~~Yukon~~:无jdbc驱动, ~~DingoDB~~:无jdbc驱动, ~~TRS Hybase~~:无jdbc驱动,
 
 ## 插件包
 
